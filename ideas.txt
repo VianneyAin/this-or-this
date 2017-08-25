@@ -18,8 +18,8 @@ TODO --
 -- Version 0.1 :
 X - Pouvoir créer un compte, pouvoir se connecter (username, mot de passe, email seulement, sans validation)
 Page profil pour modifier son mot de passe, poster un avatar, changer son email
-Pouvoir poster une blague (après validation par un modérateur)
-Page d'accueil avec les dernières blagues
+X - Pouvoir poster une blague (après validation par un modérateur)
+X - Page d'accueil avec les dernières blagues
 
 -- Version 0.2 :
 Pouvoir noter une blague

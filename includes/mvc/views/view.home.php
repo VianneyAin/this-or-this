@@ -1,6 +1,6 @@
 <?php
   class Home_View {
-      function fn_home_view($registration){
+      function fn_home_view($registration, $data){
           ?>
             <div class="section no-pad-bot" id="index-banner">
               <div class="container">
@@ -24,39 +24,49 @@
             </div>
 
             <div class="container">
+                <div class="row"><h4>Les 10 dernières blagues :</h4></div>
                 <div class="section">
-                    <div class="card">
-                      <div class="card-header">
-                          <div class="chip">
-                           <img src="http://lorempixel.com/50/50/people/4/" alt="Contact Person">
-                           John Doe
-                          </div>
-                        <span class="new badge" data-badge-caption="Blague courte"></span>
-                        <span class="new badge red" data-badge-caption="Blague raciste"></span>
-                      </div>
-                      <div class="card-content">
-                        <span class="card-title grey-text text-darken-4">Le roi des cons<i class="material-icons right activator">more_vert</i></span>
-                        <div class="card-content-content">
-                            <p>Un gars dit à un autre dans un troquet : </p>
-                            <p>- T'es con toi ! T'es vraiment con ! C'est pas possible ce que t'es con ! J'ai jamais vu un con pareil ! Tiens, c'est simple, s'il existait un concours de cons, tu finirais deuxième !</p>
-                            <p>- Pourquoi deuxième ?</p>
-                            <p>- Parce que t'es trop con pour finir premier !</p>
-                        </div>
-                      </div>
-                      <div class="card-action">
-                          <button class="btn btn-floating waves-effect waves-light blue">
-                               <i class="material-icons right">thumb_up</i>
-                          </button>
-                          <button class="btn btn-floating waves-effect waves-light red">
-                               <i class="material-icons right">thumb_down</i>
-                          </button>
-                      </div>
-                      <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Que souhaitez-vous faire ?<i class="material-icons right">close</i></span>
-                          <a>Proposer une correction</a><br>
-                          <a>Signaler cette blague</a>
-                      </div>
-                    </div>
+                    <?php
+                    if (isset($data) && !empty($data)){
+                        foreach ($data as $key => $joke){
+                            ?>
+                                <div class="card">
+                                  <div class="card-header">
+                                      <div class="chip">
+                                       <img src="<?php echo $joke['author']['avatar']; ?>" alt="Contact Person">
+                                       <?php echo $joke['author']['display_name']; ?>
+                                      </div>
+                                      <div class="chip">
+                                       Posté le : <?php echo $joke['created']; ?>
+                                      </div>
+                                    <span class="new badge" data-badge-caption="Blague courte"></span>
+                                    <span class="new badge red" data-badge-caption="Blague raciste"></span>
+                                  </div>
+                                  <div class="card-content">
+                                    <span class="card-title grey-text text-darken-4"><?php echo $joke['title']; ?><i class="material-icons right activator">more_vert</i></span>
+                                    <div class="card-content-content">
+                                        <?php echo $joke['content']; ?>
+                                    </div>
+                                  </div>
+                                  <div class="card-action">
+                                      <button class="btn btn-floating waves-effect waves-light blue">
+                                           <i class="material-icons right">thumb_up</i>
+                                      </button>
+                                      <button class="btn btn-floating waves-effect waves-light red">
+                                           <i class="material-icons right">thumb_down</i>
+                                      </button>
+                                  </div>
+                                  <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">Que souhaitez-vous faire ?<i class="material-icons right">close</i></span>
+                                      <a>Proposer une correction</a><br>
+                                      <a>Signaler cette blague</a>
+                                  </div>
+                                </div>
+                            <?php
+                        }
+                    }
+
+                    ?>
                 </div>
             </div>
 

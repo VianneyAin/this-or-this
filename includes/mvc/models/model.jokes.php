@@ -35,7 +35,7 @@
             return $posts;
         }
         catch (PDOexception $e) {
-            echo "Error : " . $e-> etmessage();
+            die($e->getMessage());
         }
     }
 
