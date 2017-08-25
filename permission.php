@@ -161,6 +161,29 @@ class Permission
 					'redirect' => 'login',
 				),
 			),
+			'joke' => array(
+				'read_joke_single' => array(
+					'roles' => array(
+						'admin',
+						'user',
+						'guest',
+					),
+					'redirect' => 'home',
+				),
+				'create_joke' => array(
+					'roles' => array(
+						'admin',
+						'user',
+					),
+					'redirect' => 'login',
+				),
+				'admin_joke' => array(
+					'roles' => array(
+						'admin',
+					),
+					'redirect' => 'home',
+				),
+			),
 		);
 	}
 

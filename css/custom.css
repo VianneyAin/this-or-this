@@ -24,6 +24,17 @@
     padding: 0;
 }
 
+.success {
+    border: 1px solid #eee;
+    margin: 7px 0;
+    text-align: center;
+    line-height: 50px;
+    font-size: 15px;
+    background-color: #d4e157;
+    color: white;
+    padding: 0;
+}
+
 i.activator {
     cursor:pointer;
 }

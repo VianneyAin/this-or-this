@@ -5,17 +5,17 @@
             <div class="section no-pad-bot" id="index-banner">
               <div class="container">
                 <br><br>
-                <h1 class="header center orange-text">blagues.tk</h1>
+                <h1 class="header center orange-text">autonum</h1>
                 <div class="row center">
                   <h5 class="header col s12 light">Le plus grand site de blague francophone</h5>
                 </div>
                 <div class="row center">
                 <?php if ($registration->CheckLogin()){?>
-                    <a href="http://localhost/jokes/blagues?action=create" id="download-button" class="btn-large waves-effect waves-light orange">
+                    <a href="http://localhost/jokes/blague?action=create" id="download-button" class="btn-large waves-effect waves-light orange">
                 <?php } else { ?>
                     <a href="http://localhost/jokes/inscription" id="download-button" class="btn-large waves-effect waves-light orange">
                 <?php } ?>
-                      Poster une blague
+                      Proposer une blague
                   </a>
                 </div>
                 <br><br>

@@ -13,11 +13,12 @@
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
             <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-            <link href="custom.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+            <link href="css/custom.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+            <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
           </head>
           <body>
-            <nav class="amber darken-1" role="navigation">
-              <div class="nav-wrapper container"><a id="logo-container" href="http://localhost/jokes" class="brand-logo">Blagues</a>
+            <nav id="main-menu" class="amber darken-1" role="navigation">
+              <div class="nav-wrapper container"><a id="logo-container" href="http://localhost/jokes" class="brand-logo">Autonum</a>
                 <ul class="right hide-on-med-and-down">
                     <?php if ($registration->CheckLogin()){
                         echo '<li><a href="http://localhost/jokes/profil" type="submit">Profil</a></li>';

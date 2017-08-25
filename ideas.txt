@@ -1,0 +1,44 @@
+IDEAS --
+Pouvoir noter les blagues
+Pouvoir créer un compte => noter et ajouter des blagues
+Catégories de blagues, sous catégories de blagues
+Top des blagues les mieux notées
+Pouvoir trier les blagues (dernières, mieux notés, plus vues)
+Page de la blague avec commentaires
+Blague du jour
+Classement des blagueurs
+Niveaux de Blagueurs
+Page de blagueur avec sa liste de blagues et ses infos
+Hauts-faits de blagues, points de blagues, niveaux
+Pouvoir noter une blague (1 à 10?)
+Pouvoir ajouter une blague à ses favoris
+
+TODO --
+
+-- Version 0.1 :
+X - Pouvoir créer un compte, pouvoir se connecter (username, mot de passe, email seulement, sans validation)
+Page profil pour modifier son mot de passe, poster un avatar, changer son email
+Pouvoir poster une blague (après validation par un modérateur)
+Page d'accueil avec les dernières blagues
+
+-- Version 0.2 :
+Pouvoir noter une blague
+Classements des blagues
+Système de points d'expériences utilisateur, niveaux
+Classement des blagueurs
+Catégorie de blagues
+Page catégorie
+
+-- Version 0.3 :
+Pouvoir proposer une édition de blague => demande à l'auteur
+Pouvoir signaler une blague
+
+-- Version 0.4 :
+Système de haut-faits
+Système de titre
+
+-- Version 0.5 :
+Algorithme de proposition de blague
+
+-- Version 0.6 :
+Blague version tinder (j'aime / j'aime pas / favoris ) => suivant
