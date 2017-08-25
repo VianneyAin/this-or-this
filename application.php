@@ -4,20 +4,89 @@ class Application {
     private $header;
     private $controller;
     private $footer;
+    protected $registration;
+    private $controllers = array(
+        'pages',
+        'posts',
+        '',//homepage
+        'version',
+        'login',
+        'connexion',
+        'logout',
+        'inscription',
+        'profil',
+        'profile',
+    );
+
+    public function __construct(){
+        require_once("includes/functions/registration.php");
+        $this->registration = new Registration();
+        //Provide your site name here
+        $this->registration->SetWebsiteName('localhost/jokes-app');
+
+        //Provide the email address where you want to get notifications
+        $this->registration->SetAdminEmail('vianney.ain.travail@gmail.com');
+
+        //Provide your database login details here:
+        //hostname, user name, password, database name and table name
+        //note that the script will create the table (for example, fgusers in this case)
+        //by itself on submitting register.php for the first time
+        $this->registration->InitDB(/*hostname*/'localhost',
+                              /*username*/'root',
+                              /*password*/'',
+                              /*database name*/'jokes',
+                              /*table name*/'users');
+
+        //For better security. Get a random string from this link: http://tinyurl.com/randstr
+        // and put it here
+        $this->registration->SetRandomKey('qSRcVS6DrTzrPvr');
+    }
 
     public function call($controller) {
+        //require_once("includes/functions/membersite_config.php");
         require_once('includes/mvc/controllers/controller.header.php');
-        require_once('includes/mvc/controllers/controller.' . $controller . '.php');
         require_once('includes/mvc/controllers/controller.footer.php');
         $this->header = new Header_Controller();
         $this->footer = new Footer_Controller();
         switch($controller) {
+            case 'home':
+                require_once('includes/mvc/controllers/controller.' . $controller . '.php');
+                $this->controller = new Home_Controller();
+                break;
+            case 'logout':
+                require_once('includes/mvc/controllers/controller.' . $controller . '.php');
+                $this->controller = new Logout_Controller();
+                break;
+            case 'login':
+            case 'connexion' :
+                require_once('includes/mvc/controllers/controller.login.php');
+                $this->controller = new Login_Controller();
+                break;
+            case 'inscription' :
+                require_once('includes/mvc/controllers/controller.signup.php');
+                $this->controller = new Signup_Controller();
+                break;
+            case 'profil':
+            case 'profile':
+                require_once('includes/mvc/controllers/controller.profile.php');
+                $this->controller = new Profile_Controller();
+                break;
             case 'pages':
+                require_once('includes/mvc/controllers/controller.' . $controller . '.php');
                 $this->controller = new Page_Controller();
-            break;
+                break;
             case 'posts':
+                require_once('includes/mvc/controllers/controller.' . $controller . '.php');
                 $this->controller = new Post_Controller();
-            break;
+                break;
+            case 'error':
+                require_once('includes/mvc/controllers/controller.' . $controller . '.php');
+                $this->controller = new Error_Controller();
+                break;
+            default :
+                require_once('includes/mvc/controllers/controller.' . $controller . '.php');
+                $this->controller = new Error_Controller();
+                break;
         }
 
         $this->layout_request();
@@ -39,31 +108,15 @@ class Application {
 
     public function load_pages($routes){
         if (isset($routes) && !empty($routes)){
-            switch ($routes[0]){
-                case 'pages':
-                    $controller = 'pages';
-                    break;
-                case 'posts':
-                    $controller = 'posts';
-                    break;
-                default:
-                    $controller = 'error';
-                    break;
-            }
-            // we're adding an entry for the new controller and its actions
-            $controllers = array(
-                'pages' => ['home', 'error'],
-                'posts' => ['index', 'show']
-            );
-
-
-            if (array_key_exists($controller, $controllers)) {
-                $this->call($controller);
+            if (in_array($routes[0], $this->controllers)) {
+                $this->call($routes[0]);
             } else {
-                $this->call('pages');
+                $this->call('error');
             }
         }
+        //No routes ? Load homepage
         else {
+            $this->call('home');
         }
     }
 

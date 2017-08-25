@@ -1,7 +1,8 @@
 <?php
-class Header_Controller {
+class Header_Controller extends Application{
 
     public function __construct(){
+        parent::__construct();//get parent's variables
         // we need the model to query the database later in the controller
         require_once(dirname(__FILE__).'/../models/model.header.php');
         require_once(dirname(__FILE__).'/../views/view.header.php');
@@ -14,7 +15,7 @@ class Header_Controller {
     }
 
     public function partials_request() {
-        $this->view->fn_header_view();
+        $this->view->fn_header_view($this->registration);
     }
 }
 ?>

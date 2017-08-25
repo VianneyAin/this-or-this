@@ -1,7 +1,6 @@
 <?php
   class Header_View {
-      function fn_header_view(){
-          require_once(dirname(__FILE__)."/../../functions/membersite_config.php");
+      function fn_header_view($registration){
            ?>
           <!DOCTYPE html>
           <html lang="en">
@@ -18,26 +17,26 @@
           </head>
           <body>
             <nav class="amber darken-1" role="navigation">
-              <div class="nav-wrapper container"><a id="logo-container" href="index.php" class="brand-logo">Blagues</a>
+              <div class="nav-wrapper container"><a id="logo-container" href="http://localhost/jokes" class="brand-logo">Blagues</a>
                 <ul class="right hide-on-med-and-down">
                     <?php if ($registration->CheckLogin()){
-                        echo '<li><a href="profil.php" type="submit">Profil</a></li>';
-                        echo '<li><a href="logout.php" type="submit">Déconnexion</a></li>';
+                        echo '<li><a href="http://localhost/jokes/profil" type="submit">Profil</a></li>';
+                        echo '<li><a href="http://localhost/jokes/logout" type="submit">Déconnexion</a></li>';
                     } else { ?>
-                        <li><a href="connexion.php">Connexion</a></li>
+                        <li><a href="http://localhost/jokes/connexion">Connexion</a></li>
                     <?php } ?>
 
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
                     <?php if ($registration->CheckLogin()){
-                        echo '<li><a href="profil.php" type="submit">Profil</a></li>';
-                        echo '<li><a href="logout.php" type="submit">Déconnexion</a></li>';
+                        echo '<li><a href="http://localhost/jokes/profil" type="submit">Profil</a></li>';
+                        echo '<li><a href="http://localhost/jokes/logout" type="submit">Déconnexion</a></li>';
                     } else { ?>
-                        <li><a href="connexion.php">Connexion</a></li>
+                        <li><a href="http://localhost/jokes/connexion">Connexion</a></li>
                     <?php } ?>
                 </ul>
-                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                <a href="#" data-activates="nav-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
               </div>
             </nav>
         <?php

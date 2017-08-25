@@ -301,14 +301,28 @@ class Registration
         return htmlentities($_POST[$value_name]);
     }
 
-    function GetSessionUserName(){
-        if(!isset($_SESSION)){ return null; }
-        return $_SESSION['username'];
+    //username, email, avatar, lastname or firstname
+    function GetSessionInfos($field){
+        if(!isset($_SESSION)){ session_start(); }
+        return $_SESSION[$field];
     }
 
-    function GetSessionEmail(){
+    function GetSessionDisplayName(){
+        $name = '';
         if(!isset($_SESSION)){ return null; }
-        return $_SESSION['email'];
+        if ( (isset($_SESSION['lastname']) && !empty($_SESSION['lastname'])) || (isset($_SESSION['firstname']) && !empty($_SESSION['firstname']))){
+            $name = $_SESSION['firstname'];
+            if (!empty($_SESSION['firstname']) && !empty($_SESSION['lastname'])){
+                $name .= ' '.$_SESSION['lastname'];
+            }
+        }
+        else {
+            if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
+                $name = $_SESSION['username'];
+            }
+
+        }
+        return $name;
     }
 
     function RedirectToURL($url)
@@ -371,7 +385,7 @@ class Registration
             return false;
         }
         $pwdmd5 = md5($password);
-        $sql = "Select username, email from $this->tablename where username='$username' and password='$pwdmd5'";
+        $sql = "Select username, email, avatar, firstname, lastname from $this->tablename where username='$username' and password='$pwdmd5'";
         $qry = $this->connection->prepare($sql);
         $qry->execute();
         $result = $qry->fetchAll();
@@ -384,10 +398,11 @@ class Registration
 
         $row = $result[0];
 
-
         $_SESSION['username']  = $row['username'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['avatar'] = $row['avatar'];
+        $_SESSION['firstname'] = $row['firstname'];
+        $_SESSION['lastname'] = $row['lastname'];
         return true;
     }
 
