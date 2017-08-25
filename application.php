@@ -4,7 +4,9 @@ class Application {
     private $header;
     private $controller;
     private $footer;
+    protected $user_object;
     protected $registration;
+    protected $permission_object;
     private $controllers = array(
         'pages',
         'posts',
@@ -16,10 +18,14 @@ class Application {
         'inscription',
         'profil',
         'profile',
+        'blague',
+        'blagues',
     );
 
     public function __construct(){
         require_once("includes/functions/registration.php");
+        require_once("includes/mvc/controllers/controller.user.php");
+        require_once("permission.php");
         $this->registration = new Registration();
         //Provide your site name here
         $this->registration->SetWebsiteName('localhost/jokes-app');
@@ -40,6 +46,12 @@ class Application {
         //For better security. Get a random string from this link: http://tinyurl.com/randstr
         // and put it here
         $this->registration->SetRandomKey('qSRcVS6DrTzrPvr');
+        //Load user object
+        $this->user_object = new User($this->registration);
+        //Load permission object
+        $this->permission_object = new Permission( $this->user_object );
+        //var_dump($this->permission_object);
+
     }
 
     public function call($controller) {
@@ -70,6 +82,11 @@ class Application {
             case 'profile':
                 require_once('includes/mvc/controllers/controller.profile.php');
                 $this->controller = new Profile_Controller();
+                break;
+            case 'blague':
+            case 'blagues':
+                require_once('includes/mvc/controllers/controller.jokes.php');
+                $this->controller = new Jokes_Controller();
                 break;
             case 'pages':
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');
@@ -128,8 +145,18 @@ class Application {
 
     public function partials_request(){
         $this->header->partials_request();
-        $this->controller->partials_request();
+        $this->controller_partials_request();
         $this->footer->partials_request();
+    }
+
+    public function controller_partials_request(){
+        ?>
+        <main>
+        <?php
+        $this->controller->partials_request();
+        ?>
+        </main>
+        <?php
     }
 
 }

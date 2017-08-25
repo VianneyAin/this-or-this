@@ -8,7 +8,7 @@
                }
            }
            else {
-               $registration->RedirectToURL("http://localhost/jokes/connexion");
+              $registration->RedirectToURL("http://localhost/jokes/connexion");
            }
        }
    }

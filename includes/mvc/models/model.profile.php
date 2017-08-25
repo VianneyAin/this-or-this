@@ -17,6 +17,7 @@
             //'background_image' => $user['background_image'],
             'firstname' => $user['firstname'],
             'lastname' => $user['lastname'],
+            'description' => $user['description'],
             'display_name' => $this->get_user_display_name($user),
         );
         return $user;

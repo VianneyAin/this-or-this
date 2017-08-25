@@ -5,6 +5,7 @@ class Login_Controller extends Application {
         parent::__construct();//get parent's variables
         require_once(dirname(__FILE__).'/../views/view.login.php');
         $this->view = new Login_View();
+        $this->permission_object->user_do('read_login_page');
     }
 
     public function layout_request() {

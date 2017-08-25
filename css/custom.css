@@ -1,0 +1,39 @@
+.card-header {
+    position: relative;
+    background-color: inherit;
+    border-bottom: 1px solid rgba(160, 160, 160, 0.2);
+    padding: 16px 24px;
+}
+
+.card .card-header a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+    color: #ffab40;
+    margin-right: 24px;
+    -webkit-transition: color .3s ease;
+    transition: color .3s ease;
+    text-transform: uppercase;
+}
+
+.error {
+    border: 1px solid #eee;
+    margin: 7px 0;
+    text-align: center;
+    line-height: 50px;
+    font-size: 15px;
+    background-color: tomato;
+    color: white;
+    padding: 0;
+}
+
+i.activator {
+    cursor:pointer;
+}
+
+#main-menu {
+    position:fixed;
+    z-index:1000;
+}
+
+main {
+  padding-bottom: 200px;
+  padding-top: 64px;
+}

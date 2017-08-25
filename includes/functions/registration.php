@@ -181,6 +181,8 @@ class Registration
 
         unset($_SESSION[$sessionvar]);
 
+        session_destroy();
+        
         return true;
     }
 
@@ -385,7 +387,7 @@ class Registration
             return false;
         }
         $pwdmd5 = md5($password);
-        $sql = "Select username, email, avatar, firstname, lastname from $this->tablename where username='$username' and password='$pwdmd5'";
+        $sql = "Select id, username, email, avatar, firstname, lastname, role from $this->tablename where username='$username' and password='$pwdmd5'";
         $qry = $this->connection->prepare($sql);
         $qry->execute();
         $result = $qry->fetchAll();
@@ -397,12 +399,13 @@ class Registration
         }
 
         $row = $result[0];
-
+        $_SESSION['id'] = $row['id'];
         $_SESSION['username']  = $row['username'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['avatar'] = $row['avatar'];
         $_SESSION['firstname'] = $row['firstname'];
         $_SESSION['lastname'] = $row['lastname'];
+        $_SESSION['role'] = $row['role'];
         return true;
     }
 

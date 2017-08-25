@@ -32,14 +32,11 @@
                 font-weight: 300;
               }
 
-              main {
-                padding-bottom: 300px;
-              }
               main .jumbo {
                 width: 100%;
                 height: 400px;
-                background: url(http://cine.nl/wp-content/uploads/2015/07/the-revenant-trailer.jpg) center center no-repeat;
-                background-size: cover;
+                /*background: url(http://cine.nl/wp-content/uploads/2015/07/the-revenant-trailer.jpg) center center no-repeat;*/
+                /*background-size: cover;*/
               }
               main .icons {
                 display: -webkit-box;
@@ -280,6 +277,9 @@
                 .edit-profile {
                     display:none !important;
                 }
+                main .icons .big-icon {
+                  margin-left: 0px;
+                }
               }
               @media screen and (min-width: 600px) {
                 .fab {
@@ -287,8 +287,11 @@
                 }
               }
           </style>
-          <main>
-          	<div class="jumbo"></div>
+            <div class="jumbo parallax-container">
+                <div class="parallax">
+                    <img src="http://cine.nl/wp-content/uploads/2015/07/the-revenant-trailer.jpg" style="display: block; transform: translate3d(-50%, 457px, 0px);">
+                </div>
+              </div>
           	<div class="container icons">
           		<div class="big-icon"><img src="<?php echo $user['avatar'] ?>" /></div>
           		<div class="rate">
@@ -316,7 +319,7 @@
           				<h6>Biographie</h6>
           			</div>
           			<div class="content">
-          				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro officiis fugit hic vel voluptates perferendis aut quibusdam sit omnis unde aspernatur quae repellat blanditiis autem, a libero asperiores neque illum aliquid est tempore. Eveniet velit voluptate amet facere, repellendus aperiam, cumque est ipsam. Asperiores expedita iusto, inventore sit suscipit nihil repudiandae? Laboriosam cum maxime dolorem neque, in veniam expedita ad. Hic fugit necessitatibus blanditiis, optio dignissimos molestiae nam, numquam odio.</p>
+          				<p><?php echo $user['description'] ?></p>
           			</div>
           			<hr />
           	</div>
@@ -585,7 +588,11 @@
           			<li><a class="btn-floating blue"><i class="material-icons">add</i></a></li>
           		</ul>
             	</div>
-          </main>
+          <script>
+            $(document).ready(function(){
+                $('.jumbo .parallax').parallax();
+            });
+          </script>
           <?php
       }
   }

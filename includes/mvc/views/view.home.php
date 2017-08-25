@@ -1,6 +1,6 @@
 <?php
   class Home_View {
-      function fn_home_view(){
+      function fn_home_view($registration){
           ?>
             <div class="section no-pad-bot" id="index-banner">
               <div class="container">
@@ -10,7 +10,11 @@
                   <h5 class="header col s12 light">Le plus grand site de blague francophone</h5>
                 </div>
                 <div class="row center">
-                  <a href="/jokes-app/inscription.php" id="download-button" class="btn-large waves-effect waves-light orange">
+                <?php if ($registration->CheckLogin()){?>
+                    <a href="http://localhost/jokes/blagues?action=create" id="download-button" class="btn-large waves-effect waves-light orange">
+                <?php } else { ?>
+                    <a href="http://localhost/jokes/inscription" id="download-button" class="btn-large waves-effect waves-light orange">
+                <?php } ?>
                       Poster une blague
                   </a>
                 </div>
@@ -24,14 +28,14 @@
                     <div class="card">
                       <div class="card-header">
                           <div class="chip">
-                           <img src="http://lorempixel.com/50/50/people/1/" alt="Contact Person">
-                           Jane Doe
+                           <img src="http://lorempixel.com/50/50/people/4/" alt="Contact Person">
+                           John Doe
                           </div>
                         <span class="new badge" data-badge-caption="Blague courte"></span>
                         <span class="new badge red" data-badge-caption="Blague raciste"></span>
                       </div>
                       <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Le roi des cons<i class="material-icons right">more_vert</i></span>
+                        <span class="card-title grey-text text-darken-4">Le roi des cons<i class="material-icons right activator">more_vert</i></span>
                         <div class="card-content-content">
                             <p>Un gars dit à un autre dans un troquet : </p>
                             <p>- T'es con toi ! T'es vraiment con ! C'est pas possible ce que t'es con ! J'ai jamais vu un con pareil ! Tiens, c'est simple, s'il existait un concours de cons, tu finirais deuxième !</p>
