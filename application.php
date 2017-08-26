@@ -18,8 +18,6 @@ class Application {
     );
 
     private $controllers = array(
-        'pages',
-        'posts',
         '',//homepage
         'version',
         'login',
