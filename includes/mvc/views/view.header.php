@@ -25,6 +25,8 @@
             <link href="<?php echo 'http://localhost/jokes/css/style.css' ?>" type="text/css" rel="stylesheet" media="screen,projection"/>
             <link href="<?php echo 'http://localhost/jokes/css/custom.css' ?>" type="text/css" rel="stylesheet" media="screen,projection"/>
             <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+            <script src="<?php echo 'http://localhost/jokes/js/materialize.js' ?>"></script>
+            <script src="<?php echo 'http://localhost/jokes/js/init.js' ?>"></script>
             <?php $this->call_to_actions($actions); ?>
           </head>
           <body>

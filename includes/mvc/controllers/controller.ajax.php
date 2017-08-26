@@ -14,6 +14,14 @@ class Ajax_Controller extends Application{
             'action' => 'update_status', //the method called in the ajax controller
             'permission' => 'update_jokes_status', //the name of the permission to execute the action, has to be set in permission.php
         ),
+        'valid_joke' => array(
+            'controller' => array(
+                    'file_name' => 'jokes', //the ajax controller called by this action
+                    'controller_name' => 'Jokes_Ajax',
+            ),
+            'action' => 'valid_joke', //the method called in the ajax controller
+            'permission' => 'update_jokes_status', //the name of the permission to execute the action, has to be set in permission.php
+        ),
     );
 
     public function __construct($routes){

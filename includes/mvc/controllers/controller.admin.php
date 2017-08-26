@@ -22,7 +22,6 @@ class Admin_Controller extends Application{
                 case 'users':
                     break;
                 default:
-                    echo 'here';
             }
         }
         else {

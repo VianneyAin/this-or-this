@@ -48,8 +48,6 @@
 
 
           <!--  Scripts-->
-          <script src="js/materialize.js"></script>
-          <script src="js/init.js"></script>
           <?php $this->call_to_actions($actions); ?>
 
           </body>
