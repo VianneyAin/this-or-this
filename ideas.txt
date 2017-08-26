@@ -54,3 +54,4 @@ Blague version tinder (j'aime / j'aime pas / favoris ) => suivant
 -- FUTURE
 Remember me checkbox
 Notification par mail
+Guide de démarrage utilisateur

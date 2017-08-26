@@ -24,6 +24,43 @@
             </div>
 
             <div class="container">
+              <div class="section">
+
+                <!--   Icon Section   -->
+                <div class="row">
+                  <div class="col s12 m4">
+                    <div class="icon-block">
+                      <h2 class="center light-blue-text"><i class="material-icons">thumb_up</i></h2>
+                      <h5 class="center">Evaluer les blagues</h5>
+
+                      <p class="light">Noter les blagues que vous lisez, ajoutez les à vos favoris. Avec Blague.com, retrouvez les meilleures blagues que vous ayez lues en un simple clic.</p>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m4">
+                    <div class="icon-block">
+                      <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+                      <h5 class="center">Trouvez les meilleurs blagueurs</h5>
+
+                      <p class="light">Un utilisateur de blague.com vous fais rire ? Ajoutez le sans tarder à vos favoris, pour ne plus rater la moindre blague qu'il poste !</p>
+                    </div>
+                  </div>
+
+                  <div class="col s12 m4">
+                    <div class="icon-block">
+                      <h2 class="center light-blue-text"><i class="material-icons">poll</i></h2>
+                      <h5 class="center">Que le meilleur gagne</h5>
+
+                      <p class="light">Notez des blagues, ajoutez-en, et gagner en niveau pour débloquer des récompenses.</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <br><br>
+            </div>
+
+            <div class="container">
                 <div class="row"><h4>Les 10 dernières blagues :</h4></div>
                 <div class="section">
                     <?php
@@ -70,43 +107,6 @@
                 </div>
             </div>
 
-
-            <div class="container">
-              <div class="section">
-
-                <!--   Icon Section   -->
-                <div class="row">
-                  <div class="col s12 m4">
-                    <div class="icon-block">
-                      <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-                      <h5 class="center">Speeds up development</h5>
-
-                      <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-                    </div>
-                  </div>
-
-                  <div class="col s12 m4">
-                    <div class="icon-block">
-                      <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-                      <h5 class="center">User Experience Focused</h5>
-
-                      <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
-                    </div>
-                  </div>
-
-                  <div class="col s12 m4">
-                    <div class="icon-block">
-                      <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-                      <h5 class="center">Easy to work with</h5>
-
-                      <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <br><br>
-            </div>
         <?php
       }
   }
