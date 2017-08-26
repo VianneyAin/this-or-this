@@ -36,8 +36,8 @@ class Jokes_Controller extends Application{
     public function jokes_listen_post(){
         if (isset($_POST)){
             $this->data['post'] = array();
-            if (isset($_POST['submitted']) && !empty($_POST['submitted'])){
-                $this->data['post']['submitted'] = true;
+            if (isset($_POST['form_action']) && !empty($_POST['form_action'])){
+                $this->data['post']['form_action'] = htmlspecialchars($_POST['form_action']);
                 if (isset($_POST['joke_content']) && !empty($_POST['joke_content']) ){
                     $this->data['post']['joke_content'] = htmlspecialchars($_POST['joke_content']);
                     $this->data['post']['valide'] = true;
