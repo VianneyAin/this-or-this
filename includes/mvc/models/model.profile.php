@@ -11,6 +11,7 @@
         $req->execute(array('username' => $username));
         $user = $req->fetch();
         $user = array(
+            'id' => $user['id'],
             'username' => $user['username'],
             'email' => $user['email'],
             'avatar' => $user['avatar'],
@@ -40,6 +41,44 @@
         }
         return $name;
     }
+
+    public function get_posted_jokes($user){
+        if ( (isset($user['id']) && !empty($user['id'])) ){
+            try {
+                $db = Db::getInstance();
+                $req = $db->prepare('SELECT * FROM jokes WHERE author='.$user['id']);
+                $req->execute();
+                $posts = $req->fetchAll();
+                foreach ($posts as $key => $post){
+                    if (isset($post['author'])){
+                        $posts[$key]['author'] = $user;
+                        $posts[$key]['excerpt'] = $this->getExcerpt($posts[$key]['content'], 0, 200); //return excerpt with 100 chars
+                    }
+                }
+                return $posts;
+            }
+            catch (PDOexception $e) {
+                die($e->getMessage());
+            }
+        }
+        else {
+            return null;
+        }
+    }
+
+    function getExcerpt($str, $startPos=0, $maxLength=100) {
+    	if(strlen($str) > $maxLength) {
+    		$excerpt   = substr($str, $startPos, $maxLength-3);
+    		$lastSpace = strrpos($excerpt, ' ');
+    		$excerpt   = substr($excerpt, 0, $lastSpace);
+    		$excerpt  .= '...';
+    	} else {
+    		$excerpt = $str;
+    	}
+
+    	return $excerpt;
+    }
+
 
   }
 ?>

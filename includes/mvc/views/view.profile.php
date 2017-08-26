@@ -1,8 +1,7 @@
 <?php
   class Profile_View {
-
       //full code at https://codepen.io/Roemerdt/pen/epKjdM/
-      public function profile_current_user_view($registration, $user){
+      public function profile_current_user_view($registration, $user, $jokes){
           ?>
           <style>
               header nav {
@@ -327,123 +326,46 @@
           		<div class="title">
           			<h6>Blagues postées</h6>
           		</div>
-          		<div class="row">
-                  	<div class="col s12 m6">
-                    		<div class="card blue-grey">
-                      		<div class="card-content white-text">
-                        			<span class="card-title">Post title</span>
-                        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem aliquid nobis nesciunt nulla laudantium aspernatur, delectus sed, minus ex perspiciatis...</p>
-                      		</div>
-          					<div class="card-action">
-          						<a href="#">Read more...</a>
-          						<div class="tags">
-          							<div class="chip">
-          								Story
-          							</div>
-          							<div class="chip">
-          								Adventure
-          							</div>
-          						</div>
-          					</div>
-                    		</div>
-                  	</div>
-          			<div class="col s12 m6">
-                    		<div class="card blue-grey">
-                      		<div class="card-content white-text">
-                        			<span class="card-title">Post title</span>
-                        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem aliquid nobis nesciunt nulla laudantium aspernatur, delectus sed, minus ex perspiciatis...</p>
-                      		</div>
-          					<div class="card-action">
-          						<a href="#">Read more...</a>
-          						<div class="tags">
-          							<div class="chip">
-          								Personal
-          							</div>
-          						</div>
-          					</div>
-                    		</div>
-                  	</div>
-                	</div>
-          		<div class="row">
-                  	<div class="col s12 m6">
-                    		<div class="card blue-grey">
-                      		<div class="card-content white-text">
-                        			<span class="card-title">Post title</span>
-                        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem aliquid nobis nesciunt nulla laudantium aspernatur, delectus sed, minus ex perspiciatis...</p>
-                      		</div>
-          					<div class="card-action">
-          						<a href="#">Read more...</a>
-          						<div class="tags">
-          							<div class="chip">
-          								Love
-          							</div>
-          							<div class="chip">
-          								Fiction
-          							</div>
-          						</div>
-          					</div>
-                    		</div>
-                  	</div>
-          			<div class="col s12 m6">
-                    		<div class="card blue-grey">
-                      		<div class="card-content white-text">
-                        			<span class="card-title">Post title</span>
-                        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem aliquid nobis nesciunt nulla laudantium aspernatur, delectus sed, minus ex perspiciatis...</p>
-                      		</div>
-          					<div class="card-action">
-          						<a href="#">Read more...</a>
-          						<div class="tags">
-          							<div class="chip">
-          								Story
-          							</div>
-          							<div class="chip">
-          								Sad
-          							</div>
-          						</div>
-          					</div>
-                    		</div>
-                  	</div>
-                	</div>
-          		<div class="row">
-                  	<div class="col s12 m6">
-                    		<div class="card blue-grey">
-                      		<div class="card-content white-text">
-                        			<span class="card-title">Post title</span>
-                        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem aliquid nobis nesciunt nulla laudantium aspernatur, delectus sed, minus ex perspiciatis...</p>
-                      		</div>
-          					<div class="card-action">
-          						<a href="#">Read more...</a>
-          						<div class="tags">
-          							<div class="chip">
-          								Happy
-          							</div>
-          							<div class="chip">
-          								Fiction
-          							</div>
-          						</div>
-          					</div>
-                    		</div>
-                  	</div>
-          			<div class="col s12 m6">
-                    		<div class="card blue-grey">
-                      		<div class="card-content white-text">
-                        			<span class="card-title">Post title</span>
-                        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem aliquid nobis nesciunt nulla laudantium aspernatur, delectus sed, minus ex perspiciatis...</p>
-                      		</div>
-          					<div class="card-action">
-          						<a href="#">Read more...</a>
-          						<div class="tags">
-          							<div class="chip">
-          								Erotic
-          							</div>
-          							<div class="chip">
-          								Fiction
-          							</div>
-          						</div>
-          					</div>
-                    		</div>
-                  	</div>
-                	</div>
+                <?php
+                $count = 1;
+                if (isset($jokes) && !empty($jokes)){
+                    foreach ($jokes as $joke_index => $joke){
+                        if ($count % 2 == 1){
+                            ?>
+                            <div class="row">
+                            <?php
+                        }
+                            ?>
+                                <div class="col s12 m6">
+                                		<div class="card blue-grey">
+                                  		<div class="card-content white-text">
+                                    			<span class="card-title"><?php echo $joke['title']; ?></span>
+                                    			<p><?php echo $joke['excerpt']; ?></p>
+                                  		</div>
+                      					<div class="card-action">
+                      						<a href="#">Voir la blague</a>
+                      						<div class="tags">
+                      							<div class="chip">
+                      								Story
+                      							</div>
+                      							<div class="chip">
+                      								Adventure
+                      							</div>
+                      						</div>
+                      					</div>
+                                		</div>
+                              	</div>
+                            <?php
+                        if ($count % 2 || $count == sizeof($jokes)){
+                            ?>
+                            </div>
+                            <?php
+                        }
+                        $count++;
+                    }
+                }
+
+                ?>
           	</div>
 
           	<div class="container likes">

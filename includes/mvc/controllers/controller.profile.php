@@ -11,10 +11,11 @@ class Profile_Controller extends Application {
 
     public function layout_request() {
         $this->user = $this->model->get_current_user($this->registration->GetSessionInfos('username'));
+        $this->data = $this->model->get_posted_jokes($this->user);
     }
 
     public function partials_request() {
-        $this->view->profile_current_user_view($this->registration, $this->user);
+        $this->view->profile_current_user_view($this->registration, $this->user, $this->data);
     }
 }
 ?>
