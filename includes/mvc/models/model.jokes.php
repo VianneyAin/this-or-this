@@ -123,14 +123,13 @@
 
     public function save_joke($data, $user_id){
         if (isset($data) && !empty($data)){
-            if (isset($data['joke_title']) && !empty($data['joke_title'])
-            && isset($data['joke_content']) && !empty($data['joke_content'])
+            if (isset($data['joke_content']) && !empty($data['joke_content'])
             && isset($user_id) && !empty($user_id) ){
                 $data['joke_content'] = $this->normalize($data['joke_content']);
                 try {
                     $db = Db::getInstance();
-                    $req = $db->prepare('INSERT INTO jokes (title, content, author) VALUES (:joke_title, :joke_content, :user_id)');
-                    $req->execute(array('joke_title' => $data['joke_title'], 'joke_content' => $data['joke_content'], 'user_id' => $user_id));
+                    $req = $db->prepare('INSERT INTO jokes (content, author) VALUES (:joke_content, :user_id)');
+                    $req->execute(array('joke_content' => $data['joke_content'], 'user_id' => $user_id));
                     return array(
                         'success' => true,
                         'id' => $db->lastInsertId(),

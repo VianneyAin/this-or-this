@@ -22,7 +22,7 @@ X - Page d'accueil avec les dernières blagues
 X - Page admin pour valider les blagues
 
 -- Version 0.2 :
-Pouvoir modifier / corriger une blague avant de la poster
+Pouvoir modifier / corriger une blague avant de la valider sur la page admin
 Pouvoir noter une blague
 Classements des blagues
 Système de points d'expériences utilisateur, niveaux

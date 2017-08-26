@@ -29,6 +29,9 @@ class Admin_View {
                                 <div class="card-content white-text">
                                     <i class="material-icons">library_books</i>
                                     <span class="card-title">Voir toutes les blagues</span>
+                                    <p class="bounceEffect animated bounceIn">
+                                        X blagues au total
+                                    </p>
                                 </div>
                             </div>
                         </a>
@@ -40,6 +43,9 @@ class Admin_View {
                                 <div class="card-content white-text">
                                     <i class="material-icons">group</i>
                                     <span class="card-title">Voir tous les utilisateurs</span>
+                                    <p class="bounceEffect animated bounceIn">
+                                        X utilisateurs au total
+                                    </p>
                                 </div>
                             </div>
                         </a>
@@ -92,12 +98,12 @@ class Admin_View {
                                 </div>
                             </div>
                             <div class="card-action">
-                                <button class="btn btn-floating waves-effect waves-light blue" onclick="valid_jokes(this)" data-status="active">
-                                    <i class="material-icons right">done</i>
-                                </button>
-                                <button class="btn btn-floating waves-effect waves-light red" data-status="archived">
-                                    <i class="material-icons right">not_interested</i>
-                                </button>
+                                <a class="waves-effect waves-light btn blue" onclick="valid_jokes(this)" data-status="active">
+                                    <i class="material-icons right">done</i>Valider
+                                </a>
+                                <a class="waves-effect waves-light btn red" onclick="valid_jokes(this)" data-status="archive">
+                                    <i class="material-icons right">not_interested</i>Archiver
+                                </a>
                             </div>
                         </div>
                     </div>

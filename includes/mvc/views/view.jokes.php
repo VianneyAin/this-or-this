@@ -58,13 +58,7 @@ class Jokes_View {
                     <form class="col m6 offset-m3 s12" action="blague" method='post' accept-charset='UTF-8'>
                         <div class="row"><h4>Propose une blague</h4></div>
                         <div class="row">
-                            <div class="input-field col s12">
-                                <input type='hidden' name='submitted' id='submitted' value='1'/>
-                                <input id="joke_title" type="text" class="validate <?php if (isset($post_data['callback']) && !empty($post_data['callback']['success']) && $post_data['callback']['success'] == false && $post_data['callback']['field'] == 'joke_title') echo 'invalid'; ?>" name="joke_title" value="<?php if (isset($post_data['joke_title']) && !empty($post_data['joke_title'])) echo $post_data['joke_title']; ?>">
-                                <label for="joke_title">Titre de la blague</label>
-                            </div>
-                        </div>
-                        <div class="row">
+                            <input type='hidden' name='form_action' id='submitted' value='create'/>
                             <div class="input-field col s12">
                                 <textarea id="joke_content" class="materialize-textarea <?php if (isset($post_data['callback']) && !empty($post_data['callback']['success']) && $post_data['callback']['success'] == false && $post_data['callback']['field'] == 'joke_content') echo 'invalid'; ?>" name="joke_content"><?php if (isset($post_data['joke_content']) && !empty($post_data['joke_content'])) echo $post_data['joke_content']; ?></textarea>
                                 <label for="joke_content">Votre blague</label>

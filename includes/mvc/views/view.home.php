@@ -5,7 +5,7 @@
             <div class="section no-pad-bot" id="index-banner">
               <div class="container">
                 <br><br>
-                <h1 class="header center orange-text">autonum</h1>
+                <h1 class="header center orange-text">Blagues</h1>
                 <div class="row center">
                   <h5 class="header col s12 light">Le plus grand site de blague francophone</h5>
                 </div>
@@ -33,7 +33,7 @@
                                 <div class="card">
                                   <div class="card-header">
                                       <div class="chip">
-                                       <img src="<?php echo $joke['author']['avatar']; ?>" alt="Contact Person">
+                                       <img src="<?php echo $joke['author']['avatar']; ?>" alt="Avatar">
                                        <?php echo $joke['author']['display_name']; ?>
                                       </div>
                                       <div class="chip">

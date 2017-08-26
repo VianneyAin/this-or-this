@@ -38,25 +38,15 @@ class Jokes_Controller extends Application{
             $this->data['post'] = array();
             if (isset($_POST['submitted']) && !empty($_POST['submitted'])){
                 $this->data['post']['submitted'] = true;
-                if (isset($_POST['joke_title']) && !empty($_POST['joke_title']) ){
-                    $this->data['post']['joke_title'] = htmlspecialchars($_POST['joke_title']);
-                    if (isset($_POST['joke_content']) && !empty($_POST['joke_content']) ){
-                        $this->data['post']['joke_content'] = htmlspecialchars($_POST['joke_content']);
-                        $this->data['post']['valide'] = true;
-                    }
-                    else {
-                        $this->data['post']['callback'] = array(
-                            'field' => 'joke_content',
-                            'success' => false,
-                            'message' => 'Il manque le contenu de votre blague.',
-                        );
-                    }
+                if (isset($_POST['joke_content']) && !empty($_POST['joke_content']) ){
+                    $this->data['post']['joke_content'] = htmlspecialchars($_POST['joke_content']);
+                    $this->data['post']['valide'] = true;
                 }
                 else {
                     $this->data['post']['callback'] = array(
-                        'field' => 'joke_title',
+                        'field' => 'joke_content',
                         'success' => false,
-                        'message' => 'Il faut renseigner un titre à votre blague.',
+                        'message' => 'Il manque le contenu de votre blague.',
                     );
                 }
             }
