@@ -22,18 +22,19 @@ X - Page d'accueil avec les dernières blagues
 X - Page admin pour valider les blagues
 
 -- Version 0.2 :
-Pouvoir modifier / corriger une blague avant de la valider sur la page admin
+X - Pouvoir modifier / corriger une blague avant de la valider sur la page admin
+La création d'une blague doit juste faire apparaître le message de validation, et plus le form de création
 Pouvoir noter une blague
-Classements des blagues
-Système de points d'expériences utilisateur, niveaux
-Classement des blagueurs
 Catégorie de blagues
 Page catégorie
 Page profil pour modifier son mot de passe, poster un avatar, changer son email
 
 -- Version 0.3 :
+Système de points d'expériences utilisateur, niveaux
 Pouvoir proposer une édition de blague => demande à l'auteur
 Pouvoir signaler une blague
+Classements des blagues
+Classement des blagueurs
 
 -- Version 0.4 :
 Système de haut-faits
@@ -49,3 +50,4 @@ Blague version tinder (j'aime / j'aime pas / favoris ) => suivant
 
 -- FUTURE
 Remember me checkbox
+Notification par mail

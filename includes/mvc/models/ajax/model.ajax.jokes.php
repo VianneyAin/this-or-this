@@ -89,6 +89,49 @@
         }
     }
 
+    public function delete_joke($id){
+        if (isset($id) && !empty($id) ){
+            try {
+                $db = Db::getInstance();
+                $req = $db->prepare('DELETE FROM jokes WHERE id = '.$id);
+
+                $req->execute();
+                if ($req->rowCount() == 1){
+                    $message = array(
+                            'message' => 'La blague a bien été supprimée.',
+                            'success' => true,
+                    );
+                    return $message;
+                }
+                else {
+                    $message = array(
+                            'message' => "La blague n'a pas été supprimée.",
+                            'code' => '416',
+                            'success' => false,
+                    );
+                    return $message;
+                }
+
+            }
+            catch (Exception $e) {
+                $message = array(
+                        'message' => 'Une erreur est survenue.',
+                        'code' => '415',
+                        'success' => false,
+                );
+                return $message;
+            }
+        }
+        else {
+            $message = array(
+                    'message' => 'Il manque des informations.',
+                    'code' => '414',
+                    'success' => false,
+            );
+            return $message;
+        }
+    }
+
     function normalize($str) {
         $str = preg_replace('/\n(\s*\n)+/', '</p><p>', $str);
         $str = preg_replace('/\n/', '<br>', $str);

@@ -44,7 +44,7 @@ class Jokes_Ajax_Controller {
             else {
                 $message = array(
                         'message' => 'Il manque des informations.',
-                        'code' => '407',
+                        'code' => '413',
                         'success' => false,
                 );
                 return $message;
@@ -53,7 +53,23 @@ class Jokes_Ajax_Controller {
         else {
             $message = array(
                     'message' => 'Une erreur est survenue.',
-                    'code' => '406',
+                    'code' => '412',
+                    'success' => false,
+            );
+            return $message;
+        }
+    }
+
+    public function delete_joke(){
+        if (isset($_REQUEST['id']) && !empty($_REQUEST['id'])){
+            $joke_id = intval($_REQUEST['id']);
+            return $this->model->delete_joke($joke_id);
+
+        }
+        else {
+            $message = array(
+                    'message' => 'Une erreur est survenue.',
+                    'code' => '411',
                     'success' => false,
             );
             return $message;

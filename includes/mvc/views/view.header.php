@@ -31,7 +31,7 @@
           </head>
           <body>
             <nav id="main-menu" class="amber darken-1" role="navigation">
-              <div class="nav-wrapper container"><a id="logo-container" href="http://localhost/jokes" class="brand-logo">Autonum</a>
+              <div class="nav-wrapper container"><a id="logo-container" href="http://localhost/jokes" class="brand-logo">Blagues</a>
                 <ul class="right hide-on-med-and-down">
                     <?php if ($registration->CheckLogin()){
                         echo '<li><a href="http://localhost/jokes/profil" type="submit">Profil</a></li>';

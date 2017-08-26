@@ -193,6 +193,12 @@ class Permission
 					),
 					'redirect' => 'error',
 				),
+				'delete_jokes' => array(
+					'roles' => array(
+						'admin',
+					),
+					'redirect' => 'error',
+				),
 			),
 		);
 	}

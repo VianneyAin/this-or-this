@@ -100,18 +100,21 @@ class Admin_View {
                             </div>
                             <div class="card-action">
                                 <span class="admin-action">
-                                    <a class="waves-effect waves-light btn blue" onclick="valid_jokes(this)" data-status="active">
+                                    <a class="waves-effect waves-light btn blue" onclick="valid_joke(this)" data-status="active">
                                         <i class="material-icons right">done</i>Valider
                                     </a>
-                                    <a class="waves-effect waves-light btn red" onclick="valid_jokes(this)" data-status="archive">
+                                    <a class="waves-effect waves-light btn yellow" onclick="valid_joke(this)" data-status="archive">
                                         <i class="material-icons right">not_interested</i>Archiver
+                                    </a>
+                                    <a class="waves-effect waves-light btn red" onclick="remove_joke(this)">
+                                        <i class="material-icons right">not_interested</i>Supprimer
                                     </a>
                                 </span>
                                 <span class="edit-action" style="display:none;">
                                     <a class="valid_edit waves-effect waves-light btn blue" onclick="valid_edit(this)" data-status="active">
                                         <i class="material-icons right">done</i>Valider la modification
                                     </a>
-                                    <a class="cancel_edit waves-effect waves-light btn red" onclick="cancel_edit(this)" data-status="active">
+                                    <a class="cancel_edit waves-effect waves-light btn red" onclick="cancel_edit(this)" data-status="actived">
                                         <i class="material-icons right">not_interested</i>Annuler la modification
                                     </a>
                                 </span>
@@ -132,30 +135,81 @@ class Admin_View {
             } ?>
         </div>
         <script type="text/javascript">
-        var cache_title = "";
-        var cache_content = "";
+        var cache = [];
 
+        /** FUNCTION TO HANDLE THE CACHE FOR EDITING JOKES **/
+        var getByAttr = function(arr, attr, value){
+            var i = arr.length;
+            while(i--){
+               if( arr[i]
+                   && arr[i].hasOwnProperty(attr)
+                   && (arguments.length > 2 && arr[i][attr] === value ) ){
+
+                   return arr[i];
+
+               }
+            }
+            return arr;
+        }
+        var removeByAttr = function(arr, attr, value){
+            var i = arr.length;
+            while(i--){
+               if( arr[i]
+                   && arr[i].hasOwnProperty(attr)
+                   && (arguments.length > 2 && arr[i][attr] === value ) ){
+
+                   arr.splice(i,1);
+
+               }
+            }
+            return arr;
+        }
+
+        /** FUNCTION TO HANDLE THE EDITING OF JOKES **/
         function edit_joke(clicked){
             var element = jQuery(clicked).closest('.card');
-            var title = jQuery(element).find('.joke-title').text().trim();
-            var content = jQuery(element).find('.joke-content').text().trim();
-            jQuery(element).find('.joke-title').html('<input type="text" placeholder="Proposer un titre" value="'+title+'" />');
-            jQuery(element).find('.joke-content').html('<textarea class="materialize-textarea type="text" placeholder="Proposer un titre">'+content+'</textarea>');
-            jQuery(element).find('.edit-action').show();
-            jQuery(element).find('.admin-action').hide();
+            if (!jQuery(element).hasClass('edited')){
+                var title = jQuery(element).find('.joke-title').text().trim();
+                var content = jQuery(element).find('.joke-content').text().trim();
+                var data = new Object();
+                data.id = jQuery(element).attr('id');
+                data.title = title;
+                data.content = content;
+                cache.push(data);
+                jQuery(element).find('.joke-title').html('<input type="text" placeholder="Proposer un titre" value="'+title+'" />');
+                jQuery(element).find('.joke-content').html('<textarea class="materialize-textarea type="text" placeholder="Proposer un titre">'+content+'</textarea>');
+                jQuery(element).find('.edit-action').show();
+                jQuery(element).find('.admin-action').hide();
+                jQuery(element).addClass('edited');
+            }
         }
-
         function valid_edit(clicked){
             var element = jQuery(clicked).closest('.card');
-            var title = jQuery(element).find('.joke-title input').val().trim();
-            var content = jQuery(element).find('.joke-content textarea').text().trim();
-            jQuery(element).find('.joke-title').html(title);
-            jQuery(element).find('.joke-content').html(content);
-            jQuery(element).find('.edit-action').hide();
-            jQuery(element).find('.admin-action').show();
+            if (jQuery(element).hasClass('edited')){
+                var title = jQuery(element).find('.joke-title input').val().trim();
+                var content = jQuery(element).find('.joke-content textarea').text().trim();
+                jQuery(element).find('.joke-title').html(title);
+                jQuery(element).find('.joke-content').html(content);
+                jQuery(element).find('.edit-action').hide();
+                jQuery(element).find('.admin-action').show();
+                removeByAttr(cache, 'id', jQuery(element).attr('id'));
+                jQuery(element).removeClass('edited');
+            }
+        }
+        function cancel_edit(clicked){
+            var element = jQuery(clicked).closest('.card');
+            if (jQuery(element).hasClass('edited')){
+                var data = getByAttr(cache, 'id', jQuery(element).attr('id'));
+                jQuery(element).find('.joke-title').html(data.title);
+                jQuery(element).find('.joke-content').html(data.content);
+                jQuery(element).find('.edit-action').hide();
+                jQuery(element).find('.admin-action').show();
+                removeByAttr(cache, 'id', jQuery(element).attr('id'));
+                jQuery(element).removeClass('edited');
+            }
         }
 
-        function valid_jokes(clicked){
+        function valid_joke(clicked){
             var status = jQuery(clicked).attr('data-status');
             var id = jQuery(clicked).closest('.card').attr('id');
             var element = jQuery(clicked).closest('.card');
@@ -170,6 +224,43 @@ class Admin_View {
                     status: status,
                     title: title,
                     content: content,
+                },
+                type: 'POST',
+                dataType : 'json',
+                beforeSend: function (jqXHR, settings) {
+                    url = settings.url + "?" + settings.data;
+                    console.log(url);
+                },
+                error: function (thrownError) {
+                    console.log(thrownError);
+                    alert(thrownError.responseText);
+                },
+                complete: function () {
+                },
+                success: function (data, status) {
+                    console.log(data);
+                    if ( data.success){
+                        alert(data.message);
+                        jQuery(element).fadeOut( "slow", function() {
+                            // Animation complete.
+                        });
+                    }
+                    else {
+                        alert(data.message);
+                    }
+                }
+            });
+        }
+
+        function remove_joke(clicked){
+            var id = jQuery(clicked).closest('.card').attr('id');
+            var element = jQuery(clicked).closest('.card');
+            var ajax = $.ajax({
+                url: ajaxurl,
+                data: {
+                    from: 'admin',
+                    action: 'delete_joke',
+                    id : id,
                 },
                 type: 'POST',
                 dataType : 'json',
