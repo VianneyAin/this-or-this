@@ -1,3 +1,7 @@
+.btn {
+    height:auto !important;
+}
+
 .card-header {
     position: relative;
     background-color: inherit;

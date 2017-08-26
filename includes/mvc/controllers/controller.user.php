@@ -18,7 +18,15 @@ class User {
             $this->user_name = $_SESSION['username'];
             $this->user_email = $_SESSION['email'];
             $this->is_admin = $this->is_admin($_SESSION['role']);
+			$this->user_role = $_SESSION['role'];
         }
+		else {
+			$this->userID = null;
+            $this->user_name = null;
+            $this->user_email = null;
+            $this->is_admin = false;
+			$this->user_role = 'guest';
+		}
 	}
 
     public function is_admin($role){

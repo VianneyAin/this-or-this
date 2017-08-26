@@ -77,7 +77,7 @@ class Jokes_Controller extends Application{
                     break;
             }
         }
-        else if (!empty($this->data['post']) && $this->data['post'] && $this->data['post']['valide'] === true){
+        else if (!empty($this->data['post']) && $this->data['post'] && isset($this->data['post']['valide']) && $this->data['post']['valide'] === true){
             $this->data['post']['callback'] = $this->model->save_joke($this->data['post'], $this->user_object->return_ID());
         }
     }

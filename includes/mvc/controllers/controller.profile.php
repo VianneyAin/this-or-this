@@ -6,7 +6,7 @@ class Profile_Controller extends Application {
         require_once(dirname(__FILE__).'/../models/model.profile.php');
         $this->model = new Profile_Model();
         require_once(dirname(__FILE__).'/../views/view.profile.php');
-        $this->view = new Profile_View();
+        $this->view = new Profile_View($this->user_object);
     }
 
     public function layout_request() {

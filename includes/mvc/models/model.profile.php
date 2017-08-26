@@ -1,7 +1,6 @@
 <?php
-  class Profile_Model {
+  class Profile_Model {    
     public function __construct() {
-
     }
 
     public function get_current_user($username){
