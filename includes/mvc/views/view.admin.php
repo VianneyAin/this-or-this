@@ -104,7 +104,7 @@ class Admin_View {
                                         <i class="material-icons right">done</i>Valider
                                     </a>
                                     <a class="waves-effect waves-light btn yellow" onclick="valid_joke(this)" data-status="archive">
-                                        <i class="material-icons right">not_interested</i>Archiver
+                                        <i class="material-icons right">archive</i>Archiver
                                     </a>
                                     <a class="waves-effect waves-light btn red" onclick="remove_joke(this)">
                                         <i class="material-icons right">not_interested</i>Supprimer
@@ -238,12 +238,56 @@ class Admin_View {
                 complete: function () {
                 },
                 success: function (data, status) {
-                    console.log(data);
                     if ( data.success){
-                        alert(data.message);
+                        var $toastContent = $('<span>'+data.message+'</span>').add($('<button class="btn-flat toast-action" data-action="valid_joke" data-status="draft" data-target='+id+' onclick="undo(this)">Undo</button>'));
+                        Materialize.toast($toastContent, 4000);
                         jQuery(element).fadeOut( "slow", function() {
-                            // Animation complete.
                         });
+                    }
+                    else {
+                        alert(data.message);
+                    }
+                }
+            });
+        }
+
+        function undo(clicked){
+            var target = jQuery(clicked).attr('data-target');
+            var status = jQuery(clicked).attr('data-status');
+            var action = jQuery(clicked).attr('data-action');
+            var id = target;
+            var element = jQuery('#'+id);
+            var title = jQuery(element).find('.joke-title').text().trim();
+            var content = jQuery(element).find('.joke-content').text().trim();
+            var ajax = $.ajax({
+                url: ajaxurl,
+                data: {
+                    from: 'admin',
+                    action: action,
+                    id : id,
+                    status: status,
+                    title: title,
+                    content: content,
+                },
+                type: 'POST',
+                dataType : 'json',
+                beforeSend: function (jqXHR, settings) {
+                    url = settings.url + "?" + settings.data;
+                    console.log(url);
+                },
+                error: function (thrownError) {
+                    console.log(thrownError);
+                    alert(thrownError.responseText);
+                },
+                complete: function () {
+                },
+                success: function (data, status) {
+                    if ( data.success){
+                        Materialize.toast('Action annulée.', 4000);
+                        jQuery('#'+id).fadeIn( "slow", function() {
+
+                        });
+                        jQuery(clicked).parent().remove();
                     }
                     else {
                         alert(data.message);
@@ -277,7 +321,7 @@ class Admin_View {
                 success: function (data, status) {
                     console.log(data);
                     if ( data.success){
-                        alert(data.message);
+                        Materialize.toast(data.message, 4000);
                         jQuery(element).fadeOut( "slow", function() {
                             // Animation complete.
                         });
