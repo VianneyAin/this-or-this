@@ -7,6 +7,16 @@ class Application {
     protected $user_object;
     protected $registration;
     protected $permission_object;
+    private $routes;
+    private $actions = array(
+        'header' => array(
+            'display_ajax_url',
+        ),
+        'footer' => array(
+
+        ),
+    );
+
     private $controllers = array(
         'pages',
         'posts',
@@ -20,9 +30,17 @@ class Application {
         'profile',
         'blague',
         'blagues',
+        'admin',
+    );
+
+    private $ajax_controllers = array(
+        'ajax',
     );
 
     public function __construct(){
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
         require_once("includes/functions/registration.php");
         require_once("includes/mvc/controllers/controller.user.php");
         require_once("permission.php");
@@ -50,16 +68,19 @@ class Application {
         $this->user_object = new User($this->registration);
         //Load permission object
         $this->permission_object = new Permission( $this->user_object );
-        //var_dump($this->permission_object);
+    }
 
+    public function call_ajax(){
+        require_once('includes/mvc/controllers/controller.ajax.php');
+        $this->controller = new Ajax_Controller($this->routes);
     }
 
     public function call($controller) {
         //require_once("includes/functions/membersite_config.php");
         require_once('includes/mvc/controllers/controller.header.php');
         require_once('includes/mvc/controllers/controller.footer.php');
-        $this->header = new Header_Controller();
-        $this->footer = new Footer_Controller();
+        $this->header = new Header_Controller($this->actions);
+        $this->footer = new Footer_Controller($this->actions);
         switch($controller) {
             case 'home':
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');
@@ -88,13 +109,9 @@ class Application {
                 require_once('includes/mvc/controllers/controller.jokes.php');
                 $this->controller = new Jokes_Controller();
                 break;
-            case 'pages':
+            case 'admin':
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');
-                $this->controller = new Page_Controller();
-                break;
-            case 'posts':
-                require_once('includes/mvc/controllers/controller.' . $controller . '.php');
-                $this->controller = new Post_Controller();
+                $this->controller = new Admin_Controller($this->routes);
                 break;
             case 'error':
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');
@@ -125,7 +142,11 @@ class Application {
 
     public function load_pages($routes){
         if (isset($routes) && !empty($routes)){
-            if (in_array($routes[0], $this->controllers)) {
+            $this->routes = $routes;
+            if ($routes[0] == 'ajax') {
+                $this->call_ajax();
+            }
+            else  if (in_array($routes[0], $this->controllers)) {
                 $this->call($routes[0]);
             } else {
                 $this->call('error');
@@ -138,9 +159,9 @@ class Application {
     }
 
     public function layout_request(){
-        //$this->header->layout_request();
+        $this->header->layout_request();
         $this->controller->layout_request();
-        //$this->footer->layout_request();
+        $this->footer->layout_request();
     }
 
     public function partials_request(){
@@ -153,9 +174,35 @@ class Application {
         ?>
         <main>
         <?php
-        $this->controller->partials_request();
+            $this->controller->partials_request();
         ?>
         </main>
+        <?php
+    }
+
+    public function add_action($location, $action){
+        foreach($this->actions as $action_location => $action_array){
+            if ($action_location == $location){
+                switch ($location){
+                    case 'header':
+                        array_push($this->actions[$action_location], $action);
+                        $this->header->update_actions($this->actions);
+                        break;
+                    case 'footer':
+                        array_push($this->actions[$action_location], $action);
+                        $this->footer->update_actions($this->actions);
+                        break;
+                    default :
+                        die('Who are you, haxxor !');
+                        break;
+                }
+            }
+        }
+    }
+
+    public static function display_ajax_url(){
+        ?>
+        <script type="text/javascript">var ajaxurl = "http://localhost/jokes/ajax";</script>
         <?php
     }
 

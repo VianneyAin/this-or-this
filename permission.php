@@ -177,11 +177,21 @@ class Permission
 					),
 					'redirect' => 'login',
 				),
-				'admin_joke' => array(
+			),
+			'admin' => array(
+				'read_admin_dashboard' => array(
 					'roles' => array(
 						'admin',
 					),
-					'redirect' => 'home',
+					'redirect' => 'error',
+				),
+			),
+			'ajax' => array(
+				'update_jokes_status' => array(
+					'roles' => array(
+						'admin',
+					),
+					'redirect' => 'error',
 				),
 			),
 		);

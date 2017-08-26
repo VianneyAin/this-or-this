@@ -101,56 +101,6 @@ class Jokes_View {
         <?php
     }
 
-    public function admin_view($data){
-        ?>
-        <div class="container">
-            <?php
-            if (isset($data) && !empty($data)){
-                foreach ($data as $key => $joke){
-                ?>
-                <div class="section">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="chip">
-                                <img src="<?php echo $joke['author']['avatar']; ?>" alt="Contact Person">
-                                <?php echo $joke['author']['display_name']; ?>
-                            </div>
-                            <div class="chip">
-                                <?php echo $joke['created']; ?>
-                            </div>
-                            <div class="chip">
-                                <?php echo $joke['status']; ?>
-                            </div>
-                            <span class="new badge" data-badge-caption="Blague courte"></span>
-                            <span class="new badge red" data-badge-caption="Blague raciste"></span>
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title grey-text text-darken-4"><?php echo $joke['title']; ?></span>
-                            <div class="card-content-content">
-                                <?php echo $joke['content']; ?>
-                            </div>
-                        </div>
-                        <div class="card-action">
-                            <button class="btn btn-floating waves-effect waves-light blue">
-                                <i class="material-icons right">thumb_up</i>
-                            </button>
-                            <button class="btn btn-floating waves-effect waves-light red">
-                                <i class="material-icons right">thumb_down</i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <?php
-                }
-            }
-            else {
-                ?>
-                <h4>Il ne reste plus aucune blague à moderer.</h4>
-                <?php
-            } ?>
-        </div>
-        <?php
-    }
 
 
 }

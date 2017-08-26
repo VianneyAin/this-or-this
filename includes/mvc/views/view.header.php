@@ -1,6 +1,16 @@
 <?php
   class Header_View {
-      function fn_header_view($registration){
+
+      function call_to_actions($actions){
+          foreach($actions as $location => $actions_array){
+              if ($location == 'header'){
+                  foreach ($actions_array as $key => $action){
+                       Application::{$action}();
+                  }
+              }
+          }
+      }
+      function fn_header_view($registration, $actions){
            ?>
           <!DOCTYPE html>
           <html lang="en">
@@ -11,10 +21,11 @@
 
             <!-- CSS  -->
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-            <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-            <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-            <link href="css/custom.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+            <link href="<?php echo 'http://localhost/jokes/css/materialize.css' ?>" type="text/css" rel="stylesheet" media="screen,projection"/>
+            <link href="<?php echo 'http://localhost/jokes/css/style.css' ?>" type="text/css" rel="stylesheet" media="screen,projection"/>
+            <link href="<?php echo 'http://localhost/jokes/css/custom.css' ?>" type="text/css" rel="stylesheet" media="screen,projection"/>
             <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+            <?php $this->call_to_actions($actions); ?>
           </head>
           <body>
             <nav id="main-menu" class="amber darken-1" role="navigation">

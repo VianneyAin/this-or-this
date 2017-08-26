@@ -29,17 +29,32 @@
             // the query was prepared, now we replace :id with our actual $id value
             $req->execute(array('user_id' => $user_id));
             $user = $req->fetch();
-            return array(
-                'id' => $user['id'],
-                'username' => $user['username'],
-                'email' => $user['email'],
-                'avatar' => $user['avatar'],
-                //'background_image' => $user['background_image'],
-                'firstname' => $user['firstname'],
-                'lastname' => $user['lastname'],
-                'description' => $user['description'],
-                'display_name' => $this->get_user_display_name($user),
-            );
+            if ($user) {
+                return array(
+                    'id' => $user['id'],
+                    'username' => $user['username'],
+                    'email' => $user['email'],
+                    'avatar' => $user['avatar'],
+                    //'background_image' => $user['background_image'],
+                    'firstname' => $user['firstname'],
+                    'lastname' => $user['lastname'],
+                    'description' => $user['description'],
+                    'display_name' => $this->get_user_display_name($user),
+                );
+            }
+            else {
+                return array(
+                    'id' => '-1',
+                    'username' => "JohnDoe",
+                    'email' => "contact@johndoe.com",
+                    'avatar' => 'http://lorempixel.com/400/200/abstract/',
+                    //'background_image' => $user['background_image'],
+                    'firstname' => 'John',
+                    'lastname' => 'Doe',
+                    'description' => '',
+                    'display_name' => $this->get_user_display_name(array('firstname' => 'John', 'lastname' => 'Doe')),
+                );
+            }
         }
         else {
             return null;

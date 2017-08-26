@@ -82,8 +82,6 @@ class Jokes_Controller extends Application{
                     $this->permission_object->user_do('create_joke');
                     break;
                 case 'admin':
-                    $this->permission_object->user_do('admin_joke');
-                    $this->data = $this->model->get_drafted_jokes();
                     break;
                 default:
                     break;

@@ -182,7 +182,7 @@ class Registration
         unset($_SESSION[$sessionvar]);
 
         session_destroy();
-        
+
         return true;
     }
 
@@ -285,6 +285,7 @@ class Registration
         {
             return false;
         }
+        $_POST = array();
         return true;
     }
 
@@ -298,9 +299,16 @@ class Registration
     {
         if(empty($_POST[$value_name]))
         {
-            return'';
+            if (empty($_GET[$value_name])){
+                return'';
+            }
+            else {
+                return htmlentities($_GET[$value_name]);
+            }
         }
-        return htmlentities($_POST[$value_name]);
+        else {
+            return htmlentities($_POST[$value_name]);
+        }
     }
 
     //username, email, avatar, lastname or firstname
@@ -327,9 +335,15 @@ class Registration
         return $name;
     }
 
-    function RedirectToURL($url)
+    function RedirectToURL($url, $timer = null)
     {
-        header("Location: $url");
+        var_dump($url);
+        if (isset($timer) && !empty($timer)){
+            header("Refresh: $timer; URL=$url");
+        }
+        else {
+            header("Location: $url");
+        }
         exit;
     }
 
@@ -394,7 +408,7 @@ class Registration
 
         if(!$result || sizeof($result) <= 0)
         {
-            $this->HandleError("Error logging in. The username or password does not match");
+            $this->HandleError("Impossible de vous identifier, le mot de passe ou le nom d'utilisateur ne correspondent pas.");
             return false;
         }
 

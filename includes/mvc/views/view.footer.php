@@ -1,6 +1,16 @@
 <?php
   class Footer_View {
-      public function fn_footer_view(){
+      public function call_to_actions($actions){
+          foreach($actions as $location => $actions_array){
+              if ($location == 'footer'){
+                  foreach ($actions_array as $key => $action){
+                       Application::{$action}();
+                  }
+              }
+          }
+      }
+
+      public function fn_footer_view($actions){
           ?>
           <footer class="page-footer orange">
             <div class="container">
@@ -40,6 +50,7 @@
           <!--  Scripts-->
           <script src="js/materialize.js"></script>
           <script src="js/init.js"></script>
+          <?php $this->call_to_actions($actions); ?>
 
           </body>
           </html>

@@ -9,7 +9,6 @@ class Login_Controller extends Application {
     }
 
     public function layout_request() {
-
     }
 
     public function partials_request() {

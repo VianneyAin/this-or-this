@@ -17,17 +17,19 @@ TODO --
 
 -- Version 0.1 :
 X - Pouvoir créer un compte, pouvoir se connecter (username, mot de passe, email seulement, sans validation)
-Page profil pour modifier son mot de passe, poster un avatar, changer son email
 X - Pouvoir poster une blague (après validation par un modérateur)
 X - Page d'accueil avec les dernières blagues
+X - Page admin pour valider les blagues
 
 -- Version 0.2 :
+Pouvoir modifier / corriger une blague avant de la poster
 Pouvoir noter une blague
 Classements des blagues
 Système de points d'expériences utilisateur, niveaux
 Classement des blagueurs
 Catégorie de blagues
 Page catégorie
+Page profil pour modifier son mot de passe, poster un avatar, changer son email
 
 -- Version 0.3 :
 Pouvoir proposer une édition de blague => demande à l'auteur
@@ -42,3 +44,8 @@ Algorithme de proposition de blague
 
 -- Version 0.6 :
 Blague version tinder (j'aime / j'aime pas / favoris ) => suivant
+
+
+
+-- FUTURE
+Remember me checkbox

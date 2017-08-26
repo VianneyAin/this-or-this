@@ -5,7 +5,7 @@
           {
              if($registration->RegisterUser())
              {
-                  $registration->RedirectToURL("http://localhost/jokes");
+                  $success_message = 'Votre compte à bien été crée. Vous allez être redirigé dans quelques secondes.';
              }
           }
           ?>
@@ -52,6 +52,19 @@
                             </div>
                         </div>
                         <?php }?>
+                        <?php if (isset($success_message) && !empty($success_message)){ ?>
+                        <div class="row">
+                            <div class="col s12 success">
+                                <i class="material-icons">check</i>
+                                <?php echo $success_message; ?>
+                            </div>
+                        </div>
+                        <script>
+                            setTimeout(function () {
+                               window.location.href= 'http://localhost/jokes/connexion?username=<?php echo $registration->SafeDisplay('username') ?>'; // the redirect goes here
+                            },5000); // 5 seconds
+                        </script>
+                        <?php } ?>
                       </form>
                     </div>
                     <div class="row right-align">
