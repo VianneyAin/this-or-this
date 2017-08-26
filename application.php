@@ -111,6 +111,10 @@ class Application {
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');
                 $this->controller = new Admin_Controller($this->routes);
                 break;
+            case 'version':
+                require_once('includes/mvc/controllers/controller.' . $controller . '.php');
+                $this->controller = new Version_Controller($this->routes);
+                break;
             case 'error':
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');
                 $this->controller = new Error_Controller();

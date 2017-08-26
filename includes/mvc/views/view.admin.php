@@ -178,6 +178,7 @@ class Admin_View {
                 cache.push(data);
                 jQuery(element).find('.joke-title').html('<input type="text" placeholder="Proposer un titre" value="'+title+'" />');
                 jQuery(element).find('.joke-content').html('<textarea class="materialize-textarea type="text" placeholder="Proposer un titre">'+content+'</textarea>');
+                jQuery(element).find('textarea').trigger('autoresize');
                 jQuery(element).find('.edit-action').show();
                 jQuery(element).find('.admin-action').hide();
                 jQuery(element).addClass('edited');
@@ -245,7 +246,7 @@ class Admin_View {
                         });
                     }
                     else {
-                        alert(data.message);
+                        Materialize.toast(data.message, 4000);
                     }
                 }
             });
@@ -327,7 +328,7 @@ class Admin_View {
                         });
                     }
                     else {
-                        alert(data.message);
+                        Materialize.toast(data.message, 4000);
                     }
                 }
             });
