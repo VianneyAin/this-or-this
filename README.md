@@ -20,7 +20,7 @@ We use [GitHub](https://github.com/) for versioning. For the versions available,
 
 * **Vianney Aïn** - *Initial work* - [VianneyAïn](http://vianneyain.com)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/VianneyAin/jokes/contributors) who participated in this project.
 
 ## License
 

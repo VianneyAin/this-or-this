@@ -54,7 +54,10 @@
                                    - Section administration : validation des nouvelles blagues
                                </li>
                                <li>
-
+                                   - Possibilité de modifier son mot de passe / son adresse email sur son profil
+                               </li>
+                               <li>
+                                   - Possibilité de modifier son avatar sur son profil
                                </li>
                            </ul>
                        </div>
