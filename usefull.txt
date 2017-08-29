@@ -3,3 +3,6 @@ http://blogs.shephertz.com/2014/05/21/how-to-implement-url-routing-in-php/
 
 #MVC Web Site in php
 http://requiremind.com/a-most-simple-php-mvc-beginners-tutorial/
+
+#cloudinary
+https://cloudinary.com/console

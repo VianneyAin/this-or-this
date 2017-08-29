@@ -85,3 +85,13 @@ main {
 
   .facts{text-align:center}
   .facts .card i{display:block;font-size:58px}
+
+  .autoWidth {
+      height:100%;
+      width:auto;
+  }
+
+  .autoHeight {
+      height:auto;
+      width:100%;
+  }

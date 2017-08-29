@@ -7,6 +7,12 @@ class Profile_Controller extends Application {
         $this->model = new Profile_Model();
         require_once(dirname(__FILE__).'/../views/view.profile.php');
         $this->view = new Profile_View($this->user_object);
+        Application::cloudinary();
+        \Cloudinary::config(array(
+          "cloud_name" => "dzfbgwvgr",
+          "api_key" => "368456582725284",
+          "api_secret" => "7Lqf6jDfM2FO8EEMNSaX9tte5t8"
+        ));
     }
 
     public function layout_request() {

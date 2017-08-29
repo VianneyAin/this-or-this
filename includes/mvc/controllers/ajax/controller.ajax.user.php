@@ -7,6 +7,31 @@ class User_Ajax_Controller {
         $this->user_object = $user_object;
     }
 
+    public function update_own_avatar(){
+        //must be owner to updates user infos
+        if ( isset($_REQUEST['avatar']) && !empty($_REQUEST['avatar']) ){
+            if (isset($this->user_object->userID) ){
+                return $this->model->update_user_avatar($this->user_object->userID, htmlspecialchars($_REQUEST['avatar']));
+            }
+            else {
+                $message = array(
+                        'message' => "Vous devez être connecté pour effectuée cette action.",
+                        'code' => '420',
+                        'success' => false,
+                );
+                return $message;
+            }
+        }
+        else {
+            $message = array(
+                    'message' => "Veuillez renseigner le champ avatar.",
+                    'code' => '419',
+                    'success' => false,
+            );
+            return $message;
+        }
+    }
+
     public function update_own_infos(){
         //must be owner to updates user infos
         if ( (isset($_REQUEST['data']['user_id']) && !empty($_REQUEST['data']['user_id']) && intval($_REQUEST['data']['user_id']) == $this->user_object->userID) || $this->user_object->is_admin){
@@ -28,7 +53,7 @@ class User_Ajax_Controller {
                         }
                         else {
                             $message = array(
-                                    'message' => "New passwords are not matching.",
+                                    'message' => "Les nouveaux mots de passe ne correspondent pas.",
                                     'code' => '417',
                                     'success' => false,
                             );

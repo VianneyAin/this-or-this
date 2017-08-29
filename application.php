@@ -99,6 +99,7 @@ class Application {
                 break;
             case 'profil':
             case 'profile':
+                $this->add_action('header', 'cloudinary_js');
                 require_once('includes/mvc/controllers/controller.profile.php');
                 $this->controller = new Profile_Controller();
                 break;
@@ -205,6 +206,21 @@ class Application {
     public static function display_ajax_url(){
         ?>
         <script type="text/javascript">var ajaxurl = "http://localhost/jokes/ajax";</script>
+        <?php
+    }
+
+    public static function cloudinary(){
+        require_once( 'includes/lib/cloudinary/Cloudinary.php' );
+        require_once( 'includes/lib/cloudinary/Uploader.php' );
+        require_once( 'includes/lib/cloudinary/Api.php' );
+    }
+
+    public static function cloudinary_js(){
+        ?>
+        <script type="text/javascript" src="http://localhost//jokes/js/cloudinary/jquery.ui.widget.js"></script>
+        <script type="text/javascript" src="http://localhost//jokes/js/cloudinary/jquery.iframe-transport.js"></script>
+        <script type="text/javascript" src="http://localhost//jokes/js/cloudinary/jquery.fileupload.js"></script>
+        <script type="text/javascript" src="http://localhost//jokes/js/cloudinary/jquery.cloudinary.js"></script>
         <?php
     }
 

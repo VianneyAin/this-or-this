@@ -525,26 +525,38 @@ class Profile_View {
         $(document).ready(function(){
             $('.jumbo .parallax').parallax();
             $('.modal').modal();
+            jQuery('.big-icon img').change(function(){
+                if (jQuery('.big-icon img').prop('naturalHeight') < jQuery('.big-icon img').prop('naturalWidth')){
+                    jQuery('.big-icon img').removeClass('autoHeight').addClass('autoWidth');
+                }
+                else {
+                    jQuery('.big-icon img').removeClass('autoWidth').addClass('autoHeight');
+                }
+            });
         });
         </script>
         <?php
     }
 
     public function modal_edit_avatar($user){
+
+        if (array_key_exists('REQUEST_SCHEME', $_SERVER)) {
+          $cors_location = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"] .
+            dirname($_SERVER["SCRIPT_NAME"]) . "/cloudinary_cors.html";
+        } else {
+          $cors_location = "http://" . $_SERVER["HTTP_HOST"] . "/cloudinary_cors.html";
+        }
+
         ?>
         <style>
-
-        #avatar-preview {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 2px solid white;
-            overflow: hidden;
-            padding:0px;
-        }
-        #avatar-preview img {
-            max-width:100%;
-        }
+            #avatar-preview {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                border: 2px solid white;
+                overflow: hidden;
+                padding:0px;
+            }
         </style>
         <!-- Modal Structure -->
         <div id="modal_edit_avatar" class="modal">
@@ -557,13 +569,17 @@ class Profile_View {
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>File</span>
-                        <input type="file" accept=".png, .jpg, .jpeg" onchange='openFile(event)'>
+                        <?php echo cl_image_upload_tag('image_id', array("callback" => $cors_location)); ?>
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="Modifier votre avatar">
                     </div>
                 </div>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Changer d'avatar
+
+                <div class="avatar-progress progress" style="display:none;">
+                     <div class="determinate" style="width: 0%"></div>
+                 </div>
+                <button id="avatar-submit" class="btn waves-effect waves-light" type="submit" disabled name="action" onclick="changeAvatar()">Changer d'avatar
                     <i class="material-icons right">send</i>
                 </button>
             </div>
@@ -571,17 +587,67 @@ class Profile_View {
                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fermer</a>
             </div>
         </div>
+        <?php echo cloudinary_js_config(); ?>
         <script type="text/javascript">
-        var openFile = function(event) {
-            var input = event.target;
+            $(function() {
+              if($.fn.cloudinary_fileupload !== undefined) {
+                $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
+              }
+            });
 
-            var reader = new FileReader();
-            reader.onload = function(){
-              var dataURL = reader.result;
-              jQuery('#avatar-preview img').attr('src', dataURL);
-            };
-            reader.readAsDataURL(input.files[0]);
-        };
+            $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
+              $('.avatar-progress').show();
+              $('.avatar-progress .determinate').css('width', Math.round((data.loaded * 100.0) / data.total) + '%');
+            });
+
+            $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {
+                jQuery('#avatar-submit').prop('disabled', false);
+                var dataURL = data.result.url;
+                jQuery('#avatar-preview img').attr('src', dataURL);
+                if (jQuery('#avatar-preview img').prop('naturalHeight') < jQuery('#avatar-preview img').prop('naturalWidth')){
+                    jQuery('#avatar-preview img').removeClass('autoHeight').addClass('autoWidth');
+                }
+                else {
+                    jQuery('#avatar-preview img').removeClass('autoWidth').addClass('autoHeight');
+                }
+              return true;
+            });
+            function changeAvatar(){
+                if (jQuery('#avatar-preview img').attr('src')){
+                     var ajax = $.ajax({
+                         url: ajaxurl,
+                         data: {
+                             from: <?php echo "'".$this->user_object->user_role."'"; ?>,
+                             action: 'update_own_avatar',
+                             avatar : jQuery('#avatar-preview img').attr('src'),
+                         },
+                         type: 'POST',
+                         dataType : 'json',
+                         beforeSend: function (jqXHR, settings) {
+                             url = settings.url + "?" + settings.data;
+                             console.log(url);
+                         },
+                         error: function (thrownError) {
+                             console.log(thrownError);
+                             alert(thrownError.responseText);
+                         },
+                         complete: function () {
+                         },
+                         success: function (data, status) {
+                             if ( data.success){
+                                 Materialize.toast(data.message, 4000);
+                                 jQuery('input[type="file"]').val('');
+                                 jQuery('.big-icon img').attr('src', jQuery('#avatar-preview img').attr('src'));
+                                 jQuery('#avatar-submit').prop('disabled', true);
+                                 $('.avatar-progress').hide();
+                             }
+                             else {
+                                 Materialize.toast(data.message, 4000);
+                             }
+                         }
+                     });
+                 }
+            }
         </script>
         <?php
     }
