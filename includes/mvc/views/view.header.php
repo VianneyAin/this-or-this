@@ -27,6 +27,7 @@
             <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
             <script src="<?php echo 'http://localhost/jokes/js/materialize.js' ?>"></script>
             <script src="<?php echo 'http://localhost/jokes/js/init.js' ?>"></script>
+            <script src="<?php echo 'http://localhost/jokes/js/validate.js' ?>"></script>
             <?php $this->call_to_actions($actions); ?>
           </head>
           <body>

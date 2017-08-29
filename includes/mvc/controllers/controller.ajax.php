@@ -30,6 +30,14 @@ class Ajax_Controller extends Application{
             'action' => 'delete_joke', //the method called in the ajax controller
             'permission' => 'delete_jokes', //the name of the permission to execute the action, has to be set in permission.php
         ),
+        'update_own_infos'  => array(
+            'controller' => array(
+                    'file_name' => 'user', //the ajax controller called by this action
+                    'controller_name' => 'User_Ajax',
+            ),
+            'action' => 'update_own_infos', //the method called in the ajax controller
+            'permission' => 'update_own_infos', //the name of the permission to execute the action, has to be set in permission.php
+        ),
     );
 
     public function __construct($routes){
@@ -42,13 +50,22 @@ class Ajax_Controller extends Application{
     }
 
     public function ajax_listen_action(){
-        if (isset($_REQUEST['from']) && !empty($_REQUEST['from']) && $_REQUEST['from'] == 'admin'){
-            if (isset($_REQUEST['action']) && !empty($_REQUEST['action']) && array_key_exists($_REQUEST['action'], $this->valid_actions) ){
-                $this->action = htmlspecialchars($_REQUEST['action']);
+        if (isset($_REQUEST['from']) && !empty($_REQUEST['from'])){
+            if ($this->check_from_action($_REQUEST['from'])){
+                if (isset($_REQUEST['action']) && !empty($_REQUEST['action']) && array_key_exists($_REQUEST['action'], $this->valid_actions) ){
+                    $this->action = htmlspecialchars($_REQUEST['action']);
+                }
+                else {
+                    $message = array(
+                            'message' => 'Missing or invalid action.',
+                            'success' => false,
+                    );
+                    return $message;
+                }
             }
             else {
                 $message = array(
-                        'message' => 'Missing or invalid action.',
+                        'message' => 'Who are you, haxxor ?',
                         'success' => false,
                 );
                 return $message;
@@ -69,7 +86,7 @@ class Ajax_Controller extends Application{
                 if ($this->permission_object->user_do($action_data['permission'])){
                     require_once('includes/mvc/controllers/ajax/controller.ajax.' . $action_data['controller']['file_name'] . '.php');
                     $controller_name = $action_data['controller']['controller_name'].'_Controller';
-                    $this->ajax_controller = new $controller_name();
+                    $this->ajax_controller = new $controller_name($this->user_object);
                     return $this->ajax_controller->$action_data['action']();
                 }
                 else {
@@ -81,6 +98,23 @@ class Ajax_Controller extends Application{
                 }
             }
         }
+    }
+
+    public function check_from_action($from){
+        switch ($from){
+            //if request is from admin, we check it is really an admin
+            case 'admin':
+                if (!$this->user_object->is_admin)
+                    return false;
+                break;
+            case 'user':
+                break;
+            case 'guest':
+                break;
+            default:
+                break;
+        }
+        return true;
     }
 
     public function check_callback(){

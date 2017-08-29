@@ -678,70 +678,21 @@ class Profile_View {
                 password:{
                     required: "Veuillez entrer votre mot de passe avant de continuer",
                 },
+                new_password: {
+    				minlength: "Ce champ doit faire au moins 5 caractères.",
+    			},
+                new_password_repeat: {
+    				equalTo: "Les deux mots de passe doivent être identiques.",
+    			},
+                default : {
+                    equalTo: "DEFAULT Les deux mots de passe doivent être identiques.",
+                    required: "DEFAULT Ce champ est requis",
+                    minlength: "Ce champs ne respecte pas la taille minimale.",
+                    email: "Veuillez entrer une adresse email valide.",
+                }
             },
         }
 
-        function check_required(value){
-            if (value && value != '' && value != undefined){
-                return true;
-            }
-            return false;
-        }
-
-        function check_email(email) {
-            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(email);
-        }
-
-        function check_error(field_value, rules){
-            error = null;
-            $.each(rules, function(rule_key, rule_value){
-                if (!error){
-                    switch(rule_key){
-                        case 'required':
-                            if (rule_value == true && !check_required(field_value)){
-                                error = rule_key;
-                            }
-                            break;
-                        case 'email':
-                            if (rule_value == true && !check_email(field_value)){
-                                console.log(field_value);
-                                error = rule_key;
-                            }
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            });
-            return error;
-        }
-
-        function display_error(form, element, message){
-            jQuery(form).find('#'+element).parent().find('.input-error').remove();
-            jQuery(form).find('#'+element).addClass('invalid');
-            jQuery(form).find('#'+element).after('<div class="input-error">'+message+'</div>');
-        }
-
-        function validate_form(form_name, validation_rules){
-            $error_found = false;
-            $.each(validation_rules['rules'], function(key, value) {
-                var error_type = check_error(jQuery(form_name).find('#'+key).val(), value);
-                console.log(error_type);
-                if (error_type){
-                    if (validation_rules['messages'][key] != undefined && validation_rules['messages'][key][error_type] != undefined){
-                        $error_found = false;
-                        display_error(form_name, key, validation_rules['messages'][key][error_type]);
-                    }
-                    else {
-                        $error_found = false;
-                        display_error(form_name, key, 'Ce champs est incorrect.');
-                    }
-
-                }
-            });
-            return $error_found;
-        }
 
         function save_user_infos_change(){
             var data = new Object();
@@ -751,39 +702,40 @@ class Profile_View {
             data.new_password = jQuery('#modal_edit_user_infos #new_password').val();
             data.new_password_repeat = jQuery('#modal_edit_user_infos #new_password_repeat').val();
             data.password = jQuery('#modal_edit_user_infos #password').val();
-            validate_form('#modal_edit_user_infos', form_validation);
-            /*var ajax = $.ajax({
-                url: ajaxurl,
-                data: {
-                    from: <?php echo $this->user_object->user_role; ?>,
-                    action: 'update_user_infos',
-                    id : id,
-                },
-                type: 'POST',
-                dataType : 'json',
-                beforeSend: function (jqXHR, settings) {
-                    url = settings.url + "?" + settings.data;
-                    console.log(url);
-                },
-                error: function (thrownError) {
-                    console.log(thrownError);
-                    alert(thrownError.responseText);
-                },
-                complete: function () {
-                },
-                success: function (data, status) {
-                    console.log(data);
-                    if ( data.success){
-                        Materialize.toast(data.message, 4000);
-                        jQuery(element).fadeOut( "slow", function() {
-                            // Animation complete.
-                        });
+            if (validate_form('#modal_edit_user_infos', form_validation)){
+                var ajax = $.ajax({
+                    url: ajaxurl,
+                    data: {
+                        from: <?php echo "'".$this->user_object->user_role."'"; ?>,
+                        action: 'update_own_infos',
+                        data : data,
+                    },
+                    type: 'POST',
+                    dataType : 'json',
+                    beforeSend: function (jqXHR, settings) {
+                        url = settings.url + "?" + settings.data;
+                        console.log(url);
+                    },
+                    error: function (thrownError) {
+                        console.log(thrownError);
+                        alert(thrownError.responseText);
+                    },
+                    complete: function () {
+                    },
+                    success: function (data, status) {
+                        console.log(data);
+                        if ( data.success){
+                            Materialize.toast(data.message, 4000);
+                            jQuery('#modal_edit_user_infos #new_password').val('');
+                            jQuery('#modal_edit_user_infos #new_password_repeat').val('');
+                            jQuery('#modal_edit_user_infos #password').val('');
+                        }
+                        else {
+                            Materialize.toast(data.message, 4000);
+                        }
                     }
-                    else {
-                        Materialize.toast(data.message, 4000);
-                    }
-                }
-            });*/
+                });
+            }
         }
         </script>
         <?php

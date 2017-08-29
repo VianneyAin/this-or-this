@@ -199,6 +199,12 @@ class Permission
 					),
 					'redirect' => 'error',
 				),
+				'update_own_infos' => array(
+					'roles' => array(
+						'admin', 'user',
+					),
+					'redirect' => 'error',
+				)
 			),
 		);
 	}
