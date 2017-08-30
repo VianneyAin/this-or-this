@@ -1,14 +1,16 @@
 <?php
 class Jokes_View {
-    public function __construct() {
+    private $user_object;
 
+    public function __construct($user_object) {
+        $this->user_object = $user_object;
     }
 
     public function single_joke_view($joke){
         ?>
         <div class="container">
             <div class="section">
-                <div class="card">
+                <div class="card joke" data-id="<?php echo $joke['id']; ?>">
                     <div class="card-header">
                         <div class="chip">
                             <img src="<?php echo $joke['author']['avatar']; ?>" alt="Avatar">
@@ -23,15 +25,25 @@ class Jokes_View {
                             <?php echo $joke['content']; ?>
                         </div>
                     </div>
-                    <div class="card-action">
-                        <div class="rating-action" data-rate="">
-                            <i class="ratings_stars material-icons" data-rate="1">star_border</i>
-                            <i class="ratings_stars material-icons" data-rate="2">star_border</i>
-                            <i class="ratings_stars material-icons" data-rate="3">star_border</i>
-                            <i class="ratings_stars material-icons" data-rate="4">star_border</i>
-                            <i class="ratings_stars material-icons" data-rate="5">star_border</i>
+                    <?php if (isset($this->user_object) && isset($this->user_object->userID) && !empty($this->user_object->userID)){ ?>
+                        <div class="card-action">
+                            <?php
+                            if (isset($joke['user_rating']) && isset($joke['user_rating']['value'])){
+                                $rating = $joke['user_rating']['value'];
+                            }
+                            else {
+                                $rating = 0;
+                            }
+                            ?>
+                            <div class="rating-action" data-rate="<?php echo $rating; ?>">
+                                <i class="ratings_stars material-icons" data-rate="1">star_border</i>
+                                <i class="ratings_stars material-icons" data-rate="2">star_border</i>
+                                <i class="ratings_stars material-icons" data-rate="3">star_border</i>
+                                <i class="ratings_stars material-icons" data-rate="4">star_border</i>
+                                <i class="ratings_stars material-icons" data-rate="5">star_border</i>
+                            </div>
                         </div>
-                    </div>
+                    <?php } ?>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Que souhaitez-vous faire ?<i class="material-icons right">close</i></span>
                         <a>Proposer une correction</a><br>

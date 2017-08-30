@@ -1,13 +1,23 @@
 <?php
   class Jokes_Model {
-    public function __construct() {
+    private $user_object;
 
+    public function __construct($user_object) {
+        $this->user_object = $user_object;
     }
 
     public function get_joke_by_id($joke_id){
         $db = Db::getInstance();
         // we make sure $id is an integer
         $id = intval($joke_id);
+
+        if (isset($this->user_object->userID) && !empty($this->user_object->userID)){
+            $user_id = $this->user_object->userID;
+            $req = $db->prepare("SELECT * FROM rates WHERE user = '$user_id' && joke = '$id'");
+            $req->execute(array('id' => $id));
+            $rate = $req->fetch();
+        }
+
         $req = $db->prepare('SELECT * FROM jokes WHERE id = :id');
         // the query was prepared, now we replace :id with our actual $id value
         $req->execute(array('id' => $id));
@@ -18,6 +28,7 @@
                 'content' => $post['content'],
                 'author' => $this->get_user_by_id($post['author']),
                 'status' => $post['status'],
+                'user_rating' => $rate
         );
     }
 

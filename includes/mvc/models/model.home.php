@@ -1,7 +1,9 @@
 <?php
   class Home_Model {
-    public function __construct() {
+    private $user_object;
 
+    public function __construct($user_object) {
+        $this->user_object = $user_object;
     }
 
     public function get_last_jokes($limit = null){
@@ -13,6 +15,16 @@
             foreach ($posts as $key => $post){
                 if (isset($post['author'])){
                     $posts[$key]['author'] = $this->get_user_by_id($post['author']);
+                }
+                if (isset($post['id'])){
+                    $id = $post['id'];
+                    if (isset($this->user_object->userID) && !empty($this->user_object->userID)){
+                        $user_id = $this->user_object->userID;
+                        $req = $db->prepare("SELECT * FROM rates WHERE user = '$user_id' && joke = '$id'");
+                        $req->execute(array('id' => $id));
+                        $rate = $req->fetch();
+                        $posts[$key]['user_rating'] = $rate;
+                    }
                 }
             }
             return $posts;

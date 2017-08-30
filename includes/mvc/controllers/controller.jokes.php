@@ -20,9 +20,9 @@ class Jokes_Controller extends Application{
         parent::__construct();//get parent's variables
         $this->routes = $routes;
         require_once(dirname(__FILE__).'/../models/model.jokes.php');
-        $this->model = new Jokes_Model();
+        $this->model = new Jokes_Model($this->user_object);
         require_once(dirname(__FILE__).'/../views/view.jokes.php');
-        $this->view = new Jokes_View();
+        $this->view = new Jokes_View($this->user_object);
         $this->jokes_listen_get();
         $this->jokes_listen_post();
     }
@@ -87,6 +87,7 @@ class Jokes_Controller extends Application{
                 $this->data = $this->model->get_joke_by_id(intval($this->routes[1]));
             }
         }
+        //default /blague page
         else {
 
         }
@@ -120,6 +121,7 @@ class Jokes_Controller extends Application{
                 $this->view->single_joke_view($this->data);
             }
         }
+        //default /blague page
         else {
 
         }

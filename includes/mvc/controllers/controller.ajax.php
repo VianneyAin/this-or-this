@@ -62,6 +62,14 @@ class Ajax_Controller extends Application{
             'action' => 'update_own_wallpaper', //the method called in the ajax controller
             'permission' => 'update_own_infos', //the name of the permission to execute the action, has to be set in permission.php
         ),
+        'rate_joke'  => array(
+            'controller' => array(
+                    'file_name' => 'jokes', //the ajax controller called by this action
+                    'controller_name' => 'Jokes_Ajax',
+            ),
+            'action' => 'rate_joke', //the method called in the ajax controller
+            'permission' => 'rate_joke', //the name of the permission to execute the action, has to be set in permission.php
+        ),
     );
 
     public function __construct($routes){

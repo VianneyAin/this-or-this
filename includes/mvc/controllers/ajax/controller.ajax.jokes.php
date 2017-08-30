@@ -1,9 +1,11 @@
 <?php
 class Jokes_Ajax_Controller {
-
-    public function __construct(){
+    private $user_object;
+    
+    public function __construct($user_object){
         require_once(dirname(__FILE__).'/../../models/ajax/model.ajax.jokes.php');
-        $this->model = new Jokes_Ajax_Model();
+        $this->model = new Jokes_Ajax_Model($user_object);
+        $this->user_object = $user_object;
     }
 
     public function update_status(){
@@ -70,6 +72,23 @@ class Jokes_Ajax_Controller {
             $message = array(
                     'message' => 'Une erreur est survenue.',
                     'code' => '411',
+                    'success' => false,
+            );
+            return $message;
+        }
+    }
+
+    public function rate_joke(){
+        if (isset($_REQUEST['joke_id']) && !empty($_REQUEST['joke_id']) && isset($_REQUEST['rate_value']) && !empty($_REQUEST['rate_value'])){
+            $joke_id = intval($_REQUEST['joke_id']);
+            $rate_value = intval($_REQUEST['rate_value']);
+            return $this->model->rate_joke($joke_id, $rate_value);
+
+        }
+        else {
+            $message = array(
+                    'message' => 'Une erreur est survenue.',
+                    'code' => '425',
                     'success' => false,
             );
             return $message;

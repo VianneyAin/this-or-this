@@ -204,7 +204,13 @@ class Permission
 						'admin', 'user',
 					),
 					'redirect' => 'error',
-				)
+				),
+				'rate_joke' => array(
+					'roles' => array(
+						'admin', 'user',
+					),
+					'redirect' => 'error',
+				),
 			),
 		);
 	}
