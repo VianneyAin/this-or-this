@@ -7,6 +7,31 @@ class User_Ajax_Controller {
         $this->user_object = $user_object;
     }
 
+    public function update_own_description(){
+        //must be owner to updates user infos
+        if ( isset($_REQUEST['description']) && !empty($_REQUEST['description']) ){
+            if (isset($this->user_object->userID) ){
+                return $this->model->update_user_description($this->user_object->userID, htmlspecialchars($_REQUEST['description']));
+            }
+            else {
+                $message = array(
+                        'message' => "Vous devez être connecté pour effectuée cette action.",
+                        'code' => '423',
+                        'success' => false,
+                );
+                return $message;
+            }
+        }
+        else {
+            $message = array(
+                    'message' => "Veuillez renseigner le champ description.",
+                    'code' => '422',
+                    'success' => false,
+            );
+            return $message;
+        }
+    }
+
     public function update_own_avatar(){
         //must be owner to updates user infos
         if ( isset($_REQUEST['avatar']) && !empty($_REQUEST['avatar']) ){

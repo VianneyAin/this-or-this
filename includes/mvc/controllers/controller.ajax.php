@@ -46,6 +46,14 @@ class Ajax_Controller extends Application{
             'action' => 'update_own_avatar', //the method called in the ajax controller
             'permission' => 'update_own_infos', //the name of the permission to execute the action, has to be set in permission.php
         ),
+        'update_own_description'  => array(
+            'controller' => array(
+                    'file_name' => 'user', //the ajax controller called by this action
+                    'controller_name' => 'User_Ajax',
+            ),
+            'action' => 'update_own_description', //the method called in the ajax controller
+            'permission' => 'update_own_infos', //the name of the permission to execute the action, has to be set in permission.php
+        ),
     );
 
     public function __construct($routes){

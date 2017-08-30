@@ -310,7 +310,7 @@ class Profile_View {
                 </a>
                 <ul>
                     <li><a class="btn-floating red tooltipped" data-position="bottom" data-delay="50" data-tooltip="Modifier votre image de mur"><i class="material-icons">airplay</i></a></li>
-                    <li><a class="btn-floating yellow darken-1 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Modifier votre biographie"><i class="material-icons">format_quote</i></a></li>
+                    <li><a href="#modal_edit_desc" class="btn-floating yellow darken-1 tooltipped modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Modifier votre biographie"><i class="material-icons">format_quote</i></a></li>
                     <li><a href="#modal_edit_avatar" class="btn-floating green tooltipped modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Modifier votre avatar"><i class="material-icons">image</i></a></li>
                     <li><a href="#modal_edit_user_infos" class="btn-floating blue tooltipped modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Modifier vos informations"><i class="material-icons">person_pin</i></a></li>
                 </ul>
@@ -320,9 +320,9 @@ class Profile_View {
             <h3><?php echo $user['display_name'] ?></h3>
             <p>Actor / Environmentalist</p>
         </div>
-        <div class="container bio">
+        <div class="container description-container bio">
             <div class="title">
-                <h6>Biographie</h6>
+                <h6>Description</h6>
             </div>
             <div class="content">
                 <p><?php echo $user['description'] ?></p>
@@ -521,6 +521,7 @@ class Profile_View {
 
         <?php $this->modal_edit_avatar($user); ?>
         <?php $this->modal_edit_user_infos($user); ?>
+        <?php $this->modal_edit_desc($user); ?>
         <script>
         $(document).ready(function(){
             $('.jumbo .parallax').parallax();
@@ -534,6 +535,87 @@ class Profile_View {
                 }
             });
         });
+        </script>
+        <?php
+    }
+
+    public function modal_edit_desc($user){
+        ?>
+        <!-- Modal Structure -->
+        <div id="modal_edit_desc" class="modal">
+            <div class="modal-content center-align">
+                <div class="row">
+                    <p>Decrivez-vous en quelques mots, mettez votre meilleur blague... Cette description sera visible par tous sur votre profil.</p>
+                </div>
+                <div class="row">
+                   <form class="col s12">
+                     <div class="row">
+                       <div class="input-field col s12">
+                         <textarea id="desc-textarea" class="materialize-textarea" default="<?php echo $user['description']; ?>"><?php echo $user['description']; ?></textarea>
+                         <label for="textarea1">Votre description</label>
+                       </div>
+                     </div>
+                   </form>
+                 </div>
+                <button id="desc-submit" class="btn waves-effect waves-light" type="submit" disabled name="action" onclick='changeDesc(this)'>Sauvegarder les changements
+                    <i class="material-icons right">send</i>
+                </button>
+                <div class="description-progress progress" style="display:none;">
+                     <div class="indeterminate"></div>
+                 </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fermer</a>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $('#desc-textarea').trigger('autoresize');
+            $('#desc-textarea').bind('input propertychange', function() {
+                if (jQuery(this).val() != jQuery(this).attr('default')){
+                    jQuery('#desc-submit').prop('disabled', false);
+                }
+                else {
+                    jQuery('#desc-submit').prop('disabled', true);
+                }
+            });
+            function changeDesc(clicked){
+                if (jQuery('#desc-submit').prop('disabled') == false){
+                    var description = jQuery('#desc-textarea').val();
+                    var ajax = $.ajax({
+                        url: ajaxurl,
+                        data: {
+                            from: <?php echo "'".$this->user_object->user_role."'"; ?>,
+                            action: 'update_own_description',
+                            description : description,
+                        },
+                        type: 'POST',
+                        dataType : 'json',
+                        beforeSend: function (jqXHR, settings) {
+                            url = settings.url + "?" + settings.data;
+                            console.log(url);
+                            jQuery('.description-progress').show();
+                        },
+                        error: function (thrownError) {
+                            console.log(thrownError);
+                            alert(thrownError.responseText);
+                        },
+                        complete: function () {
+                            jQuery('.description-progress').hide();
+                        },
+                        success: function (data, status) {
+                            if ( data.success){
+                                Materialize.toast(data.message, 4000);
+                                jQuery('.description-container .content').text(description);
+                                $('#desc-textarea').attr('default', description);
+                                jQuery('#desc-submit').prop('disabled', true);
+                            }
+                            else {
+                                Materialize.toast(data.message, 4000);
+                            }
+                        }
+                    });
+                }
+            }
         </script>
         <?php
     }

@@ -4,6 +4,34 @@
 
     }
 
+    public function update_user_description($user_id, $description){
+        $sql = "UPDATE users SET ";
+        $sql .= "description = '$description' ";
+
+        $sql .= "WHERE id='$user_id'";
+
+        $db = Db::getInstance();
+        $qry = $db->quote($sql);
+        $qry = $db->prepare($sql);
+        $qry->execute();
+
+        if ($qry->rowCount() == 1){
+            $message = array(
+                    'message' => "La description a bien été modifié.",
+                    'success' => true,
+            );
+            return $message;
+        }
+        else {
+            $message = array(
+                    'message' => "Une erreur s'est produite.",
+                    'code' => '424',
+                    'success' => false,
+            );
+            return $message;
+        }
+    }
+
     public function update_user_avatar($user_id, $avatar){
         $sql = "UPDATE users SET ";
         $sql .= "avatar = '$avatar' ";
@@ -11,6 +39,7 @@
         $sql .= "WHERE id='$user_id'";
 
         $db = Db::getInstance();
+        $qry = $db->quote($sql);
         $qry = $db->prepare($sql);
         $qry->execute();
 
@@ -46,6 +75,7 @@
         $sql .= "WHERE username='$username' and password='$pwdmd5'";
 
         $db = Db::getInstance();
+        $qry = $db->quote($sql);
         $qry = $db->prepare($sql);
         $qry->execute();
 
