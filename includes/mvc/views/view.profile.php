@@ -295,7 +295,7 @@ class Profile_View {
         </style>
         <div class="jumbo parallax-container">
             <div class="parallax">
-                <img src="http://cine.nl/wp-content/uploads/2015/07/the-revenant-trailer.jpg" style="display: block; transform: translate3d(-50%, 457px, 0px);">
+                <img src="<?php echo $user['wallpaper']; ?>" style="display: block; transform: translate3d(-50%, 457px, 0px);">
             </div>
         </div>
         <div class="container icons">
@@ -309,7 +309,7 @@ class Profile_View {
                     <i class="material-icons">create</i>
                 </a>
                 <ul>
-                    <li><a class="btn-floating red tooltipped" data-position="bottom" data-delay="50" data-tooltip="Modifier votre image de mur"><i class="material-icons">airplay</i></a></li>
+                    <li><a href="#modal_edit_wallpaper" class="btn-floating red tooltipped modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Modifier votre image de mur"><i class="material-icons">airplay</i></a></li>
                     <li><a href="#modal_edit_desc" class="btn-floating yellow darken-1 tooltipped modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Modifier votre biographie"><i class="material-icons">format_quote</i></a></li>
                     <li><a href="#modal_edit_avatar" class="btn-floating green tooltipped modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Modifier votre avatar"><i class="material-icons">image</i></a></li>
                     <li><a href="#modal_edit_user_infos" class="btn-floating blue tooltipped modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Modifier vos informations"><i class="material-icons">person_pin</i></a></li>
@@ -522,6 +522,7 @@ class Profile_View {
         <?php $this->modal_edit_avatar($user); ?>
         <?php $this->modal_edit_user_infos($user); ?>
         <?php $this->modal_edit_desc($user); ?>
+        <?php $this->modal_edit_wallpaper($user); ?>
         <script>
         $(document).ready(function(){
             $('.jumbo .parallax').parallax();
@@ -620,6 +621,112 @@ class Profile_View {
         <?php
     }
 
+
+    public function modal_edit_wallpaper($user){
+        if (array_key_exists('REQUEST_SCHEME', $_SERVER)) {
+          $cors_location = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"] .
+            dirname($_SERVER["SCRIPT_NAME"]) . "/cloudinary_cors.html";
+        } else {
+          $cors_location = "http://" . $_SERVER["HTTP_HOST"] . "/cloudinary_cors.html";
+        }
+
+        ?>
+        <style>
+        #wallpaper-preview {
+            overflow:hidden;
+            height:200px;
+            background-size:cover;
+        }
+        </style>
+        <!-- Modal Structure -->
+        <div id="modal_edit_wallpaper" class="modal">
+            <div class="modal-content center-align">
+                <div class="row">
+                    <span id="wallpaper-preview" class="col m6 offset-m3 z-depth-5">
+
+                    </span>
+                </div>
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <?php echo cl_image_upload_tag('image_id', array("callback" => $cors_location)); ?>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Modifier votre image de mur">
+                    </div>
+                </div>
+
+                <div class="wallpaper-progress progress" style="display:none;">
+                     <div class="determinate" style="width: 0%"></div>
+                 </div>
+                <button id="wallpaper-submit" class="btn waves-effect waves-light" type="submit" disabled name="action" onclick="changeWallpaper()">Changer d'image de mur
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fermer</a>
+            </div>
+        </div>
+        <?php echo cloudinary_js_config(); ?>
+        <script type="text/javascript">
+            jQuery('#wallpaper-preview').css('background-image', 'url( <?php echo $user['wallpaper']; ?> )');
+            $(function() {
+              if($.fn.cloudinary_fileupload !== undefined) {
+                $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
+              }
+            });
+
+            $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
+              $('.wallpaper-progress').show();
+              $('.wallpaper-progress .determinate').css('width', Math.round((data.loaded * 100.0) / data.total) + '%');
+            });
+
+            $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {
+                jQuery('#wallpaper-submit').prop('disabled', false);
+                var dataURL = data.result.url;
+                jQuery('#wallpaper-preview').css('background-image', 'url(' + dataURL + ')');
+                jQuery('#wallpaper-preview').attr('data-src', dataURL);
+                $('.wallpaper-progress').hide();
+              return true;
+            });
+            function changeWallpaper(){
+                 var ajax = $.ajax({
+                     url: ajaxurl,
+                     data: {
+                         from: <?php echo "'".$this->user_object->user_role."'"; ?>,
+                         action: 'update_own_wallpaper',
+                         wallpaper : jQuery('#wallpaper-preview').attr('data-src'),
+                     },
+                     type: 'POST',
+                     dataType : 'json',
+                     beforeSend: function (jqXHR, settings) {
+                         url = settings.url + "?" + settings.data;
+                         console.log(url);
+                     },
+                     error: function (thrownError) {
+                         console.log(thrownError);
+                         alert(thrownError.responseText);
+                     },
+                     complete: function () {
+                     },
+                     success: function (data, status) {
+                         if ( data.success){
+                             Materialize.toast(data.message, 4000);
+                             jQuery('#modal_edit_wallpaper input[type="file"]').val('');
+                             jQuery('.jumbo img').attr('src', jQuery('#wallpaper-preview').attr('data-src'));
+                             jQuery('#wallpaper-submit').prop('disabled', true);
+
+                         }
+                         else {
+                             Materialize.toast(data.message, 4000);
+                         }
+                     }
+                 });
+            }
+        </script>
+        <?php
+    }
+
     public function modal_edit_avatar($user){
 
         if (array_key_exists('REQUEST_SCHEME', $_SERVER)) {
@@ -692,6 +799,7 @@ class Profile_View {
                 else {
                     jQuery('#avatar-preview img').removeClass('autoWidth').addClass('autoHeight');
                 }
+                $('.avatar-progress').hide();
               return true;
             });
             function changeAvatar(){
@@ -718,10 +826,9 @@ class Profile_View {
                          success: function (data, status) {
                              if ( data.success){
                                  Materialize.toast(data.message, 4000);
-                                 jQuery('input[type="file"]').val('');
+                                 jQuery('#modal_edit_avatar input[type="file"]').val('');
                                  jQuery('.big-icon img').attr('src', jQuery('#avatar-preview img').attr('src'));
                                  jQuery('#avatar-submit').prop('disabled', true);
-                                 $('.avatar-progress').hide();
                              }
                              else {
                                  Materialize.toast(data.message, 4000);

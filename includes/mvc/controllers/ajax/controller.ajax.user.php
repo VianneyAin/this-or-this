@@ -32,6 +32,31 @@ class User_Ajax_Controller {
         }
     }
 
+    public function update_own_wallpaper(){
+        //must be owner to updates user infos
+        if ( isset($_REQUEST['wallpaper']) && !empty($_REQUEST['wallpaper']) ){
+            if (isset($this->user_object->userID) ){
+                return $this->model->update_user_wallpaper($this->user_object->userID, htmlspecialchars($_REQUEST['wallpaper']));
+            }
+            else {
+                $message = array(
+                        'message' => "Vous devez être connecté pour effectuée cette action.",
+                        'code' => '426',
+                        'success' => false,
+                );
+                return $message;
+            }
+        }
+        else {
+            $message = array(
+                    'message' => "Veuillez renseigner le champ image.",
+                    'code' => '425',
+                    'success' => false,
+            );
+            return $message;
+        }
+    }
+
     public function update_own_avatar(){
         //must be owner to updates user infos
         if ( isset($_REQUEST['avatar']) && !empty($_REQUEST['avatar']) ){

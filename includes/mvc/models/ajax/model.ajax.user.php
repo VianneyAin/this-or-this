@@ -4,6 +4,34 @@
 
     }
 
+    public function update_user_wallpaper($user_id, $wallpaper){
+        $sql = "UPDATE users SET ";
+        $sql .= "wallpaper = '$wallpaper' ";
+
+        $sql .= "WHERE id='$user_id'";
+
+        $db = Db::getInstance();
+        $qry = $db->quote($sql);
+        $qry = $db->prepare($sql);
+        $qry->execute();
+
+        if ($qry->rowCount() == 1){
+            $message = array(
+                    'message' => "L'image de mur a bien été modifié.",
+                    'success' => true,
+            );
+            return $message;
+        }
+        else {
+            $message = array(
+                    'message' => "Une erreur s'est produite.",
+                    'code' => '427',
+                    'success' => false,
+            );
+            return $message;
+        }
+    }
+
     public function update_user_description($user_id, $description){
         $sql = "UPDATE users SET ";
         $sql .= "description = '$description' ";
