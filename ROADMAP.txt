@@ -25,8 +25,8 @@ X - Page admin pour valider les blagues
 X - Pouvoir modifier / corriger une blague avant de la valider sur la page admin
 X - Page Version
 X - Page profil pour modifier son mot de passe, poster un avatar, changer son email
-Page profil pouvoir ajouter une image de mur
-Page profil pouvoir changer sa bio
+X - Page profil pouvoir ajouter une image de mur
+X - Page profil pouvoir changer sa bio
 La création d'une blague doit juste faire apparaître le message de validation, et plus le form de création
 Pouvoir noter une blague
 Catégorie de blagues
@@ -51,6 +51,9 @@ Algorithme de proposition de blague
 -- Version 0.6 :
 Blague version tinder (j'aime / j'aime pas / favoris ) => suivant
 
+-- Version 0.7 :
+Notifications mail
+Mot de passe oublié
 
 
 -- FUTURE

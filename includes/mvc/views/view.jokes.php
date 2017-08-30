@@ -65,7 +65,7 @@ class Jokes_View {
                             </div>
                         </div>
                         <div class="row right-align">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Soumettre
+                            <button class="btn waves-effect waves-light orange" type="submit" name="action">Soumettre
                                 <i class="material-icons right">send</i>
                             </button>
                         </div>
@@ -92,6 +92,53 @@ class Jokes_View {
         <script>
         $('#joke_content').trigger('autoresize');
         </script>
+        <?php
+    }
+
+    public function joke_success_view($data){
+        ?>
+            <div class="container">
+                <div class="section">
+                    <div class="row">
+                        <div class="col m6 offset-m3 s12">
+                        </div>
+                    </div>
+                    <div class="row center-align">
+                        <div class="row"><h4 class="orange-text text-lighten-1">Votre blague a été soumise</h4></div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <p>Merci d'avoir pris le temps de nous soumettre votre blague.</p>
+                                <p>Votre blague sera modérée et si elle semble conforme à la charte de notre site, elle sera alors publiée. Cette action peut prendre jusqu'à 24h.</p>
+                            </div>
+                        </div>
+                        <div class="row center-align">
+                            <a href="http://localhost/jokes" class="btn-large waves-effect waves-light orange" name="action">Retour à l'accueil
+                                <i class="material-icons right">home</i>
+                            </a>
+                            <a href="http://localhost/jokes/blague?action=create" class="btn-large waves-effect waves-light orange" name="action">Proposer une autre blague
+                                <i class="material-icons right">send</i>
+                            </a>
+                        </div>
+
+                        <?php if (isset($post_data['callback']) && !empty($post_data['callback']) && $post_data['callback']['success'] == false){ ?>
+                            <div class="row">
+                                <div class="col s12 error">
+                                    <i class="material-icons">warning</i>
+                                    <?php echo $post_data['callback']['message']; ?>
+                                </div>
+                            </div>
+                        <?php }
+                        else if (isset($post_data['callback']) && !empty($post_data['callback']) && $post_data['callback']['success'] == true){?>
+                            <div class="row">
+                                <div class="col s12 success">
+                                    <i class="material-icons">check</i>
+                                    <?php echo $post_data['callback']['message']; ?>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
         <?php
     }
 

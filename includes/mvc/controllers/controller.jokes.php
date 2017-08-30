@@ -100,7 +100,12 @@ class Jokes_Controller extends Application{
 
         }
         else if (isset($this->data['post']) && !empty($this->data['post'])){
-            $this->view->joke_create_view($this->data['post']);
+            if ($this->data['post']['callback']['success']){
+                $this->view->joke_success_view($this->data['post']);
+            }
+            else {
+                $this->view->joke_create_view($this->data['post']);
+            }
         }
     }
 }
