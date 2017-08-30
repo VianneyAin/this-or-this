@@ -11,7 +11,7 @@ class Jokes_View {
                 <div class="card">
                     <div class="card-header">
                         <div class="chip">
-                            <img src="<?php echo $joke['author']['avatar']; ?>" alt="Contact Person">
+                            <img src="<?php echo $joke['author']['avatar']; ?>" alt="Avatar">
                             <?php echo $joke['author']['display_name']; ?>
                         </div>
                         <span class="new badge" data-badge-caption="Blague courte"></span>
@@ -24,12 +24,13 @@ class Jokes_View {
                         </div>
                     </div>
                     <div class="card-action">
-                        <button class="btn btn-floating waves-effect waves-light blue">
-                            <i class="material-icons right">thumb_up</i>
-                        </button>
-                        <button class="btn btn-floating waves-effect waves-light red">
-                            <i class="material-icons right">thumb_down</i>
-                        </button>
+                        <div class="rating-action" data-rate="">
+                            <i class="ratings_stars material-icons" data-rate="1">star_border</i>
+                            <i class="ratings_stars material-icons" data-rate="2">star_border</i>
+                            <i class="ratings_stars material-icons" data-rate="3">star_border</i>
+                            <i class="ratings_stars material-icons" data-rate="4">star_border</i>
+                            <i class="ratings_stars material-icons" data-rate="5">star_border</i>
+                        </div>
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Que souhaitez-vous faire ?<i class="material-icons right">close</i></span>
@@ -55,7 +56,7 @@ class Jokes_View {
                     </div>
                 </div>
                 <div class="row">
-                    <form class="col m6 offset-m3 s12" action="blague" method='post' accept-charset='UTF-8'>
+                    <form class="col m6 offset-m3 s12" action="create" method='post' accept-charset='UTF-8'>
                         <div class="row"><h4>Propose une blague</h4></div>
                         <div class="row">
                             <input type='hidden' name='form_action' id='submitted' value='create'/>
@@ -115,7 +116,7 @@ class Jokes_View {
                             <a href="http://localhost/jokes" class="btn-large waves-effect waves-light orange" name="action">Retour à l'accueil
                                 <i class="material-icons right">home</i>
                             </a>
-                            <a href="http://localhost/jokes/blague?action=create" class="btn-large waves-effect waves-light orange" name="action">Proposer une autre blague
+                            <a href="http://localhost/jokes/blague/create" class="btn-large waves-effect waves-light orange" name="action">Proposer une autre blague
                                 <i class="material-icons right">send</i>
                             </a>
                         </div>

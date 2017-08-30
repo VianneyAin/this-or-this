@@ -49,7 +49,7 @@
 
           <!--  Scripts-->
           <?php $this->call_to_actions($actions); ?>
-
+          <script src="<?php echo 'http://localhost/jokes/js/rating.js' ?>"></script>
           </body>
           </html>
 

@@ -95,3 +95,8 @@ main {
       height:auto;
       width:100%;
   }
+
+  .ratings_stars {
+      cursor:pointer;
+      color:orange;
+  }

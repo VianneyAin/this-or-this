@@ -106,7 +106,7 @@ class Application {
             case 'blague':
             case 'blagues':
                 require_once('includes/mvc/controllers/controller.jokes.php');
-                $this->controller = new Jokes_Controller();
+                $this->controller = new Jokes_Controller($this->routes);
                 break;
             case 'admin':
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');

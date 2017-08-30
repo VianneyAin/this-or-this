@@ -4,7 +4,7 @@ class Jokes_Controller extends Application{
     private $action;
     private $joke_listen_id;
     private $data;
-
+    private $routes;
     private $valid_actions = array(
         'create',
         'edit',
@@ -12,8 +12,13 @@ class Jokes_Controller extends Application{
         'admin',
     );
 
-    public function __construct(){
+    //localhost/jokes/blague?action=create
+    //localhost/jokes/blague?id=5
+
+
+    public function __construct($routes){
         parent::__construct();//get parent's variables
+        $this->routes = $routes;
         require_once(dirname(__FILE__).'/../models/model.jokes.php');
         $this->model = new Jokes_Model();
         require_once(dirname(__FILE__).'/../views/view.jokes.php');
@@ -62,50 +67,61 @@ class Jokes_Controller extends Application{
     }
 
     public function layout_request() {
-        if (isset($this->joke_listen_id) && !empty($this->joke_listen_id)){
-            $this->permission_object->user_do('read_joke_single');
-            $this->data = $this->model->get_joke_by_id($this->joke_listen_id);
-        }
-        else if (isset($this->action) && !empty($this->action)) {
-            switch ($this->action){
-                case 'create':
-                    $this->permission_object->user_do('create_joke');
-                    break;
-                case 'admin':
-                    break;
-                default:
-                    break;
+        if (isset($this->routes[1]) && !empty($this->routes[1])){
+            //if routes[1] is not integer
+            if ((string)(int)$this->routes[1] != $this->routes[1]){
+                switch($this->routes[1]){
+                    // /blague/create
+                    case 'create':
+                        $this->permission_object->user_do('create_joke');
+                        if (!empty($this->data['post']) && $this->data['post'] && isset($this->data['post']['valide']) && $this->data['post']['valide'] === true){
+                            $this->data['post']['callback'] = $this->model->save_joke($this->data['post'], $this->user_object->return_ID());
+                        }
+                        break;
+                    default:
+                }
+            }
+            //joke single : /blague/id
+            else {
+                $this->permission_object->user_do('read_joke_single');
+                $this->data = $this->model->get_joke_by_id(intval($this->routes[1]));
             }
         }
-        else if (!empty($this->data['post']) && $this->data['post'] && isset($this->data['post']['valide']) && $this->data['post']['valide'] === true){
-            $this->data['post']['callback'] = $this->model->save_joke($this->data['post'], $this->user_object->return_ID());
+        else {
+
         }
     }
 
     public function partials_request() {
-        if (isset($_GET['id']) && !empty($_GET['id'])){
-            $this->view->single_joke_view($this->data);
-        }
-        else if (isset($this->action) && !empty($this->action) ) {
-            switch ($this->action){
-                case 'create':
-                    $this->view->joke_create_view();
-                    break;
-                case 'admin':
-                    $this->view->admin_view($this->data);
-                    break;
-                default:
-                    break;
-            }
+        if (isset($this->routes[1]) && !empty($this->routes[1])){
+            //if routes[1] is not integer
+            if ((string)(int)$this->routes[1] != $this->routes[1]){
+                switch($this->routes[1]){
+                    // /blague/create
+                    case 'create':
+                        if (isset($this->data['post']) && !empty($this->data['post'])){
+                            if ( $this->data['post']['callback']['success'] ){
+                                $this->view->joke_success_view($this->data['post']);
+                            }
+                            else {
+                                $this->view->joke_create_view($this->data['post']);
+                            }
+                        }
+                        else {
+                            $this->view->joke_create_view();
+                        }
 
-        }
-        else if (isset($this->data['post']) && !empty($this->data['post'])){
-            if ($this->data['post']['callback']['success']){
-                $this->view->joke_success_view($this->data['post']);
+                        break;
+                    default:
+                }
             }
+            //joke single : /blague/id
             else {
-                $this->view->joke_create_view($this->data['post']);
+                $this->view->single_joke_view($this->data);
             }
+        }
+        else {
+
         }
     }
 }

@@ -11,7 +11,7 @@
                 </div>
                 <div class="row center">
                 <?php if ($registration->CheckLogin()){?>
-                    <a href="http://localhost/jokes/blague?action=create" id="download-button" class="btn-large waves-effect waves-light orange">
+                    <a href="http://localhost/jokes/blague/create" id="download-button" class="btn-large waves-effect waves-light orange">
                 <?php } else { ?>
                     <a href="http://localhost/jokes/inscription" id="download-button" class="btn-large waves-effect waves-light orange">
                 <?php } ?>
@@ -86,12 +86,13 @@
                                     </div>
                                   </div>
                                   <div class="card-action">
-                                      <button class="btn btn-floating waves-effect waves-light blue">
-                                           <i class="material-icons right">thumb_up</i>
-                                      </button>
-                                      <button class="btn btn-floating waves-effect waves-light red">
-                                           <i class="material-icons right">thumb_down</i>
-                                      </button>
+                                      <div class="rating-action" data-rate="">
+                                          <i class="ratings_stars material-icons" data-rate="1">star_border</i>
+                                          <i class="ratings_stars material-icons" data-rate="2">star_border</i>
+                                          <i class="ratings_stars material-icons" data-rate="3">star_border</i>
+                                          <i class="ratings_stars material-icons" data-rate="4">star_border</i>
+                                          <i class="ratings_stars material-icons" data-rate="5">star_border</i>
+                                      </div>
                                   </div>
                                   <div class="card-reveal">
                                     <span class="card-title grey-text text-darken-4">Que souhaitez-vous faire ?<i class="material-icons right">close</i></span>
@@ -106,7 +107,6 @@
                     ?>
                 </div>
             </div>
-
         <?php
       }
   }
