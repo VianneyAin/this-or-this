@@ -27,10 +27,11 @@ X - Page Version
 X - Page profil pour modifier son mot de passe, poster un avatar, changer son email
 X - Page profil pouvoir ajouter une image de mur
 X - Page profil pouvoir changer sa bio
-La création d'une blague doit juste faire apparaître le message de validation, et plus le form de création
-Pouvoir noter une blague
+X - La création d'une blague doit juste faire apparaître le message de validation, et plus le form de création
+X - Pouvoir noter une blague
 Catégorie de blagues
 Page catégorie
+Pouvoir commenter une blague
 
 -- Version 0.3 :
 Page admin liste de blagues
@@ -57,6 +58,8 @@ Mot de passe oublié
 
 
 -- FUTURE
+Les blagues pas encore lues
+Fonction de recherche
 Remember me checkbox
 Notification par mail
 Guide de démarrage utilisateur

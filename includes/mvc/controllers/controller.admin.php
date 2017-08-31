@@ -35,7 +35,7 @@ class Admin_Controller extends Application{
             switch($this->routes[1]){
                 case 'blagues':
                     $this->view->admin_navbar_view();
-                    $this->view->manage_jokes_view($this->data);
+                    $this->view->manage_draft_jokes_view($this->data);
                     break;
                 case 'users':
                     break;

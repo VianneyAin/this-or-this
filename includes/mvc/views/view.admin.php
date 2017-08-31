@@ -68,7 +68,7 @@ class Admin_View {
         <?php
     }
 
-    public function manage_jokes_view($data){
+    public function manage_draft_jokes_view($data){
         ?>
         <div class="container">
             <?php
@@ -76,7 +76,7 @@ class Admin_View {
                 foreach ($data as $key => $joke){
                     ?>
                     <div class="section">
-                        <div class="card" id="<?php echo $joke['id']; ?>">
+                        <div class="card joke" id="<?php echo $joke['id']; ?>">
                             <div class="card-header">
                                 <div class="chip">
                                     <img src="<?php echo $joke['author']['avatar']; ?>" alt="Avatar">
@@ -90,7 +90,7 @@ class Admin_View {
                                 </div>
                             </div>
                             <div class="card-content">
-                                <i class="material-icons right activator">more_vert</i></span>
+                                <i class="material-icons right blue-text" style="cursor:pointer;" onclick="edit_joke(this)">edit</i></span>
                                 <span class="card-title grey-text text-darken-4 joke-title">
                                     <?php echo $joke['title']; ?>
                                 </span>
@@ -100,7 +100,7 @@ class Admin_View {
                             </div>
                             <div class="card-action">
                                 <span class="admin-action">
-                                    <a class="waves-effect waves-light btn blue" onclick="valid_joke(this)" data-status="active">
+                                    <a class="valid-joke waves-effect waves-light btn blue" onclick="valid_joke(this)" data-status="active">
                                         <i class="material-icons right">done</i>Valider
                                     </a>
                                     <a class="waves-effect waves-light btn yellow" onclick="valid_joke(this)" data-status="archive">
@@ -120,8 +120,7 @@ class Admin_View {
                                 </span>
                             </div>
                             <div class="card-reveal">
-                              <span class="card-title grey-text text-darken-4">Que souhaitez-vous faire ?<i class="material-icons right">close</i></span>
-                                <a class="waves-effect waves-light btn blue" onclick="edit_joke(this)">Modifier la blague</a>
+
                             </div>
                         </div>
                     </div>
@@ -135,6 +134,23 @@ class Admin_View {
             } ?>
         </div>
         <script type="text/javascript">
+        jQuery(document).ready(function(){
+            jQuery('.joke').each(function(){
+                if (jQuery(this).find('.joke-title').text().trim() == '' || jQuery(this).find('.joke-content').text().trim() == ''){
+                    jQuery(this).find('.valid-joke').first().attr('disabled','disabled');
+                }
+            });
+        });
+
+        function check_valid(element){
+            if (element.find('.joke-title').text().trim() != '' && element.find('.joke-content').text().trim() != ''){
+                element.find('.valid-joke').first().removeAttr('disabled');
+            }
+            else {
+                element.find('.valid-joke').first().attr('disabled','disabled');
+            }
+        }
+
         var cache = [];
 
         /** FUNCTION TO HANDLE THE CACHE FOR EDITING JOKES **/
@@ -195,6 +211,7 @@ class Admin_View {
                 jQuery(element).find('.admin-action').show();
                 removeByAttr(cache, 'id', jQuery(element).attr('id'));
                 jQuery(element).removeClass('edited');
+                check_valid(element);
             }
         }
         function cancel_edit(clicked){
