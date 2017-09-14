@@ -22,6 +22,19 @@
         }
     }
 
+    public function get_all_categories(){
+        try {
+            $db = Db::getInstance();
+            $req = $db->prepare('SELECT * FROM category');
+            $req->execute();
+            $posts = $req->fetchAll();
+            return $posts;
+        }
+        catch (PDOexception $e) {
+            die($e->getMessage());
+        }
+    }
+
     public function get_user_by_id($user_id){
         if (isset($user_id) && !empty($user_id)){
             $db = Db::getInstance();

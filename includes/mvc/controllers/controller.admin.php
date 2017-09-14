@@ -17,7 +17,8 @@ class Admin_Controller extends Application{
         if (isset($this->routes[1]) && !empty($this->routes[1])){
             switch($this->routes[1]){
                 case 'blagues':
-                    $this->data = $this->model->get_drafted_jokes();
+                    $this->data['jokes'] = $this->model->get_drafted_jokes();
+                    $this->data['category'] = $this->model->get_all_categories();
                     break;
                 case 'users':
                     break;

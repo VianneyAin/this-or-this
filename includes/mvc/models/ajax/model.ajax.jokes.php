@@ -122,12 +122,28 @@
         }
     }
 
-    public function valid_joke($id, $status, $title, $content){
+    public function valid_joke($id, $status, $title, $content, $categories){
         if (isset($id) && !empty($id) && isset($status) && !empty($status) && isset($title) && !empty($title) && isset($content) && !empty($content)){
             $content = $this->normalize($content);
             try {
                 $db = Db::getInstance();
-                $req = $db->prepare('UPDATE jokes SET status = "'.$status.'", title = "'.$title.'", content = "'.$content.'" WHERE id = '.$id);
+                $categories_string = '';
+                if (isset($categories) && !empty($categories))
+                {
+                    $str = '';
+                    foreach ($categories as $key => $category){
+                        if (!empty($str)){
+                            $str .= ','.intval($category);
+                        }
+                        else {
+                            $str .= intval($category);
+                        }
+                    }
+                    if (!empty($str)){
+                        $categories_string = ', category = "'.$str.'"';
+                    }
+                }
+                $req = $db->prepare('UPDATE jokes SET status = "'.$status.'", title = "'.$title.'", content = "'.$content.'" '.$categories_string.' WHERE id = '.$id);
 
                 $req->execute();
                 if ($req->rowCount() == 1){
