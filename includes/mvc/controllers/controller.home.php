@@ -13,7 +13,8 @@ class Home_Controller extends Application{
 
 
     public function layout_request() {
-        $this->data = $this->model->get_last_jokes('10');
+        $this->data['jokes'] = $this->model->get_last_jokes('10');
+        $this->data['categories'] = $this->model->get_all_categories();
     }
 
     public function partials_request() {

@@ -70,8 +70,8 @@
                 <div class="row"><h4>Les 10 dernières blagues :</h4></div>
                 <div class="section">
                     <?php
-                    if (isset($data) && !empty($data)){
-                        foreach ($data as $key => $joke){
+                    if (isset($data['jokes']) && !empty($data['jokes'])){
+                        foreach ($data['jokes'] as $key => $joke){
                             ?>
                                 <div class="card joke" data-id="<?php echo $joke['id']; ?>">
                                   <div class="card-header">
@@ -82,8 +82,21 @@
                                       <div class="chip">
                                        Posté le : <?php echo $joke['created']; ?>
                                       </div>
-                                    <span class="new badge" data-badge-caption="Blague courte"></span>
-                                    <span class="new badge red" data-badge-caption="Blague raciste"></span>
+                                      <?php
+                                      if (isset($joke['category']) && !empty($joke['category'])){
+                                          if (isset($data['categories']) && !empty($data['categories'])){
+                                              $categories_array = explode(',', $joke['category']);
+                                              foreach ($categories_array as $key => $category_id){
+                                                  foreach ($data['categories'] as $key => $category){
+                                                      if ($category['id'] == $category_id){
+                                                          echo '<span class="new badge" data-badge-caption="'.$category['name'].'"></span>';
+                                                      }
+                                                  }
+                                              }
+
+                                          }
+                                      }
+                                       ?>
                                   </div>
                                   <div class="card-content">
                                     <span class="card-title grey-text text-darken-4"><?php echo $joke['title']; ?><i class="material-icons right activator">more_vert</i></span>

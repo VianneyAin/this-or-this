@@ -138,8 +138,8 @@ class Admin_View {
             var array_categories = [];
             <?php
 
-            if ($data['category'] != null){
-                foreach ($data['category'] as $key => $category){?>
+            if ($data['categories'] != null){
+                foreach ($data['categories'] as $key => $category){?>
                     var category = new Object();
                     category.id = "<?php echo $category['id'];  ?>";
                     category.name = "<?php echo $category['name']; ?>";
