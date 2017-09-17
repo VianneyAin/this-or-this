@@ -59,7 +59,7 @@
     public function get_jokes_by_category_id($category_id){
         try {
             $db = Db::getInstance();
-            $sql = "SELECT * FROM jokes LEFT JOIN users on jokes.author = users.id where status <> 'draft' LIMIT 9";
+            $sql = "SELECT * FROM jokes LEFT JOIN users on jokes.author = users.id where status = 'active' ORDER BY created DESC LIMIT 9";
             $req = $db->prepare($sql);
             // the query was prepared, now we replace :id with our actual $id value
             $req->execute();

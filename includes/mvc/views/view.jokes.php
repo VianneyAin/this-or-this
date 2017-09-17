@@ -78,7 +78,7 @@ class Jokes_View {
                             </div>
                         </div>
                         <div class="row right-align">
-                            <button class="btn waves-effect waves-light orange" type="submit" name="action">Soumettre
+                            <button class="btn waves-effect waves-light light-blue darken-2" type="submit" name="action">Soumettre
                                 <i class="material-icons right">send</i>
                             </button>
                         </div>
@@ -117,7 +117,7 @@ class Jokes_View {
                         </div>
                     </div>
                     <div class="row center-align">
-                        <div class="row"><h4 class="orange-text text-lighten-1">Votre blague a été soumise</h4></div>
+                        <div class="row"><h4 class="light-blue-text text-lighten-1">Votre blague a été soumise</h4></div>
                         <div class="row">
                             <div class="input-field col s12">
                                 <p>Merci d'avoir pris le temps de nous soumettre votre blague.</p>
@@ -125,10 +125,10 @@ class Jokes_View {
                             </div>
                         </div>
                         <div class="row center-align">
-                            <a href="http://localhost/jokes" class="btn-large waves-effect waves-light orange" name="action">Retour à l'accueil
+                            <a href="http://localhost/jokes" class="btn-large waves-effect waves-light light-blue darken-2" name="action">Retour à l'accueil
                                 <i class="material-icons right">home</i>
                             </a>
-                            <a href="http://localhost/jokes/blague/create" class="btn-large waves-effect waves-light orange" name="action">Proposer une autre blague
+                            <a href="http://localhost/jokes/blague/create" class="btn-large waves-effect waves-light light-blue darken-2" name="action">Proposer une autre blague
                                 <i class="material-icons right">send</i>
                             </a>
                         </div>

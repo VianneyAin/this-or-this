@@ -12,12 +12,12 @@
 
       public function fn_footer_view($actions){
           ?>
-          <footer class="page-footer orange">
+          <footer class="page-footer light-blue lighten-1">
             <div class="container">
               <div class="row">
                 <div class="col l6 s12">
-                  <h5 class="white-text">A Propos de Blagues</h5>
-                  <p class="grey-text text-lighten-4">Blague est un site collaboratif de blague. Toute personne disposant d'une connexion internet, que ce soit sur son téléphone, sa tablette ou son pc, peut y poster ses blagues, en ajouter certaines à ses favoris, les partagers avec ses amis, et tout ça, 100% gratuitement.</p>
+                  <h5 class="white-text">A Propos de [...]</h5>
+                  <p class="grey-text text-lighten-4">[...] est un site collaboratif de blague. Toute personne disposant d'une connexion internet, que ce soit sur son téléphone, sa tablette ou son pc, peut y poster ses blagues, en ajouter certaines à ses favoris, les partagers avec ses amis, et tout ça, 100% gratuitement.</p>
                 </div>
                 <div class="col l3 s12">
                   <h5 class="white-text">Settings</h5>

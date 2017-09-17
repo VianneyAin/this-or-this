@@ -5,7 +5,6 @@
           {
               if($registration->Login())
               {
-                  echo 'ici';
                    $registration->RedirectToURL("http://localhost/jokes");
               }
           }

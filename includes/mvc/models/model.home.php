@@ -9,13 +9,9 @@
     public function get_last_jokes($limit = null){
         try {
             $db = Db::getInstance();
-            $req = $db->prepare('SELECT * FROM jokes WHERE status = "active" ORDER BY created DESC LIMIT '.$limit);
             $req->execute();
             $posts = $req->fetchAll();
             foreach ($posts as $key => $post){
-                if (isset($post['author'])){
-                    $posts[$key]['author'] = $this->get_user_by_id($post['author']);
-                }
                 if (isset($post['joke_id'])){
                     $id = $post['joke_id'];
                     if (isset($this->user_object->userID) && !empty($this->user_object->userID)){

@@ -31,11 +31,11 @@
             <?php $this->call_to_actions($actions); ?>
           </head>
           <body>
-            <nav id="main-menu" class="amber darken-1" role="navigation">
-              <div class="nav-wrapper container"><a id="logo-container" href="http://localhost/jokes" class="brand-logo">Blagues</a>
+            <nav id="main-menu" class="light-blue darken-2" role="navigation">
+              <div class="nav-wrapper container"><a id="logo-container" href="http://localhost/jokes" class="brand-logo">[...]</a>
                 <ul class="right hide-on-med-and-down">
                     <?php if (isset($categories) && !empty($categories) && sizeof($categories) > 0){ ?>
-                        <li><a id="cat-button" data-activates="cat-sidebar" class="show-on-large">Catégories<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li><a id="cat-button" data-activates="cat-sidebar" class="show-on-large">Catégories</a></li>
                     <?php } ?>
                     <?php if ($registration->CheckLogin()){
                         echo '<li><a href="http://localhost/jokes/profil" type="submit">Profil</a></li>';
@@ -46,7 +46,7 @@
                 </ul>
 
                 <!--CATEGORIES SIDEBAR -->
-                <ul id="cat-sidebar" class="side-nav">
+                <ul id="cat-sidebar" class="side-nav" style="z-index:999">
                     <li><a><i class="material-icons">format_list_bulleted</i>Liste des catégories</a></li>
                     <?php foreach ($categories as $key => $category){
                         echo '<li><a href="http://localhost/jokes/blagues/cat/'.$category['slug'].'">'.$category['name'].'</a></li>';
@@ -55,7 +55,6 @@
                 </ul>
                 <!-- END OF CATEGORIES SIDEBAR -->
 
-
                 <ul id="nav-mobile" class="side-nav">
                     <?php if ($registration->CheckLogin()){
                         echo '<li><a href="http://localhost/jokes/profil" type="submit">Profil</a></li>';
@@ -63,6 +62,24 @@
                     } else { ?>
                         <li><a href="http://localhost/jokes/connexion">Connexion</a></li>
                     <?php } ?>
+                    <?php /*if ( isset($categories) && !empty($categories) && sizeof($categories) > 0 ){ ?>
+                        <ul class="collapsible collapsible-accordion">
+                          <li>
+                            <a class="collapsible-header">Catégories<i class="material-icons">arrow_drop_down</i></a>
+                            <div class="collapsible-body">
+                              <ul>
+                                  <?php foreach ($categories as $key => $category){
+                                      if (isset($category['name']) && !empty($category['name'])){
+                                          echo '<li><a href="http://localhost/jokes/blagues/cat/'.$category['slug'].'">'.$category['name'].'</a></li>';
+                                      }
+                                  }
+                                  ?>
+                              </ul>
+                            </div>
+                          </li>
+                        </ul>
+                    <?php } */?>
+
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
               </div>

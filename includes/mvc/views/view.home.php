@@ -11,15 +11,15 @@
             <div class="section no-pad-bot" id="index-banner">
               <div class="container">
                 <br><br>
-                <h1 class="header center orange-text">Blagues</h1>
+                <h1 class="header center light-blue-text">[...]</h1>
                 <div class="row center">
                   <h5 class="header col s12 light">Le plus grand site de blague francophone (mdr)</h5>
                 </div>
                 <div class="row center">
                 <?php if ($registration->CheckLogin()){?>
-                    <a href="http://localhost/jokes/blague/create" id="download-button" class="btn-large waves-effect waves-light orange">
+                    <a href="http://localhost/jokes/blague/create" id="download-button" class="btn-large waves-effect waves-light light-blue darken-2">
                 <?php } else { ?>
-                    <a href="http://localhost/jokes/inscription" id="download-button" class="btn-large waves-effect waves-light orange">
+                    <a href="http://localhost/jokes/inscription" id="download-button" class="btn-large waves-effect waves-light light-blue darken-2">
                 <?php } ?>
                       Proposer une blague
                   </a>
@@ -76,8 +76,8 @@
                                 <div class="card joke" data-id="<?php echo $joke['joke_id']; ?>">
                                   <div class="card-header">
                                       <div class="chip">
-                                       <img src="<?php echo $joke['author']['avatar']; ?>" alt="Avatar">
-                                       <?php echo $joke['author']['display_name']; ?>
+                                       <img src="<?php echo $joke['avatar']; ?>" alt="Avatar">
+                                       <?php echo $joke['username']; ?>
                                       </div>
                                       <div class="chip">
                                        Posté le : <?php echo $joke['created']; ?>
@@ -89,7 +89,7 @@
                                               foreach ($categories_array as $key => $category_id){
                                                   foreach ($data['categories'] as $key => $category){
                                                       if ($category['category_id'] == $category_id){
-                                                          echo '<span class="new badge" data-badge-caption="'.$category['name'].'"></span>';
+                                                          echo '<a href="http://localhost/jokes/blagues/cat/'.$category['slug'].'"><span class="new badge" data-badge-caption="'.$category['name'].'"></span></a>';
                                                       }
                                                   }
                                               }

@@ -337,7 +337,6 @@ class Registration
 
     function RedirectToURL($url, $timer = null)
     {
-        var_dump($url);
         if (isset($timer) && !empty($timer)){
             header("Refresh: $timer; URL=$url");
         }

@@ -81,6 +81,8 @@ class Jokes_Controller extends Application{
                     case 'cat':
                         $this->permission_object->user_do('read_joke_single');
                         if (isset($this->routes[2]) && !empty($this->routes[2])){
+                            $this->data['category'] = $this->model->get_category_by_slug($this->routes[2]);
+                            $this->data['jokes'] = $this->model->get_jokes_by_category_id($this->data['category']['category_id']);
                         }
                         break;
                     default:
@@ -120,6 +122,7 @@ class Jokes_Controller extends Application{
 
                         break;
                     case 'cat':
+                        $this->view->joke_category_view($this->data);
                         break;
                     default:
                         break;
