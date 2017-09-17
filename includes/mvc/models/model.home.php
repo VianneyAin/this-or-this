@@ -9,6 +9,7 @@
     public function get_last_jokes($limit = null){
         try {
             $db = Db::getInstance();
+            $req = $db->prepare("SELECT * FROM jokes LEFT JOIN users on jokes.author = users.id where status = 'active' ORDER BY created DESC LIMIT $limit");
             $req->execute();
             $posts = $req->fetchAll();
             foreach ($posts as $key => $post){
