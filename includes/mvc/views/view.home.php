@@ -13,7 +13,7 @@
                 <br><br>
                 <h1 class="header center orange-text">Blagues</h1>
                 <div class="row center">
-                  <h5 class="header col s12 light">Le plus grand site de blague francophone</h5>
+                  <h5 class="header col s12 light">Le plus grand site de blague francophone (mdr)</h5>
                 </div>
                 <div class="row center">
                 <?php if ($registration->CheckLogin()){?>
@@ -39,7 +39,7 @@
                       <h2 class="center light-blue-text"><i class="material-icons">thumb_up</i></h2>
                       <h5 class="center">Evaluer les blagues</h5>
 
-                      <p class="light">Noter les blagues que vous lisez, ajoutez les à vos favoris. Avec Blague.com, retrouvez les meilleures blagues que vous ayez lues en un simple clic.</p>
+                      <p class="light">Noter les blagues que vous lisez, ajoutez les à vos favoris. Retrouvez les meilleures blagues que vous ayez lues en un simple clic.</p>
                     </div>
                   </div>
 
@@ -48,7 +48,7 @@
                       <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
                       <h5 class="center">Trouvez les meilleurs blagueurs</h5>
 
-                      <p class="light">Un utilisateur de blague.com vous fais rire ? Ajoutez le sans tarder à vos favoris, pour ne plus rater la moindre blague qu'il poste !</p>
+                      <p class="light">Un des blagueurs vous fais rire ? Ajoutez le sans tarder à vos favoris, pour ne plus rater la moindre blague qu'il poste !</p>
                     </div>
                   </div>
 
@@ -73,7 +73,7 @@
                     if (isset($data['jokes']) && !empty($data['jokes'])){
                         foreach ($data['jokes'] as $key => $joke){
                             ?>
-                                <div class="card joke" data-id="<?php echo $joke['id']; ?>">
+                                <div class="card joke" data-id="<?php echo $joke['joke_id']; ?>">
                                   <div class="card-header">
                                       <div class="chip">
                                        <img src="<?php echo $joke['author']['avatar']; ?>" alt="Avatar">
@@ -88,7 +88,7 @@
                                               $categories_array = explode(',', $joke['category']);
                                               foreach ($categories_array as $key => $category_id){
                                                   foreach ($data['categories'] as $key => $category){
-                                                      if ($category['id'] == $category_id){
+                                                      if ($category['category_id'] == $category_id){
                                                           echo '<span class="new badge" data-badge-caption="'.$category['name'].'"></span>';
                                                       }
                                                   }

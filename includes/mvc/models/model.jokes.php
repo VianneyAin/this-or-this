@@ -7,29 +7,94 @@
     }
 
     public function get_joke_by_id($joke_id){
-        $db = Db::getInstance();
-        // we make sure $id is an integer
-        $id = intval($joke_id);
+        try {
+            $db = Db::getInstance();
+            // we make sure $id is an integer
+            $id = intval($joke_id);
 
-        if (isset($this->user_object->userID) && !empty($this->user_object->userID)){
-            $user_id = $this->user_object->userID;
-            $req = $db->prepare("SELECT * FROM rates WHERE user = '$user_id' && joke = '$id'");
-            $req->execute(array('id' => $id));
-            $rate = $req->fetch();
+            if (isset($this->user_object->userID) && !empty($this->user_object->userID)){
+                $user_id = $this->user_object->userID;
+                $req = $db->prepare("SELECT * FROM rates WHERE user = '$user_id' && joke = '$id'");
+                $req->execute(array('id' => $id));
+                $rate = $req->fetch();
+            }
+            $req = $db->prepare("SELECT * FROM jokes WHERE id = $joke_id");
+            // the query was prepared, now we replace :id with our actual $id value
+            $req->execute();
+            $post = $req->fetch();
+            return array(
+                    'id' => $post['id'],
+                    'title' => $post['title'],
+                    'content' => $post['content'],
+                    'author' => $this->get_user_by_id($post['author']),
+                    'status' => $post['status'],
+                    'user_rating' => $rate
+            );
         }
+        catch (PDOexception $e) {
+            return false;
+        }
+    }
 
-        $req = $db->prepare('SELECT * FROM jokes WHERE id = :id');
-        // the query was prepared, now we replace :id with our actual $id value
-        $req->execute(array('id' => $id));
-        $post = $req->fetch();
-        return array(
-                'id' => $post['id'],
-                'title' => $post['title'],
-                'content' => $post['content'],
-                'author' => $this->get_user_by_id($post['author']),
-                'status' => $post['status'],
-                'user_rating' => $rate
-        );
+    public function get_category_by_slug($slug){
+        try {
+            $db = Db::getInstance();
+            $sql = "SELECT * FROM categories WHERE category_id = (SELECT category_id FROM categories WHERE slug = '$slug') limit 1";
+            $req = $db->prepare($sql);
+            // the query was prepared, now we replace :id with our actual $id value
+            $req->execute();
+            $post = $req->fetch();
+            if (isset($post) && !empty($post)){
+                return $post;
+            }
+            else {
+                return false;
+            }
+        }
+        catch (PDOexception $e) {
+            return false;
+        }
+    }
+
+    public function get_jokes_by_category_id($category_id){
+        try {
+            $db = Db::getInstance();
+            $sql = "SELECT * FROM jokes LEFT JOIN users on jokes.author = users.id where status <> 'draft' LIMIT 9";
+            $req = $db->prepare($sql);
+            // the query was prepared, now we replace :id with our actual $id value
+            $req->execute();
+            $posts = $req->fetchAll();
+            $jokes = array();
+            foreach ($posts as $key => $post){
+                if (isset($post['category']) && !empty($post['category'])){
+                    $categories = explode(",", $post['category']);
+                    foreach ($categories as $keyy => $category){
+                        if (intval($category) == intval($category_id) ){
+                            if (isset($post['joke_id'])){
+                                $id = $post['joke_id'];
+                                if (isset($this->user_object->userID) && !empty($this->user_object->userID)){
+                                    $user_id = $this->user_object->userID;
+                                    $req = $db->prepare("SELECT * FROM rates WHERE user = '$user_id' && joke = '$id'");
+                                    $req->execute();
+                                    $rate = $req->fetch();
+                                    $post['user_rating'] = $rate;
+                                }
+                            }
+                            array_push($jokes, $post);
+                        }
+                    }
+                }
+            }
+            if (isset($jokes) && !empty($jokes) && sizeof($jokes) > 0){
+                return $jokes;
+            }
+            else {
+                return false;
+            }
+        }
+        catch (PDOexception $e) {
+            return false;
+        }
     }
 
     public function get_drafted_jokes(){

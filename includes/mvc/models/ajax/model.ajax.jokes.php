@@ -11,7 +11,7 @@
         if (isset($id) && !empty($id) && isset($status) && !empty($status)){
             try {
                 $db = Db::getInstance();
-                $req = $db->prepare('UPDATE jokes SET status = "'.$status.'" WHERE id = '.$id);
+                $req = $db->prepare('UPDATE jokes SET status = "'.$status.'" WHERE joke_id = '.$id);
 
                 $req->execute();
                 if ($req->rowCount() == 1){
@@ -130,23 +130,23 @@
                 $categories_string = '';
                 if (isset($categories) && !empty($categories))
                 {
-                    $str = '';
-                    foreach ($categories as $key => $category){
-                        if (!empty($str)){
-                            $str .= ','.intval($category);
-                        }
-                        else {
-                            $str .= intval($category);
-                        }
-                    }
-                    if (!empty($str)){
-                        $categories_string = ', category = "'.$str.'"';
-                    }
+                   $str = '';
+                   foreach ($categories as $key => $category){
+                       if (!empty($str)){
+                           $str .= ','.intval($category);
+                       }
+                       else {
+                           $str .= intval($category);
+                       }
+                   }
+                   if (!empty($str)){
+                       $categories_string = ', category = "'.$str.'"';
+                   }
                 }
-                $req = $db->prepare('UPDATE jokes SET status = "'.$status.'", title = "'.$title.'", content = "'.$content.'" '.$categories_string.' WHERE id = '.$id);
-
+                $req = $db->prepare('UPDATE jokes SET status = "'.$status.'", title = "'.$title.'", content = "'.$content.'" '.$categories_string.' WHERE joke_id = '.$id);
                 $req->execute();
                 if ($req->rowCount() == 1){
+
                     $message = array(
                             'message' => 'La blague a bien été validée.',
                             'success' => true,
@@ -163,6 +163,7 @@
                 }
 
             } catch (Exception $e) {
+                var_dump($e->getMessage());
                 $message = array(
                         'message' => 'Une erreur est survenue.',
                         'code' => '409',
@@ -185,7 +186,7 @@
         if (isset($id) && !empty($id) ){
             try {
                 $db = Db::getInstance();
-                $req = $db->prepare('DELETE FROM jokes WHERE id = '.$id);
+                $req = $db->prepare('DELETE FROM jokes WHERE joke_id = '.$id);
 
                 $req->execute();
                 if ($req->rowCount() == 1){

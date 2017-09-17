@@ -338,12 +338,10 @@ class Profile_View {
             if (isset($jokes) && !empty($jokes)){
                 foreach ($jokes as $joke_index => $joke){
                     if ($count % 2 == 1){
-                        ?>
-                        <div class="row">
-                            <?php
-                        }
-                        ?>
-                        <div class="col s12 m6">
+                        ?> <div class="row"> <?php
+                    }
+                    ?>
+                        <div class="col s12 m6" id="joke-<?php echo $count; ?>">
                             <div class="card blue-grey">
                                 <div class="card-content white-text">
                                     <span class="card-title"><?php echo $joke['title']; ?></span>
@@ -363,10 +361,8 @@ class Profile_View {
                             </div>
                         </div>
                         <?php
-                        if ($count % 2 || $count == sizeof($jokes)){
-                            ?>
-                        </div>
-                        <?php
+                        if ($count % 2 == 0 || $count == sizeof($jokes)){
+                            ?> </div><!-- end of .row --><?php
                     }
                     $count++;
                 }

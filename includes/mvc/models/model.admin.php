@@ -25,7 +25,7 @@
     public function get_all_categories(){
         try {
             $db = Db::getInstance();
-            $req = $db->prepare('SELECT * FROM category');
+            $req = $db->prepare('SELECT * FROM categories');
             $req->execute();
             $posts = $req->fetchAll();
             return $posts;

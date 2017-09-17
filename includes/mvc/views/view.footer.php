@@ -22,26 +22,23 @@
                 <div class="col l3 s12">
                   <h5 class="white-text">Settings</h5>
                   <ul>
-                    <li><a class="white-text" href="#!">Link 1</a></li>
-                    <li><a class="white-text" href="#!">Link 2</a></li>
-                    <li><a class="white-text" href="#!">Link 3</a></li>
-                    <li><a class="white-text" href="#!">Link 4</a></li>
+                    <li><a class="white-text" href="#!">TODO</a></li>
+                    <li><a class="white-text" href="#!">TODO</a></li>
+                    <li><a class="white-text" href="#!">TODO</a></li>
+                    <li><a class="white-text" href="#!">TODO</a></li>
                   </ul>
                 </div>
                 <div class="col l3 s12">
                   <h5 class="white-text">Connect</h5>
                   <ul>
                     <li><a class="white-text" href="http://localhost/jokes/version">Version du site</a></li>
-                    <li><a class="white-text" href="#!">Link 2</a></li>
-                    <li><a class="white-text" href="#!">Link 3</a></li>
-                    <li><a class="white-text" href="#!">Link 4</a></li>
                   </ul>
                 </div>
               </div>
             </div>
             <div class="footer-copyright">
               <div class="container">
-              Made by <a class="orange-text text-lighten-3" href="http://vianneyain.com">Vianney Aïn</a>
+              Made by <a class="orange-text text-lighten-3" href="http://vianneyain.com">Vianney Aïn</a> with <a target="_blank" class="orange-text text-lighten-3" href="http://materializecss.com/">Materialize</a>.
               </div>
             </div>
           </footer>
@@ -50,6 +47,7 @@
           <!--  Scripts-->
           <?php $this->call_to_actions($actions); ?>
           <script src="<?php echo 'http://localhost/jokes/js/rating.js' ?>"></script>
+          <script src="<?php echo 'http://localhost/jokes/js/global.js' ?>"></script>
           </body>
           </html>
 

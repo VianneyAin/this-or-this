@@ -16,8 +16,8 @@
                 if (isset($post['author'])){
                     $posts[$key]['author'] = $this->get_user_by_id($post['author']);
                 }
-                if (isset($post['id'])){
-                    $id = $post['id'];
+                if (isset($post['joke_id'])){
+                    $id = $post['joke_id'];
                     if (isset($this->user_object->userID) && !empty($this->user_object->userID)){
                         $user_id = $this->user_object->userID;
                         $req = $db->prepare("SELECT * FROM rates WHERE user = '$user_id' && joke = '$id'");
@@ -37,7 +37,7 @@
     public function get_all_categories(){
         try {
             $db = Db::getInstance();
-            $req = $db->prepare('SELECT * FROM category');
+            $req = $db->prepare('SELECT * FROM categories');
             $req->execute();
             $posts = $req->fetchAll();
             return $posts;

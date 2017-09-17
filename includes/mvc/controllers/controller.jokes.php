@@ -78,7 +78,13 @@ class Jokes_Controller extends Application{
                             $this->data['post']['callback'] = $this->model->save_joke($this->data['post'], $this->user_object->return_ID());
                         }
                         break;
+                    case 'cat':
+                        $this->permission_object->user_do('read_joke_single');
+                        if (isset($this->routes[2]) && !empty($this->routes[2])){
+                        }
+                        break;
                     default:
+                        break;
                 }
             }
             //joke single : /blague/id
@@ -113,7 +119,10 @@ class Jokes_Controller extends Application{
                         }
 
                         break;
+                    case 'cat':
+                        break;
                     default:
+                        break;
                 }
             }
             //joke single : /blague/id

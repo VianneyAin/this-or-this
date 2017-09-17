@@ -57,7 +57,16 @@
                                    - Possibilité de modifier son mot de passe / son adresse email sur son profil
                                </li>
                                <li>
-                                   - Possibilité de modifier son avatar sur son profil
+                                   - Possibilité d'ajouter son avatar sur son profil
+                               </li>
+                               <li>
+                                   - Possibilité d'ajouter une description sur son profil
+                               </li>
+                               <li>
+                                   - Système de notation de blagues
+                               </li>
+                               <li>
+                                   - Mise en place des catégories de blagues (Menu, Page catégories)
                                </li>
                            </ul>
                        </div>

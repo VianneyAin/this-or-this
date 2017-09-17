@@ -76,7 +76,7 @@ class Admin_View {
                 foreach ($data['jokes'] as $key => $joke){
                     ?>
                     <div class="section">
-                        <div class="card joke" id="<?php echo $joke['id']; ?>">
+                        <div class="card joke" id="<?php echo $joke['joke_id']; ?>">
                             <div class="card-header">
                                 <div class="chip">
                                     <img src="<?php echo $joke['author']['avatar']; ?>" alt="Avatar">
@@ -141,7 +141,7 @@ class Admin_View {
             if ($data['categories'] != null){
                 foreach ($data['categories'] as $key => $category){?>
                     var category = new Object();
-                    category.id = "<?php echo $category['id'];  ?>";
+                    category.id = "<?php echo $category['category_id'];  ?>";
                     category.name = "<?php echo $category['name']; ?>";
                     array_categories.push(category);
                 <?php }
