@@ -19,16 +19,7 @@ class Application {
 
     private $controllers = array(
         '',//homepage
-        'version',
-        'login',
-        'connexion',
-        'logout',
-        'inscription',
-        'profil',
-        'profile',
-        'blague',
-        'blagues',
-        'admin',
+        'tot',
     );
 
     private $ajax_controllers = array(
@@ -84,37 +75,9 @@ class Application {
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');
                 $this->controller = new Home_Controller();
                 break;
-            case 'logout':
+            case 'tot':
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');
-                $this->controller = new Logout_Controller();
-                break;
-            case 'login':
-            case 'connexion' :
-                require_once('includes/mvc/controllers/controller.login.php');
-                $this->controller = new Login_Controller();
-                break;
-            case 'inscription' :
-                require_once('includes/mvc/controllers/controller.signup.php');
-                $this->controller = new Signup_Controller();
-                break;
-            case 'profil':
-            case 'profile':
-                $this->add_action('header', 'cloudinary_js');
-                require_once('includes/mvc/controllers/controller.profile.php');
-                $this->controller = new Profile_Controller();
-                break;
-            case 'blague':
-            case 'blagues':
-                require_once('includes/mvc/controllers/controller.jokes.php');
-                $this->controller = new Jokes_Controller($this->routes);
-                break;
-            case 'admin':
-                require_once('includes/mvc/controllers/controller.' . $controller . '.php');
-                $this->controller = new Admin_Controller($this->routes);
-                break;
-            case 'version':
-                require_once('includes/mvc/controllers/controller.' . $controller . '.php');
-                $this->controller = new Version_Controller($this->routes);
+                $this->controller = new Tot_Controller($this->routes);
                 break;
             case 'error':
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');

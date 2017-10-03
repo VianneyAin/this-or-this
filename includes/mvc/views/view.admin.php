@@ -61,7 +61,7 @@ class Admin_View {
         ?>
         <div class="container">
             <div class="section">
-                <a href="http://localhost/jokes/admin" class="waves-effect waves-light btn orange">Retour au dashboard</a>
+                <a href="http://localhost/jokes/admin" class="waves-effect waves-light btn light-blue darken-2">Retour au dashboard</a>
             </div>
         </div>
 

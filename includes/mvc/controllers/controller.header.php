@@ -18,11 +18,10 @@ class Header_Controller extends Application{
     }
 
     public function layout_request() {
-        $this->categories = $this->model->get_all_categories();
     }
 
     public function partials_request() {
-        $this->view->fn_header_view($this->registration, $this->actions, $this->categories);
+        $this->view->fn_header_view();
     }
 }
 ?>

@@ -11,7 +11,7 @@
 
     public static function getInstance() {
         $db_host = 'localhost';
-        $db_name = 'jokes';
+        $db_name = 'thisorthis';
       if (!isset(self::$instance)) {
         $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
         $pdo_options[PDO::MYSQL_ATTR_INIT_COMMAND] = "SET NAMES 'utf8'";
