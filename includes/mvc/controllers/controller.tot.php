@@ -31,16 +31,16 @@ class Tot_Controller extends Application{
         $this->data = $this->model->get_category_single($this->category);
       }
       else {
-        //$this->data['categories'] = $this->model->get_all_categories();
+        $this->data['categories'] = $this->model->get_all_categories();
       }
     }
 
     public function partials_request() {
       if (isset($this->category) && !empty($this->category)){
-        $this->data = $this->view->display_tot_category_view($this->data);
+        $this->view->display_tot_category_view($this->data);
       }
       else {
-        //$this->data['categories'] = $this->model->get_all_categories();
+        $this->view->display_tot_categories_view($this->data);
       }
     }
 }

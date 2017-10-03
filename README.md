@@ -1,6 +1,6 @@
-# Jokes
+# This or This
 
-Jokes a simple site of jokes
+This or This is a simple site to have fun.
 
 ## Built With
 
@@ -11,6 +11,7 @@ Jokes a simple site of jokes
 ## Contributing
 
 If you have any suggestion, please fill [this form](http://vianneyain.com/contact)
+Plus, we are hiring, please fill [this form](http://vianneyain.com/contact)
 
 ## Versioning
 
@@ -20,7 +21,7 @@ We use [GitHub](https://github.com/) for versioning. For the versions available,
 
 * **Vianney Aïn** - *Initial work* - [VianneyAïn](http://vianneyain.com)
 
-See also the list of [contributors](https://github.com/VianneyAin/jokes/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/VianneyAin/this-or-this/contributors) who participated in this project.
 
 ## License
 

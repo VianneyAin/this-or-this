@@ -1,65 +1,24 @@
 IDEAS --
-Pouvoir noter les blagues
-Pouvoir créer un compte => noter et ajouter des blagues
-Catégories de blagues, sous catégories de blagues
-Top des blagues les mieux notées
-Pouvoir trier les blagues (dernières, mieux notés, plus vues)
-Page de la blague avec commentaires
-Blague du jour
-Classement des blagueurs
-Niveaux de Blagueurs
-Page de blagueur avec sa liste de blagues et ses infos
-Hauts-faits de blagues, points de blagues, niveaux
-Pouvoir noter une blague (1 à 10?)
-Pouvoir ajouter une blague à ses favoris
+
 
 TODO --
 
 -- Version 0.1 :
-X - Pouvoir créer un compte, pouvoir se connecter (username, mot de passe, email seulement, sans validation)
-X - Pouvoir poster une blague (après validation par un modérateur)
-X - Page d'accueil avec les dernières blagues
-X - Page admin pour valider les blagues
+Système de catégorie
+Script de gestion de jeu
+Mise en ligne du site
+Formulaire de contact
+Demande d'âge
 
 -- Version 0.2 :
-X - Pouvoir modifier / corriger une blague avant de la valider sur la page admin
-X - Page Version
-X - Page profil pour modifier son mot de passe, poster un avatar, changer son email
-X - Page profil pouvoir ajouter une image de mur
-X - Page profil pouvoir changer sa bio
-X - La création d'une blague doit juste faire apparaître le message de validation, et plus le form de création
-X - Pouvoir noter une blague
-X - Catégorie de blagues
-X - Page catégorie
-Pouvoir commenter une blague
+Pouvoir partager sur fb
+Titre des pages
+Dons paypal
+Pub google ads
+Connexion pour accéder à la section NFSL
+
 
 -- Version 0.3 :
-Page admin liste de blagues
-Page admin liste d'utilisateurs
-Système de points d'expériences utilisateur, niveaux
-Pouvoir proposer une édition de blague => demande à l'auteur
-Pouvoir signaler une blague
-Classements des blagues
-Classement des blagueurs
-
--- Version 0.4 :
-Système de haut-faits
-Système de titre
-
--- Version 0.5 :
-Algorithme de proposition de blague
-
--- Version 0.6 :
-Blague version tinder (j'aime / j'aime pas / favoris ) => suivant
-
--- Version 0.7 :
-Notifications mail
-Mot de passe oublié
 
 
--- FUTURE
-Les blagues pas encore lues
-Fonction de recherche
-Remember me checkbox
-Notification par mail
-Guide de démarrage utilisateur
+-- FUTUR

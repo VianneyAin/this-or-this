@@ -1,6 +1,7 @@
 <?php
 class Footer_Controller {
     private $actions;
+    private $data;
 
     public function __construct($actions){
         // we need the model to query the database later in the controller
@@ -16,11 +17,11 @@ class Footer_Controller {
     }
 
     public function layout_request() {
-
+        $this->data['categories'] = $this->model->get_last_categories();
     }
 
     public function partials_request() {
-        $this->view->fn_footer_view($this->actions);
+        $this->view->fn_footer_view($this->actions, $this->data);
     }
 }
 ?>

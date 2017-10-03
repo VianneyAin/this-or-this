@@ -30,33 +30,6 @@ class Application {
         ini_set('display_errors', 1);
         ini_set('display_startup_errors', 1);
         error_reporting(E_ALL);
-        require_once("includes/functions/registration.php");
-        require_once("includes/mvc/controllers/controller.user.php");
-        require_once("permission.php");
-        $this->registration = new Registration();
-        //Provide your site name here
-        $this->registration->SetWebsiteName('localhost/jokes-app');
-
-        //Provide the email address where you want to get notifications
-        $this->registration->SetAdminEmail('vianney.ain.travail@gmail.com');
-
-        //Provide your database login details here:
-        //hostname, user name, password, database name and table name
-        //note that the script will create the table (for example, fgusers in this case)
-        //by itself on submitting register.php for the first time
-        $this->registration->InitDB(/*hostname*/'localhost',
-                              /*username*/'root',
-                              /*password*/'',
-                              /*database name*/'jokes',
-                              /*table name*/'users');
-
-        //For better security. Get a random string from this link: http://tinyurl.com/randstr
-        // and put it here
-        $this->registration->SetRandomKey('qSRcVS6DrTzrPvr');
-        //Load user object
-        $this->user_object = new User($this->registration);
-        //Load permission object
-        $this->permission_object = new Permission( $this->user_object );
     }
 
     public function call_ajax(){
@@ -168,7 +141,7 @@ class Application {
 
     public static function display_ajax_url(){
         ?>
-        <script type="text/javascript">var ajaxurl = "http://localhost/jokes/ajax";</script>
+        <script type="text/javascript">var ajaxurl = "http://localhost/this-or-this/ajax";</script>
         <?php
     }
 

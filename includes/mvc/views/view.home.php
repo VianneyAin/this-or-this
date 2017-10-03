@@ -16,7 +16,7 @@
                   <h5 class="header col s12 light">THIS ... OR THIS ?</h5>
                 </div>
                 <div class="row center">
-                  <a href="http://localhost/thisorthis/tot/" id="download-button" class="btn-large waves-effect waves-light light-blue darken-2">
+                  <a href="http://localhost/this-or-this/tot/" id="download-button" class="btn-large waves-effect waves-light light-blue darken-2">
                       Select a topic
                   </a>
                 </div>

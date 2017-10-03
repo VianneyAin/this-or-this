@@ -10,7 +10,7 @@
                 <h5 class="header col s12 light">Il semblerait que vous soyez perdu !</h5>
               </div>
               <div class="row center">
-                <a href="http://localhost/jokes" id="download-button" class="btn-large waves-effect waves-light orange">
+                <a href="http://localhost/this-or-this" id="download-button" class="btn-large waves-effect waves-light orange">
                     Retour à l'accueil
                 </a>
               </div>
