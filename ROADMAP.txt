@@ -21,4 +21,10 @@ Connexion pour accéder à la section NFSL
 -- Version 0.3 :
 
 
+-- CATEGORIE
+Butt or not
+Glanders or Sperm
+Naked or not
+
 -- FUTUR
+Multilingues

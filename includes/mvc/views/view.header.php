@@ -29,12 +29,12 @@
 
                 <!--CATEGORIES SIDEBAR -->
                 <ul id="cat-sidebar" class="side-nav" style="z-index:999">
-                    <li><a href="http://localhost/this-or-this/tot/"><i class="material-icons">format_list_bulleted</i>Liste des catégories</a></li>
+                    <li><a href="http://localhost/this-or-this/tot/"><i class="material-icons">format_list_bulleted</i>Choose a category</a></li>
                 </ul>
                 <!-- END OF CATEGORIES SIDEBAR -->
 
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="http://localhost/this-or-this/tot/"><i class="material-icons">format_list_bulleted</i>Liste des catégories</a></li>
+                    <li><a href="http://localhost/this-or-this/tot/"><i class="material-icons">format_list_bulleted</i>Choose a category</a></li>
 
 
                 </ul>
