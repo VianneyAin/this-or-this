@@ -24,7 +24,7 @@
             <nav id="main-menu" class="light-blue darken-2" role="navigation">
               <div class="nav-wrapper container"><a id="logo-container" href="http://localhost/this-or-this/" class="brand-logo">This or this</a>
                 <ul class="right hide-on-med-and-down">
-                      <li><a href="">Choose a category</a></li>
+                      <li><a href="http://localhost/this-or-this/tot/">Choose a category</a></li>
                 </ul>
 
                 <!--CATEGORIES SIDEBAR -->

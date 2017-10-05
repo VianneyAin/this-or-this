@@ -116,8 +116,8 @@
 
         .step .answer {
           position: absolute;
-          width:100%;
           top: 20%;
+          left:40%;
           font-size: 50px;
           text-transform: uppercase;
           font-weight: 500;
@@ -175,7 +175,9 @@
       var step = 0;
       var game = true;
       var score = 0;
-      var data = new Object()
+      var data = new Object();
+      var active = false;
+
       function display_score(){
         jQuery('.step').each(function(){
           jQuery(this).hide();
@@ -183,10 +185,12 @@
         jQuery('.over .result').text(score);
         jQuery('.over').show();
       }
+
       function show_next(){
         jQuery('.step').each(function(){
           jQuery(this).hide();
         });
+        active = false;
         if (game){
           jQuery('.step_'+step).find('.img_hidden').hide();
           jQuery('.step_'+step).find('.img_reveal').show();
@@ -255,10 +259,8 @@
           });
           jQuery('.step_'+step).show();
         });
-
-
-
       });
+
       function rein_game () {
         create_elements();
         game = true;
@@ -275,18 +277,21 @@
         jQuery('.over').hide();
         jQuery('.start').show();
         jQuery('.response_btn').click(function(){
-          var anwser = jQuery(this).closest('.step').attr('data-value');
-          var current = jQuery(this).attr('data-value');
-          if (game){
-            if (anwser == current){
-              score++;
-              show_result(true);
-            }
-            else {
-              game = false;
-              show_result(false);
-            }
+          if (!active){
+            active = true;
+            var anwser = jQuery(this).closest('.step').attr('data-value');
+            var current = jQuery(this).attr('data-value');
+            if (game){
+              if (anwser == current){
+                score++;
+                show_result(true);
+              }
+              else {
+                game = false;
+                show_result(false);
+              }
 
+            }
           }
         });
       }

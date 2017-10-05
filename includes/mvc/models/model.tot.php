@@ -7,7 +7,7 @@
     public function get_all_categories(){
         try {
             $db = Db::getInstance();
-            $sql = "SELECT * FROM categories where nsfl <> 1 ORDER BY created DESC";
+            $sql = "SELECT * FROM categories where nsfl <> 1 AND visible <> 0 ORDER BY created DESC";
             $req = $db->prepare($sql);
             // the query was prepared, now we replace :id with our actual $id value
             $req->execute();
