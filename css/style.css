@@ -6,9 +6,66 @@
  * Made By MaterializeCSS.com
  */
 
+h5 {
+    font-size: .9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.page-footer ul li a, .page-footer p {
+    color: #aaa;
+    font-size: .8rem;
+    font-weight: 300;
+    margin: 5px 0;
+}
+
 .icon-block {
   padding: 0 15px;
 }
 .icon-block .material-icons {
 	font-size: inherit;
+}
+
+.topic-list{
+    margin-top:50px;
+}
+.collection-item {
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.gallery .gallery-cover {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    transition: top .5s;
+    z-index: 2;
+}
+.gallery .gallery-cover img {
+    box-shadow: 0 0 1px 0 rgba(0,0,0,0.1);
+    max-width: 100%;
+    width:100%;
+    width: auto;
+    display: block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.collection-item .gallery-header {
+    display: block;
+}
+.gallery .gallery-header {
+    position: relative;
+    padding: 20px;
+    background-color: #fff;
+    color: #444;
+}
+.gallery .gallery-item {
+    margin-top:20px;
+}
+
+.parallax-container .section {
+    width: 100%;
 }

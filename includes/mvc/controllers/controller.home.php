@@ -12,10 +12,11 @@ class Home_Controller extends Application{
 
 
     public function layout_request() {
+        $this->data['categories'] = $this->model->get_last_categories();
     }
 
     public function partials_request() {
-        $this->view->fn_home_view();
+        $this->view->fn_home_view($this->data);
     }
 }
 ?>

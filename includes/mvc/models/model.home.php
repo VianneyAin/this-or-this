@@ -6,99 +6,32 @@
         $this->user_object = $user_object;
     }
 
-    public function get_last_jokes($limit = null){
+    public function get_last_categories(){
         try {
             $db = Db::getInstance();
-            $req = $db->prepare("SELECT * FROM jokes LEFT JOIN users on jokes.author = users.id where status = 'active' ORDER BY created DESC LIMIT $limit");
-            $req->execute();
-            $posts = $req->fetchAll();
-            foreach ($posts as $key => $post){
-                if (isset($post['joke_id'])){
-                    $id = $post['joke_id'];
-                    if (isset($this->user_object->userID) && !empty($this->user_object->userID)){
-                        $user_id = $this->user_object->userID;
-                        $req = $db->prepare("SELECT * FROM rates WHERE user = '$user_id' && joke = '$id'");
-                        $req->execute(array('id' => $id));
-                        $rate = $req->fetch();
-                        $posts[$key]['user_rating'] = $rate;
-                    }
-                }
-            }
-            return $posts;
-        }
-        catch (PDOexception $e) {
-            die($e->getMessage());
-        }
-    }
-
-    public function get_all_categories(){
-        try {
-            $db = Db::getInstance();
-            $req = $db->prepare('SELECT * FROM categories');
-            $req->execute();
-            $posts = $req->fetchAll();
-            return $posts;
-        }
-        catch (PDOexception $e) {
-            die($e->getMessage());
-        }
-    }
-
-    public function get_user_by_id($user_id){
-        if (isset($user_id) && !empty($user_id)){
-            $db = Db::getInstance();
-            $req = $db->prepare('SELECT * FROM users WHERE id = :user_id');
+            $sql = "SELECT * FROM categories where nsfl <> 1 AND visible <> 0 ORDER BY created DESC limit 4";
+            $req = $db->prepare($sql);
             // the query was prepared, now we replace :id with our actual $id value
-            $req->execute(array('user_id' => $user_id));
-            $user = $req->fetch();
-            if ($user) {
-                return array(
-                    'id' => $user['id'],
-                    'username' => $user['username'],
-                    'email' => $user['email'],
-                    'avatar' => $user['avatar'],
-                    //'background_image' => $user['background_image'],
-                    'firstname' => $user['firstname'],
-                    'lastname' => $user['lastname'],
-                    'description' => $user['description'],
-                    'display_name' => $this->get_user_display_name($user),
-                );
+            $req->execute();
+            $post = $req->fetchAll();
+            if (isset($post) && !empty($post)){
+                foreach ($post as $key => $cat){
+                    $sql = 'SELECT count(*) FROM elements where category = "'.$cat['id'].'"';
+                    $req = $db->prepare($sql);
+                    // the query was prepared, now we replace :id with our actual $id value
+                    $req->execute();
+                    $cat_nb = $req->fetch();
+                    $post[$key]['total'] = $cat_nb[0];
+                }
+              return $post;
             }
             else {
-                return array(
-                    'id' => '-1',
-                    'username' => "JohnDoe",
-                    'email' => "contact@johndoe.com",
-                    'avatar' => 'http://lorempixel.com/400/200/abstract/',
-                    //'background_image' => $user['background_image'],
-                    'firstname' => 'John',
-                    'lastname' => 'Doe',
-                    'description' => '',
-                    'display_name' => $this->get_user_display_name(array('firstname' => 'John', 'lastname' => 'Doe')),
-                );
+                return false;
             }
         }
-        else {
-            return null;
+        catch (PDOexception $e) {
+            return false;
         }
-    }
-
-    public function get_user_display_name($user){
-        $name = '';
-        if(!isset($user)){ return null; }
-        if ( (isset($user['lastname']) && !empty($user['lastname'])) || (isset($user['firstname']) && !empty($user['firstname']))){
-            $name = $user['firstname'];
-            if (!empty($user['firstname']) && !empty($user['lastname'])){
-                $name .= ' '.$user['lastname'];
-            }
-        }
-        else {
-            if (isset($user['username']) && !empty($user['username'])){
-                $name = $user['username'];
-            }
-
-        }
-        return $name;
     }
   }
 ?>

@@ -6,48 +6,6 @@
 
     public function display_tot_categories_view($data){
         ?>
-        <style>
-
-            .topic-list{
-                margin-top:50px;
-            }
-            .collection-item {
-                box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-            }
-            .gallery .gallery-cover {
-                position: relative;
-                overflow: hidden;
-                display: block;
-                width: 100%;
-                -webkit-transform-origin: 0 0;
-                transform-origin: 0 0;
-                transition: top .5s;
-                z-index: 2;
-            }
-            .gallery .gallery-cover img {
-                box-shadow: 0 0 1px 0 rgba(0,0,0,0.1);
-                max-width: 100%;
-                width:100%;
-                width: auto;
-                display: block;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-            }
-            .collection-item .gallery-header {
-                display: block;
-            }
-            .gallery .gallery-header {
-                position: relative;
-                padding: 20px;
-                background-color: #fff;
-                color: #444;
-            }
-            .gallery .gallery-item {
-                margin-top:20px;
-            }
-        </style>
         <div class="container">
             <div class="row topic-list">
                 <div class="col s12 m6 centered">
@@ -141,34 +99,60 @@
 
       </style>
       <div id="tot_container" class="container" style="height:100%;">
-        <div class="starter">
-          <div class="row">
-            <div class="col s12 centered">
-              <h4 class="tot_title"><?php
-              if (isset($data) && !empty($data)){
-                echo $data['choice_1']. ' or '. $data['choice_2'];
-              }
-              ?> ?</h4>
-            </div>
+          <div class="starter">
+              <div class="gallery gallery-masonry row center">
+                  <?php if (isset($data) && !empty($data) ){
+                      ?>
+                      <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
+                          <div class="collection-item">
+                              <a class="gallery-cover" href="http://localhost/this-or-this/tot/<?php echo $data['slug']; ?>" style="min-height:200px;">
+                                  <img src="<?php echo $data['thumbnail']; ?>" style="width:100%;">
+                              </a>
+                          </div>
+                      </div>
+                      <?php
+                  }?>
+              </div>
+              <div class="row">
+                  <div class="col s12 centered">
+                      <h4 class="tot_title"><?php
+                      if (isset($data) && !empty($data)){
+                          echo $data['choice_1']. ' or '. $data['choice_2'];
+                      }
+                      ?> ?</h4>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col s12 centered">
+                      <a class="btn-large waves-effect waves-light btn red start_btn">Start</a>
+                  </div>
+              </div>
           </div>
-          <div class="row">
-            <div class="col s12 centered">
-              <a class="btn-large waves-effect waves-light btn red start_btn">Start</a>
-            </div>
+          <div class="over">
+              <div class="gallery gallery-masonry row center">
+                  <?php if (isset($data) && !empty($data) ){
+                      ?>
+                      <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
+                          <div class="collection-item">
+                              <a class="gallery-cover" href="http://localhost/this-or-this/tot/<?php echo $data['slug']; ?>" style="min-height:200px;">
+                                  <img src="<?php echo $data['thumbnail']; ?>" style="width:100%;">
+                              </a>
+                          </div>
+                      </div>
+                      <?php
+                  }?>
+              </div>
+              <div class="row">
+                  <div class="col s12 centered">
+                      <h4>Your score : <span class="result"></span>/<span class="total"></span></h4>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col s12 centered">
+                      <a class="waves-effect waves-light btn red start_btn">Start again</a>
+                  </div>
+              </div>
           </div>
-        </div>
-        <div class="over">
-          <div class="row">
-            <div class="col s12 centered">
-              <h4>Your score : <span class="result"></span>/<span class="total"></span></h4>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s12 centered">
-              <a class="waves-effect waves-light btn red start_btn">Start again</a>
-            </div>
-          </div>
-        </div>
       </div>
       <script type="text/javascript">
       var timer = 2000;

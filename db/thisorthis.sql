@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 05 Octobre 2017 à 19:32
--- Version du serveur :  5.6.17
--- Version de PHP :  5.5.12
+-- Généré le :  Jeu 05 Octobre 2017 à 21:20
+-- Version du serveur :  5.7.14
+-- Version de PHP :  5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `thisorthis`
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Structure de la table `categories`
 --
 
-CREATE TABLE IF NOT EXISTS `categories` (
-  `id` int(9) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `categories` (
+  `id` int(9) NOT NULL,
   `slug` varchar(150) NOT NULL,
   `title` varchar(150) NOT NULL,
   `description` text NOT NULL,
@@ -36,10 +36,8 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `nsfl` tinyint(1) NOT NULL DEFAULT '0',
   `thumbnail` varchar(300) NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `visible` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `slug` (`slug`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+  `visible` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `categories`
@@ -52,7 +50,7 @@ INSERT INTO `categories` (`id`, `slug`, `title`, `description`, `choice_1`, `cho
 (4, 'pokemonordigimon', 'Pokemon or Digimmon', '', 'pokemon', 'digimon', 0, '', '2017-10-04 08:36:44', 0),
 (5, 'beerorpee', 'Beer or Pee', '', 'beer', 'pee', 0, 'https://img11.hostingpics.net/pics/444224thumbnailbeer.jpg', '2017-10-05 07:18:51', 1),
 (6, 'muslimorjewish', 'Muslim or Jewish', '', 'muslim', 'jewish', 0, 'https://img11.hostingpics.net/pics/991370thumbnailmuslimorjewish.jpg', '2017-10-05 08:42:30', 1),
-(7, 'naziornotnazi', 'Nazi or Not Nazi', '', 'nazi', 'not nazi', 0, '', '2017-10-05 12:55:01', 1);
+(7, 'naziornotnazi', 'Nazi or Not Nazi', '', 'nazi', 'not nazi', 0, 'https://img11.hostingpics.net/pics/624934thumbnailnaziornot.jpg', '2017-10-05 12:55:01', 1);
 
 -- --------------------------------------------------------
 
@@ -60,14 +58,13 @@ INSERT INTO `categories` (`id`, `slug`, `title`, `description`, `choice_1`, `cho
 -- Structure de la table `elements`
 --
 
-CREATE TABLE IF NOT EXISTS `elements` (
-  `id` int(9) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `elements` (
+  `id` int(9) NOT NULL,
   `hidden_image` varchar(300) NOT NULL,
   `reveal_image` varchar(300) NOT NULL,
   `category` int(11) NOT NULL,
-  `choice` varchar(150) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=92 ;
+  `choice` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `elements`
@@ -162,8 +159,56 @@ INSERT INTO `elements` (`id`, `hidden_image`, `reveal_image`, `category`, `choic
 (88, 'https://img11.hostingpics.net/pics/305448image2.jpg', 'https://img11.hostingpics.net/pics/293700image646.jpg', 2, 'woman'),
 (89, 'https://img11.hostingpics.net/pics/389686AP230819108332.png', 'https://img11.hostingpics.net/pics/571944AP23081910833.jpg', 7, 'not nazi'),
 (90, 'https://img11.hostingpics.net/pics/8741771988807hollandesalut2.png', 'https://img11.hostingpics.net/pics/2241971988807hollandesalut.jpg', 7, 'not nazi'),
-(91, 'https://img11.hostingpics.net/pics/240110ob5e4fb2gandhisalutdelamainfenetre2.png', 'https://img11.hostingpics.net/pics/297453ob5e4fb2gandhisalutdelamainfenetre.jpg', 7, 'not nazi');
+(91, 'https://img11.hostingpics.net/pics/240110ob5e4fb2gandhisalutdelamainfenetre2.png', 'https://img11.hostingpics.net/pics/297453ob5e4fb2gandhisalutdelamainfenetre.jpg', 7, 'not nazi'),
+(92, 'https://img11.hostingpics.net/pics/576286melenchonsalutgauche2.png', 'https://img11.hostingpics.net/pics/232591melenchonsalutgauche.jpg', 7, 'not nazi'),
+(93, 'https://img11.hostingpics.net/pics/783619PierredeVilliersdtail2.png', 'https://img11.hostingpics.net/pics/294466PierredeVilliersdtail.jpg', 7, 'not nazi'),
+(94, 'https://img11.hostingpics.net/pics/134789Femaleofficersaluting2.png', 'https://img11.hostingpics.net/pics/431841Femaleofficersaluting.jpg', 7, 'not nazi'),
+(95, 'https://img11.hostingpics.net/pics/551998PrideTheSevenDeadlySins2.png', 'https://img11.hostingpics.net/pics/666059PrideTheSevenDeadlySins.jpg', 7, 'nazi'),
+(96, 'https://img11.hostingpics.net/pics/485768heil54452.png', 'https://img11.hostingpics.net/pics/239245heil5445.jpg', 7, 'nazi'),
+(97, 'https://img11.hostingpics.net/pics/572619635639123210167360APGermanyNaziGrave2.png', 'https://img11.hostingpics.net/pics/488254635639123210167360APGermanyNaziGrave.jpg', 7, 'nazi'),
+(98, 'https://img11.hostingpics.net/pics/855198neonazi2.png', 'https://img11.hostingpics.net/pics/649281neonazi.jpg', 7, 'nazi'),
+(99, 'https://img11.hostingpics.net/pics/716444MongolianneoNazigroup0062.png', 'https://img11.hostingpics.net/pics/184172MongolianneoNazigroup006.jpg', 7, 'nazi'),
+(100, 'https://img11.hostingpics.net/pics/629110danielradcliffeimperium7592.png', 'https://img11.hostingpics.net/pics/236640danielradcliffeimperium759.jpg', 7, 'nazi'),
+(101, 'https://img11.hostingpics.net/pics/659806166676853032.png', 'https://img11.hostingpics.net/pics/19062516667685303.jpg', 7, 'nazi'),
+(102, 'https://img11.hostingpics.net/pics/985456hitlerandmussolininaziandfascist2.png', 'https://img11.hostingpics.net/pics/254080hitlerandmussolininaziandfascist.jpg', 7, 'nazi'),
+(103, 'https://img11.hostingpics.net/pics/899095hihihitler2.png', 'https://img11.hostingpics.net/pics/621154hihihitler.jpg', 7, 'nazi'),
+(104, 'https://img11.hostingpics.net/pics/326122060420F6699G0212.png', 'https://img11.hostingpics.net/pics/396733060420F6699G021.jpg', 7, 'not nazi'),
+(105, 'https://img11.hostingpics.net/pics/306828size02.png', 'https://img11.hostingpics.net/pics/783342size0.jpg', 7, 'not nazi'),
+(110, 'https://img11.hostingpics.net/pics/827452usnavy2.png', 'https://img11.hostingpics.net/pics/413069usnavy.jpg', 7, 'not nazi'),
+(111, 'https://img11.hostingpics.net/pics/369635150915FWE7736202.png', 'https://img11.hostingpics.net/pics/501509150915FWE773620.jpg', 7, 'not nazi'),
+(112, 'https://img11.hostingpics.net/pics/520301SpaceballjumpoverSkydive352.png', 'https://img11.hostingpics.net/pics/526504SpaceballjumpoverSkydive35.jpg', 7, 'not nazi');
 
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `slug` (`slug`);
+
+--
+-- Index pour la table `elements`
+--
+ALTER TABLE `elements`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT pour la table `elements`
+--
+ALTER TABLE `elements`
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
