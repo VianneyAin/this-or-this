@@ -17,7 +17,7 @@
                   <h5 class="header col s12 white-text light">It's time to make a choice.</h5>
                 </div>
                 <div class="row center">
-                  <a href="http://localhost/this-or-this/tot/" id="download-button" class="btn-large waves-effect waves-light teal lighten-2">Get Started</a>
+                  <a href="http://localhost/this-or-this/tot/" id="download-button" class="btn-large waves-effect waves-light teal lighten-2 pulse">Get Started</a>
                 </div>
                 <br><br>
 
@@ -64,7 +64,7 @@
             <div class="section no-pad-bot">
               <div class="container">
                 <div class="row center">
-                  <h3 class="center col s12 light">Latest Categories</h3>
+                  <h3 class="center col s12 light shadow-5">Latest Categories</h3>
                 </div>
               </div>
             </div>

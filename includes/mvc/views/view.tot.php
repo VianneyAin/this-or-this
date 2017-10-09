@@ -1,5 +1,5 @@
 <?php
-  class Tot_View {
+class Tot_View {
     public function __construct() {
 
     }
@@ -16,27 +16,27 @@
                 <?php if (isset($data) && !empty($data) && isset($data['categories']) && !empty($data['categories'])){
                     foreach ($data['categories'] as $key => $category){
                         ?>
-                            <div class="col s12 m6 gallery-item gallery-filter" style="">
-                                <div class="collection-item">
-                                    <a class="gallery-cover" href="http://localhost/this-or-this/tot/<?php echo $category['slug']; ?>" style="min-height:200px;">
-                                        <img src="<?php echo $category['thumbnail']; ?>" style="width:100%;">
-                                    </a>
-                                    <a class="gallery-header" href="http://localhost/this-or-this/tot/<?php echo $category['slug']; ?>">
-                                        <span class="title">
-                                            <?php echo $category['title']; ?>
-                                            <?php if (isset($category['total']) && !empty($category['total'])){
-                                                echo ' ('.$category['total'].')';
-                                            }
-                                            ?>
-                                            <?php if (isset($category['nsfl']) && !empty($category['nsfl']) && $category['nsfl'] == 1){
-                                                echo ' (NSFL)';
-                                            }
-                                            ?>
-                                        </span>
-                                    </a>
+                        <div class="col s12 m6 gallery-item gallery-filter" style="">
+                            <div class="collection-item">
+                                <a class="gallery-cover" href="http://localhost/this-or-this/tot/<?php echo $category['slug']; ?>" style="min-height:200px;">
+                                    <img src="<?php echo $category['thumbnail']; ?>" style="width:100%;">
+                                </a>
+                                <a class="gallery-header" href="http://localhost/this-or-this/tot/<?php echo $category['slug']; ?>">
+                                    <span class="title">
+                                        <?php echo $category['title']; ?>
+                                        <?php if (isset($category['total']) && !empty($category['total'])){
+                                            echo ' ('.$category['total'].')';
+                                        }
+                                        ?>
+                                        <?php if (isset($category['nsfl']) && !empty($category['nsfl']) && $category['nsfl'] == 1){
+                                            echo ' (NSFL)';
+                                        }
+                                        ?>
+                                    </span>
+                                </a>
 
-                                </div>
                             </div>
+                        </div>
                         <?php
                     }
                 }?>
@@ -47,240 +47,240 @@
     }
 
     public function display_tot_category_view($data){
-      ?>
-      <style>
+        ?>
+        <style>
         .tot_img {
-          max-height:500px;
-          max-width:100%;
+            max-height:500px;
+            max-width:100%;
         }
 
         #tot_footer {
-          bottom:0px;
+            bottom:0px;
         }
         #tot_container {
-          margin-top:20px;
+            margin-top:20px;
         }
 
         .centered {
-          text-align: center;
+            text-align: center;
         }
         .step, .over {
-          display:none;
+            display:none;
         }
 
         .step .img_reveal {
-          display:none;
+            display:none;
         }
 
         .step .answer {
-          position: absolute;
-          top: 20%;
-          left:40%;
-          font-size: 50px;
-          text-transform: uppercase;
-          font-weight: 500;
+            position: absolute;
+            top: 20%;
+            left:40%;
+            font-size: 50px;
+            text-transform: uppercase;
+            font-weight: 500;
         }
 
         .step .wrong {
-          color:red;
+            color:red;
         }
 
         .step .correct {
-          color:lime;
+            color:lime;
         }
 
         .img_hidden, .img_reveal {
-          max-height:70%;
-          text-align:center;
+            max-height:70%;
+            text-align:center;
         }
         .tot_title {
             text-transform: uppercase;
         }
 
-      </style>
-      <div id="tot_container" class="container" style="height:100%;">
-          <div class="starter">
-              <div class="gallery gallery-masonry row center">
-                  <?php if (isset($data) && !empty($data) ){
-                      ?>
-                      <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
-                          <div class="collection-item">
-                              <a class="gallery-cover" href="http://localhost/this-or-this/tot/<?php echo $data['slug']; ?>" style="min-height:200px;">
-                                  <img src="<?php echo $data['thumbnail']; ?>" style="width:100%;">
-                              </a>
-                          </div>
-                      </div>
-                      <?php
-                  }?>
-              </div>
-              <div class="row">
-                  <div class="col s12 centered">
-                      <h4 class="tot_title"><?php
-                      if (isset($data) && !empty($data)){
-                          echo $data['choice_1']. ' or '. $data['choice_2'];
-                      }
-                      ?> ?</h4>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col s12 centered">
-                      <a class="btn-large waves-effect waves-light btn red start_btn">Start</a>
-                  </div>
-              </div>
-          </div>
-          <div class="over">
-              <div class="gallery gallery-masonry row center">
-                  <?php if (isset($data) && !empty($data) ){
-                      ?>
-                      <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
-                          <div class="collection-item">
-                              <a class="gallery-cover" href="http://localhost/this-or-this/tot/<?php echo $data['slug']; ?>" style="min-height:200px;">
-                                  <img src="<?php echo $data['thumbnail']; ?>" style="width:100%;">
-                              </a>
-                          </div>
-                      </div>
-                      <?php
-                  }?>
-              </div>
-              <div class="row">
-                  <div class="col s12 centered">
-                      <h4>Your score : <span class="result"></span>/<span class="total"></span></h4>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col s12 centered">
-                      <a class="waves-effect waves-light btn red start_btn">Start again</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <script type="text/javascript">
-      var timer = 2000;
-      var step = 0;
-      var game = true;
-      var score = 0;
-      var data = new Object();
-      var active = false;
+        </style>
+        <div id="tot_container" class="container" style="height:100%;">
+            <div class="starter">
+                <div class="gallery gallery-masonry row center">
+                    <?php if (isset($data) && !empty($data) ){
+                        ?>
+                        <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
+                            <div class="collection-item">
+                                <a class="gallery-cover start_btn" style="min-height:200px;">
+                                    <img src="<?php echo $data['thumbnail']; ?>" style="width:100%;">
+                                </a>
+                            </div>
+                        </div>
+                        <?php
+                    }?>
+                </div>
+                <div class="row">
+                    <div class="col s12 centered">
+                        <h4 class="tot_title"><?php
+                        if (isset($data) && !empty($data)){
+                            echo $data['choice_1']. ' or '. $data['choice_2'];
+                        }
+                        ?> ?</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 centered">
+                        <a class="btn-large waves-effect waves-light btn red start_btn">Start</a>
+                    </div>
+                </div>
+            </div>
+            <div class="over">
+                <div class="gallery gallery-masonry row center">
+                    <?php if (isset($data) && !empty($data) ){
+                        ?>
+                        <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
+                            <div class="collection-item">
+                                <a class="gallery-cover" href="http://localhost/this-or-this/tot/<?php echo $data['slug']; ?>" style="min-height:200px;">
+                                    <img src="<?php echo $data['thumbnail']; ?>" style="width:100%;">
+                                </a>
+                            </div>
+                        </div>
+                        <?php
+                    }?>
+                </div>
+                <div class="row">
+                    <div class="col s12 centered">
+                        <h4>Your score : <span class="result"></span>/<span class="total"></span></h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 centered">
+                        <a class="waves-effect waves-light btn red start_btn">Start again</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+        var timer = 2000;
+        var step = 0;
+        var game = true;
+        var score = 0;
+        var data = new Object();
+        var active = false;
 
-      function display_score(){
-        jQuery('.step').each(function(){
-          jQuery(this).hide();
-        });
-        jQuery('.over .result').text(score);
-        jQuery('.over').show();
-      }
-
-      function show_next(){
-        jQuery('.step').each(function(){
-          jQuery(this).hide();
-        });
-        active = false;
-        if (game){
-          jQuery('.step_'+step).find('.img_hidden').hide();
-          jQuery('.step_'+step).find('.img_reveal').show();
-          step = step + 1;
-          jQuery('.step_'+step).show();
-          if (step > data.elements.length){
-            display_score();
-          }
-        }
-        else {
-          display_score();
+        function display_score(){
+            jQuery('.step').each(function(){
+                jQuery(this).hide();
+            });
+            jQuery('.over .result').text(score);
+            jQuery('.over').show();
         }
 
-      }
-      function show_result(result){
-        jQuery('.step').each(function(){
-          if (jQuery(this).is(':visible')){
-            if (result){
-              jQuery(this).find('.answer').addClass('correct');
+        function show_next(){
+            jQuery('.step').each(function(){
+                jQuery(this).hide();
+            });
+            active = false;
+            if (game){
+                jQuery('.step_'+step).find('.img_hidden').hide();
+                jQuery('.step_'+step).find('.img_reveal').show();
+                step = step + 1;
+                jQuery('.step_'+step).show();
+                if (step > data.elements.length){
+                    display_score();
+                }
             }
             else {
-              jQuery(this).find('.answer').addClass('wrong');
+                display_score();
             }
-            jQuery(this).find('.img_hidden').hide();
-            jQuery(this).find('.img_reveal').show();
-          }
-        });
-        setTimeout(show_next, timer);
-      }
 
-      function shuffle(a) {
-          for (let i = a.length; i; i--) {
-              let j = Math.floor(Math.random() * i);
-              [a[i - 1], a[j]] = [a[j], a[i - 1]];
-          }
-      }
+        }
+        function show_result(result){
+            jQuery('.step').each(function(){
+                if (jQuery(this).is(':visible')){
+                    if (result){
+                        jQuery(this).find('.answer').addClass('correct');
+                    }
+                    else {
+                        jQuery(this).find('.answer').addClass('wrong');
+                    }
+                    jQuery(this).find('.img_hidden').hide();
+                    jQuery(this).find('.img_reveal').show();
+                }
+            });
+            setTimeout(show_next, timer);
+        }
 
-      function create_elements (){
-        jQuery('.step').each(function(){
-          jQuery(this).remove();
-        });
-        shuffle(data.elements);
-        var nb = 0;
-        var total = data.elements.length;
-
-        data.elements.forEach(function (element){
-          nb++;
-          jQuery('#tot_container').append('<div class="step step_'+nb+'" data-value="'+element.choice+'"><div class="row"><div class="col s12 img_hidden"><img class="tot_img" src="'+element.hidden_image+'" /></div><div class="col s12 img_reveal"><div class="answer">'+element.choice+'</div><img class="tot_img" src="'+element.reveal_image+'" /></div></div><div id="tot_footer" class="row" style="max-height:10%"><div class="col s4 centered"><a class="waves-effect waves-light btn btn-large response_btn" data-value="'+data.choice_1+'">'+data.choice_1+'</a></div><div class="col s4 centered"><h5>'+nb+'/'+total+'</h5></div><div class="col s4 centered"><a class="waves-effect waves-light btn btn-large response_btn" data-value="'+data.choice_2+'">'+data.choice_2+'</a></div></div></div>');
-        });
-      }
-
-      jQuery(document).ready(function(){
-        <?php if (isset($data) && !empty($data)){
-          ?>
-          data = <?php echo json_encode($data); ?>;
-          <?php
-        }?>
-        jQuery('.start_btn').click(function(){
-          rein_game();
-          step = 0;
-          jQuery('.starter').hide();
-          step = step+1;
-
-          jQuery('.step').each(function(){
-            jQuery(this).hide();
-          });
-          jQuery('.step_'+step).show();
-        });
-      });
-
-      function rein_game () {
-        create_elements();
-        game = true;
-        score = 0;
-        step = 0;
-        jQuery('.over .total').text(data.elements.length);
-        jQuery('.step').each(function(){
-          jQuery(this).find('.img_hidden').css('display', 'block');
-          jQuery(this).find('.img_reveal').css('display', 'none');
-          jQuery(this).find('.anwser').removeClass('correct');
-          jQuery(this).find('.anwser').removeClass('wrong');
-          jQuery(this).hide();
-        });
-        jQuery('.over').hide();
-        jQuery('.start').show();
-        jQuery('.response_btn').click(function(){
-          if (!active){
-            active = true;
-            var anwser = jQuery(this).closest('.step').attr('data-value');
-            var current = jQuery(this).attr('data-value');
-            if (game){
-              if (anwser == current){
-                score++;
-                show_result(true);
-              }
-              else {
-                game = false;
-                show_result(false);
-              }
-
+        function shuffle(a) {
+            for (let i = a.length; i; i--) {
+                let j = Math.floor(Math.random() * i);
+                [a[i - 1], a[j]] = [a[j], a[i - 1]];
             }
-          }
+        }
+
+        function create_elements (){
+            jQuery('.step').each(function(){
+                jQuery(this).remove();
+            });
+            shuffle(data.elements);
+            var nb = 0;
+            var total = data.elements.length;
+
+            data.elements.forEach(function (element){
+                nb++;
+                jQuery('#tot_container').append('<div class="step step_'+nb+'" data-value="'+element.choice+'"><div class="row"><div class="col s12 img_hidden"><img class="tot_img" src="'+element.hidden_image+'" /></div><div class="col s12 img_reveal"><div class="answer">'+element.choice+'</div><img class="tot_img" src="'+element.reveal_image+'" /></div></div><div id="tot_footer" class="row" style="max-height:10%"><div class="col s4 centered"><a class="waves-effect waves-light btn btn-large response_btn" data-value="'+data.choice_1+'">'+data.choice_1+'</a></div><div class="col s4 centered"><h5>'+nb+'/'+total+'</h5></div><div class="col s4 centered"><a class="waves-effect waves-light btn btn-large response_btn" data-value="'+data.choice_2+'">'+data.choice_2+'</a></div></div></div>');
+            });
+        }
+
+        jQuery(document).ready(function(){
+            <?php if (isset($data) && !empty($data)){
+                ?>
+                data = <?php echo json_encode($data); ?>;
+                <?php
+            }?>
+            jQuery('.start_btn').click(function(){
+                rein_game();
+                step = 0;
+                jQuery('.starter').hide();
+                step = step+1;
+
+                jQuery('.step').each(function(){
+                    jQuery(this).hide();
+                });
+                jQuery('.step_'+step).show();
+            });
         });
-      }
-      </script>
-      <?php
+
+        function rein_game () {
+            create_elements();
+            game = true;
+            score = 0;
+            step = 0;
+            jQuery('.over .total').text(data.elements.length);
+            jQuery('.step').each(function(){
+                jQuery(this).find('.img_hidden').css('display', 'block');
+                jQuery(this).find('.img_reveal').css('display', 'none');
+                jQuery(this).find('.anwser').removeClass('correct');
+                jQuery(this).find('.anwser').removeClass('wrong');
+                jQuery(this).hide();
+            });
+            jQuery('.over').hide();
+            jQuery('.start').show();
+            jQuery('.response_btn').click(function(){
+                if (!active){
+                    active = true;
+                    var anwser = jQuery(this).closest('.step').attr('data-value');
+                    var current = jQuery(this).attr('data-value');
+                    if (game){
+                        if (anwser == current){
+                            score++;
+                            show_result(true);
+                        }
+                        else {
+                            game = false;
+                            show_result(false);
+                        }
+
+                    }
+                }
+            });
+        }
+        </script>
+        <?php
     }
-  }
+}
 ?>
