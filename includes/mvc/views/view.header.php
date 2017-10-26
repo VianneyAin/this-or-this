@@ -13,6 +13,12 @@
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
             <title>This or this</title>
+            <link rel="apple-touch-icon" sizes="180x180" href="http://localhost/this-or-this/img/favicon/apple-touch-icon.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="http://localhost/this-or-this/img/favicon/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="http://localhost/this-or-this/img/favicon/favicon-16x16.png">
+            <link rel="manifest" href="http://localhost/this-or-this/img/favicon/manifest.json">
+            <link rel="mask-icon" href="http://localhost/this-or-this/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+            <meta name="theme-color" content="#ffffff">
 
             <!-- CSS  -->
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -23,6 +29,23 @@
             <script src="<?php echo 'http://localhost/this-or-this/js/materialize.js' ?>"></script>
             <script src="<?php echo 'http://localhost/this-or-this/js/init.js' ?>"></script>
             <script src="<?php echo 'http://localhost/this-or-this/js/validate.js' ?>"></script>
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108698505-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'UA-108698505-1');
+            </script>
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-8721154197374288",
+                enable_page_level_ads: true
+              });
+            </script>
+
           </head>
           <body>
             <nav id="main-menu" class="teal lighten-2" role="navigation">
