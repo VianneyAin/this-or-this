@@ -2,6 +2,10 @@
   class Header_View {
 
       function fn_header_view(){
+        $lang = Application::this()->current_lang;
+        if ($lang == Application::this()->default_language){
+          $lang = '';
+        }
            ?>
           <!DOCTYPE html>
           <html lang="en">
@@ -22,11 +26,21 @@
           </head>
           <body>
             <nav id="main-menu" class="teal lighten-2" role="navigation">
-              <div class="nav-wrapper container"><a id="logo-container" href="http://localhost/this-or-this/" class="brand-logo">This or this</a>
+              <div class="nav-wrapper container">
+                <a id="logo-container" href="http://localhost/this-or-this/<?php echo $lang; ?>" class="brand-logo">
+                  <img src="http://localhost/this-or-this/img/logo_white.svg" height='65px; '/>
+                </a>
                 <ul class="right hide-on-med-and-down">
-                      <li><a href="http://localhost/this-or-this/tot/">Choose a category</a></li>
+                    <li><a href="http://localhost/this-or-this/<?php _t('tot');?>/"><?php _t('Choose a category'); ?></a></li>
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><?php _t('Languages'); ?><i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
-
+                <ul id="dropdown1" class="dropdown-content">
+                  <li><a href="http://localhost/this-or-this/fr"><?php _t('French'); ?></a></li>
+                  <li><a href="http://localhost/this-or-this/"><?php _t('English'); ?></a></li>
+                  <li><a href="http://localhost/this-or-this/de"><?php _t('German'); ?></a></li>
+                  <li><a href="http://localhost/this-or-this/es"><?php _t('Spanish'); ?></a></li>
+                  <li><a href="http://localhost/this-or-this/pt"><?php _t('Portuguese'); ?></a></li>
+                </ul>
                 <!--CATEGORIES SIDEBAR -->
                 <ul id="cat-sidebar" class="side-nav" style="z-index:999">
                     <li><a href="http://localhost/this-or-this/tot/"><i class="material-icons">format_list_bulleted</i>Choose a category</a></li>

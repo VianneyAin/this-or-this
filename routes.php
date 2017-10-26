@@ -3,9 +3,9 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once('connection.php');
 require_once('application.php');
+require_once('includes/translations/general.php');
 
 $app = new Application();
-
 
 $base_url = $app->getCurrentUri();
 $paths = array();

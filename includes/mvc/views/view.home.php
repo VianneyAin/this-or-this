@@ -12,15 +12,16 @@
             <div class="section no-pad-bot">
               <div class="container">
                 <br><br>
-                <h1 class="header center  white-text text-lighten-2">This or This</h1>
                 <div class="row center">
-                  <h5 class="header col s12 white-text light">It's time to make a choice.</h5>
+                  <img src="img/logo_blue.svg" height='150px; '/>
                 </div>
                 <div class="row center">
-                  <a href="http://localhost/this-or-this/tot/" id="download-button" class="btn-large waves-effect waves-light teal lighten-2 pulse">Get Started</a>
+                  <h5 class="header col s12 white-text light"><?php _t("It's time to make a choice"); ?>.</h5>
+                </div>
+                <div class="row center">
+                  <a href="http://localhost/this-or-this/tot/" id="download-button" class="btn-large waves-effect waves-light teal lighten-2 pulse"><?php _t('Get Started'); ?></a>
                 </div>
                 <br><br>
-
               </div>
             </div>
             <div class="parallax"><img src="img/background1.jpg" alt="Unsplashed background img 1"></div>
@@ -35,23 +36,23 @@
                 <div class="col s12 m4">
                   <div class="icon-block">
                     <h2 class="center brown-text"><i class="material-icons">reorder</i></h2>
-                    <h5 class="center">Select a topic</h5>
+                    <h5 class="center"><?php _t('Select a topic'); ?></h5>
 
-                    <p class="center light"><a href="http://localhost/this-or-this/tot/" id="download-button" class="btn waves-effect waves-light teal lighten-2">Get Started</a></p>
+                    <p class="center light"><a href="http://localhost/this-or-this/<?php _t('tot');?>/" id="download-button" class="btn waves-effect waves-light teal lighten-2"><?php _t('Get Started'); ?></a></p>
                   </div>
                 </div>
 
                 <div class="col s12 m4">
                   <div class="icon-block">
                     <h2 class="center brown-text"><i class="material-icons">swap_horiz</i></h2>
-                    <h5 class="center">Try to make a choice</h5>
+                    <h5 class="center"><?php _t('Try to make a choice'); ?></h5>
                   </div>
                 </div>
 
                 <div class="col s12 m4">
                   <div class="icon-block">
                     <h2 class="center brown-text"><i class="material-icons">sync</i></h2>
-                    <h5 class="center">Retry till you win</h5>
+                    <h5 class="center"><?php _t('Retry till you win'); ?></h5>
                   </div>
                 </div>
               </div>
@@ -64,7 +65,7 @@
             <div class="section no-pad-bot">
               <div class="container">
                 <div class="row center">
-                  <h3 class="center col s12 light shadow-5">Latest Categories</h3>
+                  <h3 class="center col s12 light shadow-5"><?php _t('Latest Categories'); ?></h3>
                 </div>
               </div>
             </div>
@@ -82,12 +83,12 @@
                               ?>
                                   <div class="col s12 m6 gallery-item gallery-filter" style="">
                                       <div class="collection-item">
-                                          <a class="gallery-cover" href="http://localhost/this-or-this/tot/<?php echo $category['slug']; ?>" style="min-height:200px;">
+                                          <a class="gallery-cover" href="http://localhost/this-or-this/<?php _t('tot');?>/<?php echo $category['slug']; ?>" style="min-height:200px;">
                                               <img src="<?php echo $category['thumbnail']; ?>" style="width:100%;">
                                           </a>
-                                          <a class="gallery-header" href="http://localhost/this-or-this/tot/<?php echo $category['slug']; ?>">
+                                          <a class="gallery-header" href="http://localhost/this-or-this/<?php _t('tot');?>/<?php echo $category['slug']; ?>">
                                               <span class="title">
-                                                  <?php echo $category['title']; ?>
+                                                  <?php _t($category['title']); ?>
                                                   <?php if (isset($category['total']) && !empty($category['total'])){
                                                       echo ' ('.$category['total'].')';
                                                   }
@@ -108,7 +109,7 @@
                 </div>
               </div>
               <div class="row center">
-                  <a href="http://localhost/this-or-this/tot/" id="download-button" class="btn waves-effect waves-light teal lighten-2">See all categories</a>
+                  <a href="http://localhost/this-or-this/<?php _t('tot');?>/" id="download-button" class="btn waves-effect waves-light teal lighten-2"><?php _t('See all categories'); ?></a>
               </div>
 
             </div>

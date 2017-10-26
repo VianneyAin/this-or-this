@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.1.14
+-- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 05 Octobre 2017 à 21:20
--- Version du serveur :  5.7.14
--- Version de PHP :  5.6.25
+-- Généré le :  Jeu 26 Octobre 2017 à 16:59
+-- Version du serveur :  5.6.17
+-- Version de PHP :  5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de données :  `thisorthis`
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Structure de la table `categories`
 --
 
-CREATE TABLE `categories` (
-  `id` int(9) NOT NULL,
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` int(9) NOT NULL AUTO_INCREMENT,
   `slug` varchar(150) NOT NULL,
   `title` varchar(150) NOT NULL,
   `description` text NOT NULL,
@@ -36,8 +36,10 @@ CREATE TABLE `categories` (
   `nsfl` tinyint(1) NOT NULL DEFAULT '0',
   `thumbnail` varchar(300) NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `visible` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `visible` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `slug` (`slug`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Contenu de la table `categories`
@@ -50,7 +52,8 @@ INSERT INTO `categories` (`id`, `slug`, `title`, `description`, `choice_1`, `cho
 (4, 'pokemonordigimon', 'Pokemon or Digimmon', '', 'pokemon', 'digimon', 0, '', '2017-10-04 08:36:44', 0),
 (5, 'beerorpee', 'Beer or Pee', '', 'beer', 'pee', 0, 'https://img11.hostingpics.net/pics/444224thumbnailbeer.jpg', '2017-10-05 07:18:51', 1),
 (6, 'muslimorjewish', 'Muslim or Jewish', '', 'muslim', 'jewish', 0, 'https://img11.hostingpics.net/pics/991370thumbnailmuslimorjewish.jpg', '2017-10-05 08:42:30', 1),
-(7, 'naziornotnazi', 'Nazi or Not Nazi', '', 'nazi', 'not nazi', 0, 'https://img11.hostingpics.net/pics/624934thumbnailnaziornot.jpg', '2017-10-05 12:55:01', 1);
+(7, 'naziornotnazi', 'Nazi or Not Nazi', '', 'nazi', 'not nazi', 0, 'https://img11.hostingpics.net/pics/624934thumbnailnaziornot.jpg', '2017-10-05 12:55:01', 1),
+(8, 'michael-jackson-or-not', 'Michael Jackson or Not', '', 'michael jackson', 'not michael jackson', 0, 'https://img4.hostingpics.net/pics/692665mickaeljacksonornot.jpg', '2017-10-19 07:13:04', 1);
 
 -- --------------------------------------------------------
 
@@ -58,13 +61,14 @@ INSERT INTO `categories` (`id`, `slug`, `title`, `description`, `choice_1`, `cho
 -- Structure de la table `elements`
 --
 
-CREATE TABLE `elements` (
-  `id` int(9) NOT NULL,
+CREATE TABLE IF NOT EXISTS `elements` (
+  `id` int(9) NOT NULL AUTO_INCREMENT,
   `hidden_image` varchar(300) NOT NULL,
   `reveal_image` varchar(300) NOT NULL,
   `category` int(11) NOT NULL,
-  `choice` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `choice` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=134 ;
 
 --
 -- Contenu de la table `elements`
@@ -176,39 +180,28 @@ INSERT INTO `elements` (`id`, `hidden_image`, `reveal_image`, `category`, `choic
 (105, 'https://img11.hostingpics.net/pics/306828size02.png', 'https://img11.hostingpics.net/pics/783342size0.jpg', 7, 'not nazi'),
 (110, 'https://img11.hostingpics.net/pics/827452usnavy2.png', 'https://img11.hostingpics.net/pics/413069usnavy.jpg', 7, 'not nazi'),
 (111, 'https://img11.hostingpics.net/pics/369635150915FWE7736202.png', 'https://img11.hostingpics.net/pics/501509150915FWE773620.jpg', 7, 'not nazi'),
-(112, 'https://img11.hostingpics.net/pics/520301SpaceballjumpoverSkydive352.png', 'https://img11.hostingpics.net/pics/526504SpaceballjumpoverSkydive35.jpg', 7, 'not nazi');
+(112, 'https://img11.hostingpics.net/pics/520301SpaceballjumpoverSkydive352.png', 'https://img11.hostingpics.net/pics/526504SpaceballjumpoverSkydive35.jpg', 7, 'not nazi'),
+(113, 'https://img4.hostingpics.net/pics/12407805aeae64033e6bf77a6459f06f2e9bc8youngpeoplemichaeljackson1.png', 'https://img4.hostingpics.net/pics/50085005aeae64033e6bf77a6459f06f2e9bc8youngpeoplemichaeljackson.jpg', 8, 'michael jackson'),
+(114, 'https://img4.hostingpics.net/pics/80355064e2bdd4061.png', 'https://img4.hostingpics.net/pics/31918264e2bdd406.jpg', 8, 'michael jackson'),
+(115, 'https://img4.hostingpics.net/pics/445754michaeljacksonunalbumineditmisauxencheres1.png', 'https://img4.hostingpics.net/pics/189861michaeljacksonunalbumineditmisauxencheres.jpg', 8, 'michael jackson'),
+(116, 'https://img4.hostingpics.net/pics/416156michaeljackson11.png', 'https://img4.hostingpics.net/pics/139119michaeljackson1.jpg', 8, 'michael jackson'),
+(117, 'https://img4.hostingpics.net/pics/598060MichaelJackson1.png', 'https://img4.hostingpics.net/pics/953921MichaelJackson.jpg', 8, 'michael jackson'),
+(118, 'https://img4.hostingpics.net/pics/309483michaeljackson1.png', 'https://img4.hostingpics.net/pics/192842michaeljackson.jpg', 8, 'michael jackson'),
+(119, 'https://img4.hostingpics.net/pics/955353MichaelJackson5472471.png', 'https://img4.hostingpics.net/pics/920033MichaelJackson547247.jpg', 8, 'michael jackson'),
+(120, 'https://img4.hostingpics.net/pics/888679MichaelJackson11.png', 'https://img4.hostingpics.net/pics/968977MichaelJackson1.jpg', 8, 'michael jackson'),
+(121, 'https://img4.hostingpics.net/pics/141505MichaelJacksonazfubaefv1.png', 'https://img4.hostingpics.net/pics/241119MichaelJacksonazfubaefv.jpg', 8, 'michael jackson'),
+(122, 'https://img4.hostingpics.net/pics/335772p01bqlx82.png', 'https://img4.hostingpics.net/pics/413807p01bqlx8.jpg', 8, 'michael jackson'),
+(123, 'https://img4.hostingpics.net/pics/809181rsz74277504jpg274north626xwhite1.png', 'https://img4.hostingpics.net/pics/470662rsz74277504jpg274north626xwhite.jpg', 8, 'michael jackson'),
+(124, 'https://img4.hostingpics.net/pics/1866896402.png', 'https://img4.hostingpics.net/pics/182764640.jpg', 8, 'not michael jackson'),
+(125, 'https://img4.hostingpics.net/pics/631772983116244550592.png', 'https://img4.hostingpics.net/pics/30751598311624455059.jpg', 8, 'not michael jackson'),
+(127, 'https://img4.hostingpics.net/pics/905439brunomarsaccusedeplagiermichaeljackson2.png', 'https://img4.hostingpics.net/pics/737135brunomarsaccusedeplagiermichaeljackson.jpg', 8, 'not michael jackson'),
+(128, 'https://img4.hostingpics.net/pics/756598gabrieldesbiens288x22.png', 'https://img4.hostingpics.net/pics/476592gabrieldesbiens288x.jpg', 8, 'not michael jackson'),
+(129, 'https://img4.hostingpics.net/pics/176746insolitelesosiedemichaeljacksonlorientdimanche29septembre2.png', 'https://img4.hostingpics.net/pics/732751insolitelesosiedemichaeljacksonlorientdimanche29septembre.jpg', 8, 'not michael jackson'),
+(130, 'https://img4.hostingpics.net/pics/870412janetjackson2.png', 'https://img4.hostingpics.net/pics/542677janetjackson.jpg', 8, 'not michael jackson'),
+(131, 'https://img4.hostingpics.net/pics/769808perruquedemichaeljackson2.png', 'https://img4.hostingpics.net/pics/443769perruquedemichaeljackson.jpg', 8, 'not michael jackson'),
+(132, 'https://img4.hostingpics.net/pics/336615sosiemichaeljacksonbooking2png.png', 'https://img4.hostingpics.net/pics/653895sosiemichaeljacksonbooking.jpg', 8, 'not michael jackson'),
+(133, 'https://img4.hostingpics.net/pics/143124ValerieBelinMichaelJackson200311.png', 'https://img4.hostingpics.net/pics/921472ValerieBelinMichaelJackson20031.jpg', 8, 'not michael jackson');
 
---
--- Index pour les tables exportées
---
-
---
--- Index pour la table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `slug` (`slug`);
-
---
--- Index pour la table `elements`
---
-ALTER TABLE `elements`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT pour la table `elements`
---
-ALTER TABLE `elements`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

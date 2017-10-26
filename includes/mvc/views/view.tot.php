@@ -9,7 +9,7 @@ class Tot_View {
         <div class="container">
             <div class="row topic-list">
                 <div class="col s12 m6 centered">
-                    <h4>All topics</h4>
+                    <h4><?php _t('All topics'); ?></h4>
                 </div>
             </div>
             <div class="gallery gallery-masonry row">
@@ -18,12 +18,12 @@ class Tot_View {
                         ?>
                         <div class="col s12 m6 gallery-item gallery-filter" style="">
                             <div class="collection-item">
-                                <a class="gallery-cover" href="http://localhost/this-or-this/tot/<?php echo $category['slug']; ?>" style="min-height:200px;">
+                                <a class="gallery-cover" href="http://localhost/this-or-this/<?php _t('tot');?>/<?php echo $category['slug']; ?>" style="min-height:200px;">
                                     <img src="<?php echo $category['thumbnail']; ?>" style="width:100%;">
                                 </a>
-                                <a class="gallery-header" href="http://localhost/this-or-this/tot/<?php echo $category['slug']; ?>">
+                                <a class="gallery-header" href="http://localhost/this-or-this/<?php _t('tot');?>/<?php echo $category['slug']; ?>">
                                     <span class="title">
-                                        <?php echo $category['title']; ?>
+                                        <?php _t($category['title']); ?>
                                         <?php if (isset($category['total']) && !empty($category['total'])){
                                             echo ' ('.$category['total'].')';
                                         }
@@ -47,6 +47,13 @@ class Tot_View {
     }
 
     public function display_tot_category_view($data){
+      if (isset($data) && !empty($data)){
+        $data['choice_1'] = __t($data['choice_1']);
+        $data['choice_2'] = __t($data['choice_2']);
+        foreach ($data['elements'] as $key => $elmt){
+          $data['elements'][$key]['choice'] = __t($elmt['choice']);
+        }
+      }
         ?>
         <style>
         .tot_img {
@@ -117,14 +124,14 @@ class Tot_View {
                     <div class="col s12 centered">
                         <h4 class="tot_title"><?php
                         if (isset($data) && !empty($data)){
-                            echo $data['choice_1']. ' or '. $data['choice_2'];
+                            echo __t($data['choice_1']). ' '.__t('or').' '. __t($data['choice_2']);
                         }
                         ?> ?</h4>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s12 centered">
-                        <a class="btn-large waves-effect waves-light btn red start_btn">Start</a>
+                        <a class="btn-large waves-effect waves-light btn red start_btn"><?php _t('Start'); ?></a>
                     </div>
                 </div>
             </div>
@@ -149,7 +156,7 @@ class Tot_View {
                 </div>
                 <div class="row">
                     <div class="col s12 centered">
-                        <a class="waves-effect waves-light btn red start_btn">Start again</a>
+                        <a class="waves-effect waves-light btn red start_btn"><?php _t('Start again'); ?></a>
                     </div>
                 </div>
             </div>

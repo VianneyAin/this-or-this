@@ -16,14 +16,27 @@ class Tot_Controller extends Application{
     }
 
     public function check_tot_category($routes){
-      if (isset($routes) && isset($routes[0]) && !empty($routes[0]) && $routes[0] == 'tot'){
-        if (isset($routes[1]) && !empty($routes[1])){
-          $this->category = $routes[1];
+      if (Application::this()->current_lang == Application::this()->default_language){
+        if (isset($routes) && isset($routes[0]) && !empty($routes[0]) && $routes[0] == 'tot'){
+          if (isset($routes[1]) && !empty($routes[1])){
+            $this->category = $routes[1];
+          }
+        }
+        else {
+          die('Wrong route. Sorry.');
         }
       }
       else {
-        die('Wrong route. Sorry.');
+        if (isset($routes) && isset($routes[1]) && !empty($routes[1]) && $routes[1] == 'tot'){
+          if (isset($routes[2]) && !empty($routes[2])){
+            $this->category = $routes[2];
+          }
+        }
+        else {
+          die('Wrong route. Sorry.');
+        }
       }
+
     }
 
     public function layout_request() {
