@@ -7,19 +7,22 @@ TODO --
 Système de catégorie
 Script de gestion de jeu
 Mise en ligne du site
-Formulaire de contact
-Demande d'âge
 
 -- Version 0.2 :
-Pouvoir partager sur fb
-Titre des pages
-Dons paypal
+Multilingues
+Titre des pages/meta tags (en prenant en compte les langues)
+Share/Like/Tweet boutons
+Robots.txt
 Pub google ads
-Connexion pour accéder à la section NFSL
-
+Mise en page du script de jeu
+Formulaire de contact
+Demande d'âge
+Cookie pour mémoriser la langue
 
 -- Version 0.3 :
-
+Pouvoir partager sur fb
+Dons paypal
+Connexion pour accéder à la section NFSL
 
 -- CATEGORIE
 Butt or not
@@ -27,4 +30,3 @@ Glanders or Sperm
 Naked or not
 
 -- FUTUR
-Multilingues

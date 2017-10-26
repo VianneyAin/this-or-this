@@ -9,7 +9,7 @@
     public function get_last_categories(){
         try {
             $db = Db::getInstance();
-            $sql = "SELECT * FROM categories where nsfl <> 1 AND visible <> 0 ORDER BY created DESC limit 4";
+            $sql = "SELECT * FROM categories where nsfl <> 1 AND visible <> 0 ORDER BY created DESC limit 8";
             $req = $db->prepare($sql);
             // the query was prepared, now we replace :id with our actual $id value
             $req->execute();
