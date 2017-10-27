@@ -3,6 +3,38 @@ class Tot_Controller extends Application{
     private $routes;
     private $category;
     private $data;
+    public $meta = array(
+      'en' => array(
+        'title' => "This or This - It's time to make a choice",
+        'description' => 'Have fun guessing what the picture is and share it with your friends.',
+        'image' => 'img/thisorthis_thumbnail.jpg',
+        'code' => 'en',
+      ),
+      'fr' => array(
+        'title' => 'This or This - Il est temps de faire un choix',
+        'description' => "Viens t'amuser à deviner à quoi correspond l'image et partage le avec tes amis.",
+        'image' => 'img/thisorthis_thumbnail.jpg',
+        'code' => 'fr',
+      ),
+      'de' => array(
+        'title' => 'This or This - Es ist Zeit, eine Entscheidung zu treffen',
+        'description' => 'Viel Spaß beim Erraten, was das Bild ist und teilen Sie es mit Ihren Freunden.',
+        'image' => 'img/thisorthis_thumbnail.jpg',
+        'code' => 'de',
+      ),
+      'es' => array(
+        'title' => 'This or This - Es hora de hacer una elección',
+        'description' => 'Diviértete adivinando cuál es la imagen y compártela con tus amigos.',
+        'image' => 'img/thisorthis_thumbnail.jpg',
+        'code' => 'es',
+      ),
+      'pt' => array(
+        'title' => 'This or This - É hora de fazer uma escolha',
+        'description' => 'Divirta-se adivinhar o que é a imagem e compartilhá-la com seus amigos.',
+        'image' => 'img/thisorthis_thumbnail.jpg',
+        'code' => 'pt',
+      ),
+    );
 
     public function __construct($routes){
         parent::__construct();//get parent's variables
@@ -46,6 +78,10 @@ class Tot_Controller extends Application{
       else {
         $this->data['categories'] = $this->model->get_all_categories();
       }
+    }
+
+    public function get_meta(){
+      return $this->meta;
     }
 
     public function partials_request() {

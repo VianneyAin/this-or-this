@@ -1,6 +1,7 @@
 <?php
 class MAJ_Name_Controller extends Application{
-
+    public $meta;
+    
     public function __construct(){
         parent::__construct();//get parent's variables
         // we need the model to query the database later in the controller
@@ -11,6 +12,10 @@ class MAJ_Name_Controller extends Application{
     }
 
     public function layout_request() {
+    }
+
+    public function get_meta(){
+      return $this->meta;
     }
 
     public function partials_request() {

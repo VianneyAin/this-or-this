@@ -306,6 +306,14 @@ function general_translations() {
 			'context' => '',
 		),
 		array(
+			'en' => "not nazi",
+			'fr' => 'pas nazi',
+			'de' => 'nicht nazi',
+			'es' => 'no nazi',
+			'pt' => 'não nazi',
+			'context' => '',
+		),
+		array(
 			'en' => "Nazi or Not Nazi",
 			'fr' => 'Nazi ou Pas',
 			'de' => 'Nazi oder Nicht',

@@ -11,6 +11,7 @@ class Application {
     public $current_lang;
     private static $_this;
     public $default_language = 'en';
+    public $meta = null;//set default meta here
 
     private $actions = array(
         'header' => array(
@@ -76,8 +77,6 @@ class Application {
     public function call($controller) {
         require_once('includes/mvc/controllers/controller.header.php');
         require_once('includes/mvc/controllers/controller.footer.php');
-        $this->header = new Header_Controller($this->actions);
-        $this->footer = new Footer_Controller($this->actions);
         switch($controller) {
             case 'home':
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');
@@ -96,6 +95,9 @@ class Application {
                 $this->controller = new Error_Controller();
                 break;
         }
+        $this->get_meta();
+        $this->header = new Header_Controller($this->actions, $this->meta);
+        $this->footer = new Footer_Controller($this->actions);
         $this->layout_request();
         $this->partials_request();
     }
@@ -158,7 +160,12 @@ class Application {
         $this->footer->layout_request();
     }
 
+    public function get_meta(){
+      $this->meta = $this->controller->get_meta();
+    }
+
     public function partials_request(){
+        //var_dump($this->controller);
         $this->header->partials_request();
         $this->controller_partials_request();
         $this->footer->partials_request();

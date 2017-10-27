@@ -2,8 +2,9 @@
 class Header_Controller extends Application{
     private $actions;
     private $categories;
+    public $meta;
 
-    public function __construct($actions){
+    public function __construct($actions, $meta){
         parent::__construct();//get parent's variables
         // we need the model to query the database later in the controller
         require_once(dirname(__FILE__).'/../models/model.header.php');
@@ -11,6 +12,7 @@ class Header_Controller extends Application{
         $this->model = new Header_Model();
         $this->view = new Header_View();
         $this->actions = $actions;
+        $this->meta = $meta;
     }
 
     public function update_actions($actions){
@@ -21,7 +23,7 @@ class Header_Controller extends Application{
     }
 
     public function partials_request() {
-        $this->view->fn_header_view();
+        $this->view->fn_header_view($this->meta);
     }
 }
 ?>

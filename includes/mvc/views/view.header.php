@@ -1,7 +1,63 @@
 <?php
   class Header_View {
 
-      function fn_header_view(){
+      function display_meta($meta, $lang, $default_language){
+        if (empty($lang) && !empty($default_language)){
+          $lang = $default_language;
+        }
+        ?>
+          <!-- http meta -->
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+          <meta http-equiv="content-language" content="en">
+          <meta name="author" content="This or This Company" />
+          <meta name="publisher" content="This or This Company">
+          <meta name="copyright" content="This or This Company" />
+          <!-- end of http meta -->
+
+          <!-- robots meta -->
+          <meta name="robots" content="index,follow" />
+          <meta name="revisit-after" content="10 days">
+          <meta name="revisit" content="after 10 days">
+          <!-- end of robots meta -->
+
+          <meta http-equiv="Content-Language" content="fr-CA" />
+          <meta http-equiv="Cache-Control" content="max-age=600" />
+          <meta http-equiv="Expires" content="<?php echo date(DATE_RFC822,strtotime("3 day")); ?>" />
+
+          <?php
+          if (isset($lang) && !empty($lang)){
+            if (isset($meta[$lang]) && !empty($meta[$lang])){
+              ?>
+              <title><?php echo $meta[$lang]['title']; ?></title>
+              <!-- General Meta -->
+              <meta name="title" content="<?php echo $meta[$lang]['title']; ?>">
+              <meta name="description" content="<?php echo $meta[$lang]['description']; ?>">
+
+              <!-- Facebook Meta -->
+              <meta property="og:title" content="<?php echo $meta[$lang]['title']; ?>"/>
+              <meta property="og:image" content="http://localhost/this-or-this/<?php echo $meta[$lang]['image']; ?>"/>
+              <meta property="og:site_name" content="This or This"/>
+              <meta property="og:description" content="<?php echo $meta[$lang]['description']; ?>"/>
+              <meta property="og:locale" content="<?php echo $meta[$lang]['code']; ?>" />
+              <meta property="og:type" content="website" />
+              <meta property="og:url" content="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>" />
+              <!-- End of Facebook Meta tag -->
+
+              <!-- Twitter Meta tag -->
+              <meta name="twitter:card" content="summary" />
+              <meta name="twitter:site" content="@thisorthis" />
+              <meta name="twitter:creator" content="@thisorthis" />
+              <meta name="twitter:title" content="<?php echo $meta[$lang]['title']; ?>" />
+              <meta name="twitter:description" content="<?php echo $meta[$lang]['description']; ?>" />
+              <meta name="twitter:image" content="http://localhost/this-or-this/<?php echo $meta[$lang]['image']; ?>" />
+              <!-- End of Twitter Meta tag -->
+              <?php
+            }
+          }
+      }
+
+      function fn_header_view($meta){
         $lang = Application::this()->current_lang;
         if ($lang == Application::this()->default_language){
           $lang = '';
@@ -10,9 +66,7 @@
           <!DOCTYPE html>
           <html lang="en">
           <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-            <title>This or this</title>
+            <?php $this->display_meta($meta, Application::this()->current_lang, Application::this()->default_language); ?>
 
             <!-- Favicons -->
             <link rel="apple-touch-icon" sizes="180x180" href="http://localhost/this-or-this/img/favicon/apple-touch-icon.png">
@@ -22,13 +76,6 @@
             <link rel="mask-icon" href="http://localhost/this-or-this/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
             <meta name="theme-color" content="#ffffff">
             <!-- End of Favicons -->
-
-            <!-- Facebook Meta -->
-            <meta property="og:title" content="This or This - Come and make a choice"/>
-            <meta property="og:image" content="http://this-or-this.tk/img/logo_blue.svg"/>
-            <meta property="og:site_name" content="This or This"/>
-            <meta property="og:description" content="Come and break your ass guessing random stuffs."/>
-            <!-- End of Facebook Meta tag -->
 
             <!-- CSS  -->
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
