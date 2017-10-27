@@ -19,7 +19,7 @@ class Tot_View {
                         <div class="col s12 m3 gallery-item gallery-filter" style="">
                             <div class="collection-item">
                                 <a class="gallery-cover" href="http://localhost/this-or-this/<?php _t('tot');?>/<?php echo $category['slug']; ?>" style="min-height:200px;">
-                                    <img src="<?php echo $category['thumbnail']; ?>" style="width:100%;">
+                                    <img src="http://localhost/this-or-this/img/thumbnail/<?php echo $category['thumbnail']; ?>" style="width:100%;">
                                 </a>
                                 <a class="gallery-header" href="http://localhost/this-or-this/<?php _t('tot');?>/<?php echo $category['slug']; ?>">
                                     <span class="title">
@@ -50,8 +50,14 @@ class Tot_View {
       if (isset($data) && !empty($data)){
         $data['choice_1'] = __t($data['choice_1']);
         $data['choice_2'] = __t($data['choice_2']);
-        foreach ($data['elements'] as $key => $elmt){
-          $data['elements'][$key]['choice'] = __t($elmt['choice']);
+        if (isset($data['elements']) && !empty($data['elements'])){
+            foreach ($data['elements'] as $key => $elmt){
+              $data['elements'][$key]['choice'] = __t($elmt['choice']);
+              if ($data['local']){
+                  $data['elements'][$key]['hidden_image'] = 'http://localhost/this-or-this'.$data['elements'][$key]['hidden_image'];
+                  $data['elements'][$key]['reveal_image'] = 'http://localhost/this-or-this'.$data['elements'][$key]['reveal_image'];
+              }
+            }
         }
       }
         ?>
@@ -114,7 +120,7 @@ class Tot_View {
                         <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
                             <div class="collection-item">
                                 <a class="gallery-cover start_btn" style="min-height:200px;">
-                                    <img src="<?php echo $data['thumbnail']; ?>" style="width:100%;">
+                                    <img src="http://localhost/this-or-this/img/thumbnail/<?php echo $data['thumbnail']; ?>" style="width:100%;">
                                 </a>
                             </div>
                         </div>
@@ -143,7 +149,7 @@ class Tot_View {
                         <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
                             <div class="collection-item">
                                 <a class="gallery-cover" href="http://localhost/this-or-this/tot/<?php echo $data['slug']; ?>" style="min-height:200px;">
-                                    <img src="<?php echo $data['thumbnail']; ?>" style="width:100%;">
+                                    <img src="http://localhost/this-or-this/img/thumbnail/<?php echo $data['thumbnail']; ?>" style="width:100%;">
                                 </a>
                             </div>
                         </div>

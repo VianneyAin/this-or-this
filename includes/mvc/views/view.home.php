@@ -86,7 +86,7 @@
                                   <div class="col s12 m3 gallery-item gallery-filter" style="">
                                       <div class="collection-item">
                                           <a class="gallery-cover" href="http://localhost/this-or-this/<?php _t('tot');?>/<?php echo $category['slug']; ?>" style="min-height:200px;">
-                                              <img src="<?php echo $category['thumbnail']; ?>" style="width:100%;">
+                                              <img src="http://localhost/this-or-this/img/thumbnail/<?php echo $category['thumbnail']; ?>" style="width:100%;">
                                           </a>
                                           <a class="gallery-header" href="http://localhost/this-or-this/<?php _t('tot');?>/<?php echo $category['slug']; ?>">
                                               <span class="title">
