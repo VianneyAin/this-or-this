@@ -95,10 +95,10 @@ class Application {
                 $this->controller = new Error_Controller();
                 break;
         }
+        $this->layout_request();
         $this->get_meta();
         $this->header = new Header_Controller($this->actions, $this->meta);
         $this->footer = new Footer_Controller($this->actions);
-        $this->layout_request();
         $this->partials_request();
     }
 
@@ -155,9 +155,9 @@ class Application {
     }
 
     public function layout_request(){
-        $this->header->layout_request();
+        //$this->header->layout_request();
         $this->controller->layout_request();
-        $this->footer->layout_request();
+        //$this->footer->layout_request();
     }
 
     public function get_meta(){

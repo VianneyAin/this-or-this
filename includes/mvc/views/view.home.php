@@ -19,7 +19,7 @@
                   <h2 class="header col s12 black-text light"><?php _t("It's time to make a choice"); ?>.</h2>
                 </div>
                 <div class="row center">
-                  <a href="http://localhost/this-or-this/tot/" id="download-button" class="btn-large waves-effect waves-light cyan darken-3 pulse"><?php _t('Get Started'); ?> !</a>
+                  <a href="http://localhost/this-or-this/<?php _t('tot');?>/" id="download-button" class="btn-large waves-effect waves-light cyan darken-3 pulse"><?php _t('Get Started'); ?> !</a>
                 </div>
                 <br><br>
               </div>

@@ -74,9 +74,27 @@ class Tot_Controller extends Application{
     public function layout_request() {
       if (isset($this->category) && !empty($this->category)){
         $this->data = $this->model->get_category_single($this->category);
+        $this->set_title($this->data['title']);
+        $this->set_thumbnail($this->data['thumbnail_name']);
       }
       else {
         $this->data['categories'] = $this->model->get_all_categories();
+      }
+    }
+
+    public function set_title($title){
+      if (isset($title) && !empty($title)){
+        foreach ($this->meta as $key => $langue){
+          $this->meta[$key]['title'] = 'This or this - '.__t($title);
+        }
+      }
+    }
+
+    public function set_thumbnail($path){
+      if (isset($path) && !empty($path)){
+        foreach ($this->meta as $key => $langue){
+          $this->meta[$key]['image'] = 'img/thumbnail/'.$path;
+        }
       }
     }
 

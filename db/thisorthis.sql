@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 26 Octobre 2017 à 16:59
+-- Généré le :  Ven 27 Octobre 2017 à 11:54
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `thumbnail` varchar(300) NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `visible` tinyint(1) NOT NULL DEFAULT '0',
+  `thumbnail_name` varchar(250) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug` (`slug`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
@@ -45,15 +46,15 @@ CREATE TABLE IF NOT EXISTS `categories` (
 -- Contenu de la table `categories`
 --
 
-INSERT INTO `categories` (`id`, `slug`, `title`, `description`, `choice_1`, `choice_2`, `nsfl`, `thumbnail`, `created`, `visible`) VALUES
-(1, 'deadorsleeping', 'Dead or Sleeping', '', 'dead', 'sleeping', 1, 'https://img11.hostingpics.net/pics/855749deadoralive.jpg', '2017-10-03 15:56:38', 0),
-(2, 'manorwoman', 'Man or Woman', '', 'man', 'woman', 0, 'https://i.imgur.com/SjwD3u0.jpg', '2017-10-03 16:56:38', 1),
-(3, 'beardorpubichair', 'Beard or Pubic Hair', '', 'beard', 'pubic hair', 0, '', '2017-10-04 08:20:05', 0),
-(4, 'pokemonordigimon', 'Pokemon or Digimmon', '', 'pokemon', 'digimon', 0, '', '2017-10-04 08:36:44', 0),
-(5, 'beerorpee', 'Beer or Pee', '', 'beer', 'pee', 0, 'https://img11.hostingpics.net/pics/444224thumbnailbeer.jpg', '2017-10-05 07:18:51', 1),
-(6, 'muslimorjewish', 'Muslim or Jewish', '', 'muslim', 'jewish', 0, 'https://img11.hostingpics.net/pics/991370thumbnailmuslimorjewish.jpg', '2017-10-05 08:42:30', 1),
-(7, 'naziornotnazi', 'Nazi or Not Nazi', '', 'nazi', 'not nazi', 0, 'https://img11.hostingpics.net/pics/624934thumbnailnaziornot.jpg', '2017-10-05 12:55:01', 1),
-(8, 'michael-jackson-or-not', 'Michael Jackson or Not', '', 'michael jackson', 'not michael jackson', 0, 'https://img4.hostingpics.net/pics/692665mickaeljacksonornot.jpg', '2017-10-19 07:13:04', 1);
+INSERT INTO `categories` (`id`, `slug`, `title`, `description`, `choice_1`, `choice_2`, `nsfl`, `thumbnail`, `created`, `visible`, `thumbnail_name`) VALUES
+(1, 'deadorsleeping', 'Dead or Sleeping', '', 'dead', 'sleeping', 1, 'https://img11.hostingpics.net/pics/855749deadoralive.jpg', '2017-10-03 15:56:38', 0, ''),
+(2, 'manorwoman', 'Man or Woman', '', 'man', 'woman', 0, 'https://i.imgur.com/SjwD3u0.jpg', '2017-10-03 16:56:38', 1, 'man_or_woman_thumbnail.jpg'),
+(3, 'beardorpubichair', 'Beard or Pubic Hair', '', 'beard', 'pubic hair', 0, '', '2017-10-04 08:20:05', 0, ''),
+(4, 'pokemonordigimon', 'Pokemon or Digimmon', '', 'pokemon', 'digimon', 0, '', '2017-10-04 08:36:44', 0, ''),
+(5, 'beerorpee', 'Beer or Pee', '', 'beer', 'pee', 0, 'https://img11.hostingpics.net/pics/444224thumbnailbeer.jpg', '2017-10-05 07:18:51', 1, 'beer_or_pee_thumbnail.jpg'),
+(6, 'muslimorjewish', 'Muslim or Jewish', '', 'muslim', 'jewish', 0, 'https://img11.hostingpics.net/pics/991370thumbnailmuslimorjewish.jpg', '2017-10-05 08:42:30', 1, 'muslim_or_jewish_thumbnail.jpg'),
+(7, 'naziornotnazi', 'Nazi or Not Nazi', '', 'nazi', 'not nazi', 0, 'https://img11.hostingpics.net/pics/624934thumbnailnaziornot.jpg', '2017-10-05 12:55:01', 1, 'nazi_or_not_thumbnail.jpg'),
+(8, 'michael-jackson-or-not', 'Michael Jackson or Not', '', 'michael jackson', 'not michael jackson', 0, 'https://img4.hostingpics.net/pics/692665mickaeljacksonornot.jpg', '2017-10-19 07:13:04', 1, 'mj_or_not_thumbnail.jpg');
 
 -- --------------------------------------------------------
 

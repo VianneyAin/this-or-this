@@ -82,6 +82,7 @@
             <link href="<?php echo 'http://localhost/this-or-this/css/materialize.css' ?>" type="text/css" rel="stylesheet" media="screen,projection"/>
             <link href="<?php echo 'http://localhost/this-or-this/css/style.css' ?>" type="text/css" rel="stylesheet" media="screen,projection"/>
             <link href="<?php echo 'http://localhost/this-or-this/css/custom.css' ?>" type="text/css" rel="stylesheet" media="screen,projection"/>
+            <link href="<?php echo 'http://localhost/this-or-this/css/font-awesome.min.css' ?>" type="text/css" rel="stylesheet" media="screen,projection"/>
             <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
             <script src="<?php echo 'http://localhost/this-or-this/js/materialize.js' ?>"></script>
             <script src="<?php echo 'http://localhost/this-or-this/js/init.js' ?>"></script>
@@ -103,8 +104,33 @@
               });
             </script>
 
+            <script>window.twttr = (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+              if (d.getElementById(id)) return t;
+              js = d.createElement(s);
+              js.id = id;
+              js.src = "https://platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js, fjs);
+
+              t._e = [];
+              t.ready = function(f) {
+                t._e.push(f);
+              };
+
+              return t;
+            }(document, "script", "twitter-wjs"));</script>
+
           </head>
           <body>
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.10&appId=1560869377534668';
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
             <nav id="main-menu" class="cyan darken-3" role="navigation">
               <div class="nav-wrapper container">
                 <a id="logo-container" href="http://localhost/this-or-this/<?php echo $lang; ?>" class="brand-logo">

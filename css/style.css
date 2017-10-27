@@ -69,3 +69,24 @@ h5 {
 .parallax-container .section {
     width: 100%;
 }
+
+.social-container {
+  margin-top:100px;
+}
+
+.social-container .col {
+  margin-bottom:10px;
+  margin-left:10px;
+}
+
+.fb-share-button {
+  background-color: #4267b2;
+  color: white;
+  padding: 4px 10px;
+  display: inline-block;
+  white-space: nowrap;
+  border-radius: 5px;
+}
+.fb-share-button i {
+  margin-right:5px;
+}

@@ -291,7 +291,7 @@ function general_translations() {
 		),
 		array(
 			'en' => "Michael Jackson or Not",
-			'fr' => 'Michael Jackson ou Non',
+			'fr' => 'Michael Jackson ou Pas',
 			'de' => 'Michael Jackson oder Nicht',
 			'es' => 'Michael Jackson o No',
 			'pt' => 'Michael Jackson ou Não',
@@ -299,7 +299,7 @@ function general_translations() {
 		),
 		array(
 			'en' => "not michael jackson",
-			'fr' => 'non michael jackson',
+			'fr' => 'pas michael jackson',
 			'de' => 'nicht michael jackson',
 			'es' => 'no michael jackson',
 			'pt' => 'não michael jackson',
@@ -319,6 +319,14 @@ function general_translations() {
 			'de' => 'Nazi oder Nicht',
 			'es' => 'Nazi o No',
 			'pt' => 'Nazista ou Não',
+			'context' => '',
+		),
+		array(
+			'en' => "Share",
+			'fr' => 'Partager',
+			'de' => 'Auf Facebook teilen',
+			'es' => 'Compartir en Facebook',
+			'pt' => 'Compartilhar no Facebook',
 			'context' => '',
 		),
 		/*array(
