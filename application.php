@@ -34,6 +34,7 @@ class Application {
         '',//homepage
         'tot',
         'about',
+        'contact',
     );
 
     private $ajax_controllers = array(
@@ -90,6 +91,10 @@ class Application {
             case 'about':
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');
                 $this->controller = new About_Controller($this->routes);
+                break;
+            case 'contact':
+                require_once('includes/mvc/controllers/controller.' . $controller . '.php');
+                $this->controller = new Contact_Controller($this->routes);
                 break;
             case 'error':
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');
@@ -208,7 +213,7 @@ class Application {
 
     public static function display_ajax_url(){
         ?>
-        <script type="text/javascript">var ajaxurl = "http://this-or-this.tk/ajax";</script>
+        <script type="text/javascript">var ajaxurl = "http://localhost/this-or-this/ajax";</script>
         <?php
     }
 

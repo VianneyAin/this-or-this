@@ -170,7 +170,7 @@ class Tot_View {
               </a>
             </div>
             <div class="col s12 m2">
-              <div class="fb-like" data-href="http://this-or-this.tk/tot/michael-jackson-or-not" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+              <div class="fb-like" data-href="http://localhost/this-or-this/tot/michael-jackson-or-not" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
             </div>
             <div class="col s12 m2">
               <?php

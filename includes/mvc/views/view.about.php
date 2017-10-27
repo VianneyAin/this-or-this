@@ -10,7 +10,7 @@
                   <img src="img/logo_blue.svg" height='150px; '/>
                 </div>
                 <div class="row center">
-                  <h1 class="header col s12 black-text light"><?php _t("What is This or This"); ?>?</h1>
+                  <h1 class="header col s12 black-text light"><?php _t("What is"); ?> This or This?</h1>
                 </div>
                 <br><br>
               </div>

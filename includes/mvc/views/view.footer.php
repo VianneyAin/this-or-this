@@ -18,8 +18,8 @@
                 <div class="col l6 s12">
                   <h5 class="grey-text text-lighten-4"><?php _t('About'); ?></h5>
                   <ul>
-                      <li><a class="white-text text-lighten-1" href="">What is <b>This or This ?</a></li>
-                      <li><a class="white-text text-lighten-1" href="">Want to be part of it ?</a></li>
+                      <li><a class="white-text text-lighten-1" href="http://localhost/this-or-this<?php _t('/about'); ?>"><?php _t('What is');?> <b>This or This ?</a></li>
+                      <li><a class="white-text text-lighten-1" href=""><?php _t('Want to be part of it ?');?></a></li>
                   </ul>
                 </div>
                 <div class="col l3 s12">
@@ -28,7 +28,7 @@
                       <?php
                       if (isset($datas) && !empty($datas) && isset($datas['categories']) && !empty($datas['categories'])){
                           foreach ($datas['categories'] as $key => $category){
-                              echo '<li><a class="white-text text-lighten-1" href="http://localhost/this-or-this/tot/'.$category['slug'].'">'.__t($category['title']).'</a></li>';
+                              echo '<li><a class="white-text text-lighten-1" href="http://localhost/this-or-this/'.__t('tot').'/'.$category['slug'].'">'.__t($category['title']).'</a></li>';
                           }
                       }
                       ?>
