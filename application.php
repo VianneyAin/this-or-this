@@ -33,6 +33,7 @@ class Application {
     private $controllers = array(
         '',//homepage
         'tot',
+        'about',
     );
 
     private $ajax_controllers = array(
@@ -86,6 +87,10 @@ class Application {
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');
                 $this->controller = new Tot_Controller($this->routes);
                 break;
+            case 'about':
+                require_once('includes/mvc/controllers/controller.' . $controller . '.php');
+                $this->controller = new About_Controller($this->routes);
+                break;
             case 'error':
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');
                 $this->controller = new Error_Controller();
@@ -95,10 +100,10 @@ class Application {
                 $this->controller = new Error_Controller();
                 break;
         }
+        $this->footer = new Footer_Controller($this->actions);
         $this->layout_request();
         $this->get_meta();
         $this->header = new Header_Controller($this->actions, $this->meta);
-        $this->footer = new Footer_Controller($this->actions);
         $this->partials_request();
     }
 
@@ -157,7 +162,7 @@ class Application {
     public function layout_request(){
         //$this->header->layout_request();
         $this->controller->layout_request();
-        //$this->footer->layout_request();
+        $this->footer->layout_request();
     }
 
     public function get_meta(){
@@ -203,24 +208,10 @@ class Application {
 
     public static function display_ajax_url(){
         ?>
-        <script type="text/javascript">var ajaxurl = "http://localhost/this-or-this/ajax";</script>
+        <script type="text/javascript">var ajaxurl = "http://this-or-this.tk/ajax";</script>
         <?php
     }
 
-    public static function cloudinary(){
-        require_once( 'includes/lib/cloudinary/Cloudinary.php' );
-        require_once( 'includes/lib/cloudinary/Uploader.php' );
-        require_once( 'includes/lib/cloudinary/Api.php' );
-    }
-
-    public static function cloudinary_js(){
-        ?>
-        <script type="text/javascript" src="http://localhost//jokes/js/cloudinary/jquery.ui.widget.js"></script>
-        <script type="text/javascript" src="http://localhost//jokes/js/cloudinary/jquery.iframe-transport.js"></script>
-        <script type="text/javascript" src="http://localhost//jokes/js/cloudinary/jquery.fileupload.js"></script>
-        <script type="text/javascript" src="http://localhost//jokes/js/cloudinary/jquery.cloudinary.js"></script>
-        <?php
-    }
 
     public static function current_page_url(){
       $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";

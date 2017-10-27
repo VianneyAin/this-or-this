@@ -17,7 +17,10 @@
               <div class="row">
                 <div class="col l6 s12">
                   <h5 class="grey-text text-lighten-4"><?php _t('About'); ?></h5>
-                  <p class="white-text text-lighten-1 light">You just have to pick a topic, and have fun making choices !</p>
+                  <ul>
+                      <li><a class="white-text text-lighten-1" href="">What is <b>This or This ?</a></li>
+                      <li><a class="white-text text-lighten-1" href="">Want to be part of it ?</a></li>
+                  </ul>
                 </div>
                 <div class="col l3 s12">
                   <h5 class="white-text text-lighten-4"><?php _t('Latest Categories'); ?></h5>
