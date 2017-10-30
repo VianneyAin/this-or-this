@@ -1,6 +1,14 @@
 <?php
   class Header_View {
-
+      function call_to_actions($actions){
+          foreach($actions as $location => $actions_array){
+              if ($location == 'header'){
+                  foreach ($actions_array as $key => $action){
+                       Application::{$action}();
+                  }
+              }
+          }
+      }
       function display_meta($meta, $lang, $default_language){
         if (empty($lang) && !empty($default_language)){
           $lang = $default_language;
@@ -57,7 +65,7 @@
           }
       }
 
-      function fn_header_view($meta){
+      function fn_header_view($actions, $meta){
         $lang = Application::this()->current_lang;
         if ($lang == Application::this()->default_language){
           $lang = '';
@@ -76,6 +84,8 @@
             <link rel="mask-icon" href="http://localhost/this-or-this/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
             <meta name="theme-color" content="#ffffff">
             <!-- End of Favicons -->
+
+            <?php $this->call_to_actions($actions); ?>
 
             <!-- CSS  -->
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

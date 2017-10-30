@@ -1,10 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.1.14
+-- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Version du serveur :  5.7.14
--- Version de PHP :  5.6.25
+-- Généré le :  Lun 30 Octobre 2017 à 13:42
+-- Version du serveur :  5.6.17
+-- Version de PHP :  5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -13,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de données :  `thisorthis`
@@ -25,8 +26,8 @@ SET time_zone = "+00:00";
 -- Structure de la table `categories`
 --
 
-CREATE TABLE `categories` (
-  `id` int(9) NOT NULL,
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` int(9) NOT NULL AUTO_INCREMENT,
   `slug` varchar(150) NOT NULL,
   `title` varchar(150) NOT NULL,
   `description` text NOT NULL,
@@ -37,24 +38,27 @@ CREATE TABLE `categories` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `visible` tinyint(1) NOT NULL DEFAULT '0',
   `thumbnail_name` varchar(250) NOT NULL,
-  `local` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `local` tinyint(1) NOT NULL DEFAULT '1',
+  `played` int(250) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `slug` (`slug`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Contenu de la table `categories`
 --
 
-INSERT INTO `categories` (`id`, `slug`, `title`, `description`, `choice_1`, `choice_2`, `nsfl`, `thumbnail`, `created`, `visible`, `thumbnail_name`, `local`) VALUES
-(1, 'deadorsleeping', 'Dead or Sleeping', '', 'dead', 'sleeping', 1, 'https://img11.hostingpics.net/pics/855749deadoralive.jpg', '2017-10-03 15:56:38', 0, '', 0),
-(2, 'manorwoman', 'Man or Woman', '', 'man', 'woman', 0, 'man_or_woman_thumbnail.jpg', '2017-10-03 16:56:38', 1, 'man_or_woman_thumbnail.jpg', 0),
-(3, 'beardorpubichair', 'Beard or Pubic Hair', '', 'beard', 'pubic hair', 0, '', '2017-10-04 08:20:05', 0, '', 1),
-(4, 'pokemonordigimon', 'Pokemon or Digimmon', '', 'pokemon', 'digimon', 0, '', '2017-10-04 08:36:44', 0, '', 1),
-(5, 'beerorpee', 'Beer or Pee', '', 'beer', 'pee', 0, 'beer_or_pee_thumbnail.jpg', '2017-10-05 07:18:51', 1, 'beer_or_pee_thumbnail.jpg', 0),
-(6, 'muslimorjewish', 'Muslim or Jewish', '', 'muslim', 'jewish', 0, 'muslim_or_jewish_thumbnail.jpg', '2017-10-05 08:42:30', 1, 'muslim_or_jewish_thumbnail.jpg', 0),
-(7, 'naziornotnazi', 'Nazi or Not Nazi', '', 'nazi', 'not nazi', 0, 'nazi_or_not_thumbnail.jpg', '2017-10-05 12:55:01', 1, 'nazi_or_not_thumbnail.jpg', 0),
-(8, 'michael-jackson-or-not', 'Michael Jackson or Not', '', 'michael jackson', 'not michael jackson', 0, 'mj_or_not_thumbnail.jpg', '2017-10-19 07:13:04', 1, 'mj_or_not_thumbnail.jpg', 0),
-(9, 'doggo-or-marshmallow', 'Doggo or Marshmallow', '', 'doggo', 'marshmallow', 0, 'doggo_or_marshmallow_thumbnail.jpg', '2017-10-27 18:55:38', 1, 'doggo_or_marshmallow_thumbnail.jpg', 1),
-(10, 'doggo-or-mop', 'Doggo or Mop', '', 'doggo', 'mop', 0, 'doggo_or_mop_thumbnail.jpg', '2017-10-27 20:10:06', 1, 'doggo_or_mop_thumbnail.jpg', 1);
+INSERT INTO `categories` (`id`, `slug`, `title`, `description`, `choice_1`, `choice_2`, `nsfl`, `thumbnail`, `created`, `visible`, `thumbnail_name`, `local`, `played`) VALUES
+(1, 'deadorsleeping', 'Dead or Sleeping', '', 'dead', 'sleeping', 1, 'https://img11.hostingpics.net/pics/855749deadoralive.jpg', '2017-10-03 15:56:38', 0, '', 0, 1),
+(2, 'manorwoman', 'Man or Woman', '', 'man', 'woman', 0, 'man_or_woman_thumbnail.jpg', '2017-10-03 16:56:38', 1, 'man_or_woman_thumbnail.jpg', 0, 4),
+(3, 'beardorpubichair', 'Beard or Pubic Hair', '', 'beard', 'pubic hair', 0, '', '2017-10-04 08:20:05', 0, '', 1, 1),
+(4, 'pokemonordigimon', 'Pokemon or Digimmon', '', 'pokemon', 'digimon', 0, '', '2017-10-04 08:36:44', 0, '', 1, 1),
+(5, 'beerorpee', 'Beer or Pee', '', 'beer', 'pee', 0, 'beer_or_pee_thumbnail.jpg', '2017-10-05 07:18:51', 1, 'beer_or_pee_thumbnail.jpg', 0, 1),
+(6, 'muslimorjewish', 'Muslim or Jewish', '', 'muslim', 'jewish', 0, 'muslim_or_jewish_thumbnail.jpg', '2017-10-05 08:42:30', 1, 'muslim_or_jewish_thumbnail.jpg', 0, 1),
+(7, 'naziornotnazi', 'Nazi or Not Nazi', '', 'nazi', 'not nazi', 0, 'nazi_or_not_thumbnail.jpg', '2017-10-05 12:55:01', 1, 'nazi_or_not_thumbnail.jpg', 0, 1),
+(8, 'michael-jackson-or-not', 'Michael Jackson or Not', '', 'michael jackson', 'not michael jackson', 0, 'mj_or_not_thumbnail.jpg', '2017-10-19 07:13:04', 1, 'mj_or_not_thumbnail.jpg', 0, 1),
+(9, 'doggo-or-marshmallow', 'Doggo or Marshmallow', '', 'doggo', 'marshmallow', 0, 'doggo_or_marshmallow_thumbnail.jpg', '2017-10-27 18:55:38', 0, 'doggo_or_marshmallow_thumbnail.jpg', 1, 2),
+(10, 'doggo-or-mop', 'Doggo or Mop', '', 'doggo', 'mop', 0, 'doggo_or_mop_thumbnail.jpg', '2017-10-27 20:10:06', 0, 'doggo_or_mop_thumbnail.jpg', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -62,13 +66,14 @@ INSERT INTO `categories` (`id`, `slug`, `title`, `description`, `choice_1`, `cho
 -- Structure de la table `elements`
 --
 
-CREATE TABLE `elements` (
-  `id` int(9) NOT NULL,
+CREATE TABLE IF NOT EXISTS `elements` (
+  `id` int(9) NOT NULL AUTO_INCREMENT,
   `hidden_image` varchar(300) NOT NULL,
   `reveal_image` varchar(300) NOT NULL,
   `category` int(11) NOT NULL,
-  `choice` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `choice` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=174 ;
 
 --
 -- Contenu de la table `elements`
@@ -242,37 +247,6 @@ INSERT INTO `elements` (`id`, `hidden_image`, `reveal_image`, `category`, `choic
 (172, '/img/tot_images/doggo_or_mop/doggo/doggo_9_2.png', '/img/tot_images/doggo_or_mop/doggo/doggo_9.jpg', 10, 'doggo'),
 (173, '/img/tot_images/doggo_or_mop/doggo/doggo_10_2.png', '/img/tot_images/doggo_or_mop/doggo/doggo_10.jpg', 10, 'doggo');
 
---
--- Index pour les tables exportées
---
-
---
--- Index pour la table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `slug` (`slug`);
-
---
--- Index pour la table `elements`
---
-ALTER TABLE `elements`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT pour la table `elements`
---
-ALTER TABLE `elements`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

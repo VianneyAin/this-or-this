@@ -23,7 +23,7 @@ class Header_Controller extends Application{
     }
 
     public function partials_request() {
-        $this->view->fn_header_view($this->meta);
+        $this->view->fn_header_view($this->actions, $this->meta);
     }
 }
 ?>

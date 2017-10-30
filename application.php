@@ -35,6 +35,7 @@ class Application {
         'tot',
         'about',
         'contact',
+        'infinite',
     );
 
     private $ajax_controllers = array(
@@ -87,6 +88,10 @@ class Application {
             case 'tot':
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');
                 $this->controller = new Tot_Controller($this->routes);
+                break;
+            case 'infinite':
+                require_once('includes/mvc/controllers/controller.' . $controller . '.php');
+                $this->controller = new Infinite_Controller($this->routes);
                 break;
             case 'about':
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');

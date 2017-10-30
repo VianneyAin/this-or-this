@@ -6,69 +6,19 @@ class Ajax_Controller extends Application{
     private $ajax_controller;
 
     private $valid_actions = array(
-        'update_jokes_status' => array(
+        'update_tot_played' => array(
             'controller' => array(
-                    'file_name' => 'jokes', //the ajax controller called by this action
-                    'controller_name' => 'Jokes_Ajax',
+                    'file_name' => 'tot', //the ajax controller called by this action
+                    'controller_name' => 'Tot_Ajax',
             ),
-            'action' => 'update_status', //the method called in the ajax controller
-            'permission' => 'update_jokes_status', //the name of the permission to execute the action, has to be set in permission.php
+            'action' => 'update_played', //the method called in the ajax controller
         ),
-        'valid_joke' => array(
+        'get_random_tot' => array(
             'controller' => array(
-                    'file_name' => 'jokes', //the ajax controller called by this action
-                    'controller_name' => 'Jokes_Ajax',
+                    'file_name' => 'tot', //the ajax controller called by this action
+                    'controller_name' => 'Tot_Ajax',
             ),
-            'action' => 'valid_joke', //the method called in the ajax controller
-            'permission' => 'update_jokes_status', //the name of the permission to execute the action, has to be set in permission.php
-        ),
-        'delete_joke' => array(
-            'controller' => array(
-                    'file_name' => 'jokes', //the ajax controller called by this action
-                    'controller_name' => 'Jokes_Ajax',
-            ),
-            'action' => 'delete_joke', //the method called in the ajax controller
-            'permission' => 'delete_jokes', //the name of the permission to execute the action, has to be set in permission.php
-        ),
-        'update_own_infos'  => array(
-            'controller' => array(
-                    'file_name' => 'user', //the ajax controller called by this action
-                    'controller_name' => 'User_Ajax',
-            ),
-            'action' => 'update_own_infos', //the method called in the ajax controller
-            'permission' => 'update_own_infos', //the name of the permission to execute the action, has to be set in permission.php
-        ),
-        'update_own_avatar'  => array(
-            'controller' => array(
-                    'file_name' => 'user', //the ajax controller called by this action
-                    'controller_name' => 'User_Ajax',
-            ),
-            'action' => 'update_own_avatar', //the method called in the ajax controller
-            'permission' => 'update_own_infos', //the name of the permission to execute the action, has to be set in permission.php
-        ),
-        'update_own_description'  => array(
-            'controller' => array(
-                    'file_name' => 'user', //the ajax controller called by this action
-                    'controller_name' => 'User_Ajax',
-            ),
-            'action' => 'update_own_description', //the method called in the ajax controller
-            'permission' => 'update_own_infos', //the name of the permission to execute the action, has to be set in permission.php
-        ),
-        'update_own_wallpaper'  => array(
-            'controller' => array(
-                    'file_name' => 'user', //the ajax controller called by this action
-                    'controller_name' => 'User_Ajax',
-            ),
-            'action' => 'update_own_wallpaper', //the method called in the ajax controller
-            'permission' => 'update_own_infos', //the name of the permission to execute the action, has to be set in permission.php
-        ),
-        'rate_joke'  => array(
-            'controller' => array(
-                    'file_name' => 'jokes', //the ajax controller called by this action
-                    'controller_name' => 'Jokes_Ajax',
-            ),
-            'action' => 'rate_joke', //the method called in the ajax controller
-            'permission' => 'rate_joke', //the name of the permission to execute the action, has to be set in permission.php
+            'action' => 'get_random_tot', //the method called in the ajax controller
         ),
     );
 
@@ -115,19 +65,10 @@ class Ajax_Controller extends Application{
     public function handle_action(){
         foreach ($this->valid_actions as $action_name => $action_data){
             if ($action_name == $this->action){
-                if ($this->permission_object->user_do($action_data['permission'])){
-                    require_once('includes/mvc/controllers/ajax/controller.ajax.' . $action_data['controller']['file_name'] . '.php');
-                    $controller_name = $action_data['controller']['controller_name'].'_Controller';
-                    $this->ajax_controller = new $controller_name($this->user_object);
-                    return $this->ajax_controller->$action_data['action']();
-                }
-                else {
-                    $message = array(
-                            'message' => 'You have not the right to do that.',
-                            'success' => false,
-                    );
-                    return $message;
-                }
+              require_once('includes/mvc/controllers/ajax/controller.ajax.' . $action_data['controller']['file_name'] . '.php');
+              $controller_name = $action_data['controller']['controller_name'].'_Controller';
+              $this->ajax_controller = new $controller_name();
+              return $this->ajax_controller->$action_data['action']();
             }
         }
     }

@@ -237,6 +237,7 @@ class Tot_View {
             });
 
             function rein_game () {
+                update_played();
                 create_elements();
                 game = true;
                 score = 0;
@@ -269,6 +270,31 @@ class Tot_View {
                         }
                     }
                 });
+            }
+
+            function update_played(){
+              var ajax = $.ajax({
+                  url: ajaxurl,
+                  data: {
+                      from: 'user',
+                      action: 'update_tot_played',
+                      id: data.id,
+                  },
+                  type: 'POST',
+                  dataType : 'json',
+                  beforeSend: function (jqXHR, settings) {
+                      url = settings.url + "?" + settings.data;
+                      console.log(url);
+                  },
+                  error: function (thrownError) {
+                      console.log(thrownError);
+                      alert(thrownError.responseText);
+                  },
+                  complete: function () {
+                  },
+                  success: function (data, status) {
+                  }
+              });
             }
         </script>
         <?php

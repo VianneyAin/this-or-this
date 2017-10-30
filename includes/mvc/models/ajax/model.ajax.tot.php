@@ -1,0 +1,89 @@
+<?php
+  class Tot_Ajax_Model {
+
+
+    public function __construct() {
+    }
+
+    public function update_played($id){
+        if (isset($id) && !empty($id)){
+            try {
+                $db = Db::getInstance();
+                $req = $db->prepare('UPDATE categories SET played = played + 1 WHERE id = '.$id);
+
+                $req->execute();
+                if ($req->rowCount() == 1){
+                    $message = array(
+                            'message' => 'Item updated.',
+                            'success' => true,
+                    );
+                    return $message;
+                }
+                else {
+                    $message = array(
+                            'message' => "Failed to update item.",
+                            'code' => '405',
+                            'success' => false,
+                    );
+                    return $message;
+                }
+
+            } catch (Exception $e) {
+                $message = array(
+                        'message' => 'An error occured.',
+                        'code' => '404',
+                        'success' => false,
+                );
+                return $message;
+            }
+        }
+        else {
+            $message = array(
+                    'message' => 'An error occured.',
+                    'code' => '403',
+                    'success' => false,
+            );
+            return $message;
+        }
+    }
+
+    public function get_random_tot(){
+        try {
+            if (isset($_REQUEST['lang']) && !empty($_REQUEST['lang'])){
+              $lang = $_REQUEST['lang'];
+            }
+            $db = Db::getInstance();
+            $sql = "SELECT * FROM categories where nsfl <> 1 AND visible <> 0 ORDER BY RAND() LIMIT 1";
+            $req = $db->prepare($sql);
+            // the query was prepared, now we replace :id with our actual $id value
+            $req->execute();
+            $cat = $req->fetch();
+            if (isset($cat) && !empty($cat)){
+              $sql = "SELECT * FROM elements WHERE category=".$cat['id']." ORDER BY RAND() LIMIT 1";
+              $req = $db->prepare($sql);
+              // the query was prepared, now we replace :id with our actual $id value
+              $req->execute();
+              $elmt = $req->fetch();
+              $cat['choice_1'] = __tl($cat['choice_1'], $lang);
+              $cat['choice_2'] = __tl($cat['choice_2'], $lang);
+              if ($cat['local'] == '1'){
+                $elmt['hidden_image'] = 'http://localhost/this-or-this'.$elmt['hidden_image'];
+                $elmt['reveal_image'] = 'http://localhost/this-or-this'.$elmt['reveal_image'];
+              }
+              $elmt['choice'] = __tl($elmt['choice'], $lang);
+              $cat['element'] = $elmt;
+            }
+            return $cat;
+        }
+        catch (PDOexception $e) {
+          $message = array(
+                  'message' => 'An error occured.',
+                  'code' => '406',
+                  'success' => false,
+          );
+          return $message;
+        }
+    }
+
+  }
+?>

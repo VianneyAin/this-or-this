@@ -31,6 +31,34 @@ function _t($string = null, $context = null) {
 	echo __t($string, $context);
 }
 
+function __tl($string = null, $lang = null) {
+	if (!isset($lang) || empty($lang)){
+		$lang = Application::this()->current_lang;
+	}
+	$general_translations = general_translations();
+	$translated_string = '';
+	//Loop through translations
+	foreach ($general_translations as $translation) {
+		//Translation has context
+		if (!empty($context)) {
+			if ($translation['en'] == $string && $translation == $context) {
+				$translated_string = $translation[$lang];
+				break;
+			}
+		} //No context
+		else {
+			if ($translation['en'] == $string) {
+				$translated_string = $translation[$lang];
+				break;
+			}
+		}
+	}
+	if (empty($translated_string)){
+		return $string;
+	}
+	return $translated_string;
+}
+
 function general_translations() {
 	$general_translations = array(
 		array(
@@ -503,6 +531,14 @@ function general_translations() {
 			'de' => "marshmallow",
 			'es' => "malvavisco",
 			'pt' => "marshmallow",
+			'context' => '',
+		),
+		array(
+			'en' => "Infinite Mode",
+			'fr' => "Mode Infini",
+			'de' => "Unendlicher Modus",
+			'es' => "Modo Infinito",
+			'pt' => "Modo Infinito",
 			'context' => '',
 		),
 		/*array(
