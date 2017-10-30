@@ -70,6 +70,14 @@ function general_translations() {
 			'context' => '',
 		),
 		array(
+			'en' => "localhost/this-or-this",
+			'fr' => "localhost/this-or-this/fr",
+			'de' => "localhost/this-or-this/de",
+			'es' => "localhost/this-or-this/es",
+			'pt' => "localhost/this-or-this/pt",
+			'context' => '',
+		),
+		array(
 			'en' => 'Select a topic',
 			'fr' => 'Choisissez une catégorie',
 			'de' => 'Wähle eine Kategorie',

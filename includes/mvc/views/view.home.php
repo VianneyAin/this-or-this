@@ -20,13 +20,13 @@
                 </div>
                 <div class="row center">
                     <div class="col s12 m4">
-                        <a href="http://localhost/this-or-this/<?php _t('tot');?>/" id="download-button" class="btn-large waves-effect waves-light cyan darken-3 pulse"><?php _t('Get Started'); ?> !</a>
+                        <a href="http://<?php _t('localhost/this-or-this');?>/tot/" id="download-button" class="btn-large waves-effect waves-light cyan darken-3 pulse"><?php _t('Get Started'); ?> !</a>
                     </div>
                     <div class="col s12 m4">
                         <h4><?php _t('or'); ?></h4>
                     </div>
                     <div class="col s12 m4">
-                        <a href="http://localhost/this-or-this/<?php _t('tot');?>/" id="download-button" class="btn-large waves-effect waves-light cyan darken-3 pulse"><?php _t('Get Started'); ?> !</a>
+                        <a href="http://<?php _t('localhost/this-or-this');?>/tot/" id="download-button" class="btn-large waves-effect waves-light cyan darken-3 pulse"><?php _t('Get Started'); ?> !</a>
                     </div>
 
                 </div>
@@ -44,7 +44,7 @@
                   <div class="icon-block">
                     <h2 class="center white-text"><i class="material-icons">reorder</i></h2>
                     <h5 class="center white-text"><?php _t('Select a topic'); ?></h5>
-                    <p class="center light"><a href="http://localhost/this-or-this/<?php _t('tot');?>/" id="download-button" class="btn waves-effect waves-light cyan darken-3"><?php _t('Get Started'); ?></a></p>
+                    <p class="center light"><a href="http://<?php _t('localhost/this-or-this');?>/tot/" id="download-button" class="btn waves-effect waves-light cyan darken-3"><?php _t('Get Started'); ?></a></p>
                   </div>
                 </div>
                 <div class="col s12 m4">
@@ -85,10 +85,10 @@
                               ?>
                                   <div class="col s12 m3 gallery-item gallery-filter" style="">
                                       <div class="collection-item">
-                                          <a class="gallery-cover" href="http://localhost/this-or-this/<?php _t('tot');?>/<?php echo $category['slug']; ?>" style="min-height:200px;">
+                                          <a class="gallery-cover" href="http://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>" style="min-height:200px;">
                                               <img src="http://localhost/this-or-this/img/thumbnail/<?php echo $category['thumbnail']; ?>" style="width:100%;">
                                           </a>
-                                          <a class="gallery-header" href="http://localhost/this-or-this/<?php _t('tot');?>/<?php echo $category['slug']; ?>">
+                                          <a class="gallery-header" href="http://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>">
                                               <span class="title">
                                                   <?php _t($category['title']); ?>
                                                   <?php if (isset($category['total']) && !empty($category['total'])){
@@ -111,7 +111,7 @@
                 </div>
               </div>
               <div class="row center">
-                  <a href="http://localhost/this-or-this/<?php _t('tot');?>/" id="download-button" class="btn waves-effect waves-light cyan darken-3"><?php _t('See all categories'); ?></a>
+                  <a href="<?php _t('localhost/this-or-this');?>/tot/" id="download-button" class="btn waves-effect waves-light cyan darken-3"><?php _t('See all categories'); ?></a>
               </div>
 
             </div>

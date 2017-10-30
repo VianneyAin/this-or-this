@@ -7,7 +7,14 @@ class Tot_View {
     public function display_tot_categories_view($data){
         ?>
         <div class="container">
-            <div class="row topic-list">
+          <div class="row">
+              <div class="col s12 m6 centered">
+                <h4>Try infinite mode !</h4>
+              </div>
+          </div>
+        </div>
+        <div class="container">
+            <div class="row">
                 <div class="col s12 m6 centered">
                     <h4><?php _t('All topics'); ?></h4>
                 </div>
@@ -18,10 +25,10 @@ class Tot_View {
                         ?>
                         <div class="col s12 m3 gallery-item gallery-filter" style="">
                             <div class="collection-item">
-                                <a class="gallery-cover" href="http://localhost/this-or-this/<?php _t('tot');?>/<?php echo $category['slug']; ?>" style="min-height:200px;">
+                                <a class="gallery-cover" href="http://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>" style="min-height:200px;">
                                     <img src="http://localhost/this-or-this/img/thumbnail/<?php echo $category['thumbnail']; ?>" style="width:100%;">
                                 </a>
-                                <a class="gallery-header" href="http://localhost/this-or-this/<?php _t('tot');?>/<?php echo $category['slug']; ?>">
+                                <a class="gallery-header" href="http://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>">
                                     <span class="title">
                                         <?php _t($category['title']); ?>
                                         <?php if (isset($category['total']) && !empty($category['total'])){
