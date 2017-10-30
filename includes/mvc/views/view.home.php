@@ -19,13 +19,13 @@
                   <h1 class="header col s12 black-text light"><?php _t("It's time to make a choice"); ?>.</h1>
                 </div>
                 <div class="row center">
-                    <div class="col s4">
+                    <div class="col s12 m4">
                         <a href="http://localhost/this-or-this/<?php _t('tot');?>/" id="download-button" class="btn-large waves-effect waves-light cyan darken-3 pulse"><?php _t('Get Started'); ?> !</a>
                     </div>
-                    <div class="col s4">
+                    <div class="col s12 m4">
                         <h4><?php _t('or'); ?></h4>
                     </div>
-                    <div class="col s4">
+                    <div class="col s12 m4">
                         <a href="http://localhost/this-or-this/<?php _t('tot');?>/" id="download-button" class="btn-large waves-effect waves-light cyan darken-3 pulse"><?php _t('Get Started'); ?> !</a>
                     </div>
 

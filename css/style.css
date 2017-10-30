@@ -6,6 +6,10 @@
  * Made By MaterializeCSS.com
  */
 
+body{
+    overflow-x:hidden;
+}
+
 h5 {
     font-size: .9rem;
     font-weight: 500;
@@ -89,4 +93,89 @@ h5 {
 }
 .fb-share-button i {
   margin-right:5px;
+}
+
+.tot_img {
+    max-height:500px;
+    max-width:100%;
+}
+
+.tot_footer {
+    bottom:0px;
+    max-height:10%;
+}
+#tot_container {
+    margin-top:20px;
+}
+
+.centered {
+    text-align: center;
+}
+.step, .over {
+    display:none;
+}
+
+.step .img_reveal {
+    display:none;
+}
+
+.step .answer {
+    position: absolute;
+    top: 20%;
+    left:50%;
+    font-size: 50px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transform: translateX(-50%);
+}
+
+.step .wrong {
+    color:red;
+}
+
+.step .correct {
+    color:lime;
+}
+
+.img_hidden, .img_reveal {
+    max-height:70%;
+    text-align:center;
+}
+.tot_title {
+    text-transform: uppercase;
+}
+
+
+@media only screen and (max-width: 480px)  {
+    main {
+        padding-bottom:0px !important;
+    }
+    #tot_container .step {
+        height:100%;
+    }
+    #tot_container .step .img_container {
+        max-height:60%;
+        height:60%;
+    }
+    #tot_container .tot_footer {
+        max-height: 30%;
+        height:30%;
+        background-color:white;
+        z-index:99;
+    }
+}
+
+@media only screen and (max-width: 480px)  {
+    #index-banner {
+        overflow-x:hidden;
+    }
+    .btn {
+        font-size:1rem;
+        line-height:25px;
+        padding:10px 20px;
+    }
+
+    .btn-large {
+        height:auto;
+    }
 }

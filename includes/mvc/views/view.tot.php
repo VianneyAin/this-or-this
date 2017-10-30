@@ -61,57 +61,6 @@ class Tot_View {
         }
       }
         ?>
-        <style>
-            .tot_img {
-                max-height:500px;
-                max-width:100%;
-            }
-
-            #tot_footer {
-                bottom:0px;
-            }
-            #tot_container {
-                margin-top:20px;
-            }
-
-            .centered {
-                text-align: center;
-            }
-            .step, .over {
-                display:none;
-            }
-
-            .step .img_reveal {
-                display:none;
-            }
-
-            .step .answer {
-                position: absolute;
-                top: 20%;
-                left:50%;
-                font-size: 50px;
-                text-transform: uppercase;
-                font-weight: 500;
-                transform: translateX(-50%);
-            }
-
-            .step .wrong {
-                color:red;
-            }
-
-            .step .correct {
-                color:lime;
-            }
-
-            .img_hidden, .img_reveal {
-                max-height:70%;
-                text-align:center;
-            }
-            .tot_title {
-                text-transform: uppercase;
-            }
-
-        </style>
         <div id="tot_container" class="container" style="height:100%;">
             <div class="starter">
                 <div class="gallery gallery-masonry row center">
@@ -259,7 +208,12 @@ class Tot_View {
 
                 data.elements.forEach(function (element){
                     nb++;
-                    jQuery('#tot_container').append('<div class="step step_'+nb+'" data-value="'+element.choice+'"><div class="row"><div class="col s12 img_hidden"><img class="tot_img" src="'+element.hidden_image+'" /></div><div class="col s12 img_reveal"><div class="answer">'+element.choice+'</div><img class="tot_img" src="'+element.reveal_image+'" /></div></div><div id="tot_footer" class="row" style="max-height:10%"><div class="col s4 centered"><a class="waves-effect waves-light btn btn-large response_btn cyan darken-3" data-value="'+data.choice_1+'">'+data.choice_1+'</a></div><div class="col s4 centered"><h4>'+nb+'/'+total+'</h4></div><div class="col s4 centered"><a class="waves-effect waves-light btn btn-large response_btn cyan darken-3" data-value="'+data.choice_2+'">'+data.choice_2+'</a></div></div></div>');
+                    jQuery('#tot_container').append('<div class="step step_'+nb+'" data-value="'+element.choice+'"><div class="row img_container"><div class="col s12 img_hidden"><img class="tot_img" src="'+element.hidden_image+'" /></div><div class="col s12 img_reveal"><div class="answer">'+element.choice+'</div><img class="tot_img" src="'+element.reveal_image+'" /></div></div><div class="row tot_footer"><div class="col s4 centered"><a class="waves-effect waves-light btn btn-large response_btn cyan darken-3" data-value="'+data.choice_1+'">'+data.choice_1+'</a></div><div class="col s4 centered"><h4>'+nb+'/'+total+'</h4></div><div class="col s4 centered"><a class="waves-effect waves-light btn btn-large response_btn cyan darken-3" data-value="'+data.choice_2+'">'+data.choice_2+'</a></div></div></div>');
+                });
+                jQuery('.step').each(function(){
+                    if (jQuery(window).width() < 480){
+                        jQuery(this).height(jQuery(window).height());
+                    }
                 });
             }
 

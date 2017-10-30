@@ -12,15 +12,19 @@ Mise en ligne du site
 Multilingues
 Titre des pages/meta tags (en prenant en compte les langues)
 Share/Like/Tweet boutons
+Pouvoir partager sur fb
 Robots.txt
 Pub google ads
 Mise en page du script de jeu
 Formulaire de contact
 Demande d'âge
 Cookie pour mémoriser la langue
+FIXE IMPORTANT : VERSION MOBILE : Bouton fixé en bas de page, scroll verticale à virer, images parfois trop grande ou illisible
+Mode Infini
+Appel ajax pour enregistrer le nombre de fois jouer (Pouvoir avoir les plus populaires)
+Repérer la langue du navigateur pour rediriger vers la bonne langue
 
 -- Version 0.3 :
-Pouvoir partager sur fb
 Dons paypal
 Connexion pour accéder à la section NFSL
 
@@ -29,5 +33,8 @@ Butt or not
 Glanders or Sperm
 Naked or not
 Sloth or Cinnamon Roll (Chocolate Croissant)
+Kiddo or Doggo
+Gollum or Benjamin Biolay
+Rich or Poor
 
 -- FUTUR
