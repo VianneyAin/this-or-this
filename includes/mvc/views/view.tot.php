@@ -295,7 +295,7 @@ class Tot_View {
                   },
                   error: function (thrownError) {
                       console.log(thrownError);
-                      alert(thrownError.responseText);
+                      //alert(thrownError.responseText);
                   },
                   complete: function () {
                   },

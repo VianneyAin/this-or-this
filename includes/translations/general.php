@@ -597,6 +597,22 @@ function general_translations() {
 			'pt' => "Calvo ou Joelho",
 			'context' => '',
 		),
+		array(
+			'en' => "Doggo or Joystick",
+			'fr' => "Chien ou Joystick",
+			'de' => "Hund oder Joystick",
+			'es' => "Perro o Joystick",
+			'pt' => "Cão ou Joystick",
+			'context' => '',
+		),
+		array(
+			'en' => "Joystick",
+			'fr' => "Joystick",
+			'de' => "Joystick",
+			'es' => "Joystick",
+			'pt' => "Joystick",
+			'context' => '',
+		),
 		/*array(
 			'en' => "",
 			'fr' => "",

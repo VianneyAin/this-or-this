@@ -68,7 +68,8 @@ class Ajax_Controller extends Application{
               require_once('includes/mvc/controllers/ajax/controller.ajax.' . $action_data['controller']['file_name'] . '.php');
               $controller_name = $action_data['controller']['controller_name'].'_Controller';
               $this->ajax_controller = new $controller_name();
-              return $this->ajax_controller->$action_data['action']();
+              $function_name = $action_data['action'];
+              return $this->ajax_controller->$function_name();
             }
         }
     }
