@@ -9,23 +9,46 @@
         if (isset($id) && !empty($id)){
             try {
                 $db = Db::getInstance();
-                $req = $db->prepare('UPDATE categories SET played = played + 1 WHERE id = '.$id);
-
+                //$req = $db->prepare("IF EXISTS (SELECT * FROM stats WHERE category = $id) UPDATE stats SET played = played + 1 WHERE category = $id ELSE INSERT INTO stats (category, played) VALUES ($id, '1')");
+                $req = $db->prepare("SELECT * FROM stats WHERE category = $id LIMIT 1");
                 $req->execute();
                 if ($req->rowCount() == 1){
-                    $message = array(
-                            'message' => 'Item updated.',
-                            'success' => true,
-                    );
-                    return $message;
+                    $req = $db->prepare("UPDATE stats SET played = played + 1 WHERE category = $id");
+                    $req->execute();
+                    if ($req->rowCount() == 1){
+                        $message = array(
+                                'message' => 'Item updated.',
+                                'success' => true,
+                        );
+                        return $message;
+                    }
+                    else {
+                        $message = array(
+                                'message' => "Failed to update item.",
+                                'code' => '407',
+                                'success' => false,
+                        );
+                        return $message;
+                    }
                 }
                 else {
-                    $message = array(
-                            'message' => "Failed to update item.",
-                            'code' => '405',
-                            'success' => false,
-                    );
-                    return $message;
+                    $req = $db->prepare("INSERT INTO stats (category, played) VALUES ($id, '1')");
+                    $req->execute();
+                    if ($req->rowCount() == 1){
+                        $message = array(
+                                'message' => 'Item updated.',
+                                'success' => true,
+                        );
+                        return $message;
+                    }
+                    else {
+                        $message = array(
+                                'message' => "Failed to update item.",
+                                'code' => '405',
+                                'success' => false,
+                        );
+                        return $message;
+                    }
                 }
 
             } catch (Exception $e) {

@@ -73,14 +73,26 @@ class Tot_Controller extends Application{
 
     public function layout_request() {
       if (isset($this->category) && !empty($this->category)){
-        $this->data = $this->model->get_category_single($this->category);
-        $this->set_title($this->data['title']);
-        $this->set_thumbnail($this->data['thumbnail_name']);
+        $this->data['current'] = $this->data = $this->model->get_category_single($this->category);
+        $this->data['categories'] = $this->model->get_some_categories('4', $this->data['current']['id']);
+        $this->set_title($this->data['current']['title']);
+        $this->set_thumbnail($this->data['current']['thumbnail_name']);
+
       }
       else {
         $this->data['categories'] = $this->model->get_all_categories();
       }
     }
+
+    public function partials_request() {
+      if (isset($this->category) && !empty($this->category)){
+        $this->view->display_tot_category_view($this->data['current'], $this->data['categories']);
+      }
+      else {
+        $this->view->display_tot_categories_view($this->data);
+      }
+    }
+
 
     public function set_title($title){
       if (isset($title) && !empty($title)){
@@ -100,15 +112,6 @@ class Tot_Controller extends Application{
 
     public function get_meta(){
       return $this->meta;
-    }
-
-    public function partials_request() {
-      if (isset($this->category) && !empty($this->category)){
-        $this->view->display_tot_category_view($this->data);
-      }
-      else {
-        $this->view->display_tot_categories_view($this->data);
-      }
     }
 }
 ?>

@@ -78,6 +78,7 @@ class Application {
     }
 
     public function call($controller) {
+        require_once('includes/functions/utilities.php');
         require_once('includes/mvc/controllers/controller.header.php');
         require_once('includes/mvc/controllers/controller.footer.php');
         switch($controller) {

@@ -4,15 +4,15 @@ IDEAS --
 TODO --
 
 -- Version 0.1 :
-Système de catégorie
-Script de gestion de jeu
-Mise en ligne du site
+X-Système de catégorie
+X-Script de gestion de jeu
+X-Mise en ligne du site
 
 -- Version 0.2 :
-Multilingues
-Titre des pages/meta tags (en prenant en compte les langues)
-Share/Like/Tweet boutons
-Pouvoir partager sur fb
+X-Multilingues
+X-Titre des pages/meta tags (en prenant en compte les langues)
+X-Share/Like/Tweet boutons
+X-Pouvoir partager sur fb
 Robots.txt
 Pub google ads
 Mise en page du script de jeu
@@ -20,13 +20,23 @@ Formulaire de contact
 Demande d'âge
 Cookie pour mémoriser la langue
 FIXE IMPORTANT : VERSION MOBILE : Bouton fixé en bas de page, scroll verticale à virer, images parfois trop grande ou illisible
-Mode Infini
-Appel ajax pour enregistrer le nombre de fois jouer (Pouvoir avoir les plus populaires)
+X-Mode Infini
+X-Appel ajax pour enregistrer le nombre de fois jouer (Pouvoir avoir les plus populaires)
+Fonction de recherche sur les catégories
+Afficher les catégories les plus populaires
+Bouton Tweet avec le score sur le mode infini
+X-Changer le système d'enregistrement de nombre de fois joué
 Repérer la langue du navigateur pour rediriger vers la bonne langue
 
 -- Version 0.3 :
 Dons paypal
 Connexion pour accéder à la section NFSL
+
+
+-- IDEAS
+Afficher la moyenne des scores fait sur une catégorie
+Pouvoir créer un compte et accèder à la section NSFW
+Pouvoir noter les catégories
 
 -- CATEGORIE
 Butt or not
