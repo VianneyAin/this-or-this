@@ -49,16 +49,11 @@ class Infinite_View {
                         </div>
                         <div class="col s12 centered">
                             <div class="row">
-                                <div id="twitter-container" class="col s12 m4">
+                                <div id="twitter-container" class="col s12 m3 offset-m3">
 
                                 </div>
-                                <div class="col s12 m4">
-                                    <div class="fb-like" data-href="<?php echo get_siteurl(); ?>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
-                                </div>
-                                <div class="col s12 m4">
-                                    <a class="fb-share-button" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_siteurl(); ?>" target="_blank">
-                                        <i class="fa fa-facebook-official" aria-hidden="true"></i><span><?php _t('Share'); ?></span>
-                                    </a>
+                                <div class="col s12 m3">
+                                    <div class="fb-like" data-href="<?php echo get_siteurl(); ?>" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
                                 </div>
                             </div>
                         </div>
