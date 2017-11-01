@@ -72,7 +72,11 @@ class Infinite_Controller extends Application{
     }
 
     public function layout_request() {
-      //$this->data = $this->model->get_single_tot();
+      $this->data['categories'] = $this->model->get_some_categories('4');
+    }
+
+    public function partials_request() {
+      $this->view->display_infinite_view($this->data['categories']);
     }
 
     public function set_title($title){
@@ -95,8 +99,5 @@ class Infinite_Controller extends Application{
       return $this->meta;
     }
 
-    public function partials_request() {
-      $this->view->display_infinite_view();
-    }
 }
 ?>

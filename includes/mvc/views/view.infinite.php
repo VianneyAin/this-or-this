@@ -4,7 +4,7 @@ class Infinite_View {
 
     }
 
-    public function display_infinite_view(){
+    public function display_infinite_view($categories){
         ?>
         <div id="tot_container" class="container" style="height:100%;">
             <div class="starter">
@@ -25,7 +25,7 @@ class Infinite_View {
                 </div>
                 <div class="row">
                     <div class="col s12 centered">
-                        <a class="btn-large waves-effect waves-light btn red start_btn"><?php _t('Start'); ?></a>
+                        <a class="btn-large waves-effect waves-light btn red start_btn disabled"><?php _t('Start'); ?></a>
                     </div>
                 </div>
             </div>
@@ -42,10 +42,73 @@ class Infinite_View {
                         <h4>Your score : <span class="result"></span></h4>
                     </div>
                 </div>
+                <div class="container social-container">
+                    <div class="row social-container">
+                        <div class="col s12 centered">
+                            <p><?php _t('Not too bad, try again or share your score with your friends !'); ?></p>
+                        </div>
+                        <div class="col s12 centered">
+                            <div class="row">
+                                <div id="twitter-container" class="col s12 m4">
+
+                                </div>
+                                <div class="col s12 m4">
+                                    <div class="fb-like" data-href="<?php echo get_siteurl(); ?>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                                </div>
+                                <div class="col s12 m4">
+                                    <a class="fb-share-button" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_siteurl(); ?>" target="_blank">
+                                        <i class="fa fa-facebook-official" aria-hidden="true"></i><span><?php _t('Share'); ?></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col s12 centered">
                         <a class="waves-effect waves-light btn red start_btn"><?php _t('Start again'); ?></a>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="container over" style="margin-bottom:100px;">
+            <div class="section">
+                <div class="row">
+                    <div class="col s12">
+                        <h3><?php _t("Want to try out something else ?"); ?></h3>
+                        <div class="gallery gallery-masonry row center">
+                            <?php if (isset($categories) && !empty($categories)){
+                                foreach ($categories as $key => $category){
+                                    ?>
+                                    <div class="col s12 m3 gallery-item gallery-filter" style="">
+                                        <div class="collection-item">
+                                            <a class="gallery-cover" href="http://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>" style="min-height:200px;">
+                                                <img src="http://localhost/this-or-this/img/thumbnail/<?php echo $category['thumbnail']; ?>" style="width:100%;">
+                                            </a>
+                                            <a class="gallery-header" href="http://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>">
+                                                <span class="title">
+                                                    <?php _t($category['title']); ?>
+                                                    <?php if (isset($category['total']) && !empty($category['total'])){
+                                                        echo ' ('.$category['total'].')';
+                                                    }
+                                                    ?>
+                                                    <?php if (isset($category['nsfl']) && !empty($category['nsfl']) && $category['nsfl'] == 1){
+                                                        echo ' (NSFL)';
+                                                    }
+                                                    ?>
+                                                </span>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                            }?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row center">
+                    <a href="http://<?php _t('localhost/this-or-this');?>/tot/" id="download-button" class="btn waves-effect waves-light cyan darken-3"><?php _t('See all categories'); ?></a>
                 </div>
             </div>
         </div>
@@ -58,6 +121,28 @@ class Infinite_View {
             var score = 0;
             var data = new Object();
             var active = false;
+            var twitter_text_url = 'https://twitter.com/intent/tweet?text=';
+
+            function set_twitter_button(){
+                // Remove existing iframe
+                jQuery('.twitter-tweet-button').each(function(){
+                    jQuery(this).remove();
+                });
+
+                var twitter_score_text = "<?php _t("I made a score {score} to {tag}, who can beat me?"); ?>";
+                twitter_score_text = twitter_score_text.replace("{score}", score);
+                twitter_score_text = twitter_score_text.replace('{tag}', '#infinitemode');
+
+                var tweetBtn = $('<a></a>')
+                .addClass('twitter-share-button')
+                .attr('href', twitter_text_url+twitter_score_text)
+                .attr('data-url', "<?php echo get_siteurl(); ?>")
+                .attr('data-via', 'thisorthis')
+                .attr('data-size', 'large')
+                .attr('data-hashtags', 'thisorthis,infinitemode')
+                $('#twitter-container').append(tweetBtn);
+                twttr.widgets.load();
+            }
 
             function display_score(){
                 jQuery('.step').each(function(){
@@ -65,11 +150,15 @@ class Infinite_View {
                 });
                 jQuery('.over .result').text(score);
                 jQuery('.over').show();
+                set_twitter_button();
             }
 
             function show_next(){
                 jQuery('.step').each(function(){
                     jQuery(this).hide();
+                    if (jQuery(window).width() < 480){
+                        jQuery(this).height(jQuery(window).height());
+                    }
                 });
                 active = false;
                 if (game){
@@ -124,13 +213,13 @@ class Infinite_View {
                   },
                   error: function (thrownError) {
                       console.log(thrownError);
-                      alert(thrownError.responseText);
+                      //alert(thrownError.responseText);
                   },
                   complete: function () {
                   },
                   success: function (data, status) {
-                    console.log(data);
                     jQuery('#tot_container').append('<div class="step step_'+(step+1)+'" data-value="'+data.element.choice+'"><div class="row img_container"><div class="col s12 img_hidden"><img class="tot_img" src="'+data.element.hidden_image+'" /></div><div class="col s12 img_reveal"><div class="answer">'+data.element.choice+'</div><img class="tot_img" src="'+data.element.reveal_image+'" /></div></div><div class="row tot_footer"><div class="col s4 centered"><a class="waves-effect waves-light btn btn-large response_btn cyan darken-3" data-value="'+data.choice_1+'">'+data.choice_1+'</a></div><div class="col s4 centered"><h4>'+(step+1)+'</h4></div><div class="col s4 centered"><a class="waves-effect waves-light btn btn-large response_btn cyan darken-3" data-value="'+data.choice_2+'">'+data.choice_2+'</a></div></div></div>');
+                    jQuery('.start_btn').removeClass('disabled');
                     jQuery('.response_btn').click(function(){
                         if (!active){
                             active = true;

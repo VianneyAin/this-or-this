@@ -29,6 +29,26 @@
         }
     }
 
+    public function get_some_categories($limit){
+        try {
+            $db = Db::getInstance();
+            $sql = "SELECT * FROM categories where nsfl <> 1 AND visible <> 0 ORDER BY RAND() LIMIT $limit";
+            $req = $db->prepare($sql);
+            // the query was prepared, now we replace :id with our actual $id value
+            $req->execute();
+            $post = $req->fetchAll();
+            if (isset($post) && !empty($post)){
+              return $post;
+            }
+            else {
+                return false;
+            }
+        }
+        catch (PDOexception $e) {
+            return false;
+        }
+    }
+
 
   }
 ?>

@@ -717,6 +717,14 @@ function general_translations() {
 			'pt' => "Tente novamente, escolha outra categoria ou veja se seus amigos podem vencer sua pontuação.",
 			'context' => '',
 		),
+		array(
+			'en' => "Not too bad, try again or share your score with your friends !",
+			'fr' => "Pas mal, essaye encore ou partage ton score avec tes amis !",
+			'de' => "Nicht zu schlecht, versuchen Sie es noch einmal oder teilen Sie Ihre Punktzahl mit Ihren Freunden!",
+			'es' => "¡No está mal, intenta nuevamente o comparte tu puntaje con tus amigos!",
+			'pt' => "Não está mal, tente novamente ou compartilhe sua pontuação com seus amigos!",
+			'context' => '',
+		),
 		/*array(
 			'en' => "",
 			'fr' => "",

@@ -129,7 +129,7 @@ class Tot_View {
                         </div>
                         <div class="col s12 centered">
                             <div class="row">
-                                <div id="twitter-container" class="col s12 m3">
+                                <div id="twitter-container" class="col s12 m4">
                                     <?php
                                     $twitter_text = __t($data['choice_1']). ' '.__t('or').' '. __t($data['choice_2']).' ?';
                                     $hashtag = 'thisorthis, '.__t($data['slug']);
@@ -138,11 +138,11 @@ class Tot_View {
                                         Tweet
                                     </a>
                                 </div>
-                                <div class="col s12 m3">
+                                <div class="col s12 m4">
                                     <div class="fb-like" data-href="<?php echo get_siteurl(); ?>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
                                 </div>
-                                <div class="col s12 m3">
-                                    <a class="fb-share-button" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>" target="_blank">
+                                <div class="col s12 m4">
+                                    <a class="fb-share-button" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_siteurl(); ?>" target="_blank">
                                         <i class="fa fa-facebook-official" aria-hidden="true"></i><span><?php _t('Share'); ?></span>
                                     </a>
                                 </div>
@@ -157,30 +157,6 @@ class Tot_View {
                 </div>
             </div>
         </div>
-
-
-        <div class="container social-container" style="display:none;">
-            <div class="row">
-                <div class="col s12 m2">
-                    <a class="fb-share-button" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>" target="_blank">
-                        <i class="fa fa-facebook-official" aria-hidden="true"></i><span><?php _t('Share'); ?></span>
-                    </a>
-                </div>
-                <div class="col s12 m2">
-                    <div class="fb-like" data-href="<?php echo get_siteurl(); ?>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
-                </div>
-                <div class="col s12 m2">
-                    <?php
-                    $twitter_text = __t($data['choice_1']). ' '.__t('or').' '. __t($data['choice_2']).' ?';
-                    $hashtag = 'thisorthis, '.__t($data['slug']);
-                    ?>
-                    <a id="twitter-widget" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<?php echo $twitter_text; ?>&" data-hashtags="<?php echo $hashtag; ?>" data-via="thisorthis" data-size="large">
-                        Tweet
-                    </a>
-                </div>
-            </div>
-        </div>
-
 
         <div class="container over" style="margin-bottom:100px;">
             <div class="section">

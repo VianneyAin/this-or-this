@@ -27,6 +27,7 @@ Afficher les catégories les plus populaires
 Bouton Tweet avec le score sur le mode infini
 X-Changer le système d'enregistrement de nombre de fois joué
 Repérer la langue du navigateur pour rediriger vers la bonne langue
+Gestion des redirections lors d'un changement de langue
 
 -- Version 0.3 :
 Dons paypal
@@ -37,6 +38,7 @@ Connexion pour accéder à la section NFSL
 Afficher la moyenne des scores fait sur une catégorie
 Pouvoir créer un compte et accèder à la section NSFW
 Pouvoir noter les catégories
+Hall of Fame du mode Défi
 
 -- CATEGORIE
 Butt or not
