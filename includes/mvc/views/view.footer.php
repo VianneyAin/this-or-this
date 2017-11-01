@@ -15,26 +15,38 @@
           <footer class="page-footer cyan darken-1">
             <div class="container">
               <div class="row">
-                <div class="col l6 s12">
+                <div class="col m3 s12">
                   <h5 class="grey-text text-lighten-4"><?php _t('About'); ?></h5>
                   <ul>
-                      <li><a class="white-text text-lighten-1" href="http://localhost/this-or-this<?php _t('/about'); ?>"><?php _t('What is');?> <b>This or This ?</a></li>
+                      <li><a class="white-text text-lighten-1" href="http://localhost/this-or-this<?php _t('/about'); ?>"><?php _t('What is');?> <b>This or This</b> ?</a></li>
                       <li><a class="white-text text-lighten-1" href=""><?php _t('Want to be part of it ?');?></a></li>
                   </ul>
                 </div>
-                <div class="col l3 s12">
-                  <h5 class="white-text text-lighten-4"><?php _t('Latest Categories'); ?></h5>
+                <div class="col m3 s12">
+                  <h5 class="white-text text-lighten-4"><?php _t('Most Popular Categories'); ?></h5>
                   <ul>
                       <?php
-                      if (isset($datas) && !empty($datas) && isset($datas['categories']) && !empty($datas['categories'])){
-                          foreach ($datas['categories'] as $key => $category){
+                      if (isset($datas) && !empty($datas) && isset($datas['categories']) && !empty($datas['categories']) && isset($datas['categories']['popular']) && !empty($datas['categories']['popular'])){
+                          foreach ($datas['categories']['popular'] as $key => $category){
                               echo '<li><a class="white-text text-lighten-1" href="http://localhost/this-or-this/'.__t('tot').'/'.$category['slug'].'">'.__t($category['title']).'</a></li>';
                           }
                       }
                       ?>
                   </ul>
                 </div>
-                <div class="col l3 s12">
+                <div class="col m3 s12">
+                  <h5 class="white-text text-lighten-4"><?php _t('Latest Categories'); ?></h5>
+                  <ul>
+                      <?php
+                      if (isset($datas) && !empty($datas) && isset($datas['categories']) && !empty($datas['categories']) && isset($datas['categories']['latest']) && !empty($datas['categories']['latest'])){
+                          foreach ($datas['categories']['latest'] as $key => $category){
+                              echo '<li><a class="white-text text-lighten-1" href="http://localhost/this-or-this/'.__t('tot').'/'.$category['slug'].'">'.__t($category['title']).'</a></li>';
+                          }
+                      }
+                      ?>
+                  </ul>
+                </div>
+                <div class="col m3 s12">
                   <h5 class="white-text text-lighten-4"><?php _t('Any idea ?'); ?></h5>
                   <ul>
                     <li><a class="white-text text-lighten-1" href="http://localhost/this-or-this/"><?php _t('Share it with us'); ?> !</a></li>

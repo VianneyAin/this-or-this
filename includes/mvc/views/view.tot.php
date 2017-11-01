@@ -8,22 +8,20 @@ class Tot_View {
         ?>
         <div class="container">
             <div class="row">
-                <div class="col s12 m6 centered">
-                    <h4>Try infinite mode !</h4>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col s12 m6 centered">
+                <div class="col s12 m6">
                     <h4><?php _t('All topics'); ?></h4>
                 </div>
             </div>
-            <div class="gallery gallery-masonry row">
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <?php _t('Search'); ?> : <input id="search" type="text">
+                </div>
+            </div>
+            <div class="gallery gallery-masonry row category-gallery">
                 <?php if (isset($data) && !empty($data) && isset($data['categories']) && !empty($data['categories'])){
                     foreach ($data['categories'] as $key => $category){
                         ?>
-                        <div class="col s12 m3 gallery-item gallery-filter" style="">
+                        <div class="col s12 m3 gallery-item gallery-filter category-item" style="">
                             <div class="collection-item">
                                 <a class="gallery-cover" href="http://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>" style="min-height:200px;">
                                     <img src="http://localhost/this-or-this/img/thumbnail/<?php echo $category['thumbnail']; ?>" style="width:100%;">
@@ -49,7 +47,15 @@ class Tot_View {
                 }?>
             </div>
         </div>
-
+        <script type="text/javascript">
+            $('#search').keyup(function () {
+                var rex = new RegExp($(this).val(), 'i');
+                $('.category-gallery .category-item').hide();
+                $('.category-gallery .category-item').filter(function () {
+                    return rex.test($(this).find('.title').text());
+                }).show();
+            });
+        </script>
         <?php
     }
 

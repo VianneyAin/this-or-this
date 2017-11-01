@@ -725,6 +725,22 @@ function general_translations() {
 			'pt' => "Não está mal, tente novamente ou compartilhe sua pontuação com seus amigos!",
 			'context' => '',
 		),
+		array(
+			'en' => "Search",
+			'fr' => "Recherche",
+			'de' => "Suche",
+			'es' => "Buscar",
+			'pt' => "Pesquisa",
+			'context' => '',
+		),
+		array(
+			'en' => "Most Popular Categories",
+			'fr' => "Catégories les plus populaires",
+			'de' => "Beliebteste Kategorien",
+			'es' => "Categorías más populares",
+			'pt' => "Categorias mais populares",
+			'context' => '',
+		),
 		/*array(
 			'en' => "",
 			'fr' => "",

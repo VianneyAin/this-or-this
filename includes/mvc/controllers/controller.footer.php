@@ -17,7 +17,8 @@ class Footer_Controller {
     }
 
     public function layout_request() {
-        $this->data['categories'] = $this->model->get_last_categories();
+        $this->data['categories']['latest'] = $this->model->get_latest_categories();
+        $this->data['categories']['popular'] = $this->model->get_popular_categories();
     }
 
     public function partials_request() {

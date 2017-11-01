@@ -15,7 +15,7 @@ X-Share/Like/Tweet boutons
 X-Pouvoir partager sur fb
 Robots.txt
 Pub google ads
-Mise en page du script de jeu
+X-Mise en page du script de jeu
 Formulaire de contact
 Demande d'âge
 Cookie pour mémoriser la langue
@@ -38,7 +38,7 @@ Connexion pour accéder à la section NFSL
 Afficher la moyenne des scores fait sur une catégorie
 Pouvoir créer un compte et accèder à la section NSFW
 Pouvoir noter les catégories
-Hall of Fame du mode Défi
+Hall of Fame du mode Infini
 
 -- CATEGORIE
 Butt or not
