@@ -124,7 +124,7 @@ class Infinite_View {
                     jQuery(this).remove();
                 });
 
-                var twitter_score_text = "<?php _t("I made a score {score} to {tag}, who can beat me?"); ?>";
+                var twitter_score_text = "<?php _t("I made a score of {score} to {tag}, who can beat me?"); ?>";
                 twitter_score_text = twitter_score_text.replace("{score}", score);
                 twitter_score_text = twitter_score_text.replace('{tag}', '#infinitemode');
 

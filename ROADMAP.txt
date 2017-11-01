@@ -13,7 +13,7 @@ X-Multilingues
 X-Titre des pages/meta tags (en prenant en compte les langues)
 X-Share/Like/Tweet boutons
 X-Pouvoir partager sur fb
-Robots.txt
+X-Robots.txt
 Pub google ads
 X-Mise en page du script de jeu
 Formulaire de contact
@@ -22,23 +22,26 @@ Cookie pour mémoriser la langue
 FIXE IMPORTANT : VERSION MOBILE : Bouton fixé en bas de page, scroll verticale à virer, images parfois trop grande ou illisible
 X-Mode Infini
 X-Appel ajax pour enregistrer le nombre de fois jouer (Pouvoir avoir les plus populaires)
-Fonction de recherche sur les catégories
-Afficher les catégories les plus populaires
-Bouton Tweet avec le score sur le mode infini
+X-Fonction de recherche sur les catégories
+X-Afficher les catégories les plus populaires
+X-Bouton Tweet avec le score sur le mode infini
 X-Changer le système d'enregistrement de nombre de fois joué
 Repérer la langue du navigateur pour rediriger vers la bonne langue
 Gestion des redirections lors d'un changement de langue
+Ajoutez les descriptions des catégories et en faire des métas
+Affichez en permanence les socials buttons
 
 -- Version 0.3 :
 Dons paypal
 Connexion pour accéder à la section NFSL
-
 
 -- IDEAS
 Afficher la moyenne des scores fait sur une catégorie
 Pouvoir créer un compte et accèder à la section NSFW
 Pouvoir noter les catégories
 Hall of Fame du mode Infini
+MODE - Contre la montre (5s par réponse par exemple)
+Système de Zoom sur l'image pour la version mobile
 
 -- CATEGORIE
 Butt or not

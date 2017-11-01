@@ -678,7 +678,7 @@ function general_translations() {
 			'context' => '',
 		),
 		array(
-			'en' => "I made a score {score} to {tag}, who can beat me?",
+			'en' => "I made a score of {score} to {tag}, who can beat me?",
 			'fr' => "J'ai fait un score de {score} à {tag}, qui peut me battre ?",
 			'de' => "Ich habe eine Punktzahl von {score} zu {tag} gemacht",
 			'es' => "Hice un puntaje de {score} a {tag}",
