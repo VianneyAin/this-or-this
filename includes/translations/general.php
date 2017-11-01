@@ -645,6 +645,22 @@ function general_translations() {
 			'pt' => "Mantenha-se o máximo que puder sem se enganar, e tentar vencer o seu próprio disco ou o de seus amigos!",
 			'context' => '',
 		),
+		array(
+			'en' => "infinite_mode_logo_white.svg",
+			'fr' => "infinite_mode_logo_white_fr.svg",
+			'de' => "infinite_mode_logo_white_de.svg",
+			'es' => "infinite_mode_logo_white_es.svg",
+			'pt' => "infinite_mode_logo_white_pt.svg",
+			'context' => '',
+		),
+		array(
+			'en' => "infinite_mode_logo_blue.svg",
+			'fr' => "infinite_mode_logo_blue_fr.svg",
+			'de' => "infinite_mode_logo_blue_de.svg",
+			'es' => "infinite_mode_logo_blue_es.svg",
+			'pt' => "infinite_mode_logo_blue_pt.svg",
+			'context' => '',
+		),
 		/*array(
 			'en' => "",
 			'fr' => "",

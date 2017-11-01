@@ -12,7 +12,7 @@ class Infinite_View {
                       <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
                           <div class="collection-item">
                               <a class="gallery-cover start_btn" style="min-height:200px;">
-                                  <img src="http://localhost/this-or-this/img/infinite_mode_logo_blue.svg" style="width:100%;">
+                                  <img src="http://localhost/this-or-this/img/logo/<?php _t('infinite_mode_logo_blue.svg'); ?>" style="width:100%;">
                               </a>
                           </div>
                       </div>
@@ -33,7 +33,7 @@ class Infinite_View {
                 <div class="gallery gallery-masonry row center">
                       <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
                           <div class="collection-item">
-                                <img src="http://localhost/this-or-this/img/infinite_mode_logo_blue.svg" style="width:100%;">
+                                <img src="http://localhost/this-or-this/img/logo/<?php _t('infinite_mode_logo_blue.svg'); ?>" style="width:100%;">
                           </div>
                       </div>
                 </div>

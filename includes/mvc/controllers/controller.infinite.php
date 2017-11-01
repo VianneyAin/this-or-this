@@ -7,31 +7,31 @@ class Infinite_Controller extends Application{
       'en' => array(
         'title' => "This or This - Infinite Mode",
         'description' => 'Will you be able to explode your score in infinite mode?',
-        'image' => 'img/thisorthis_thumbnail.jpg',
+        'image' => 'img/seo/infinite_thumbnail.png',
         'code' => 'en',
       ),
       'fr' => array(
         'title' => 'This or This - Mode Infini',
         'description' => "Parviendrez-vous à exploser votre score en mode infini ?",
-        'image' => 'img/thisorthis_thumbnail.jpg',
+        'image' => 'img/seo/infinite_thumbnail_fr.png',
         'code' => 'fr',
       ),
       'de' => array(
         'title' => 'This or This - Unendlicher Modus',
         'description' => 'Können Sie Ihre Punktzahl im unendlichen Modus explodieren lassen?',
-        'image' => 'img/thisorthis_thumbnail.jpg',
+        'image' => 'img/seo/infinite_thumbnail_de.png',
         'code' => 'de',
       ),
       'es' => array(
         'title' => 'This or This - Modo Infinito',
         'description' => '¿Podrás explotar tu puntaje en modo infinito?',
-        'image' => 'img/thisorthis_thumbnail.jpg',
+        'image' => 'img/seo/infinite_thumbnail_es.png',
         'code' => 'es',
       ),
       'pt' => array(
         'title' => 'This or This - Modo Infinito',
         'description' => 'Você poderá explodir sua pontuação em modo infinito?',
-        'image' => 'img/thisorthis_thumbnail.jpg',
+        'image' => 'img/seo/infinite_thumbnail_pt.png',
         'code' => 'pt',
       ),
     );
