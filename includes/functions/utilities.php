@@ -5,4 +5,10 @@ function get_siteurl(){
 }
 
 
+function get_currenturl(){
+    return "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+}
+
+
+
  ?>

@@ -97,6 +97,7 @@
             <script src="<?php echo 'http://localhost/this-or-this/js/materialize.js' ?>"></script>
             <script src="<?php echo 'http://localhost/this-or-this/js/init.js' ?>"></script>
             <script src="<?php echo 'http://localhost/this-or-this/js/validate.js' ?>"></script>
+            <script src="<?php echo 'http://localhost/this-or-this/js/js.cookie.js' ?>"></script>
             <!-- Global site tag (gtag.js) - Google Analytics -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108698505-1"></script>
             <script>
@@ -152,11 +153,11 @@
                     <li><a class="dropdown-button" href="#!" data-activates="lang_dropdown"><?php _t('Languages'); ?><i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
                 <ul id="lang_dropdown" class="dropdown-content">
-                  <li><a href="http://localhost/this-or-this/fr"><?php _t('French'); ?></a></li>
-                  <li><a href="http://localhost/this-or-this/"><?php _t('English'); ?></a></li>
-                  <li><a href="http://localhost/this-or-this/de"><?php _t('German'); ?></a></li>
-                  <li><a href="http://localhost/this-or-this/es"><?php _t('Spanish'); ?></a></li>
-                  <li><a href="http://localhost/this-or-this/pt"><?php _t('Portuguese'); ?></a></li>
+                  <li><a href="<?php echo _tlink(get_currenturl(), 'fr'); ?>"><?php _t('French'); ?></a></li>
+                  <li><a href="<?php echo _tlink(get_currenturl(), ''); ?>"><?php _t('English'); ?></a></li>
+                  <li><a href="<?php echo _tlink(get_currenturl(), 'de'); ?>"><?php _t('German'); ?></a></li>
+                  <li><a href="<?php echo _tlink(get_currenturl(), 'es'); ?>"><?php _t('Spanish'); ?></a></li>
+                  <li><a href="<?php echo _tlink(get_currenturl(), 'pt'); ?>"><?php _t('Portuguese'); ?></a></li>
                 </ul>
                 <ul id="lang_dropdown_mobile" class="dropdown-content">
                   <li><a href="http://localhost/this-or-this/fr"><?php _t('French'); ?></a></li>

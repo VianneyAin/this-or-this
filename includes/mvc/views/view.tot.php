@@ -123,6 +123,11 @@ class Tot_View {
                         <h4>Your score : <span class="result"></span>/<span class="total"></span></h4>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col s12 centered">
+                        <a class="waves-effect waves-light btn red start_btn"><?php _t('Start again'); ?></a>
+                    </div>
+                </div>
                 <div class="container social-container">
                     <div class="row social-container">
                         <div class="col s12 centered success" style="display:none;">
@@ -149,11 +154,6 @@ class Tot_View {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 centered">
-                        <a class="waves-effect waves-light btn red start_btn"><?php _t('Start again'); ?></a>
                     </div>
                 </div>
             </div>

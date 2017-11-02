@@ -59,13 +59,7 @@ class Application {
             array_push($routes, $path);
         }
         $this->current_lang = $this->get_lang($routes);
-        /*if (isset($_COOKIE) && isset($_COOKIE['langue']) && !empty($_COOKIE['langue'])){
-          $this->current_lang = $_COOKIE['langue'];
-        }
-        else {
-          $this->current_lang = $this->default_language;
-          setcookie('langue', $this->default_language, time() + (86400 * 3), "/"); // 86400 = 1 day
-        }*/
+
     }
 
     static function this() {

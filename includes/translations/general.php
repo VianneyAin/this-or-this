@@ -31,6 +31,39 @@ function _t($string = null, $context = null) {
 	echo __t($string, $context);
 }
 
+function _tl($string = null, $lang = null) {
+	echo __tl($string, $lang);
+}
+
+function _tlink($url = null, $lang){
+	if (isset($url) && !empty($url)){
+		$parsed = parse_url($url);
+		switch($parsed['host']){
+			case 'localhost':
+				$t = preg_replace('/\/this-or-this/', '', $parsed['path']);
+				$t = preg_replace('/(\/fr)|(\/de)|(\/en)|(\/es)|(\/pt)/', '', $t);
+				if (isset($lang) && !empty($lang)){
+					return 'http://'.$parsed['host'].'/this-or-this'.$t;
+				}
+				else {
+					return 'http://'.$parsed['host'].'/this-or-this/'.$lang.$t;
+				}
+				break;
+			default :
+				$t = preg_replace('/(\/fr)|(\/de)|(\/en)|(\/es)|(\/pt)/', '', $parsed['path']);
+				if (isset($lang) && !empty($lang)){
+					return 'http://'.$parsed['host'].'/'.$lang.$t;
+				}
+				else {
+					return 'http://'.$parsed['host'].$t;
+				}
+
+				break;
+		}
+	}
+	return null;
+}
+
 function __tl($string = null, $lang = null) {
 	if (!isset($lang) || empty($lang)){
 		$lang = Application::this()->current_lang;
@@ -57,6 +90,23 @@ function __tl($string = null, $lang = null) {
 		return $string;
 	}
 	return $translated_string;
+}
+
+function _l($lang){
+	switch ($lang){
+		case 'en':
+			return 'English';
+		case 'fr':
+			return 'Français';
+		case 'de':
+			return "Deutsch";
+		case 'es':
+			return 'Español';
+		case 'pt':
+			return 'Português';
+		default :
+			return null;
+	}
 }
 
 function general_translations() {
@@ -739,6 +789,30 @@ function general_translations() {
 			'de' => "Beliebteste Kategorien",
 			'es' => "Categorías más populares",
 			'pt' => "Categorias mais populares",
+			'context' => '',
+		),
+		array(
+			'en' => "Detected language : ",
+			'fr' => "Langue détectée : ",
+			'de' => "Erkannte Sprache : ",
+			'es' => "Lenguaje detectado : ",
+			'pt' => "Idioma detectado : ",
+			'context' => '',
+		),
+		array(
+			'en' => "go to my language",
+			'fr' => "aller vers mon language",
+			'de' => "gehe zu meiner Sprache",
+			'es' => "vá para o meu idioma",
+			'pt' => "ve a mi idioma",
+			'context' => '',
+		),
+		array(
+			'en' => "no thanks",
+			'fr' => "non merci",
+			'de' => "nein danke",
+			'es' => "no gracias",
+			'pt' => "não, obrigado",
 			'context' => '',
 		),
 		/*array(

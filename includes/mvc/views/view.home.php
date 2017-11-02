@@ -34,8 +34,6 @@ class Home_View {
                 </div>
             </div>
         </div>
-
-
         <div class="cyan darken-1">
             <div class="section">
                 <!--   Icon Section   -->

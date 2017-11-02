@@ -61,11 +61,47 @@
             </div>
           </footer>
 
-
           <!--  Scripts-->
           <?php $this->call_to_actions($actions); ?>
           <script src="<?php echo 'http://localhost/this-or-this/js/rating.js' ?>"></script>
           <script src="<?php echo 'http://localhost/this-or-this/js/global.js' ?>"></script>
+
+          <?php
+          $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+          $lang_name = _l($lang);
+          if ($lang != Application::this()->current_lang){
+          ?>
+            <div id="lang_modal" class="modal">
+              <div class="modal-content centered">
+                <h5><?php _tl('Detected language : ', $lang); echo $lang_name; ?></h5>
+                <a href="<?php echo _tlink(get_currenturl(), $lang); ?>" class="waves-effect waves-light btn go-to-lang"><?php _tl('go to my language', $lang); ?></a>
+                <a class="waves-effect waves-light btn modal-action modal-close modal-close-lang"><?php _tl('no thanks', $lang); ?></a>
+              </div>
+              <div class="modal-footer">
+                <a class="modal-action modal-close waves-effect waves-green btn-flat modal-close-lang">Close</a>
+              </div>
+            </div>
+            
+            <script type="text/javascript">
+              jQuery(document).ready(function(){
+                  if (Cookies.get('lang_modal')){
+                    if (Cookies.get('lang_modal') == 'true'){
+                      $('#lang_modal').modal('open');
+                    }
+                  }
+                  else {
+                    $('#lang_modal').modal('open');
+                  }
+                  jQuery('.modal-close-lang').click(function(){
+                    Cookies.set('lang_modal', 'false', { expires: 2 });
+                  });
+                  jQuery('.go-to-lang').click(function(){
+                    Cookies.set('lang_modal', 'true', { expires: 2 });
+                  });
+              });
+            </script>
+          <?php } ?>
+
           </body>
           </html>
 
