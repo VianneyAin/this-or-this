@@ -18,7 +18,7 @@ Pub google ads
 X-Mise en page du script de jeu
 Formulaire de contact
 Demande d'âge
-Cookie pour mémoriser la langue
+X-Cookie pour mémoriser la langue
 FIXE IMPORTANT : VERSION MOBILE : Bouton fixé en bas de page, scroll verticale à virer, images parfois trop grande ou illisible
 X-Mode Infini
 X-Appel ajax pour enregistrer le nombre de fois jouer (Pouvoir avoir les plus populaires)
@@ -26,8 +26,8 @@ X-Fonction de recherche sur les catégories
 X-Afficher les catégories les plus populaires
 X-Bouton Tweet avec le score sur le mode infini
 X-Changer le système d'enregistrement de nombre de fois joué
-Repérer la langue du navigateur pour rediriger vers la bonne langue
-Gestion des redirections lors d'un changement de langue
+X-Repérer la langue du navigateur pour rediriger vers la bonne langue
+X-Gestion des redirections lors d'un changement de langue
 Ajoutez les descriptions des catégories et en faire des métas
 Affichez en permanence les socials buttons
 
