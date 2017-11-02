@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 02, 2017 at 07:25 AM
--- Server version: 10.1.20-MariaDB
--- PHP Version: 7.0.8
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  jeu. 02 nov. 2017 à 07:21
+-- Version du serveur :  5.7.19
+-- Version de PHP :  5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,66 +19,27 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `id3130158_thisorthis`
+-- Base de données :  `thisorthis`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Structure de la table `elements`
 --
 
-CREATE TABLE `categories` (
-  `id` int(9) NOT NULL,
-  `slug` varchar(150) NOT NULL,
-  `title` varchar(150) NOT NULL,
-  `description` text NOT NULL,
-  `choice_1` varchar(150) NOT NULL,
-  `choice_2` varchar(150) NOT NULL,
-  `nsfl` tinyint(1) NOT NULL DEFAULT '0',
-  `thumbnail` varchar(300) NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `visible` tinyint(1) NOT NULL DEFAULT '0',
-  `thumbnail_name` varchar(250) NOT NULL,
-  `local` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `categories`
---
-
-INSERT INTO `categories` (`id`, `slug`, `title`, `description`, `choice_1`, `choice_2`, `nsfl`, `thumbnail`, `created`, `visible`, `thumbnail_name`, `local`) VALUES
-(1, 'deadorsleeping', 'Dead or Sleeping', '', 'dead', 'sleeping', 1, 'https://img11.hostingpics.net/pics/855749deadoralive.jpg', '2017-10-03 15:56:38', 0, '', 0),
-(2, 'man-or-woman', 'Man or Woman', '', 'man', 'woman', 0, 'man_or_woman_thumbnail.jpg', '2017-10-03 16:56:38', 1, 'man_or_woman_thumbnail.jpg', 0),
-(3, 'beardorpubichair', 'Beard or Pubic Hair', '', 'beard', 'pubic hair', 0, '', '2017-10-04 08:20:05', 0, '', 1),
-(4, 'pokemonordigimon', 'Pokemon or Digimmon', '', 'pokemon', 'digimon', 0, '', '2017-10-04 08:36:44', 0, '', 1),
-(5, 'beer-or-pee', 'Beer or Pee', '', 'beer', 'pee', 0, 'beer_or_pee_thumbnail.jpg', '2017-10-05 07:18:51', 1, 'beer_or_pee_thumbnail.jpg', 0),
-(6, 'muslim-or-jewish', 'Muslim or Jewish', '', 'muslim', 'jewish', 0, 'muslim_or_jewish_thumbnail.jpg', '2017-10-05 08:42:30', 1, 'muslim_or_jewish_thumbnail.jpg', 0),
-(7, 'nazi-or-not-nazi', 'Nazi or Not Nazi', '', 'nazi', 'not nazi', 0, 'nazi_or_not_thumbnail.jpg', '2017-10-05 12:55:01', 1, 'nazi_or_not_thumbnail.jpg', 0),
-(8, 'michael-jackson-or-not', 'Michael Jackson or Not', '', 'michael jackson', 'not michael jackson', 0, 'mj_or_not_thumbnail.jpg', '2017-10-19 07:13:04', 1, 'mj_or_not_thumbnail.jpg', 0),
-(9, 'doggo-or-marshmallow', 'Doggo or Marshmallow', '', 'doggo', 'marshmallow', 0, 'doggo_or_marshmallow_thumbnail.jpg', '2017-10-27 18:55:38', 1, 'doggo_or_marshmallow_thumbnail.jpg', 1),
-(10, 'doggo-or-mop', 'Doggo or Mop', '', 'doggo', 'mop', 0, 'doggo_or_mop_thumbnail.jpg', '2017-10-27 20:10:06', 1, 'doggo_or_mop_thumbnail.jpg', 1),
-(11, 'far-or-pregnant', 'Fat or Pregnant', '', 'fat', 'pregnant', 0, 'fat_or_pregnant_thumbnail.jpg', '2017-10-30 17:24:13', 1, '', 1),
-(12, 'bald-or-knee', 'Bald or Knee', '', 'bald', 'knee', 0, 'bald_or_knee_thumbnail.jpg', '2017-10-30 18:33:42', 1, 'bald_or_knee_thumbnail.jpg', 1),
-(13, 'doggo-or-joystick', 'Doggo or Joystick', '', 'doggo', 'joystick', 0, 'doggo_or_joystick_thumbnail.jpg', '2017-10-31 16:04:23', 1, 'doggo_or_joystick_thumbnail.jpg', 1),
-(14, 'pokemon-or-digimon', 'Pokemon or Digimon', '', 'pokemon', 'digimon', 0, 'pokemon_or_digimon_thumbnail.jpg', '2017-11-01 21:57:59', 0, 'pokemon_or_digimon_thumbnail.jpg', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `elements`
---
-
-CREATE TABLE `elements` (
-  `id` int(9) NOT NULL,
+DROP TABLE IF EXISTS `elements`;
+CREATE TABLE IF NOT EXISTS `elements` (
+  `id` int(9) NOT NULL AUTO_INCREMENT,
   `hidden_image` varchar(300) NOT NULL,
   `reveal_image` varchar(300) NOT NULL,
   `category` int(11) NOT NULL,
-  `choice` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `choice` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=276 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `elements`
+-- Déchargement des données de la table `elements`
 --
 
 INSERT INTO `elements` (`id`, `hidden_image`, `reveal_image`, `category`, `choice`) VALUES
@@ -346,77 +309,8 @@ INSERT INTO `elements` (`id`, `hidden_image`, `reveal_image`, `category`, `choic
 (272, '/img/tot_images/pokemon_or_digimon/pokemon/pokemon_22_2.png', '/img/tot_images/pokemon_or_digimon/pokemon/pokemon_22.jpg', 14, 'pokemon'),
 (273, '/img/tot_images/pokemon_or_digimon/pokemon/pokemon_23_2.png', '/img/tot_images/pokemon_or_digimon/pokemon/pokemon_23.jpg', 14, 'pokemon'),
 (275, '/img/tot_images/pokemon_or_digimon/digimon/digimon_17_2.png', '/img/tot_images/pokemon_or_digimon/digimon/digimon_17.jpg', 14, 'digimon');
+COMMIT;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `stats`
---
-
-CREATE TABLE `stats` (
-  `id` int(11) NOT NULL,
-  `category` int(250) NOT NULL,
-  `played` int(250) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `stats`
---
-
-INSERT INTO `stats` (`id`, `category`, `played`) VALUES
-(1, 13, 14),
-(3, 11, 11),
-(4, 12, 25),
-(5, 10, 14),
-(6, 9, 20),
-(7, 8, 2),
-(8, 7, 1),
-(9, 6, 1),
-(10, 5, 1),
-(11, 2, 1);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `slug` (`slug`);
-
---
--- Indexes for table `elements`
---
-ALTER TABLE `elements`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `stats`
---
-ALTER TABLE `stats`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
---
--- AUTO_INCREMENT for table `elements`
---
-ALTER TABLE `elements`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=276;
---
--- AUTO_INCREMENT for table `stats`
---
-ALTER TABLE `stats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
