@@ -160,16 +160,16 @@
                   <li><a href="<?php echo _tlink(get_currenturl(), 'pt'); ?>"><?php _t('Portuguese'); ?></a></li>
                 </ul>
                 <ul id="lang_dropdown_mobile" class="dropdown-content">
-                  <li><a href="http://localhost/this-or-this/fr"><?php _t('French'); ?></a></li>
-                  <li><a href="http://localhost/this-or-this/"><?php _t('English'); ?></a></li>
-                  <li><a href="http://localhost/this-or-this/de"><?php _t('German'); ?></a></li>
-                  <li><a href="http://localhost/this-or-this/es"><?php _t('Spanish'); ?></a></li>
-                  <li><a href="http://localhost/this-or-this/pt"><?php _t('Portuguese'); ?></a></li>
+                  <li><a href="<?php echo _tlink(get_currenturl(), 'fr'); ?>"><?php _t('French'); ?></a></li>
+                  <li><a href="<?php echo _tlink(get_currenturl(), ''); ?>"><?php _t('English'); ?></a></li>
+                  <li><a href="<?php echo _tlink(get_currenturl(), 'de'); ?>"><?php _t('German'); ?></a></li>
+                  <li><a href="<?php echo _tlink(get_currenturl(), 'es'); ?>"><?php _t('Spanish'); ?></a></li>
+                  <li><a href="<?php echo _tlink(get_currenturl(), 'pt'); ?>"><?php _t('Portuguese'); ?></a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a class="dropdown-button" href="#!" data-activates="lang_dropdown_mobile"><?php _t('Languages'); ?><i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li class="cyan darken-3"><a class="dropdown-button white-text" href="#!" data-activates="lang_dropdown_mobile"><i class="material-icons white-text">language</i><?php _t('Languages'); ?><i class="material-icons right white-text">arrow_drop_down</i></a></li>
                     <li><a href="http://<?php _t('localhost/this-or-this');?>/tot/"><i class="material-icons">format_list_bulleted</i><?php _t('Choose a category'); ?></a></li>
-                    <li><a href="http://<?php _t('localhost/this-or-this');?>/infinite/"><?php _t('Infinite Mode'); ?></a></li>
+                    <li><a href="http://<?php _t('localhost/this-or-this');?>/infinite/"><i class="material-icons">loop</i><?php _t('Infinite Mode'); ?></a></li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
               </div>

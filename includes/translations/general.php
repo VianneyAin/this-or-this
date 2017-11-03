@@ -43,10 +43,10 @@ function _tlink($url = null, $lang){
 				$t = preg_replace('/\/this-or-this/', '', $parsed['path']);
 				$t = preg_replace('/(\/fr)|(\/de)|(\/en)|(\/es)|(\/pt)/', '', $t);
 				if (isset($lang) && !empty($lang)){
-					return 'http://'.$parsed['host'].'/this-or-this'.$t;
+					return 'http://'.$parsed['host'].'/this-or-this/'.$lang.$t;
 				}
 				else {
-					return 'http://'.$parsed['host'].'/this-or-this/'.$lang.$t;
+					return 'http://'.$parsed['host'].'/this-or-this'.$t;
 				}
 				break;
 			default :
