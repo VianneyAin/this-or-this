@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 02 nov. 2017 à 07:21
+-- Généré le :  ven. 03 nov. 2017 à 07:13
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `local` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `categories`
@@ -64,7 +64,8 @@ INSERT INTO `categories` (`id`, `slug`, `title`, `description`, `choice_1`, `cho
 (11, 'far-or-pregnant', 'Fat or Pregnant', '', 'fat', 'pregnant', 0, 'fat_or_pregnant_thumbnail.jpg', '2017-10-30 17:24:13', 1, '', 1),
 (12, 'bald-or-knee', 'Bald or Knee', '', 'bald', 'knee', 0, 'bald_or_knee_thumbnail.jpg', '2017-10-30 18:33:42', 1, 'bald_or_knee_thumbnail.jpg', 1),
 (13, 'doggo-or-joystick', 'Doggo or Joystick', '', 'doggo', 'joystick', 0, 'doggo_or_joystick_thumbnail.jpg', '2017-10-31 16:04:23', 1, 'doggo_or_joystick_thumbnail.jpg', 1),
-(14, 'pokemon-or-digimon', 'Pokemon or Digimon', '', 'pokemon', 'digimon', 0, 'pokemon_or_digimon_thumbnail.jpg', '2017-11-01 21:57:59', 1, 'pokemon_or_digimon_thumbnail.jpg', 1);
+(14, 'pokemon-or-digimon', 'Pokemon or Digimon', '', 'pokemon', 'digimon', 0, 'pokemon_or_digimon_thumbnail.jpg', '2017-11-01 21:57:59', 1, 'pokemon_or_digimon_thumbnail.jpg', 1),
+(15, 'teat-or-condom', 'Teat or Condom', '', 'teat', 'condom', 0, 'teat_or_condom_thumbnail.jpg', '2017-11-02 22:08:22', 1, 'teat_or_condom_thumbnail.jpg', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

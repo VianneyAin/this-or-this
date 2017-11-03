@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 02 nov. 2017 à 07:21
+-- Généré le :  ven. 03 nov. 2017 à 07:13
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `elements` (
   `category` int(11) NOT NULL,
   `choice` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=276 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=296 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `elements`
@@ -308,7 +308,27 @@ INSERT INTO `elements` (`id`, `hidden_image`, `reveal_image`, `category`, `choic
 (271, '/img/tot_images/pokemon_or_digimon/pokemon/pokemon_21_2.png', '/img/tot_images/pokemon_or_digimon/pokemon/pokemon_21.jpg', 14, 'pokemon'),
 (272, '/img/tot_images/pokemon_or_digimon/pokemon/pokemon_22_2.png', '/img/tot_images/pokemon_or_digimon/pokemon/pokemon_22.jpg', 14, 'pokemon'),
 (273, '/img/tot_images/pokemon_or_digimon/pokemon/pokemon_23_2.png', '/img/tot_images/pokemon_or_digimon/pokemon/pokemon_23.jpg', 14, 'pokemon'),
-(275, '/img/tot_images/pokemon_or_digimon/digimon/digimon_17_2.png', '/img/tot_images/pokemon_or_digimon/digimon/digimon_17.jpg', 14, 'digimon');
+(275, '/img/tot_images/pokemon_or_digimon/digimon/digimon_17_2.png', '/img/tot_images/pokemon_or_digimon/digimon/digimon_17.jpg', 14, 'digimon'),
+(276, '/img/tot_images/teat_or_condom/teat/teat_1_2.png', '/img/tot_images/teat_or_condom/teat/teat_1.jpg', 15, 'teat'),
+(277, '/img/tot_images/teat_or_condom/teat/teat_2_2.png', '/img/tot_images/teat_or_condom/teat/teat_2.jpg', 15, 'teat'),
+(278, '/img/tot_images/teat_or_condom/teat/teat_3_2.png', '/img/tot_images/teat_or_condom/teat/teat_3.jpg', 15, 'teat'),
+(279, '/img/tot_images/teat_or_condom/teat/teat_4_2.png', '/img/tot_images/teat_or_condom/teat/teat_4.jpg', 15, 'teat'),
+(280, '/img/tot_images/teat_or_condom/teat/teat_5_2.png', '/img/tot_images/teat_or_condom/teat/teat_5.jpg', 15, 'teat'),
+(281, '/img/tot_images/teat_or_condom/teat/teat_6_2.png', '/img/tot_images/teat_or_condom/teat/teat_6.jpg', 15, 'teat'),
+(282, '/img/tot_images/teat_or_condom/teat/teat_7_2.png', '/img/tot_images/teat_or_condom/teat/teat_7.jpg', 15, 'teat'),
+(283, '/img/tot_images/teat_or_condom/teat/teat_8_2.png', '/img/tot_images/teat_or_condom/teat/teat_8.jpg', 15, 'teat'),
+(284, '/img/tot_images/teat_or_condom/teat/teat_9_2.png', '/img/tot_images/teat_or_condom/teat/teat_9.jpg', 15, 'teat'),
+(285, '/img/tot_images/teat_or_condom/condom/condom_1_2.png', '/img/tot_images/teat_or_condom/condom/condom_1.jpg', 15, 'condom'),
+(286, '/img/tot_images/teat_or_condom/condom/condom_2_2.png', '/img/tot_images/teat_or_condom/condom/condom_2.jpg', 15, 'condom'),
+(287, '/img/tot_images/teat_or_condom/condom/condom_3_2.png', '/img/tot_images/teat_or_condom/condom/condom_3.jpg', 15, 'condom'),
+(288, '/img/tot_images/teat_or_condom/condom/condom_4_2.png', '/img/tot_images/teat_or_condom/condom/condom_4.jpg', 15, 'condom'),
+(289, '/img/tot_images/teat_or_condom/condom/condom_5_2.png', '/img/tot_images/teat_or_condom/condom/condom_5.jpg', 15, 'condom'),
+(290, '/img/tot_images/teat_or_condom/condom/condom_6_2.png', '/img/tot_images/teat_or_condom/condom/condom_6.jpg', 15, 'condom'),
+(291, '/img/tot_images/teat_or_condom/condom/condom_7_2.png', '/img/tot_images/teat_or_condom/condom/condom_7.jpg', 15, 'condom'),
+(292, '/img/tot_images/teat_or_condom/condom/condom_8_2.png', '/img/tot_images/teat_or_condom/condom/condom_8.jpg', 15, 'condom'),
+(293, '/img/tot_images/teat_or_condom/condom/condom_9_2.png', '/img/tot_images/teat_or_condom/condom/condom_9.jpg', 15, 'condom'),
+(294, '/img/tot_images/teat_or_condom/condom/condom_10_2.png', '/img/tot_images/teat_or_condom/condom/condom_10.jpg', 15, 'condom'),
+(295, '/img/tot_images/teat_or_condom/condom/condom_11_2.png', '/img/tot_images/teat_or_condom/condom/condom_11.jpg', 15, 'condom');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
