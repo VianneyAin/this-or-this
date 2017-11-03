@@ -120,7 +120,7 @@ class Tot_View {
                 </div>
                 <div class="row">
                     <div class="col s12 centered">
-                        <h4>Your score : <span class="result"></span>/<span class="total"></span></h4>
+                        <h4><?php _t('Your score'); ?> : <span class="result"></span>/<span class="total"></span></h4>
                     </div>
                 </div>
                 <div class="row">
