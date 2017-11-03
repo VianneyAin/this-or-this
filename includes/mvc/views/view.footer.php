@@ -28,7 +28,7 @@
                       <?php
                       if (isset($datas) && !empty($datas) && isset($datas['categories']) && !empty($datas['categories']) && isset($datas['categories']['popular']) && !empty($datas['categories']['popular'])){
                           foreach ($datas['categories']['popular'] as $key => $category){
-                              echo '<li><a class="white-text text-lighten-1" href="http://localhost/this-or-this/'.__t('tot').'/'.$category['slug'].'">'.__t($category['title']).'</a></li>';
+                              echo '<li><a class="white-text text-lighten-1" href="http://'.__t('localhost/this-or-this').'/tot/'.$category['slug'].'">'.__t($category['title']).'</a></li>';
                           }
                       }
                       ?>
@@ -40,7 +40,7 @@
                       <?php
                       if (isset($datas) && !empty($datas) && isset($datas['categories']) && !empty($datas['categories']) && isset($datas['categories']['latest']) && !empty($datas['categories']['latest'])){
                           foreach ($datas['categories']['latest'] as $key => $category){
-                              echo '<li><a class="white-text text-lighten-1" href="http://localhost/this-or-this/'.__t('tot').'/'.$category['slug'].'">'.__t($category['title']).'</a></li>';
+                              echo '<li><a class="white-text text-lighten-1" href="http://'.__t('localhost/this-or-this').'/tot/'.$category['slug'].'">'.__t($category['title']).'</a></li>';
                           }
                       }
                       ?>
@@ -49,7 +49,7 @@
                 <div class="col m3 s12">
                   <h5 class="white-text text-lighten-4"><?php _t('Any idea ?'); ?></h5>
                   <ul>
-                    <li><a class="white-text text-lighten-1" href="http://localhost/this-or-this/"><?php _t('Share it with us'); ?> !</a></li>
+                    <li><a class="white-text text-lighten-1" href="http:///<?php _t('localhost/this-or-this');?>/contact"><?php _t('Share it with us'); ?> !</a></li>
                   </ul>
                 </div>
               </div>
@@ -81,7 +81,7 @@
                 <a class="modal-action modal-close waves-effect waves-green btn-flat modal-close-lang">Close</a>
               </div>
             </div>
-            
+
             <script type="text/javascript">
               jQuery(document).ready(function(){
                   if (Cookies.get('lang_modal')){

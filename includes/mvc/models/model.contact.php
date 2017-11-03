@@ -11,8 +11,12 @@
          $headers = 'From: ' .$email. "\r\n" .
          'Reply-To: ontact.thisorthis@gmail.com' . "\r\n" .
          'X-Mailer: PHP/' . phpversion();
-
          mail($to, $subject, $message, $headers);
+         $message = array(
+                 'message' => __t('Message successfully send. Thank you for contacting us.'),
+                 'success' => true,
+         );
+         return $message;
     }
   }
 ?>

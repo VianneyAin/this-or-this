@@ -1,6 +1,7 @@
 <?php
   class Contact_View {
-      public function fn_contact_view(){
+      public function fn_contact_view($response){
+        var_dump($response);
           ?>
           <div id="index-banner" >
             <div class="section no-pad-bot">
@@ -40,6 +41,28 @@
                           </div>
                       </div>
                       <input style="display:none"; type="text" name="contact" value="true" />
+                      <?php if (isset($response) && !empty($response)){
+                        if (isset($response['success']) && !empty($response['success']) && isset($response['message']) && !empty($response['message'])){
+                          if ($response['success'] == true){
+                            ?>
+                            <div class="row centered">
+                              <div class="col s12 centered success">
+                                  <p class="centered"><?php echo $response['message']; ?></p>
+                              </div>
+                            </div>
+                            <?php
+                          }
+                          else {
+                            ?>
+                            <div class="row centered">
+                              <div class="col s12 centered error">
+                                  <p class="centered"><?php echo $response['message']; ?></p>
+                              </div>
+                            </div>
+                            <?php
+                          }
+                        }
+                      }?>
                       <div class="row right-align">
                           <button class="btn waves-effect waves-light" type="submit" name="submit"><?php _t('Send'); ?>
                            <i class="material-icons right">send</i>

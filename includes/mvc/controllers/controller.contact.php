@@ -33,6 +33,8 @@ class Contact_Controller extends Application{
       ),
     );
 
+    private $response;
+
     public function __construct(){
         parent::__construct();//get parent's variables
         // we need the model to query the database later in the controller
@@ -46,15 +48,15 @@ class Contact_Controller extends Application{
         if (isset($_POST) && !empty($_POST) && isset($_POST['contact']) && !empty($_POST['contact']) && $_POST['contact'] == true){
             if (isset($_POST['email']) && !empty($_POST['email'])){
                 if (isset($_POST['message']) && !empty($_POST['message'])){
-                    $this->model->send_message($_POST['email'], $_POST['message']);
+                    $this->response = $this->model->send_message($_POST['email'], $_POST['message']);
                 }
             }
             else {
-
+              $this->response = array(
+                      'message' => __t('Email address is missing.'),
+                      'success' => false,
+              );
             }
-        }
-        else {
-
         }
     }
 
@@ -63,7 +65,7 @@ class Contact_Controller extends Application{
     }
 
     public function partials_request() {
-        $this->view->fn_contact_view();
+        $this->view->fn_contact_view($this->response);
     }
 }
 ?>
