@@ -261,6 +261,11 @@ class Tot_View {
             jQuery('.step_'+step).find('.img_reveal').show();
             step = step + 1;
             jQuery('.step_'+step).show();
+            jQuery('.step_'+step+' .zoom_in').elevateZoom({
+              zoomType				: "lens",
+              lensShape : "round",
+              lensSize    : 200
+            });
             if (step > data.elements.length){
                 display_score();
             }
@@ -304,7 +309,7 @@ class Tot_View {
 
         data.elements.forEach(function (element){
             nb++;
-            jQuery('#tot_container').append('<div class="step step_'+nb+'" data-value="'+element.choice+'"><div class="row img_container"><div class="col s12 img_hidden"><img class="tot_img" src="'+element.hidden_image+'" /></div><div class="col s12 img_reveal"><div class="answer">'+element.choice+'</div><img class="tot_img" src="'+element.reveal_image+'" /></div></div><div class="row tot_footer"><div class="col s4 centered"><a class="waves-effect waves-light btn btn-large response_btn cyan darken-3" data-value="'+data.choice_1+'">'+data.choice_1+'</a></div><div class="col s4 centered"><h4>'+nb+'/'+total+'</h4></div><div class="col s4 centered"><a class="waves-effect waves-light btn btn-large response_btn cyan darken-3" data-value="'+data.choice_2+'">'+data.choice_2+'</a></div></div></div>');
+            jQuery('#tot_container').append('<div class="step step_'+nb+'" data-value="'+element.choice+'"><div class="row img_container"><div class="col s12 img_hidden"><img class="tot_img zoom_in" src="'+element.hidden_image+'" data-zoom-image="'+element.hidden_image+'" /></div><div class="col s12 img_reveal"><div class="answer">'+element.choice+'</div><img class="tot_img" src="'+element.reveal_image+'" /></div></div><div class="row tot_footer"><div class="col s4 centered"><a class="waves-effect waves-light btn btn-large response_btn cyan darken-3" data-value="'+data.choice_1+'">'+data.choice_1+'</a></div><div class="col s4 centered"><h4>'+nb+'/'+total+'</h4></div><div class="col s4 centered"><a class="waves-effect waves-light btn btn-large response_btn cyan darken-3" data-value="'+data.choice_2+'">'+data.choice_2+'</a></div></div></div>');
         });
         jQuery('.step').each(function(){
             if (jQuery(window).width() < 480){
@@ -346,6 +351,15 @@ class Tot_View {
             jQuery(this).find('.anwser').removeClass('wrong');
             jQuery(this).hide();
         });
+
+        jQuery('.zoom_in').each(function(){
+          jQuery(this).elevateZoom({
+            zoomType				: "lens",
+            lensShape : "round",
+            lensSize    : 200
+          });
+        });
+
         jQuery('.over').hide();
         jQuery('.start').show();
         jQuery('.response_btn').click(function(){

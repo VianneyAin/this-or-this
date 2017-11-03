@@ -98,6 +98,8 @@
             <script src="<?php echo 'http://localhost/this-or-this/js/init.js' ?>"></script>
             <script src="<?php echo 'http://localhost/this-or-this/js/validate.js' ?>"></script>
             <script src="<?php echo 'http://localhost/this-or-this/js/js.cookie.js' ?>"></script>
+            <script src="<?php echo 'http://localhost/this-or-this/js/jquery.elevateZoom-3.0.8.min.js' ?>"></script>
+            
             <!-- Global site tag (gtag.js) - Google Analytics -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108698505-1"></script>
             <script>

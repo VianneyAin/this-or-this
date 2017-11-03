@@ -1,22 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
+-- version 4.1.14
+-- http://www.phpmyadmin.net
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 03 nov. 2017 à 07:13
--- Version du serveur :  5.7.19
--- Version de PHP :  5.6.31
+-- Client :  127.0.0.1
+-- Généré le :  Ven 03 Novembre 2017 à 13:39
+-- Version du serveur :  5.6.17
+-- Version de PHP :  5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de données :  `thisorthis`
@@ -28,7 +26,6 @@ SET time_zone = "+00:00";
 -- Structure de la table `elements`
 --
 
-DROP TABLE IF EXISTS `elements`;
 CREATE TABLE IF NOT EXISTS `elements` (
   `id` int(9) NOT NULL AUTO_INCREMENT,
   `hidden_image` varchar(300) NOT NULL,
@@ -36,10 +33,10 @@ CREATE TABLE IF NOT EXISTS `elements` (
   `category` int(11) NOT NULL,
   `choice` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=296 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=316 ;
 
 --
--- Déchargement des données de la table `elements`
+-- Contenu de la table `elements`
 --
 
 INSERT INTO `elements` (`id`, `hidden_image`, `reveal_image`, `category`, `choice`) VALUES
@@ -328,8 +325,27 @@ INSERT INTO `elements` (`id`, `hidden_image`, `reveal_image`, `category`, `choic
 (292, '/img/tot_images/teat_or_condom/condom/condom_8_2.png', '/img/tot_images/teat_or_condom/condom/condom_8.jpg', 15, 'condom'),
 (293, '/img/tot_images/teat_or_condom/condom/condom_9_2.png', '/img/tot_images/teat_or_condom/condom/condom_9.jpg', 15, 'condom'),
 (294, '/img/tot_images/teat_or_condom/condom/condom_10_2.png', '/img/tot_images/teat_or_condom/condom/condom_10.jpg', 15, 'condom'),
-(295, '/img/tot_images/teat_or_condom/condom/condom_11_2.png', '/img/tot_images/teat_or_condom/condom/condom_11.jpg', 15, 'condom');
-COMMIT;
+(295, '/img/tot_images/teat_or_condom/condom/condom_11_2.png', '/img/tot_images/teat_or_condom/condom/condom_11.jpg', 15, 'condom'),
+(296, '/img/tot_images/santa_or_hobo/hobo/hobo_1_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_1.jpg', 16, 'hobo'),
+(297, '/img/tot_images/santa_or_hobo/hobo/hobo_2_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_2.jpg', 16, 'hobo'),
+(298, '/img/tot_images/santa_or_hobo/hobo/hobo_3_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_3.jpg', 16, 'hobo'),
+(299, '/img/tot_images/santa_or_hobo/hobo/hobo_4_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_4.jpg', 16, 'hobo'),
+(300, '/img/tot_images/santa_or_hobo/hobo/hobo_5_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_5.jpg', 16, 'hobo'),
+(301, '/img/tot_images/santa_or_hobo/hobo/hobo_6_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_6.jpg', 16, 'hobo'),
+(302, '/img/tot_images/santa_or_hobo/hobo/hobo_7_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_7.jpg', 16, 'hobo'),
+(303, '/img/tot_images/santa_or_hobo/hobo/hobo_8_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_8.jpg', 16, 'hobo'),
+(304, '/img/tot_images/santa_or_hobo/hobo/hobo_9_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_9.jpg', 16, 'hobo'),
+(305, '/img/tot_images/santa_or_hobo/hobo/hobo_10_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_10.jpg', 16, 'hobo'),
+(306, '/img/tot_images/santa_or_hobo/santa/santa_1_2.png', '/img/tot_images/santa_or_hobo/santa/santa_1.jpg', 16, 'santa'),
+(307, '/img/tot_images/santa_or_hobo/santa/santa_2_2.png', '/img/tot_images/santa_or_hobo/santa/santa_2.jpg', 16, 'santa'),
+(308, '/img/tot_images/santa_or_hobo/santa/santa_3_2.png', '/img/tot_images/santa_or_hobo/santa/santa_3.jpg', 16, 'santa'),
+(309, '/img/tot_images/santa_or_hobo/santa/santa_4_2.png', '/img/tot_images/santa_or_hobo/santa/santa_4.jpg', 16, 'santa'),
+(310, '/img/tot_images/santa_or_hobo/santa/santa_5_2.png', '/img/tot_images/santa_or_hobo/santa/santa_5.jpg', 16, 'santa'),
+(311, '/img/tot_images/santa_or_hobo/santa/santa_6_2.png', '/img/tot_images/santa_or_hobo/santa/santa_6.jpg', 16, 'santa'),
+(312, '/img/tot_images/santa_or_hobo/santa/santa_7_2.png', '/img/tot_images/santa_or_hobo/santa/santa_7.jpg', 16, 'santa'),
+(313, '/img/tot_images/santa_or_hobo/santa/santa_8_2.png', '/img/tot_images/santa_or_hobo/santa/santa_8.jpg', 16, 'santa'),
+(314, '/img/tot_images/santa_or_hobo/santa/santa_9_2.png', '/img/tot_images/santa_or_hobo/santa/santa_9.jpg', 16, 'santa'),
+(315, '/img/tot_images/santa_or_hobo/santa/santa_10_2.png', '/img/tot_images/santa_or_hobo/santa/santa_10.jpg', 16, 'santa');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
