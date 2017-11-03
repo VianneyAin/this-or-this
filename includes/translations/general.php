@@ -843,7 +843,7 @@ function general_translations() {
 			'en' => "Santa or Hobo",
 			'fr' => "Père Noel ou SDF",
 			'de' => "Weihnachtsmann oder Hobo",
-			'es' => "Santa o Vagabundo",
+			'es' => "Santa Claus o Vagabundo",
 			'pt' => "Papai Noel ou Sem-teto",
 			'context' => '',
 		),

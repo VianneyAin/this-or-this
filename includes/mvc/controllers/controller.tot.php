@@ -77,7 +77,6 @@ class Tot_Controller extends Application{
         $this->data['categories'] = $this->model->get_some_categories('4', $this->data['current']['id']);
         $this->set_title($this->data['current']['title']);
         $this->set_thumbnail($this->data['current']['thumbnail_name']);
-
       }
       else {
         $this->data['categories'] = $this->model->get_all_categories();
@@ -105,7 +104,14 @@ class Tot_Controller extends Application{
     public function set_thumbnail($path){
       if (isset($path) && !empty($path)){
         foreach ($this->meta as $key => $langue){
-          $this->meta[$key]['image'] = 'img/thumbnail/'.$path;
+          if (isset($langue['code']) && !empty($langue['code']) && $langue['code'] != Application::this()->default_language )
+          {
+            $this->meta[$key]['image'] = 'img/thumbnail/'.preg_replace('/_thumbnail/', '_thumbnail_'.$langue['code'], $path);
+          }
+          else {
+            $this->meta[$key]['image'] = 'img/thumbnail/'.$path;
+          }
+
         }
       }
     }

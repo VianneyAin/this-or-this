@@ -24,7 +24,7 @@ class Tot_View {
                         <div class="col s12 m3 gallery-item gallery-filter category-item" style="">
                             <div class="collection-item">
                                 <a class="gallery-cover" href="http://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>" style="min-height:200px;">
-                                    <img src="http://localhost/this-or-this/img/thumbnail/<?php echo $category['thumbnail']; ?>" style="width:100%;">
+                                    <img src="http://localhost/this-or-this/img/thumbnail/<?php echo get_thumbnail_lang($category, Application::this()->current_lang); ?>" style="width:100%;">
                                 </a>
                                 <a class="gallery-header" href="http://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>">
                                     <span class="title">
@@ -82,7 +82,7 @@ class Tot_View {
                         <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
                             <div class="collection-item">
                                 <a class="gallery-cover start_btn" style="min-height:200px;">
-                                    <img src="http://localhost/this-or-this/img/thumbnail/<?php echo $data['thumbnail']; ?>" style="width:100%;">
+                                    <img src="http://localhost/this-or-this/img/thumbnail/<?php echo get_thumbnail_lang($data, Application::this()->current_lang); ?>" style="width:100%;">
                                 </a>
                             </div>
                         </div>
@@ -111,7 +111,7 @@ class Tot_View {
                         <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
                             <div class="collection-item">
                                 <a class="gallery-cover" href="http://localhost/this-or-this/tot/<?php echo $data['slug']; ?>" style="min-height:200px;">
-                                    <img src="http://localhost/this-or-this/img/thumbnail/<?php echo $data['thumbnail']; ?>" style="width:100%;">
+                                    <img src="http://localhost/this-or-this/img/thumbnail/<?php echo get_thumbnail_lang($data, Application::this()->current_lang); ?>" style="width:100%;">
                                 </a>
                             </div>
                         </div>
@@ -159,7 +159,7 @@ class Tot_View {
             </div>
         </div>
 
-        <div class="container over" style="margin-bottom:100px;">
+        <div class="container" style="margin-bottom:100px;">
             <div class="section">
                 <div class="row">
                     <div class="col s12">
@@ -171,7 +171,7 @@ class Tot_View {
                                     <div class="col s12 m3 gallery-item gallery-filter" style="">
                                         <div class="collection-item">
                                             <a class="gallery-cover" href="http://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>" style="min-height:200px;">
-                                                <img src="http://localhost/this-or-this/img/thumbnail/<?php echo $category['thumbnail']; ?>" style="width:100%;">
+                                                <img src="http://localhost/this-or-this/img/thumbnail/<?php echo get_thumbnail_lang($category, Application::this()->current_lang); ?>" style="width:100%;">
                                             </a>
                                             <a class="gallery-header" href="http://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>">
                                                 <span class="title">
