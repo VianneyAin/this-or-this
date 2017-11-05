@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 05 nov. 2017 à 12:16
+-- Généré le :  Dim 05 nov. 2017 à 18:52
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -56,11 +56,10 @@ CREATE TABLE IF NOT EXISTS `categories` (
 
 INSERT INTO `categories` (`id`, `slug`, `title`, `description`, `choice_1`, `choice_2`, `nsfl`, `thumbnail`, `thumbnail_fr`, `thumbnail_de`, `thumbnail_es`, `thumbnail_pt`, `created`, `visible`, `thumbnail_name`, `local`) VALUES
 (1, 'deadorsleeping', 'Dead or Sleeping', '', 'dead', 'sleeping', 1, 'https://img11.hostingpics.net/pics/855749deadoralive.jpg', '', '', '', NULL, '2017-10-03 15:56:38', 0, '', 0),
-(2, 'man-or-woman', 'Man or Woman', '', 'man', 'woman', 0, 'man_or_woman_thumbnail.jpg', '', '', '', NULL, '2017-10-03 16:56:38', 1, 'man_or_woman_thumbnail.jpg', 0),
+(2, 'man-or-woman', 'Man or Woman', '', 'man', 'woman', 0, 'man_or_woman_thumbnail.jpg', '', '', '', NULL, '2017-10-03 16:56:38', 1, 'man_or_woman_thumbnail.jpg', 1),
 (3, 'beardorpubichair', 'Beard or Pubic Hair', '', 'beard', 'pubic hair', 0, '', '', '', '', NULL, '2017-10-04 08:20:05', 0, '', 1),
-(4, 'pokemonordigimon', 'Pokemon or Digimmon', '', 'pokemon', 'digimon', 0, '', '', '', '', NULL, '2017-10-04 08:36:44', 0, '', 1),
-(5, 'beer-or-pee', 'Beer or Pee', '', 'beer', 'pee', 0, 'beer_or_pee_thumbnail.jpg', '', '', '', NULL, '2017-10-05 07:18:51', 1, 'beer_or_pee_thumbnail.jpg', 0),
-(6, 'muslim-or-jewish', 'Muslim or Jewish', '', 'muslim', 'jewish', 0, 'muslim_or_jewish_thumbnail.jpg', '', '', '', NULL, '2017-10-05 08:42:30', 1, 'muslim_or_jewish_thumbnail.jpg', 0),
+(5, 'beer-or-pee', 'Beer or Pee', '', 'beer', 'pee', 0, 'beer_or_pee_thumbnail.jpg', '', '', '', NULL, '2017-10-05 07:18:51', 1, 'beer_or_pee_thumbnail.jpg', 1),
+(6, 'muslim-or-jewish', 'Muslim or Jewish', '', 'muslim', 'jewish', 0, 'muslim_or_jewish_thumbnail.jpg', '', '', '', NULL, '2017-10-05 08:42:30', 1, 'muslim_or_jewish_thumbnail.jpg', 1),
 (7, 'nazi-or-not-nazi', 'Nazi or Not Nazi', '', 'nazi', 'not nazi', 0, 'nazi_or_not_thumbnail.jpg', '', '', '', NULL, '2017-10-05 12:55:01', 1, 'nazi_or_not_thumbnail.jpg', 1),
 (8, 'michael-jackson-or-not', 'Michael Jackson or Not', '', 'michael jackson', 'not michael jackson', 0, 'mj_or_not_thumbnail.jpg', '', '', '', NULL, '2017-10-19 07:13:04', 1, 'mj_or_not_thumbnail.jpg', 0),
 (9, 'doggo-or-marshmallow', 'Doggo or Marshmallow', '', 'doggo', 'marshmallow', 0, 'doggo_or_marshmallow_thumbnail.jpg', '', '', '', NULL, '2017-10-27 18:55:38', 1, 'doggo_or_marshmallow_thumbnail.jpg', 1),

@@ -35,6 +35,7 @@ Mettre toutes les images en local
 Traduire toutes les miniatures
 Pub google ads
 Passez les images en .jpg au lieu de .png
+Gestion des catégories non existantes
 
 -- Version 0.3 :
 Dons paypal
