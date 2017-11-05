@@ -1,20 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Ven 03 Novembre 2017 à 13:39
--- Version du serveur :  5.6.17
--- Version de PHP :  5.5.12
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  Dim 05 nov. 2017 à 12:16
+-- Version du serveur :  5.7.19
+-- Version de PHP :  5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `thisorthis`
@@ -26,6 +28,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `categories`
 --
 
+DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(9) NOT NULL AUTO_INCREMENT,
   `slug` varchar(150) NOT NULL,
@@ -45,10 +48,10 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `local` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug` (`slug`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `categories`
+-- Déchargement des données de la table `categories`
 --
 
 INSERT INTO `categories` (`id`, `slug`, `title`, `description`, `choice_1`, `choice_2`, `nsfl`, `thumbnail`, `thumbnail_fr`, `thumbnail_de`, `thumbnail_es`, `thumbnail_pt`, `created`, `visible`, `thumbnail_name`, `local`) VALUES
@@ -58,7 +61,7 @@ INSERT INTO `categories` (`id`, `slug`, `title`, `description`, `choice_1`, `cho
 (4, 'pokemonordigimon', 'Pokemon or Digimmon', '', 'pokemon', 'digimon', 0, '', '', '', '', NULL, '2017-10-04 08:36:44', 0, '', 1),
 (5, 'beer-or-pee', 'Beer or Pee', '', 'beer', 'pee', 0, 'beer_or_pee_thumbnail.jpg', '', '', '', NULL, '2017-10-05 07:18:51', 1, 'beer_or_pee_thumbnail.jpg', 0),
 (6, 'muslim-or-jewish', 'Muslim or Jewish', '', 'muslim', 'jewish', 0, 'muslim_or_jewish_thumbnail.jpg', '', '', '', NULL, '2017-10-05 08:42:30', 1, 'muslim_or_jewish_thumbnail.jpg', 0),
-(7, 'nazi-or-not-nazi', 'Nazi or Not Nazi', '', 'nazi', 'not nazi', 0, 'nazi_or_not_thumbnail.jpg', '', '', '', NULL, '2017-10-05 12:55:01', 1, 'nazi_or_not_thumbnail.jpg', 0),
+(7, 'nazi-or-not-nazi', 'Nazi or Not Nazi', '', 'nazi', 'not nazi', 0, 'nazi_or_not_thumbnail.jpg', '', '', '', NULL, '2017-10-05 12:55:01', 1, 'nazi_or_not_thumbnail.jpg', 1),
 (8, 'michael-jackson-or-not', 'Michael Jackson or Not', '', 'michael jackson', 'not michael jackson', 0, 'mj_or_not_thumbnail.jpg', '', '', '', NULL, '2017-10-19 07:13:04', 1, 'mj_or_not_thumbnail.jpg', 0),
 (9, 'doggo-or-marshmallow', 'Doggo or Marshmallow', '', 'doggo', 'marshmallow', 0, 'doggo_or_marshmallow_thumbnail.jpg', '', '', '', NULL, '2017-10-27 18:55:38', 1, 'doggo_or_marshmallow_thumbnail.jpg', 1),
 (10, 'doggo-or-mop', 'Doggo or Mop', '', 'doggo', 'mop', 0, 'doggo_or_mop_thumbnail.jpg', '', '', '', NULL, '2017-10-27 20:10:06', 1, 'doggo_or_mop_thumbnail.jpg', 1),
@@ -68,6 +71,7 @@ INSERT INTO `categories` (`id`, `slug`, `title`, `description`, `choice_1`, `cho
 (14, 'pokemon-or-digimon', 'Pokemon or Digimon', '', 'pokemon', 'digimon', 0, 'pokemon_or_digimon_thumbnail.jpg', '', '', '', NULL, '2017-11-01 21:57:59', 1, 'pokemon_or_digimon_thumbnail.jpg', 1),
 (15, 'teat-or-condom', 'Teat or Condom', '', 'teat', 'condom', 0, 'teat_or_condom_thumbnail.jpg', '', '', '', NULL, '2017-11-02 22:08:22', 1, 'teat_or_condom_thumbnail.jpg', 1),
 (16, 'santa-or-hobo', 'Santa or Hobo', '', 'santa', 'hobo', 0, 'santa_or_hobo_thumbnail.jpg', 'santa_or_hobo_thumbnail_fr.jpg', 'santa_or_hobo_thumbnail_de.jpg', 'santa_or_hobo_thumbnail_es.jpg', 'santa_or_hobo_thumbnail_pt.jpg', '2017-11-03 09:40:24', 1, 'santa_or_hobo_thumbnail.jpg', 1);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

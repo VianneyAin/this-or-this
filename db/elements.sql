@@ -1,20 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Ven 03 Novembre 2017 à 13:39
--- Version du serveur :  5.6.17
--- Version de PHP :  5.5.12
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  Dim 05 nov. 2017 à 12:16
+-- Version du serveur :  5.7.19
+-- Version de PHP :  5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `thisorthis`
@@ -26,6 +28,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `elements`
 --
 
+DROP TABLE IF EXISTS `elements`;
 CREATE TABLE IF NOT EXISTS `elements` (
   `id` int(9) NOT NULL AUTO_INCREMENT,
   `hidden_image` varchar(300) NOT NULL,
@@ -33,10 +36,10 @@ CREATE TABLE IF NOT EXISTS `elements` (
   `category` int(11) NOT NULL,
   `choice` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=316 ;
+) ENGINE=InnoDB AUTO_INCREMENT=356 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `elements`
+-- Déchargement des données de la table `elements`
 --
 
 INSERT INTO `elements` (`id`, `hidden_image`, `reveal_image`, `category`, `choice`) VALUES
@@ -126,46 +129,6 @@ INSERT INTO `elements` (`id`, `hidden_image`, `reveal_image`, `category`, `choic
 (86, 'https://img11.hostingpics.net/pics/499371femmemusclee32290ed62.png', 'https://img11.hostingpics.net/pics/634667femmemusclee32290ed6.jpg', 2, 'woman'),
 (87, 'https://img11.hostingpics.net/pics/973803man2.png', 'https://img11.hostingpics.net/pics/316041man.jpg', 2, 'man'),
 (88, 'https://img11.hostingpics.net/pics/305448image2.jpg', 'https://img11.hostingpics.net/pics/293700image646.jpg', 2, 'woman'),
-(89, 'https://img11.hostingpics.net/pics/389686AP230819108332.png', 'https://img11.hostingpics.net/pics/571944AP23081910833.jpg', 7, 'not nazi'),
-(90, 'https://img11.hostingpics.net/pics/8741771988807hollandesalut2.png', 'https://img11.hostingpics.net/pics/2241971988807hollandesalut.jpg', 7, 'not nazi'),
-(91, 'https://img11.hostingpics.net/pics/240110ob5e4fb2gandhisalutdelamainfenetre2.png', 'https://img11.hostingpics.net/pics/297453ob5e4fb2gandhisalutdelamainfenetre.jpg', 7, 'not nazi'),
-(92, 'https://img11.hostingpics.net/pics/576286melenchonsalutgauche2.png', 'https://img11.hostingpics.net/pics/232591melenchonsalutgauche.jpg', 7, 'not nazi'),
-(93, 'https://img11.hostingpics.net/pics/783619PierredeVilliersdtail2.png', 'https://img11.hostingpics.net/pics/294466PierredeVilliersdtail.jpg', 7, 'not nazi'),
-(94, 'https://img11.hostingpics.net/pics/134789Femaleofficersaluting2.png', 'https://img11.hostingpics.net/pics/431841Femaleofficersaluting.jpg', 7, 'not nazi'),
-(95, 'https://img11.hostingpics.net/pics/551998PrideTheSevenDeadlySins2.png', 'https://img11.hostingpics.net/pics/666059PrideTheSevenDeadlySins.jpg', 7, 'nazi'),
-(96, 'https://img11.hostingpics.net/pics/485768heil54452.png', 'https://img11.hostingpics.net/pics/239245heil5445.jpg', 7, 'nazi'),
-(97, 'https://img11.hostingpics.net/pics/572619635639123210167360APGermanyNaziGrave2.png', 'https://img11.hostingpics.net/pics/488254635639123210167360APGermanyNaziGrave.jpg', 7, 'nazi'),
-(98, 'https://img11.hostingpics.net/pics/855198neonazi2.png', 'https://img11.hostingpics.net/pics/649281neonazi.jpg', 7, 'nazi'),
-(99, 'https://img11.hostingpics.net/pics/716444MongolianneoNazigroup0062.png', 'https://img11.hostingpics.net/pics/184172MongolianneoNazigroup006.jpg', 7, 'nazi'),
-(100, 'https://img11.hostingpics.net/pics/629110danielradcliffeimperium7592.png', 'https://img11.hostingpics.net/pics/236640danielradcliffeimperium759.jpg', 7, 'nazi'),
-(101, 'https://img11.hostingpics.net/pics/659806166676853032.png', 'https://img11.hostingpics.net/pics/19062516667685303.jpg', 7, 'nazi'),
-(102, 'https://img11.hostingpics.net/pics/985456hitlerandmussolininaziandfascist2.png', 'https://img11.hostingpics.net/pics/254080hitlerandmussolininaziandfascist.jpg', 7, 'nazi'),
-(103, 'https://img11.hostingpics.net/pics/899095hihihitler2.png', 'https://img11.hostingpics.net/pics/621154hihihitler.jpg', 7, 'nazi'),
-(104, 'https://img11.hostingpics.net/pics/326122060420F6699G0212.png', 'https://img11.hostingpics.net/pics/396733060420F6699G021.jpg', 7, 'not nazi'),
-(105, 'https://img11.hostingpics.net/pics/306828size02.png', 'https://img11.hostingpics.net/pics/783342size0.jpg', 7, 'not nazi'),
-(110, 'https://img11.hostingpics.net/pics/827452usnavy2.png', 'https://img11.hostingpics.net/pics/413069usnavy.jpg', 7, 'not nazi'),
-(111, 'https://img11.hostingpics.net/pics/369635150915FWE7736202.png', 'https://img11.hostingpics.net/pics/501509150915FWE773620.jpg', 7, 'not nazi'),
-(112, 'https://img11.hostingpics.net/pics/520301SpaceballjumpoverSkydive352.png', 'https://img11.hostingpics.net/pics/526504SpaceballjumpoverSkydive35.jpg', 7, 'not nazi'),
-(113, 'https://img4.hostingpics.net/pics/12407805aeae64033e6bf77a6459f06f2e9bc8youngpeoplemichaeljackson1.png', 'https://img4.hostingpics.net/pics/50085005aeae64033e6bf77a6459f06f2e9bc8youngpeoplemichaeljackson.jpg', 8, 'michael jackson'),
-(114, 'https://img4.hostingpics.net/pics/80355064e2bdd4061.png', 'https://img4.hostingpics.net/pics/31918264e2bdd406.jpg', 8, 'michael jackson'),
-(115, 'https://img4.hostingpics.net/pics/445754michaeljacksonunalbumineditmisauxencheres1.png', 'https://img4.hostingpics.net/pics/189861michaeljacksonunalbumineditmisauxencheres.jpg', 8, 'michael jackson'),
-(116, 'https://img4.hostingpics.net/pics/416156michaeljackson11.png', 'https://img4.hostingpics.net/pics/139119michaeljackson1.jpg', 8, 'michael jackson'),
-(117, 'https://img4.hostingpics.net/pics/598060MichaelJackson1.png', 'https://img4.hostingpics.net/pics/953921MichaelJackson.jpg', 8, 'michael jackson'),
-(118, 'https://img4.hostingpics.net/pics/309483michaeljackson1.png', 'https://img4.hostingpics.net/pics/192842michaeljackson.jpg', 8, 'michael jackson'),
-(119, 'https://img4.hostingpics.net/pics/955353MichaelJackson5472471.png', 'https://img4.hostingpics.net/pics/920033MichaelJackson547247.jpg', 8, 'michael jackson'),
-(120, 'https://img4.hostingpics.net/pics/888679MichaelJackson11.png', 'https://img4.hostingpics.net/pics/968977MichaelJackson1.jpg', 8, 'michael jackson'),
-(121, 'https://img4.hostingpics.net/pics/141505MichaelJacksonazfubaefv1.png', 'https://img4.hostingpics.net/pics/241119MichaelJacksonazfubaefv.jpg', 8, 'michael jackson'),
-(122, 'https://img4.hostingpics.net/pics/335772p01bqlx82.png', 'https://img4.hostingpics.net/pics/413807p01bqlx8.jpg', 8, 'michael jackson'),
-(123, 'https://img4.hostingpics.net/pics/809181rsz74277504jpg274north626xwhite1.png', 'https://img4.hostingpics.net/pics/470662rsz74277504jpg274north626xwhite.jpg', 8, 'michael jackson'),
-(124, 'https://img4.hostingpics.net/pics/1866896402.png', 'https://img4.hostingpics.net/pics/182764640.jpg', 8, 'not michael jackson'),
-(125, 'https://img4.hostingpics.net/pics/631772983116244550592.png', 'https://img4.hostingpics.net/pics/30751598311624455059.jpg', 8, 'not michael jackson'),
-(127, 'https://img4.hostingpics.net/pics/905439brunomarsaccusedeplagiermichaeljackson2.png', 'https://img4.hostingpics.net/pics/737135brunomarsaccusedeplagiermichaeljackson.jpg', 8, 'not michael jackson'),
-(128, 'https://img4.hostingpics.net/pics/756598gabrieldesbiens288x22.png', 'https://img4.hostingpics.net/pics/476592gabrieldesbiens288x.jpg', 8, 'not michael jackson'),
-(129, 'https://img4.hostingpics.net/pics/176746insolitelesosiedemichaeljacksonlorientdimanche29septembre2.png', 'https://img4.hostingpics.net/pics/732751insolitelesosiedemichaeljacksonlorientdimanche29septembre.jpg', 8, 'not michael jackson'),
-(130, 'https://img4.hostingpics.net/pics/870412janetjackson2.png', 'https://img4.hostingpics.net/pics/542677janetjackson.jpg', 8, 'not michael jackson'),
-(131, 'https://img4.hostingpics.net/pics/769808perruquedemichaeljackson2.png', 'https://img4.hostingpics.net/pics/443769perruquedemichaeljackson.jpg', 8, 'not michael jackson'),
-(132, 'https://img4.hostingpics.net/pics/336615sosiemichaeljacksonbooking2png.png', 'https://img4.hostingpics.net/pics/653895sosiemichaeljacksonbooking.jpg', 8, 'not michael jackson'),
-(133, 'https://img4.hostingpics.net/pics/143124ValerieBelinMichaelJackson200311.png', 'https://img4.hostingpics.net/pics/921472ValerieBelinMichaelJackson20031.jpg', 8, 'not michael jackson'),
 (134, '/img/tot_images/doggo_or_marshmallow/doggo/doggo_1_2.png', '/img/tot_images/doggo_or_marshmallow/doggo/doggo_1.jpg', 9, 'doggo'),
 (135, '/img/tot_images/doggo_or_marshmallow/doggo/doggo_2_2.png', '/img/tot_images/doggo_or_marshmallow/doggo/doggo_2.jpg', 9, 'doggo'),
 (136, '/img/tot_images/doggo_or_marshmallow/doggo/doggo_3_2.png', '/img/tot_images/doggo_or_marshmallow/doggo/doggo_3.jpg', 9, 'doggo'),
@@ -326,26 +289,67 @@ INSERT INTO `elements` (`id`, `hidden_image`, `reveal_image`, `category`, `choic
 (293, '/img/tot_images/teat_or_condom/condom/condom_9_2.png', '/img/tot_images/teat_or_condom/condom/condom_9.jpg', 15, 'condom'),
 (294, '/img/tot_images/teat_or_condom/condom/condom_10_2.png', '/img/tot_images/teat_or_condom/condom/condom_10.jpg', 15, 'condom'),
 (295, '/img/tot_images/teat_or_condom/condom/condom_11_2.png', '/img/tot_images/teat_or_condom/condom/condom_11.jpg', 15, 'condom'),
-(296, '/img/tot_images/santa_or_hobo/hobo/hobo_1_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_1.jpg', 16, 'hobo'),
-(297, '/img/tot_images/santa_or_hobo/hobo/hobo_2_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_2.jpg', 16, 'hobo'),
-(298, '/img/tot_images/santa_or_hobo/hobo/hobo_3_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_3.jpg', 16, 'hobo'),
-(299, '/img/tot_images/santa_or_hobo/hobo/hobo_4_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_4.jpg', 16, 'hobo'),
-(300, '/img/tot_images/santa_or_hobo/hobo/hobo_5_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_5.jpg', 16, 'hobo'),
-(301, '/img/tot_images/santa_or_hobo/hobo/hobo_6_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_6.jpg', 16, 'hobo'),
-(302, '/img/tot_images/santa_or_hobo/hobo/hobo_7_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_7.jpg', 16, 'hobo'),
-(303, '/img/tot_images/santa_or_hobo/hobo/hobo_8_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_8.jpg', 16, 'hobo'),
-(304, '/img/tot_images/santa_or_hobo/hobo/hobo_9_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_9.jpg', 16, 'hobo'),
-(305, '/img/tot_images/santa_or_hobo/hobo/hobo_10_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_10.jpg', 16, 'hobo'),
-(306, '/img/tot_images/santa_or_hobo/santa/santa_1_2.png', '/img/tot_images/santa_or_hobo/santa/santa_1.jpg', 16, 'santa'),
-(307, '/img/tot_images/santa_or_hobo/santa/santa_2_2.png', '/img/tot_images/santa_or_hobo/santa/santa_2.jpg', 16, 'santa'),
-(308, '/img/tot_images/santa_or_hobo/santa/santa_3_2.png', '/img/tot_images/santa_or_hobo/santa/santa_3.jpg', 16, 'santa'),
-(309, '/img/tot_images/santa_or_hobo/santa/santa_4_2.png', '/img/tot_images/santa_or_hobo/santa/santa_4.jpg', 16, 'santa'),
-(310, '/img/tot_images/santa_or_hobo/santa/santa_5_2.png', '/img/tot_images/santa_or_hobo/santa/santa_5.jpg', 16, 'santa'),
-(311, '/img/tot_images/santa_or_hobo/santa/santa_6_2.png', '/img/tot_images/santa_or_hobo/santa/santa_6.jpg', 16, 'santa'),
-(312, '/img/tot_images/santa_or_hobo/santa/santa_7_2.png', '/img/tot_images/santa_or_hobo/santa/santa_7.jpg', 16, 'santa'),
-(313, '/img/tot_images/santa_or_hobo/santa/santa_8_2.png', '/img/tot_images/santa_or_hobo/santa/santa_8.jpg', 16, 'santa'),
-(314, '/img/tot_images/santa_or_hobo/santa/santa_9_2.png', '/img/tot_images/santa_or_hobo/santa/santa_9.jpg', 16, 'santa'),
-(315, '/img/tot_images/santa_or_hobo/santa/santa_10_2.png', '/img/tot_images/santa_or_hobo/santa/santa_10.jpg', 16, 'santa');
+(296, '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_1_2.jpg', '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_1.jpg', 8, 'michael jackson'),
+(297, '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_2_2.jpg', '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_2.jpg', 8, 'michael jackson'),
+(298, '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_3_2.jpg', '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_3.jpg', 8, 'michael jackson'),
+(299, '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_4_2.jpg', '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_4.jpg', 8, 'michael jackson'),
+(300, '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_5_2.jpg', '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_5.jpg', 8, 'michael jackson'),
+(301, '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_6_2.jpg', '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_6.jpg', 8, 'michael jackson'),
+(302, '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_7_2.jpg', '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_7.jpg', 8, 'michael jackson'),
+(303, '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_8_2.jpg', '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_8.jpg', 8, 'michael jackson'),
+(304, '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_9_2.jpg', '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_9.jpg', 8, 'michael jackson'),
+(305, '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_10_2.jpg', '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_10.jpg', 8, 'michael jackson'),
+(306, '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_1_2.jpg', '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_1.jpg', 8, 'not michael jackson'),
+(307, '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_2_2.jpg', '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_2.jpg', 8, 'not michael jackson'),
+(308, '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_3_2.jpg', '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_3.jpg', 8, 'not michael jackson'),
+(309, '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_4_2.jpg', '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_4.jpg', 8, 'not michael jackson'),
+(310, '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_5_2.jpg', '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_5.jpg', 8, 'not michael jackson'),
+(311, '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_6_2.jpg', '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_6.jpg', 8, 'not michael jackson'),
+(312, '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_7_2.jpg', '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_7.jpg', 8, 'not michael jackson'),
+(313, '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_8_2.jpg', '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_8.jpg', 8, 'not michael jackson'),
+(314, '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_9_2.jpg', '/img/tot_images/michael_jackson_or_not/not_michael_jackson/not_michael_jackson_9.jpg', 8, 'not michael jackson'),
+(315, '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_11_2.jpg', '/img/tot_images/michael_jackson_or_not/michael_jackson/michael_jackson_11.jpg', 8, 'michael jackson'),
+(316, '/img/tot_images/santa_or_hobo/hobo/hobo_1_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_1.jpg', 16, 'hobo'),
+(317, '/img/tot_images/santa_or_hobo/hobo/hobo_2_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_2.jpg', 16, 'hobo'),
+(318, '/img/tot_images/santa_or_hobo/hobo/hobo_3_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_3.jpg', 16, 'hobo'),
+(319, '/img/tot_images/santa_or_hobo/hobo/hobo_4_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_4.jpg', 16, 'hobo'),
+(320, '/img/tot_images/santa_or_hobo/hobo/hobo_5_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_5.jpg', 16, 'hobo'),
+(321, '/img/tot_images/santa_or_hobo/hobo/hobo_6_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_6.jpg', 16, 'hobo'),
+(322, '/img/tot_images/santa_or_hobo/hobo/hobo_7_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_7.jpg', 16, 'hobo'),
+(323, '/img/tot_images/santa_or_hobo/hobo/hobo_8_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_8.jpg', 16, 'hobo'),
+(324, '/img/tot_images/santa_or_hobo/hobo/hobo_9_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_9.jpg', 16, 'hobo'),
+(325, '/img/tot_images/santa_or_hobo/hobo/hobo_10_2.png', '/img/tot_images/santa_or_hobo/hobo/hobo_10.jpg', 16, 'hobo'),
+(326, '/img/tot_images/santa_or_hobo/santa/santa_1_2.png', '/img/tot_images/santa_or_hobo/santa/santa_1.jpg', 16, 'santa'),
+(327, '/img/tot_images/santa_or_hobo/santa/santa_2_2.png', '/img/tot_images/santa_or_hobo/santa/santa_2.jpg', 16, 'santa'),
+(328, '/img/tot_images/santa_or_hobo/santa/santa_3_2.png', '/img/tot_images/santa_or_hobo/santa/santa_3.jpg', 16, 'santa'),
+(329, '/img/tot_images/santa_or_hobo/santa/santa_4_2.png', '/img/tot_images/santa_or_hobo/santa/santa_4.jpg', 16, 'santa'),
+(330, '/img/tot_images/santa_or_hobo/santa/santa_5_2.png', '/img/tot_images/santa_or_hobo/santa/santa_5.jpg', 16, 'santa'),
+(331, '/img/tot_images/santa_or_hobo/santa/santa_6_2.png', '/img/tot_images/santa_or_hobo/santa/santa_6.jpg', 16, 'santa'),
+(332, '/img/tot_images/santa_or_hobo/santa/santa_7_2.png', '/img/tot_images/santa_or_hobo/santa/santa_7.jpg', 16, 'santa'),
+(333, '/img/tot_images/santa_or_hobo/santa/santa_8_2.png', '/img/tot_images/santa_or_hobo/santa/santa_8.jpg', 16, 'santa'),
+(334, '/img/tot_images/santa_or_hobo/santa/santa_9_2.png', '/img/tot_images/santa_or_hobo/santa/santa_9.jpg', 16, 'santa'),
+(335, '/img/tot_images/santa_or_hobo/santa/santa_10_2.png', '/img/tot_images/santa_or_hobo/santa/santa_10.jpg', 16, 'santa'),
+(336, '/img/tot_images/nazi_or_not_nazi/nazi/nazi_1_2.jpg', '/img/tot_images/nazi_or_not_nazi/nazi/nazi_1.jpg', 7, 'nazi'),
+(337, '/img/tot_images/nazi_or_not_nazi/nazi/nazi_2_2.jpg', '/img/tot_images/nazi_or_not_nazi/nazi/nazi_2.jpg', 7, 'nazi'),
+(338, '/img/tot_images/nazi_or_not_nazi/nazi/nazi_3_2.jpg', '/img/tot_images/nazi_or_not_nazi/nazi/nazi_3.jpg', 7, 'nazi'),
+(339, '/img/tot_images/nazi_or_not_nazi/nazi/nazi_4_2.jpg', '/img/tot_images/nazi_or_not_nazi/nazi/nazi_4.jpg', 7, 'nazi'),
+(340, '/img/tot_images/nazi_or_not_nazi/nazi/nazi_5_2.jpg', '/img/tot_images/nazi_or_not_nazi/nazi/nazi_5.jpg', 7, 'nazi'),
+(341, '/img/tot_images/nazi_or_not_nazi/nazi/nazi_6_2.jpg', '/img/tot_images/nazi_or_not_nazi/nazi/nazi_6.jpg', 7, 'nazi'),
+(342, '/img/tot_images/nazi_or_not_nazi/nazi/nazi_7_2.jpg', '/img/tot_images/nazi_or_not_nazi/nazi/nazi_7.jpg', 7, 'nazi'),
+(343, '/img/tot_images/nazi_or_not_nazi/nazi/nazi_8_2.jpg', '/img/tot_images/nazi_or_not_nazi/nazi/nazi_8.jpg', 7, 'nazi'),
+(344, '/img/tot_images/nazi_or_not_nazi/nazi/nazi_9_2.jpg', '/img/tot_images/nazi_or_not_nazi/nazi/nazi_9.jpg', 7, 'nazi'),
+(345, '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_1_2.jpg', '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_1.jpg', 7, 'not nazi'),
+(346, '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_2_2.jpg', '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_2.jpg', 7, 'not nazi'),
+(347, '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_3_2.jpg', '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_3.jpg', 7, 'not nazi'),
+(348, '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_4_2.jpg', '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_4.jpg', 7, 'not nazi'),
+(349, '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_5_2.jpg', '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_5.jpg', 7, 'not nazi'),
+(350, '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_6_2.jpg', '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_6.jpg', 7, 'not nazi'),
+(351, '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_7_2.jpg', '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_7.jpg', 7, 'not nazi'),
+(352, '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_8_2.jpg', '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_8.jpg', 7, 'not nazi'),
+(353, '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_9_2.jpg', '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_9.jpg', 7, 'not nazi'),
+(354, '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_10_2.jpg', '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_10.jpg', 7, 'not nazi'),
+(355, '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_11_2.jpg', '/img/tot_images/nazi_or_not_nazi/not_nazi/not_nazi_11.jpg', 7, 'not nazi');
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
