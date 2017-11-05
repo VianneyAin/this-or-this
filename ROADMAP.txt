@@ -14,12 +14,10 @@ X-Titre des pages/meta tags (en prenant en compte les langues)
 X-Share/Like/Tweet boutons
 X-Pouvoir partager sur fb
 X-Robots.txt
-Pub google ads
 X-Mise en page du script de jeu
-Formulaire de contact
-Demande d'âge
+X-Formulaire de contact
 X-Cookie pour mémoriser la langue
-FIXE IMPORTANT : VERSION MOBILE : Bouton fixé en bas de page, scroll verticale à virer, images parfois trop grande ou illisible
+X-FIXE IMPORTANT : VERSION MOBILE : Bouton fixé en bas de page, scroll verticale à virer, images parfois trop grande ou illisible
 X-Mode Infini
 X-Appel ajax pour enregistrer le nombre de fois jouer (Pouvoir avoir les plus populaires)
 X-Fonction de recherche sur les catégories
@@ -28,8 +26,15 @@ X-Bouton Tweet avec le score sur le mode infini
 X-Changer le système d'enregistrement de nombre de fois joué
 X-Repérer la langue du navigateur pour rediriger vers la bonne langue
 X-Gestion des redirections lors d'un changement de langue
+X-Système de Zoom sur l'image
+
+---A faire avant mise en ligne :
 Ajoutez les descriptions des catégories et en faire des métas
 Affichez en permanence les socials buttons
+Mettre toutes les images en local
+Traduire toutes les miniatures
+Pub google ads
+Passez les images en .jpg au lieu de .png
 
 -- Version 0.3 :
 Dons paypal
@@ -41,7 +46,8 @@ Pouvoir créer un compte et accèder à la section NSFW
 Pouvoir noter les catégories
 Hall of Fame du mode Infini
 MODE - Contre la montre (5s par réponse par exemple)
-Système de Zoom sur l'image pour la version mobile
+Mode Multijoueur
+Demande d'âge
 
 -- CATEGORIE
 Butt or not

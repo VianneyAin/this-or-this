@@ -1,7 +1,6 @@
 <?php
   class Contact_View {
       public function fn_contact_view($response){
-        var_dump($response);
           ?>
           <div id="index-banner" >
             <div class="section no-pad-bot">
