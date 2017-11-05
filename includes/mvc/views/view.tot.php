@@ -66,10 +66,8 @@ class Tot_View {
             if (isset($data['elements']) && !empty($data['elements'])){
                 foreach ($data['elements'] as $key => $elmt){
                     $data['elements'][$key]['choice'] = __t($elmt['choice']);
-                    if ($data['local']){
-                        $data['elements'][$key]['hidden_image'] = 'http://localhost/this-or-this'.$data['elements'][$key]['hidden_image'];
-                        $data['elements'][$key]['reveal_image'] = 'http://localhost/this-or-this'.$data['elements'][$key]['reveal_image'];
-                    }
+                    $data['elements'][$key]['hidden_image'] = 'http://localhost/this-or-this'.$data['elements'][$key]['hidden_image'];
+                    $data['elements'][$key]['reveal_image'] = 'http://localhost/this-or-this'.$data['elements'][$key]['reveal_image'];
                 }
             }
         }
