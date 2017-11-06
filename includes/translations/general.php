@@ -600,6 +600,22 @@ function general_translations() {
 			'context' => '',
 		),
 		array(
+			'en' => "infinitemode",
+			'fr' => "modeinfini",
+			'de' => "unendlichermodus",
+			'es' => "modoinfinito",
+			'pt' => "modoinfinito",
+			'context' => '',
+		),
+		array(
+			'en' => "You too, try out infinite mode !",
+			'fr' => "Toi aussi, essaye le mode infini !",
+			'de' => "Testen Sie auch den unendlichen Modus !",
+			'es' => "¡Tú también, prueba el modo infinito!",
+			'pt' => "Você também, experimente o modo infinito !",
+			'context' => '',
+		),
+		array(
 			'en' => "Fat or Pregnant",
 			'fr' => "Gros ou Enceinte",
 			'de' => "Fett oder Schwanger",

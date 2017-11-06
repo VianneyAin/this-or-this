@@ -47,20 +47,26 @@ class Infinite_View {
                         <a class="waves-effect waves-light btn red start_btn"><?php _t('Start again'); ?></a>
                     </div>
                 </div>
-                <div class="container social-container">
-                    <div class="row social-container">
-                        <div class="col s12 centered">
-                            <p><?php _t('Not too bad, try again or share your score with your friends !'); ?></p>
+            </div>
+        </div>
+        <div class="container social-container">
+            <div class="row social-container">
+                <div class="col s12 centered" style="display:none;">
+                    <p><?php _t('Not too bad, try again or share your score with your friends !'); ?></p>
+                </div>
+                <div class="col s12 centered">
+                    <div class="row">
+                        <div id="twitter-container" class="col s12 m3 offset-m3">
+                            <?php
+                            $twitter_text = __t('You too, try out infinite mode !');
+                            $hashtag = 'thisorthis, '.__t('infinitemode');
+                            ?>
+                            <a class="twitter-share-button twitter_score_button" href="https://twitter.com/intent/tweet?text=<?php echo $twitter_text; ?>&" data-hashtags="<?php echo $hashtag; ?>" data-via="thisorthis" data-size="large">
+                                Tweet
+                            </a>
                         </div>
-                        <div class="col s12 centered">
-                            <div class="row">
-                                <div id="twitter-container" class="col s12 m3 offset-m3">
-
-                                </div>
-                                <div class="col s12 m3">
-                                    <div class="fb-like" data-href="<?php echo get_siteurl(); ?>" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
-                                </div>
-                            </div>
+                        <div class="col s12 m3">
+                            <div class="fb-like" data-href="<?php echo get_siteurl(); ?>" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
                         </div>
                     </div>
                 </div>
