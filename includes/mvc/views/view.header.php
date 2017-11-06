@@ -147,7 +147,7 @@
             <nav id="main-menu" class="cyan darken-3" role="navigation">
               <div class="nav-wrapper container">
                 <a id="logo-container" href="http://localhost/this-or-this/<?php echo $lang; ?>" class="brand-logo">
-                  <img src="http://localhost/this-or-this/img/logo_white.svg" height='65px; '/>
+                  <img src="http://localhost/this-or-this/img/logo_white.svg" height='65px' width="100px"/>
                 </a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="http://<?php _t('localhost/this-or-this');?>/infinite/"><?php _t('Infinite Mode'); ?></a></li>

@@ -178,3 +178,11 @@ h5 {
 main {
     overflow-x: hidden; // hide horizontal
 }
+
+
+.home_img{
+    width: 350px
+    max-width: 450px;
+    height: 350px;
+    max-height:350px;
+}

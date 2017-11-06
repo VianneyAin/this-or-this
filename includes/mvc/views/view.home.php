@@ -13,7 +13,7 @@ class Home_View {
                 <div class="container">
                     <br><br>
                     <div class="row center">
-                        <img src="http://localhost/this-or-this/img/logo_blue.svg" height='150px; '/>
+                        <img class="home_img" src="http://localhost/this-or-this/img/logo/thisorthis_logo_blue.png" />
                     </div>
                     <div class="row center">
                         <h1 class="header col s12 black-text light"><?php _t("It's time to make a choice"); ?>.</h1>
@@ -128,7 +128,7 @@ class Home_View {
                 </div>
                 <div class="row center">
                     <a href="http://<?php _t('localhost/this-or-this');?>/infinite">
-                        <img src="http://localhost/this-or-this/img/logo/<?php _t('infinite_mode_logo_white.svg'); ?>" height="300px" />
+                        <img src="http://localhost/this-or-this/img/logo/<?php _t('infinite_mode_logo_white.png'); ?>" height="300px" />
                     </a>
                 </div>
                 <div class="row center">
