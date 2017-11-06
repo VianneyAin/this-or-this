@@ -125,19 +125,20 @@ class Tot_View {
                             <a class="waves-effect waves-light btn red start_btn"><?php _t('Start again'); ?></a>
                         </div>
                     </div>
-
+                    <div class="row">
+                        <div class="col s12 centered success" style="display:none;">
+                            <p><?php _t('Congratz ! You killed it !'); ?></p>
+                            <p><?php _t('Share your score with your friends, or try another category.'); ?></p>
+                        </div>
+                        <div class="col s12 centered failed" style="display:none;">
+                            <p><?php _t('Too bad you were almost done !'); ?></p>
+                            <p><?php _t('Try again, pick another category or see if your friends can beat your score.'); ?></p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="container social-container">
                 <div class="row social-container">
-                    <div class="col s12 centered success" style="display:none;">
-                        <p><?php _t('Congratz ! You killed it !'); ?></p>
-                        <p><?php _t('Share your score with your friends, or try another category.'); ?></p>
-                    </div>
-                    <div class="col s12 centered failed" style="display:none;">
-                        <p><?php _t('Too bad you were almost done !'); ?></p>
-                        <p><?php _t('Try again, pick another category or see if your friends can beat your score.'); ?></p>
-                    </div>
                     <div class="col s12 centered">
                         <div class="row">
                             <div id="twitter-container" class="col s12 m3 offset-m3">

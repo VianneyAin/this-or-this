@@ -99,7 +99,7 @@
             <script src="<?php echo 'http://localhost/this-or-this/js/validate.js' ?>"></script>
             <script src="<?php echo 'http://localhost/this-or-this/js/js.cookie.js' ?>"></script>
             <script src="<?php echo 'http://localhost/this-or-this/js/jquery.elevateZoom-3.0.8.min.js' ?>"></script>
-            
+
             <!-- Global site tag (gtag.js) - Google Analytics -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108698505-1"></script>
             <script>
@@ -169,7 +169,9 @@
                   <li><a href="<?php echo _tlink(get_currenturl(), 'pt'); ?>"><?php _t('Portuguese'); ?></a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
+
                     <li class="cyan darken-3"><a class="dropdown-button white-text" href="#!" data-activates="lang_dropdown_mobile"><i class="material-icons white-text">language</i><?php _t('Languages'); ?><i class="material-icons right white-text">arrow_drop_down</i></a></li>
+                    <li><a href="http://<?php _t('localhost/this-or-this');?>"><i class="material-icons">home</i><?php _t('Home'); ?></a></li>
                     <li><a href="http://<?php _t('localhost/this-or-this');?>/tot/"><i class="material-icons">format_list_bulleted</i><?php _t('Choose a category'); ?></a></li>
                     <li><a href="http://<?php _t('localhost/this-or-this');?>/infinite/"><i class="material-icons">loop</i><?php _t('Infinite Mode'); ?></a></li>
                 </ul>

@@ -777,7 +777,7 @@ function general_translations() {
 		),
 		array(
 			'en' => "Try again, pick another category or see if your friends can beat your score.",
-			'fr' => "Retente ta chance, essaye une autre catégorie ou vois si tes amis peuvent battre ton score.",
+			'fr' => "Retente ta chance, essaye une autre catégorie où vois si tes amis peuvent battre ton score.",
 			'de' => "Versuchen Sie es noch einmal, wählen Sie eine andere Kategorie aus oder sehen Sie, ob Ihre Freunde Ihre Punktzahl schlagen können.",
 			'es' => "Inténtalo de nuevo, elige otra categoría o mira si tus amigos pueden superar tu puntaje.",
 			'pt' => "Tente novamente, escolha outra categoria ou veja se seus amigos podem vencer sua pontuação.",
@@ -925,6 +925,14 @@ function general_translations() {
 			'de' => "Pokemon oder Digimon",
 			'es' => "Pokemon o Digimon",
 			'pt' => "Pokemon ou Digimon",
+			'context' => '',
+		),
+		array(
+			'en' => "Home",
+			'fr' => "Accueil",
+			'de' => "Startseite",
+			'es' => "Página principal",
+			'pt' => "Pagina inicial",
 			'context' => '',
 		),
 		/*array(

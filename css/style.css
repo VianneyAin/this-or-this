@@ -174,3 +174,7 @@ h5 {
         height:auto;
     }
 }
+
+main {
+    overflow-x: hidden; // hide horizontal
+}
