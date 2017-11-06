@@ -31,7 +31,7 @@ X-Système de Zoom sur l'image
 ---A faire avant mise en ligne :
 Ajoutez les descriptions des catégories et en faire des métas
 Affichez en permanence les socials buttons
-Mettre toutes les images en local
+X-Mettre toutes les images en local
 Traduire toutes les miniatures
 Pub google ads
 Passez les images en .jpg au lieu de .png

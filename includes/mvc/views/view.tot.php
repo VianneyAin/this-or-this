@@ -70,98 +70,123 @@ class Tot_View {
                     $data['elements'][$key]['reveal_image'] = 'http://localhost/this-or-this'.$data['elements'][$key]['reveal_image'];
                 }
             }
-        }
         ?>
-        <div id="tot_container" class="container" style="height:100%;">
-            <div class="starter">
-                <div class="gallery gallery-masonry row center">
-                    <?php if (isset($data) && !empty($data) ){
-                        ?>
-                        <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
-                            <div class="collection-item">
-                                <a class="gallery-cover start_btn" style="min-height:200px;">
-                                    <img src="http://localhost/this-or-this/img/thumbnail/<?php echo get_thumbnail_lang($data, Application::this()->current_lang); ?>" style="width:100%;">
-                                </a>
-                            </div>
-                        </div>
-                        <?php
-                    }?>
-                </div>
-                <div class="row">
-                    <div class="col s12 centered">
-                        <h4 class="tot_title"><?php
-                        if (isset($data) && !empty($data)){
-                            echo __t($data['choice_1']). ' '.__t('or').' '. __t($data['choice_2']);
-                        }
-                        ?> ?</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 centered">
-                        <a class="btn-large waves-effect waves-light btn red start_btn"><?php _t('Start'); ?></a>
-                    </div>
-                </div>
-            </div>
-            <div class="over">
-                <div class="gallery gallery-masonry row center">
-                    <?php if (isset($data) && !empty($data) ){
-                        ?>
-                        <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
-                            <div class="collection-item">
-                                <a class="gallery-cover" href="http://localhost/this-or-this/tot/<?php echo $data['slug']; ?>" style="min-height:200px;">
-                                    <img src="http://localhost/this-or-this/img/thumbnail/<?php echo get_thumbnail_lang($data, Application::this()->current_lang); ?>" style="width:100%;">
-                                </a>
-                            </div>
-                        </div>
-                        <?php
-                    }?>
-                </div>
-                <div class="row">
-                    <div class="col s12 centered">
-                        <h4><?php _t('Your score'); ?> : <span class="result"></span>/<span class="total"></span></h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 centered">
-                        <a class="waves-effect waves-light btn red start_btn"><?php _t('Start again'); ?></a>
-                    </div>
-                </div>
-                <div class="container social-container">
-                    <div class="row social-container">
-                        <div class="col s12 centered success" style="display:none;">
-                            <p><?php _t('Congratz ! You killed it !'); ?></p>
-                            <p><?php _t('Share your score with your friends, or try another category.'); ?></p>
-                        </div>
-                        <div class="col s12 centered failed" style="display:none;">
-                            <p><?php _t('Too bad you were almost done !'); ?></p>
-                            <p><?php _t('Try again, pick another category or see if your friends can beat your score.'); ?></p>
-                        </div>
-                        <div class="col s12 centered">
-                            <div class="row">
-                                <div id="twitter-container" class="col s12 m3 offset-m3">
-                                    <?php
-                                    $twitter_text = __t($data['choice_1']). ' '.__t('or').' '. __t($data['choice_2']).' ?';
-                                    $hashtag = 'thisorthis, '.__t($data['slug']);
-                                    ?>
-                                    <a class="twitter-share-button twitter_score_button" href="https://twitter.com/intent/tweet?text=<?php echo $twitter_text; ?>&" data-hashtags="<?php echo $hashtag; ?>" data-via="thisorthis" data-size="large">
-                                        Tweet
+            <div id="tot_container" class="container" style="height:100%;">
+                <div class="starter">
+                    <div class="gallery gallery-masonry row center">
+                        <?php if (isset($data) && !empty($data) ){
+                            ?>
+                            <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
+                                <div class="collection-item">
+                                    <a class="gallery-cover start_btn" style="min-height:200px;">
+                                        <img src="http://localhost/this-or-this/img/thumbnail/<?php echo get_thumbnail_lang($data, Application::this()->current_lang); ?>" style="width:100%;">
                                     </a>
                                 </div>
-                                <div class="col s12 m3">
-                                    <div class="fb-like" data-href="<?php echo get_siteurl(); ?>" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                            </div>
+                            <?php
+                        }?>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 centered">
+                            <h4 class="tot_title"><?php
+                            if (isset($data) && !empty($data)){
+                                echo __t($data['choice_1']). ' '.__t('or').' '. __t($data['choice_2']);
+                            }
+                            ?> ?</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 centered">
+                            <a class="btn-large waves-effect waves-light btn red start_btn"><?php _t('Start'); ?></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="over">
+                    <div class="gallery gallery-masonry row center">
+                        <?php if (isset($data) && !empty($data) ){
+                            ?>
+                            <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
+                                <div class="collection-item">
+                                    <a class="gallery-cover" href="http://localhost/this-or-this/tot/<?php echo $data['slug']; ?>" style="min-height:200px;">
+                                        <img src="http://localhost/this-or-this/img/thumbnail/<?php echo get_thumbnail_lang($data, Application::this()->current_lang); ?>" style="width:100%;">
+                                    </a>
+                                </div>
+                            </div>
+                            <?php
+                        }?>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 centered">
+                            <h4><?php _t('Your score'); ?> : <span class="result"></span>/<span class="total"></span></h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 centered">
+                            <a class="waves-effect waves-light btn red start_btn"><?php _t('Start again'); ?></a>
+                        </div>
+                    </div>
+                    <div class="container social-container">
+                        <div class="row social-container">
+                            <div class="col s12 centered success" style="display:none;">
+                                <p><?php _t('Congratz ! You killed it !'); ?></p>
+                                <p><?php _t('Share your score with your friends, or try another category.'); ?></p>
+                            </div>
+                            <div class="col s12 centered failed" style="display:none;">
+                                <p><?php _t('Too bad you were almost done !'); ?></p>
+                                <p><?php _t('Try again, pick another category or see if your friends can beat your score.'); ?></p>
+                            </div>
+                            <div class="col s12 centered">
+                                <div class="row">
+                                    <div id="twitter-container" class="col s12 m3 offset-m3">
+                                        <?php
+                                        $twitter_text = __t($data['choice_1']). ' '.__t('or').' '. __t($data['choice_2']).' ?';
+                                        $hashtag = 'thisorthis, '.__t($data['slug']);
+                                        ?>
+                                        <a class="twitter-share-button twitter_score_button" href="https://twitter.com/intent/tweet?text=<?php echo $twitter_text; ?>&" data-hashtags="<?php echo $hashtag; ?>" data-via="thisorthis" data-size="large">
+                                            Tweet
+                                        </a>
+                                    </div>
+                                    <div class="col s12 m3">
+                                        <div class="fb-like" data-href="<?php echo get_siteurl(); ?>" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <?php }
+        //if no category found
+        else {
+            ?>
+            <div id="tot_container" class="container" style="height:100%;">
+                <div class="gallery gallery-masonry row center">
+                    <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
+                        <div class="collection-item">
+                            <a class="gallery-cover start_btn" style="min-height:200px;">
+                                <img src="http://localhost/this-or-this/img/thisorthis_thumbnail.jpg" style="width:100%;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 centered">
+                        <h4 class="tot_title">Woops ! <?php _t('Category not found.'); ?></h4>
+                    </div>
+                </div>
+                <div class="row centered">
+                    <a href="http://<?php _t('localhost/this-or-this');?>/tot/" id="download-button" class="btn waves-effect waves-light cyan darken-3"><?php _t('Back to categories list'); ?></a>
+                </div>
+            </div>
+            <?php
+        }
+        ?>
 
         <div class="container" style="margin-bottom:100px;">
             <div class="section">
                 <div class="row">
                     <div class="col s12">
-                        <h3><?php _t("Want to try out something else ?"); ?></h3>
+                        <h4><?php _t("Want to try out something else ?"); ?></h4>
                         <div class="gallery gallery-masonry row center">
                             <?php if (isset($categories) && !empty($categories)){
                                 foreach ($categories as $key => $category){

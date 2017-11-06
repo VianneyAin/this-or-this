@@ -32,10 +32,15 @@
         }
     }
 
-    public function get_some_categories($limit, $id){
+    public function get_some_categories($limit, $id = null){
         try {
             $db = Db::getInstance();
-            $sql = "SELECT * FROM categories where nsfl <> 1 AND visible <> 0 AND id <> $id ORDER BY RAND() LIMIT $limit";
+            if (isset($id) && !empty($id)){
+                $sql = "SELECT * FROM categories where nsfl <> 1 AND visible <> 0 AND id <> $id ORDER BY RAND() LIMIT $limit";
+            }
+            else {
+                $sql = "SELECT * FROM categories where nsfl <> 1 AND visible <> 0 ORDER BY RAND() LIMIT $limit";
+            }
             $req = $db->prepare($sql);
             // the query was prepared, now we replace :id with our actual $id value
             $req->execute();
