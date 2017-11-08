@@ -33,13 +33,13 @@ class Infinite_View {
                 <div class="gallery gallery-masonry row center">
                       <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
                           <div class="collection-item">
-                                <img src="http://localhost/this-or-this/img/logo/<?php _t('infinite_mode_logo_blue.svg'); ?>" style="width:100%;">
+                                <img src="http://localhost/this-or-this/img/logo/<?php _t('infinite_mode_logo_blue.png'); ?>" style="width:100%;">
                           </div>
                       </div>
                 </div>
                 <div class="row">
                     <div class="col s12 centered">
-                        <h4>Your score : <span class="result"></span></h4>
+                        <h4><?php _t('Your score'); ?> : <span class="result"></span></h4>
                     </div>
                 </div>
                 <div class="row">

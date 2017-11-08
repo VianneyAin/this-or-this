@@ -128,7 +128,7 @@ class Home_View {
                 </div>
                 <div class="row center">
                     <a href="http://<?php _t('localhost/this-or-this');?>/infinite">
-                        <img src="http://localhost/this-or-this/img/logo/<?php _t('infinite_mode_logo_white.png'); ?>" height="300px" />
+                        <img class="home_img" src="http://localhost/this-or-this/img/logo/<?php _t('infinite_mode_logo_white.png'); ?>" height="300px" />
                     </a>
                 </div>
                 <div class="row center">

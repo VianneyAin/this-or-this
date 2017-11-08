@@ -19,7 +19,7 @@
                   <h5 class="grey-text text-lighten-4"><?php _t('About'); ?></h5>
                   <ul>
                       <li><a class="white-text text-lighten-1" href="http://localhost/this-or-this<?php _t('/about'); ?>"><?php _t('What is');?> <b>This or This</b> ?</a></li>
-                      <li><a class="white-text text-lighten-1" href=""><?php _t('Want to be part of it ?');?></a></li>
+                      <!--<li><a class="white-text text-lighten-1" href=""><?php _t('Want to be part of it ?');?></a></li>-->
                   </ul>
                 </div>
                 <div class="col m3 s12">
@@ -69,7 +69,7 @@
           <?php
           $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
           $lang_name = _l($lang);
-          if ($lang != Application::this()->current_lang){
+          /*if ($lang != Application::this()->current_lang){
           ?>
             <div id="lang_modal" class="modal">
               <div class="modal-content centered">
@@ -100,7 +100,7 @@
                   });
               });
             </script>
-          <?php } ?>
+          <?php }*/ ?>
 
           </body>
           </html>
