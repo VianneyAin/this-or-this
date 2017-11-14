@@ -3156,8 +3156,6 @@ td, th {
   left: 0;
   bottom: 0;
   background-color: #26a69a;
-  -webkit-transition: width .3s linear;
-  transition: width .3s linear;
 }
 
 .progress .indeterminate {

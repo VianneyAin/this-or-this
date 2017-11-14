@@ -159,6 +159,9 @@ h5 {
     main {
         padding-bottom:0px !important;
     }
+    #tot_container {
+        margin-top:0px;
+    }
     #tot_container .step {
         height:100%;
     }

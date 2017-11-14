@@ -36,6 +36,7 @@ class Application {
         'about',
         'contact',
         'infinite',
+        'challenge',
     );
 
     private $ajax_controllers = array(
@@ -87,6 +88,10 @@ class Application {
             case 'infinite':
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');
                 $this->controller = new Infinite_Controller($this->routes);
+                break;
+            case 'challenge':
+                require_once('includes/mvc/controllers/controller.' . $controller . '.php');
+                $this->controller = new Challenge_Controller($this->routes);
                 break;
             case 'about':
                 require_once('includes/mvc/controllers/controller.' . $controller . '.php');

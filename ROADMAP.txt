@@ -27,15 +27,14 @@ X-Changer le système d'enregistrement de nombre de fois joué
 X-Repérer la langue du navigateur pour rediriger vers la bonne langue
 X-Gestion des redirections lors d'un changement de langue
 X-Système de Zoom sur l'image
-
----A faire avant mise en ligne :
 Ajoutez les descriptions des catégories et en faire des métas
 X-Affichez en permanence les socials buttons
 X-Mettre toutes les images en local
 X-Traduire toutes les miniatures
 Pub google ads
-Passez les images en .jpg au lieu de .png
-Gestion des catégories non existantes
+X-Passez les images en .jpg au lieu de .png
+X-Gestion des catégories non existantes
+Pouvoir jouer avec les flèches
 
 -- Version 0.3 :
 Dons paypal

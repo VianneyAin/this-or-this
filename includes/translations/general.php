@@ -935,6 +935,22 @@ function general_translations() {
 			'pt' => "Pagina inicial",
 			'context' => '',
 		),
+		array(
+			'en' => "Challenge Mode",
+			'fr' => "Mode Défi",
+			'de' => "Herausforderungsmodus",
+			'es' => "Modo Desafío",
+			'pt' => "Modo Desafio",
+			'context' => '',
+		),
+		array(
+			'en' => "Ready to take the challenge? Try to enter in the legend.",
+			'fr' => "Prêt à relever le défi ? Essaye d'écrire ton nom dans la légende.",
+			'de' => "Bereit, die Herausforderung anzunehmen? Versuchen Sie, die Legende einzugeben.",
+			'es' => "¿Listo para tomar el desafío? Trata de ingresar a la leyenda.",
+			'pt' => "Pronto para enfrentar o desafio? Tente inserir a legenda.",
+			'context' => '',
+		),
 		/*array(
 			'en' => "",
 			'fr' => "",
