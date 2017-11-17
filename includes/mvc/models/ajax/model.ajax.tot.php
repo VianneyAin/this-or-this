@@ -89,8 +89,8 @@
               $elmt = $req->fetch();
               $cat['choice_1'] = __tl($cat['choice_1'], $lang);
               $cat['choice_2'] = __tl($cat['choice_2'], $lang);
-              $elmt['hidden_image'] = 'http://thisorthis.io'.$elmt['hidden_image'];
-              $elmt['reveal_image'] = 'http://thisorthis.io'.$elmt['reveal_image'];
+              $elmt['hidden_image'] = 'http://localhost/this-or-this'.$elmt['hidden_image'];
+              $elmt['reveal_image'] = 'http://localhost/this-or-this'.$elmt['reveal_image'];
               $elmt['choice'] = __tl($elmt['choice'], $lang);
               $cat['element'] = $elmt;
             }
