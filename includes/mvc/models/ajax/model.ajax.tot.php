@@ -89,8 +89,8 @@
               $elmt = $req->fetch();
               $cat['choice_1'] = __tl($cat['choice_1'], $lang);
               $cat['choice_2'] = __tl($cat['choice_2'], $lang);
-              $elmt['hidden_image'] = 'http://localhost/this-or-this'.$elmt['hidden_image'];
-              $elmt['reveal_image'] = 'http://localhost/this-or-this'.$elmt['reveal_image'];
+              $elmt['hidden_image'] = 'http://thisorthis.io'.$elmt['hidden_image'];
+              $elmt['reveal_image'] = 'http://thisorthis.io'.$elmt['reveal_image'];
               $elmt['choice'] = __tl($elmt['choice'], $lang);
               $cat['element'] = $elmt;
             }
@@ -100,6 +100,42 @@
           $message = array(
                   'message' => 'An error occured.',
                   'code' => '406',
+                  'success' => false,
+          );
+          return $message;
+        }
+    }
+    
+    public function add_challenge_score($username, $score){
+        try {
+            if (isset($_REQUEST['lang']) && !empty($_REQUEST['lang'])){
+              $lang = $_REQUEST['lang'];
+            }
+            $db = Db::getInstance();
+            $sql = "INSERT INTO `halloffame` (username, score, mode) VALUES ('$username', $score, 'challenge')";
+            $req = $db->prepare($sql);
+            // the query was prepared, now we replace :id with our actual $id value
+            $req->execute();
+            if ($req->rowCount() == 1){
+                $message = array(
+                        'message' => __tl('Score added', $lang),
+                        'success' => true,
+                );
+                return $message;
+            }
+            else {
+                $message = array(
+                        'message' => "Failed to add score.",
+                        'code' => '411',
+                        'success' => false,
+                );
+                return $message;
+            }
+        }
+        catch (PDOexception $e) {
+          $message = array(
+                  'message' => 'An error occured.',
+                  'code' => '410',
                   'success' => false,
           );
           return $message;

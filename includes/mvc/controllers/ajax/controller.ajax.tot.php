@@ -24,6 +24,32 @@ class Tot_Ajax_Controller {
     public function get_random_tot(){
       return $this->model->get_random_tot();
     }
+    
+    public function add_challenge_score(){
+        if (isset($_REQUEST['username']) && !empty($_REQUEST['username'])){
+            if (isset($_REQUEST['score']) && !empty($_REQUEST['score'])){
+              $username = htmlspecialchars($_REQUEST['username']);
+              $score = intval(htmlspecialchars($_REQUEST['score']));
+              return $this->model->add_challenge_score($username, $score);
+            }
+            else {
+                $message = array(
+                        'message' => 'Score cannot be empty',
+                        'code' => '409',
+                        'success' => false,
+                );
+                return $message;
+            }
+        }
+        else {
+            $message = array(
+                    'message' => 'Username cannot be empty',
+                    'code' => '408',
+                    'success' => false,
+            );
+            return $message;
+        }
+    }
 
 
 }

@@ -48,6 +48,26 @@
             return false;
         }
     }
+    
+    public function get_hof(){
+        try {
+            $db = Db::getInstance();
+            $sql = "SELECT * FROM halloffame where mode = 'challenge' ORDER BY score DESC LIMIT 20";
+            $req = $db->prepare($sql);
+            // the query was prepared, now we replace :id with our actual $id value
+            $req->execute();
+            $post = $req->fetchAll();
+            if (isset($post) && !empty($post)){
+              return $post;
+            }
+            else {
+                return false;
+            }
+        }
+        catch (PDOexception $e) {
+            return false;
+        }
+    }
 
 
   }

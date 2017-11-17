@@ -73,10 +73,11 @@ class Challenge_Controller extends Application{
 
     public function layout_request() {
       $this->data['categories'] = $this->model->get_some_categories('4');
+      $this->data['hof'] = $this->model->get_hof();
     }
 
     public function partials_request() {
-      $this->view->display_challenge_view($this->data['categories']);
+      $this->view->display_challenge_view($this->data);
     }
 
     public function set_title($title){

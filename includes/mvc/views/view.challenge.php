@@ -4,7 +4,7 @@ class Challenge_View {
 
     }
 
-    public function display_challenge_view($categories){
+    public function display_challenge_view($data){
         ?>
         <div class="container show-on-small hide-on-med-and-up">
             <div class="row centered">
@@ -58,7 +58,7 @@ class Challenge_View {
         </div>
         <div class="container hide-on-small-only">
             <div class="row centered">
-                <div id="timer2"><div>
+                <div id="timer2"></div>
                 <div class="progress" style="height:8px;">
                     <div class="determinate timer" style="width: 0%"></div>
                 </div>
@@ -87,14 +87,51 @@ class Challenge_View {
                 </div>
             </div>
         </div>
+        <div class="container score_container">
+            <div class="section">
+                <div id="add_score_row" class="row over">
+                    <div class="col m4 offset-m4 s12 centered">
+                        <input id="score_input" placeholder="<?php _t('Nickname'); ?>" type="text" class="validate">
+                    </div>
+                    <div class="col s12 centered">
+                        <a class="waves-effect waves-light btn blue" id="add_score_btn"><?php _t('Add your score'); ?></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <h4><?php _t('Best ranks'); ?></h4>
+                        <table id="score_table">
+                           <thead>
+                             <tr>
+                                 <th><?php _t('Rank'); ?></th>
+                                 <th><?php _t('Player'); ?></th>
+                                 <th><?php _t('Score'); ?></th>
+                             </tr>
+                           </thead>
+                           <tbody>
+                             <?php 
+                             $row = 0;
+                            if (isset($data['hof']) && !empty($data['hof'])){
+                                foreach ($data['hof'] as $key => $player){
+                                    $row++;
+                                    echo '<tr data-value="'.$player['score'].'"><td>'.$row.'</td><td>'.$player['username'].'</td><td>'.$player['score'].'</td></tr>';
+                                }
+                            }
+                             ?>
+                           </tbody>
+                         </table>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container over" style="margin-bottom:100px;">
             <div class="section">
                 <div class="row">
                     <div class="col s12">
                         <h3><?php _t("Want to try out something else ?"); ?></h3>
                         <div class="gallery gallery-masonry row center">
-                            <?php if (isset($categories) && !empty($categories)){
-                                foreach ($categories as $key => $category){
+                            <?php if (isset($data['categories']) && !empty($data['categories'])){
+                                foreach ($data['categories'] as $key => $category){
                                     ?>
                                     <div class="col s12 m3 gallery-item gallery-filter" style="">
                                         <div class="collection-item">
@@ -140,7 +177,8 @@ class Challenge_View {
             var active = false;
             var twitter_text_url = 'https://twitter.com/intent/tweet?text=';
             var response = false;
-
+            var score_added = false;
+            
             function set_twitter_button(){
                 // Remove existing iframe
                 jQuery('.twitter-tweet-button').each(function(){
@@ -211,29 +249,66 @@ class Challenge_View {
                 load_initial_element();
                 jQuery('.start_btn').click(function(){
                     step++;
+                    score_added = false;
+                    score = 0;
                     jQuery('.starter').hide();
                     jQuery('.over').hide();
                     show_next();
                 });
-            });
-
-
-            /*function move(){
-                var elem = document.getElementById("timer2");
-                var counter = 1;
-                var id = setInterval(frame, 10);
-                function frame() {
-                    console.log(counter);
-                    if (counter == 300) {
-                        clearInterval(id);
-                        check_response();
+                
+                jQuery('#add_score_btn').click(function(){
+                    var username = jQuery('#score_input').val();
+                    username = username.replace(/[\'\"\\\,\.]/g, '');
+                    if (username != undefined && username != '' && score != '' && score != undefined){
+                        var ajax = $.ajax({
+                            url: ajaxurl,
+                            data: {
+                                from: 'user',
+                                action: 'add_challenge_score',
+                                username: username,
+                                score: score,
+                                lang: <?php echo "'".Application::this()->current_lang."'"; ?>
+                            },
+                            type: 'POST',
+                            dataType : 'json',
+                            beforeSend: function (jqXHR, settings) {
+                                url = settings.url + "?" + settings.data;
+                                console.log(url);
+                            },
+                            error: function (thrownError) {
+                                console.log(thrownError);
+                                //alert(thrownError.responseText);
+                            },
+                            complete: function () {
+                            },
+                            success: function (data, status) {
+                              if (data.success){
+                                  Materialize.toast(data.message, 2000) // 4000 is the duration of the toast
+                                  jQuery('#score_input').val('');
+                                  jQuery('#add_score_row').hide();
+                                  jQuery('#score_table tbody tr').each(function(){
+                                     if (jQuery(this).attr('data-value') < score){
+                                         jQuery(this).before('<tr data-value="'+score+'"><td>'+'??'+'</td><td>'+username+'</td><td>'+score+'</td></tr>');
+                                     } 
+                                  });
+                                  var nb = 1;
+                                  jQuery('#score_table tbody tr').each(function(){
+                                     jQuery(this).find('td').first().text(nb);
+                                     nb++;
+                                  });
+                              }
+                              else {
+                                  Materialize.toast('<?php _t('An error occurred, please try again') ?>', 2000) // 4000 is the duration of the toast
+                              }
+                              score_added = true;
+                            }
+                        });
                     }
-                    counter++;
-                    t = counter-1;
-                    t = t.toLocaleString();
-                    jQuery('#timer2').text(t.replace(/(\d)(?=(\d\d)+(?!\d))/g, "$1,"));
-                }
-            }*/
+                    else {
+                        Materialize.toast('Username is invalid', 2000) // 4000 is the duration of the toast
+                    }                   
+                });
+            });
 
             function move() {
                 var width = 0;
@@ -273,7 +348,7 @@ class Challenge_View {
                   dataType : 'json',
                   beforeSend: function (jqXHR, settings) {
                       url = settings.url + "?" + settings.data;
-                      console.log(url);
+                      //console.log(url);
                   },
                   error: function (thrownError) {
                       console.log(thrownError);
@@ -360,7 +435,6 @@ class Challenge_View {
                 clearInterval(moving);
                 response = false;
                 game = true;
-                score = 0;
                 step = 0;
                 jQuery('.step').each(function(){
                     jQuery(this).remove();

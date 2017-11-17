@@ -150,6 +150,7 @@
                   <img src="http://localhost/this-or-this/img/logo_white.svg" height='65px' width="100px"/>
                 </a>
                 <ul class="right hide-on-med-and-down">
+                    <li><a href="http://<?php _t('localhost/this-or-this');?>/challenge/"><?php _t('Challenge Mode'); ?></a></li>
                     <li><a href="http://<?php _t('localhost/this-or-this');?>/infinite/"><?php _t('Infinite Mode'); ?></a></li>
                     <li><a href="http://<?php _t('localhost/this-or-this');?>/tot/"><?php _t('Choose a category'); ?></a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="lang_dropdown"><?php _t('Languages'); ?><i class="material-icons right">arrow_drop_down</i></a></li>
@@ -174,6 +175,7 @@
                     <li><a href="http://<?php _t('localhost/this-or-this');?>"><i class="material-icons">home</i><?php _t('Home'); ?></a></li>
                     <li><a href="http://<?php _t('localhost/this-or-this');?>/tot/"><i class="material-icons">format_list_bulleted</i><?php _t('Choose a category'); ?></a></li>
                     <li><a href="http://<?php _t('localhost/this-or-this');?>/infinite/"><i class="material-icons">loop</i><?php _t('Infinite Mode'); ?></a></li>
+                    <li><a href="http://<?php _t('localhost/this-or-this');?>/challenge/"><i class="material-icons">loop</i><?php _t('Challenge Mode'); ?></a></li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
               </div>
