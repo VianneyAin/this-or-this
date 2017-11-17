@@ -105,7 +105,7 @@
           return $message;
         }
     }
-    
+
     public function add_challenge_score($username, $score){
         try {
             if (isset($_REQUEST['lang']) && !empty($_REQUEST['lang'])){
@@ -139,6 +139,26 @@
                   'success' => false,
           );
           return $message;
+        }
+    }
+
+    public function get_challenge_score(){
+        try {
+            $db = Db::getInstance();
+            $sql = "SELECT * FROM halloffame where mode = 'challenge' ORDER BY score DESC LIMIT 20";
+            $req = $db->prepare($sql);
+            // the query was prepared, now we replace :id with our actual $id value
+            $req->execute();
+            $post = $req->fetchAll();
+            if (isset($post) && !empty($post)){
+              return $post;
+            }
+            else {
+                return false;
+            }
+        }
+        catch (PDOexception $e) {
+            return false;
         }
     }
 

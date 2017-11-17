@@ -109,7 +109,7 @@ class Challenge_View {
                              </tr>
                            </thead>
                            <tbody>
-                             <?php 
+                             <?php
                              $row = 0;
                             if (isset($data['hof']) && !empty($data['hof'])){
                                 foreach ($data['hof'] as $key => $player){
@@ -178,7 +178,7 @@ class Challenge_View {
             var twitter_text_url = 'https://twitter.com/intent/tweet?text=';
             var response = false;
             var score_added = false;
-            
+
             function set_twitter_button(){
                 // Remove existing iframe
                 jQuery('.twitter-tweet-button').each(function(){
@@ -255,12 +255,13 @@ class Challenge_View {
                     jQuery('.over').hide();
                     show_next();
                 });
-                
+
                 jQuery('#add_score_btn').click(function(){
                     var username = jQuery('#score_input').val();
                     username = username.replace(/[\'\"\\\,\.]/g, '');
-                    if (username != undefined && username != '' && score != '' && score != undefined){
-                        var ajax = $.ajax({
+                    if (username != undefined && username != ''){
+                        if (score != '' && score != undefined){
+                            var ajax = $.ajax({
                             url: ajaxurl,
                             data: {
                                 from: 'user',
@@ -273,7 +274,7 @@ class Challenge_View {
                             dataType : 'json',
                             beforeSend: function (jqXHR, settings) {
                                 url = settings.url + "?" + settings.data;
-                                console.log(url);
+                                //console.log(url);
                             },
                             error: function (thrownError) {
                                 console.log(thrownError);
@@ -286,27 +287,63 @@ class Challenge_View {
                                   Materialize.toast(data.message, 2000) // 4000 is the duration of the toast
                                   jQuery('#score_input').val('');
                                   jQuery('#add_score_row').hide();
-                                  jQuery('#score_table tbody tr').each(function(){
+                                  /*jQuery('#score_table tbody tr').each(function(){
                                      if (jQuery(this).attr('data-value') < score){
                                          jQuery(this).before('<tr data-value="'+score+'"><td>'+'??'+'</td><td>'+username+'</td><td>'+score+'</td></tr>');
-                                     } 
+                                     }
                                   });
                                   var nb = 1;
                                   jQuery('#score_table tbody tr').each(function(){
                                      jQuery(this).find('td').first().text(nb);
                                      nb++;
-                                  });
+                                 });*/
+                                 var ajax2 = $.ajax({
+                                     url: ajaxurl,
+                                     data: {
+                                         from: 'user',
+                                         action: 'get_challenge_score',
+                                         lang: <?php echo "'".Application::this()->current_lang."'"; ?>
+                                     },
+                                     type: 'POST',
+                                     dataType : 'json',
+                                     beforeSend: function (jqXHR, settings) {
+                                         url = settings.url + "?" + settings.data;
+                                         //console.log(url);
+                                     },
+                                     error: function (thrownError) {
+                                         console.log(thrownError);
+                                         //alert(thrownError.responseText);
+                                     },
+                                     complete: function () {
+                                     },
+                                     success: function (data, status) {
+                                         if (data.length != 0){
+                                             var html = '';
+                                             var counter = 1;
+                                             $.each( data, function( key, value ) {
+                                                html += '<tr data-value="'+value.score+'"><td>'+counter+'</td><td>'+value.username+'</td><td>'+value.score+'</td></tr>';
+                                                counter ++;
+                                             });
+                                             jQuery('#score_table tbody').html(html);
+                                         }
+                                     }
+                                 }); //end of ajax call
+
                               }
                               else {
                                   Materialize.toast('<?php _t('An error occurred, please try again') ?>', 2000) // 4000 is the duration of the toast
                               }
                               score_added = true;
                             }
-                        });
+                        }); //end of ajax call
+                        }
+                        else {
+                            Materialize.toast("<?php _t('You need a better score to add it to the table') ?>", 2000); // 4000 is the duration of the toast
+                        }
                     }
                     else {
-                        Materialize.toast('Username is invalid', 2000) // 4000 is the duration of the toast
-                    }                   
+                        Materialize.toast("<?php _t('Username is invalid') ?>", 2000); // 4000 is the duration of the toast
+                    }
                 });
             });
 
@@ -327,12 +364,10 @@ class Challenge_View {
 
             function check_response(){
                 if (!response){
-                    console.log('TOO LATE');
                     display_score();
                     rein_game();
                 }
                 else {
-                    console.log('Okay');
                 }
             }
 

@@ -1015,6 +1015,22 @@ function general_translations() {
 			'pt' => "Apelido",
 			'context' => '',
 		),
+		array(
+			'en' => "Username is invalid",
+			'fr' => "Pseudo invalide",
+			'de' => "Benutzername ist ungültig",
+			'es' => "Nombre de usuario invalido",
+			'pt' => "Nome de usuário Inválido",
+			'context' => '',
+		),
+		array(
+			'en' => "You need a better score to add it to the table",
+			'fr' => "Vous devez faire un meilleur score pour pouvoir l'ajouter au tableau",
+			'de' => "Sie benötigen eine bessere Punktzahl, um sie dem Tisch hinzuzufügen",
+			'es' => "Necesita un puntaje mejor para agregarlo a la mesa",
+			'pt' => "Você precisa de uma pontuação melhor para adicioná-lo à mesa",
+			'context' => '',
+		),
 		/*array(
 			'en' => "",
 			'fr' => "",

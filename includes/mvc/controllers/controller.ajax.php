@@ -27,6 +27,13 @@ class Ajax_Controller extends Application{
             ),
             'action' => 'add_challenge_score', //the method called in the ajax controller
         ),
+        'get_challenge_score' => array(
+            'controller' => array(
+                    'file_name' => 'tot', //the ajax controller called by this action
+                    'controller_name' => 'Tot_Ajax',
+            ),
+            'action' => 'get_challenge_score', //the method called in the ajax controller
+        ),
     );
 
     public function __construct($routes){

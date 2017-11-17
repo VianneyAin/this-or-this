@@ -35,6 +35,7 @@ Pub google ads
 X-Passez les images en .jpg au lieu de .png
 X-Gestion des catégories non existantes
 Pouvoir jouer avec les flèches
+Pouvoir charger plus de score dans le tableau
 
 -- Version 0.3 :
 Dons paypal

@@ -24,7 +24,7 @@ class Tot_Ajax_Controller {
     public function get_random_tot(){
       return $this->model->get_random_tot();
     }
-    
+
     public function add_challenge_score(){
         if (isset($_REQUEST['username']) && !empty($_REQUEST['username'])){
             if (isset($_REQUEST['score']) && !empty($_REQUEST['score'])){
@@ -49,6 +49,10 @@ class Tot_Ajax_Controller {
             );
             return $message;
         }
+    }
+
+    public function get_challenge_score(){
+      return $this->model->get_challenge_score();
     }
 
 
