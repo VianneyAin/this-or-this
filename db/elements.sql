@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 06 nov. 2017 à 14:46
+-- Généré le :  lun. 20 nov. 2017 à 22:28
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `elements` (
   `category` int(11) NOT NULL,
   `choice` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=437 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=457 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `elements`
@@ -348,7 +348,27 @@ INSERT INTO `elements` (`id`, `hidden_image`, `reveal_image`, `category`, `choic
 (433, '/img/tot_images/man_or_woman/woman/woman_7_2.jpg', '/img/tot_images/man_or_woman/woman/woman_7.jpg', 2, 'woman'),
 (434, '/img/tot_images/man_or_woman/woman/woman_8_2.jpg', '/img/tot_images/man_or_woman/woman/woman_8.jpg', 2, 'woman'),
 (435, '/img/tot_images/man_or_woman/woman/woman_9_2.jpg', '/img/tot_images/man_or_woman/woman/woman_9.jpg', 2, 'woman'),
-(436, '/img/tot_images/man_or_woman/woman/woman_10_2.jpg', '/img/tot_images/man_or_woman/woman/woman_10.jpg', 2, 'woman');
+(436, '/img/tot_images/man_or_woman/woman/woman_10_2.jpg', '/img/tot_images/man_or_woman/woman/woman_10.jpg', 2, 'woman'),
+(437, '/img/tot_images/arm_or_tits/arm/arm_1_2.jpg', '/img/tot_images/arm_or_tits/arm/arm_1.jpg', 17, 'arm'),
+(438, '/img/tot_images/arm_or_tits/arm/arm_2_2.jpg', '/img/tot_images/arm_or_tits/arm/arm_2.jpg', 17, 'arm'),
+(439, '/img/tot_images/arm_or_tits/arm/arm_3_2.jpg', '/img/tot_images/arm_or_tits/arm/arm_3.jpg', 17, 'arm'),
+(440, '/img/tot_images/arm_or_tits/arm/arm_4_2.jpg', '/img/tot_images/arm_or_tits/arm/arm_4.jpg', 17, 'arm'),
+(441, '/img/tot_images/arm_or_tits/arm/arm_5_2.jpg', '/img/tot_images/arm_or_tits/arm/arm_5.jpg', 17, 'arm'),
+(442, '/img/tot_images/arm_or_tits/arm/arm_6_2.jpg', '/img/tot_images/arm_or_tits/arm/arm_6.jpg', 17, 'arm'),
+(443, '/img/tot_images/arm_or_tits/arm/arm_7_2.jpg', '/img/tot_images/arm_or_tits/arm/arm_7.jpg', 17, 'arm'),
+(444, '/img/tot_images/arm_or_tits/arm/arm_8_2.jpg', '/img/tot_images/arm_or_tits/arm/arm_8.jpg', 17, 'arm'),
+(445, '/img/tot_images/arm_or_tits/arm/arm_9_2.jpg', '/img/tot_images/arm_or_tits/arm/arm_9.jpg', 17, 'arm'),
+(446, '/img/tot_images/arm_or_tits/arm/arm_10_2.jpg', '/img/tot_images/arm_or_tits/arm/arm_10.jpg', 17, 'arm'),
+(447, '/img/tot_images/arm_or_tits/tits/tits_1_2.jpg', '/img/tot_images/arm_or_tits/tits/tits_1.jpg', 17, 'tits'),
+(448, '/img/tot_images/arm_or_tits/tits/tits_2_2.jpg', '/img/tot_images/arm_or_tits/tits/tits_2.jpg', 17, 'tits'),
+(449, '/img/tot_images/arm_or_tits/tits/tits_3_2.jpg', '/img/tot_images/arm_or_tits/tits/tits_3.jpg', 17, 'tits'),
+(450, '/img/tot_images/arm_or_tits/tits/tits_4_2.jpg', '/img/tot_images/arm_or_tits/tits/tits_4.jpg', 17, 'tits'),
+(451, '/img/tot_images/arm_or_tits/tits/tits_5_2.jpg', '/img/tot_images/arm_or_tits/tits/tits_5.jpg', 17, 'tits'),
+(452, '/img/tot_images/arm_or_tits/tits/tits_6_2.jpg', '/img/tot_images/arm_or_tits/tits/tits_6.jpg', 17, 'tits'),
+(453, '/img/tot_images/arm_or_tits/tits/tits_7_2.jpg', '/img/tot_images/arm_or_tits/tits/tits_7.jpg', 17, 'tits'),
+(454, '/img/tot_images/arm_or_tits/tits/tits_8_2.jpg', '/img/tot_images/arm_or_tits/tits/tits_8.jpg', 17, 'tits'),
+(455, '/img/tot_images/arm_or_tits/tits/tits_9_2.jpg', '/img/tot_images/arm_or_tits/tits/tits_9.jpg', 17, 'tits'),
+(456, '/img/tot_images/arm_or_tits/tits/tits_10_2.jpg', '/img/tot_images/arm_or_tits/tits/tits_10.jpg', 17, 'tits');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
