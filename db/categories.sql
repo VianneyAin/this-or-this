@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 20 nov. 2017 à 22:28
+-- Généré le :  mar. 21 nov. 2017 à 06:58
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -69,7 +69,7 @@ INSERT INTO `categories` (`id`, `slug`, `title`, `description`, `choice_1`, `cho
 (14, 'pokemon-or-digimon', 'Pokemon or Digimon', '', 'pokemon', 'digimon', 0, 'pokemon_or_digimon_thumbnail.jpg', 'pokemon_or_digimon_thumbnail_fr.jpg', 'pokemon_or_digimon_thumbnail_de.jpg', 'pokemon_or_digimon_thumbnail_es.jpg', 'pokemon_or_digimon_thumbnail_pt.jpg', '2017-11-01 21:57:59', 1, 'pokemon_or_digimon_thumbnail.jpg'),
 (15, 'teat-or-condom', 'Teat or Condom', '', 'teat', 'condom', 0, 'teat_or_condom_thumbnail.jpg', 'teat_or_condom_thumbnail_fr.jpg', 'teat_or_condom_thumbnail_de.jpg', 'teat_or_condom_thumbnail_es.jpg', 'teat_or_condom_thumbnail_pt.jpg', '2017-11-02 22:08:22', 1, 'teat_or_condom_thumbnail.jpg'),
 (16, 'santa-or-hobo', 'Santa or Hobo', '', 'santa', 'hobo', 0, 'santa_or_hobo_thumbnail.jpg', 'santa_or_hobo_thumbnail_fr.jpg', 'santa_or_hobo_thumbnail_de.jpg', 'santa_or_hobo_thumbnail_es.jpg', 'santa_or_hobo_thumbnail_pt.jpg', '2017-11-03 09:40:24', 1, 'santa_or_hobo_thumbnail.jpg'),
-(17, 'arm-or-tits', 'Arm or Tits', '', 'arm', 'tits', 0, 'arm_or_tits_thumbnail.jpg', 'arm_or_tits_thumbnail_fr.jpg', 'arm_or_tits_thumbnail_de.jpg', 'arm_or_tits_thumbnail_es.jpg', 'arm_or_tits_thumbnail_pt.jpg', '2017-11-20 22:13:39', 1, '');
+(17, 'arm-or-tits', 'Arm or Tits', '', 'arm', 'tits', 0, 'arm_or_tits_thumbnail.jpg', 'arm_or_tits_thumbnail_fr.jpg', 'arm_or_tits_thumbnail_de.jpg', 'arm_or_tits_thumbnail_es.jpg', 'arm_or_tits_thumbnail_pt.jpg', '2017-11-20 22:13:39', 1, 'arm_or_tits_thumbnail.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
