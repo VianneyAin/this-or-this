@@ -18,7 +18,7 @@
                 <div class="col m3 s12">
                   <h5 class="grey-text text-lighten-4"><?php _t('About'); ?></h5>
                   <ul>
-                      <li><a class="white-text text-lighten-1" href="http://localhost/this-or-this<?php _t('/about'); ?>"><?php _t('What is');?> <b>This or This</b> ?</a></li>
+                      <li><a class="white-text text-lighten-1" href="https://localhost/this-or-this<?php _t('/about'); ?>"><?php _t('What is');?> <b>This or This</b> ?</a></li>
                       <!--<li><a class="white-text text-lighten-1" href=""><?php _t('Want to be part of it ?');?></a></li>-->
                   </ul>
                 </div>
@@ -63,8 +63,8 @@
 
           <!--  Scripts-->
           <?php $this->call_to_actions($actions); ?>
-          <script src="<?php echo 'http://localhost/this-or-this/js/rating.js' ?>"></script>
-          <script src="<?php echo 'http://localhost/this-or-this/js/global.js' ?>"></script>
+          <script src="<?php echo 'https://localhost/this-or-this/js/rating.js' ?>"></script>
+          <script src="<?php echo 'https://localhost/this-or-this/js/global.js' ?>"></script>
 
           <?php
           $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);

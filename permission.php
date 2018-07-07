@@ -104,20 +104,20 @@ class Permission
 		if (!empty($redirect)) {
 			switch ($redirect){
 				case 'home':
-					header("Location: http://localhost/this-or-this/", true);
+					header("Location: https://localhost/this-or-this/", true);
 					break;
 				case 'login':
-					header("Location: http://localhost/this-or-this/connexion", true);
+					header("Location: https://localhost/this-or-this/connexion", true);
 					break;
 				case 'error':
-					header("Location: http://localhost/this-or-this/error", true);
+					header("Location: https://localhost/this-or-this/error", true);
 					break;
 				default :
-					header("Location: http://localhost/this-or-this/error", true);
+					header("Location: https://localhost/this-or-this/error", true);
 					break;
 			}
 		} else {
-			header("Location: http://localhost/this-or-this/error", true);
+			header("Location: https://localhost/this-or-this/error", true);
 		}
 		exit;
 	}

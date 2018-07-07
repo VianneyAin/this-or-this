@@ -13,20 +13,20 @@ class Home_View {
                 <div class="container">
                     <br><br>
                     <div class="row center">
-                        <img class="home_img" src="http://localhost/this-or-this/img/logo/thisorthis_logo_blue.png" />
+                        <img class="home_img" src="https://localhost/this-or-this/img/logo/thisorthis_logo_blue.png" />
                     </div>
                     <div class="row center">
                         <h1 class="header col s12 black-text light"><?php _t("It's time to make a choice"); ?>.</h1>
                     </div>
                     <div class="row center">
                         <div class="col s12 m4">
-                            <a href="http://<?php _t('localhost/this-or-this');?>/tot/" id="download-button" class="btn-large waves-effect waves-light cyan darken-3 pulse"><?php _t('Get Started'); ?> !</a>
+                            <a href="https://<?php _t('localhost/this-or-this');?>/tot/" id="download-button" class="btn-large waves-effect waves-light cyan darken-3 pulse"><?php _t('Get Started'); ?> !</a>
                         </div>
                         <div class="col s12 m4">
                             <h4><?php _t('or'); ?></h4>
                         </div>
                         <div class="col s12 m4">
-                            <a href="http://<?php _t('localhost/this-or-this');?>/tot/" id="download-button" class="btn-large waves-effect waves-light cyan darken-3 pulse"><?php _t('Get Started'); ?> !</a>
+                            <a href="https://<?php _t('localhost/this-or-this');?>/tot/" id="download-button" class="btn-large waves-effect waves-light cyan darken-3 pulse"><?php _t('Get Started'); ?> !</a>
                         </div>
 
                     </div>
@@ -42,7 +42,7 @@ class Home_View {
                         <div class="icon-block">
                             <h2 class="center white-text"><i class="material-icons">reorder</i></h2>
                             <h5 class="center white-text"><?php _t('Select a topic'); ?></h5>
-                            <p class="center light"><a href="http://<?php _t('localhost/this-or-this');?>/tot/" id="download-button" class="btn waves-effect waves-light cyan darken-3"><?php _t('Get Started'); ?></a></p>
+                            <p class="center light"><a href="https://<?php _t('localhost/this-or-this');?>/tot/" id="download-button" class="btn waves-effect waves-light cyan darken-3"><?php _t('Get Started'); ?></a></p>
                         </div>
                     </div>
                     <div class="col s12 m4">
@@ -83,10 +83,10 @@ class Home_View {
                                     ?>
                                     <div class="col s12 m3 gallery-item gallery-filter" style="">
                                         <div class="collection-item">
-                                            <a class="gallery-cover" href="http://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>" style="min-height:200px;">
-                                                <img src="http://localhost/this-or-this/img/thumbnail/<?php echo get_thumbnail_lang($category, Application::this()->current_lang); ?>" style="width:100%;">
+                                            <a class="gallery-cover" href="https://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>" style="min-height:200px;">
+                                                <img src="https://localhost/this-or-this/img/thumbnail/<?php echo get_thumbnail_lang($category, Application::this()->current_lang); ?>" style="width:100%;">
                                             </a>
-                                            <a class="gallery-header" href="http://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>">
+                                            <a class="gallery-header" href="https://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>">
                                                 <span class="title">
                                                     <?php _t($category['title']); ?>
                                                     <?php if (isset($category['total']) && !empty($category['total'])){
@@ -109,7 +109,7 @@ class Home_View {
                     </div>
                 </div>
                 <div class="row center">
-                    <a href="http://<?php _t('localhost/this-or-this');?>/tot/" id="download-button" class="btn waves-effect waves-light cyan darken-3"><?php _t('See all categories'); ?></a>
+                    <a href="https://<?php _t('localhost/this-or-this');?>/tot/" id="download-button" class="btn waves-effect waves-light cyan darken-3"><?php _t('See all categories'); ?></a>
                 </div>
 
             </div>
@@ -126,23 +126,23 @@ class Home_View {
                 <div class="col s6">
                     <h4 class="white-text centered"><?php _t('Try out infinite mode'); ?></h4>
                     <div class="row center">
-                        <a href="http://<?php _t('localhost/this-or-this');?>/infinite">
-                            <img class="home_img" src="http://localhost/this-or-this/img/logo/<?php _t('infinite_mode_logo_white.png'); ?>" height="300px" />
+                        <a href="https://<?php _t('localhost/this-or-this');?>/infinite">
+                            <img class="home_img" src="https://localhost/this-or-this/img/logo/<?php _t('infinite_mode_logo_white.png'); ?>" height="300px" />
                         </a>
                     </div>
                     <div class="row center">
-                        <a href="http://<?php _t('localhost/this-or-this');?>/infinite/" id="" class="btn waves-effect waves-light red darken-3"><?php _t('Give it a try !'); ?></a>
+                        <a href="https://<?php _t('localhost/this-or-this');?>/infinite/" id="" class="btn waves-effect waves-light red darken-3"><?php _t('Give it a try !'); ?></a>
                     </div>
                 </div>
                 <div class="col s6">
                     <h4 class="white-text centered"><?php _t('Beat the clock with challenge mode'); ?></h4>
                     <div class="row center">
-                        <a href="http://<?php _t('localhost/this-or-this');?>/challenge">
-                            <img class="home_img" src="http://localhost/this-or-this/img/logo/<?php _t('challenge_mode_logo_white.png'); ?>" height="300px" />
+                        <a href="https://<?php _t('localhost/this-or-this');?>/challenge">
+                            <img class="home_img" src="https://localhost/this-or-this/img/logo/<?php _t('challenge_mode_logo_white.png'); ?>" height="300px" />
                         </a>
                     </div>
                     <div class="row center">
-                        <a href="http://<?php _t('localhost/this-or-this');?>/challenge/" id="" class="btn waves-effect waves-light red darken-3"><?php _t('Give it a try !'); ?></a>
+                        <a href="https://<?php _t('localhost/this-or-this');?>/challenge/" id="" class="btn waves-effect waves-light red darken-3"><?php _t('Give it a try !'); ?></a>
                     </div>
                 </div>
 

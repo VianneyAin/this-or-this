@@ -19,7 +19,7 @@ class Challenge_View {
                       <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
                           <div class="collection-item-mode">
                               <a class="gallery-cover start_btn" style="min-height:200px;">
-                                  <img src="http://localhost/this-or-this/img/logo/<?php _t('challenge_mode_logo_blue.png'); ?>" style="width:100%;">
+                                  <img src="https://localhost/this-or-this/img/logo/<?php _t('challenge_mode_logo_blue.png'); ?>" style="width:100%;">
                               </a>
                           </div>
                       </div>
@@ -40,7 +40,7 @@ class Challenge_View {
                 <div class="gallery gallery-masonry row center">
                       <div class="col s12 m6 push-m3 gallery-item gallery-filter" style="">
                           <div class="collection-item">
-                                <img src="http://localhost/this-or-this/img/logo/<?php _t('infinite_mode_logo_blue.png'); ?>" style="width:100%;">
+                                <img src="https://localhost/this-or-this/img/logo/<?php _t('infinite_mode_logo_blue.png'); ?>" style="width:100%;">
                           </div>
                       </div>
                 </div>
@@ -135,10 +135,10 @@ class Challenge_View {
                                     ?>
                                     <div class="col s12 m3 gallery-item gallery-filter" style="">
                                         <div class="collection-item">
-                                            <a class="gallery-cover" href="http://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>" style="min-height:200px;">
-                                                <img src="http://localhost/this-or-this/img/thumbnail/<?php echo $category['thumbnail']; ?>" style="width:100%;">
+                                            <a class="gallery-cover" href="https://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>" style="min-height:200px;">
+                                                <img src="https://localhost/this-or-this/img/thumbnail/<?php echo $category['thumbnail']; ?>" style="width:100%;">
                                             </a>
-                                            <a class="gallery-header" href="http://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>">
+                                            <a class="gallery-header" href="https://<?php _t('localhost/this-or-this');?>/tot/<?php echo $category['slug']; ?>">
                                                 <span class="title">
                                                     <?php _t($category['title']); ?>
                                                     <?php if (isset($category['total']) && !empty($category['total'])){
@@ -161,7 +161,7 @@ class Challenge_View {
                     </div>
                 </div>
                 <div class="row center">
-                    <a href="http://<?php _t('localhost/this-or-this');?>/tot/" id="download-button" class="btn waves-effect waves-light cyan darken-3"><?php _t('See all categories'); ?></a>
+                    <a href="https://<?php _t('localhost/this-or-this');?>/tot/" id="download-button" class="btn waves-effect waves-light cyan darken-3"><?php _t('See all categories'); ?></a>
                 </div>
             </div>
         </div>

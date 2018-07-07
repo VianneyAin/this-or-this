@@ -10,7 +10,7 @@
                 <h5 class="header col s12 light"><?php _t('You seem to be lost'); ?></h5>
               </div>
               <div class="row center">
-                <a href="http://localhost/this-or-this" id="download-button" class="btn-large waves-effect waves-light cyan darken-3">
+                <a href="https://localhost/this-or-this" id="download-button" class="btn-large waves-effect waves-light cyan darken-3">
                     <?php _t('Back to homepage'); ?>
                 </a>
               </div>

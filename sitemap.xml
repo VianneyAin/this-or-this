@@ -6,299 +6,299 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 <url>
-  <loc>http://thisorthis.io/</loc>
+  <loc>https://localhost/this-or-this/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/infinite/</loc>
+  <loc>https://localhost/this-or-this/infinite/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/tot/</loc>
+  <loc>https://localhost/this-or-this/tot/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/fr/</loc>
+  <loc>https://localhost/this-or-this/fr/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/de/</loc>
+  <loc>https://localhost/this-or-this/de/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/es/</loc>
+  <loc>https://localhost/this-or-this/es/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/pt/</loc>
+  <loc>https://localhost/this-or-this/pt/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/tot/bald-or-knee</loc>
+  <loc>https://localhost/this-or-this/tot/bald-or-knee</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/tot/far-or-pregnant</loc>
+  <loc>https://localhost/this-or-this/tot/far-or-pregnant</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/tot/doggo-or-mop</loc>
+  <loc>https://localhost/this-or-this/tot/doggo-or-mop</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/tot/doggo-or-marshmallow</loc>
+  <loc>https://localhost/this-or-this/tot/doggo-or-marshmallow</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/tot/michael-jackson-or-not</loc>
+  <loc>https://localhost/this-or-this/tot/michael-jackson-or-not</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/tot/nazi-or-not-nazi</loc>
+  <loc>https://localhost/this-or-this/tot/nazi-or-not-nazi</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/tot/muslim-or-jewish</loc>
+  <loc>https://localhost/this-or-this/tot/muslim-or-jewish</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/tot/beer-or-pee</loc>
+  <loc>https://localhost/this-or-this/tot/beer-or-pee</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/infinite</loc>
+  <loc>https://localhost/this-or-this/infinite</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/about</loc>
+  <loc>https://localhost/this-or-this/about</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/tot/man-or-woman</loc>
+  <loc>https://localhost/this-or-this/tot/man-or-woman</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/fr/infinite/</loc>
+  <loc>https://localhost/this-or-this/fr/infinite/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/de/infinite/</loc>
+  <loc>https://localhost/this-or-this/de/infinite/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/es/infinite/</loc>
+  <loc>https://localhost/this-or-this/es/infinite/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/pt/infinite/</loc>
+  <loc>https://localhost/this-or-this/pt/infinite/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/fr/tot/</loc>
+  <loc>https://localhost/this-or-this/fr/tot/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/de/tot/</loc>
+  <loc>https://localhost/this-or-this/de/tot/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/es/tot/</loc>
+  <loc>https://localhost/this-or-this/es/tot/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/pt/tot/</loc>
+  <loc>https://localhost/this-or-this/pt/tot/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/fr</loc>
+  <loc>https://localhost/this-or-this/fr</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/fr/tot/bald-or-knee</loc>
+  <loc>https://localhost/this-or-this/fr/tot/bald-or-knee</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/fr/tot/far-or-pregnant</loc>
+  <loc>https://localhost/this-or-this/fr/tot/far-or-pregnant</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/fr/tot/doggo-or-mop</loc>
+  <loc>https://localhost/this-or-this/fr/tot/doggo-or-mop</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/fr/tot/doggo-or-marshmallow</loc>
+  <loc>https://localhost/this-or-this/fr/tot/doggo-or-marshmallow</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/fr/tot/michael-jackson-or-not</loc>
+  <loc>https://localhost/this-or-this/fr/tot/michael-jackson-or-not</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/fr/tot/nazi-or-not-nazi</loc>
+  <loc>https://localhost/this-or-this/fr/tot/nazi-or-not-nazi</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/fr/tot/muslim-or-jewish</loc>
+  <loc>https://localhost/this-or-this/fr/tot/muslim-or-jewish</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/fr/tot/beer-or-pee</loc>
+  <loc>https://localhost/this-or-this/fr/tot/beer-or-pee</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/fr/infinite</loc>
+  <loc>https://localhost/this-or-this/fr/infinite</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/fr/about</loc>
+  <loc>https://localhost/this-or-this/fr/about</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/fr/tot/man-or-woman</loc>
+  <loc>https://localhost/this-or-this/fr/tot/man-or-woman</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/de</loc>
+  <loc>https://localhost/this-or-this/de</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/de/tot/bald-or-knee</loc>
+  <loc>https://localhost/this-or-this/de/tot/bald-or-knee</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/de/tot/far-or-pregnant</loc>
+  <loc>https://localhost/this-or-this/de/tot/far-or-pregnant</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/de/tot/doggo-or-mop</loc>
+  <loc>https://localhost/this-or-this/de/tot/doggo-or-mop</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/de/tot/doggo-or-marshmallow</loc>
+  <loc>https://localhost/this-or-this/de/tot/doggo-or-marshmallow</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/de/tot/michael-jackson-or-not</loc>
+  <loc>https://localhost/this-or-this/de/tot/michael-jackson-or-not</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/de/tot/nazi-or-not-nazi</loc>
+  <loc>https://localhost/this-or-this/de/tot/nazi-or-not-nazi</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/de/tot/muslim-or-jewish</loc>
+  <loc>https://localhost/this-or-this/de/tot/muslim-or-jewish</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/de/tot/beer-or-pee</loc>
+  <loc>https://localhost/this-or-this/de/tot/beer-or-pee</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/de/infinite</loc>
+  <loc>https://localhost/this-or-this/de/infinite</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/de/about</loc>
+  <loc>https://localhost/this-or-this/de/about</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/de/tot/man-or-woman</loc>
+  <loc>https://localhost/this-or-this/de/tot/man-or-woman</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/es</loc>
+  <loc>https://localhost/this-or-this/es</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/es/tot/bald-or-knee</loc>
+  <loc>https://localhost/this-or-this/es/tot/bald-or-knee</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/es/tot/far-or-pregnant</loc>
+  <loc>https://localhost/this-or-this/es/tot/far-or-pregnant</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/es/tot/doggo-or-mop</loc>
+  <loc>https://localhost/this-or-this/es/tot/doggo-or-mop</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/es/tot/doggo-or-marshmallow</loc>
+  <loc>https://localhost/this-or-this/es/tot/doggo-or-marshmallow</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/es/tot/michael-jackson-or-not</loc>
+  <loc>https://localhost/this-or-this/es/tot/michael-jackson-or-not</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/es/tot/nazi-or-not-nazi</loc>
+  <loc>https://localhost/this-or-this/es/tot/nazi-or-not-nazi</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/es/tot/muslim-or-jewish</loc>
+  <loc>https://localhost/this-or-this/es/tot/muslim-or-jewish</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/es/tot/beer-or-pee</loc>
+  <loc>https://localhost/this-or-this/es/tot/beer-or-pee</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/es/infinite</loc>
+  <loc>https://localhost/this-or-this/es/infinite</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/es/about</loc>
+  <loc>https://localhost/this-or-this/es/about</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/es/tot/man-or-woman</loc>
+  <loc>https://localhost/this-or-this/es/tot/man-or-woman</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/pt</loc>
+  <loc>https://localhost/this-or-this/pt</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/pt/tot/bald-or-knee</loc>
+  <loc>https://localhost/this-or-this/pt/tot/bald-or-knee</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/pt/tot/far-or-pregnant</loc>
+  <loc>https://localhost/this-or-this/pt/tot/far-or-pregnant</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/pt/tot/doggo-or-mop</loc>
+  <loc>https://localhost/this-or-this/pt/tot/doggo-or-mop</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/pt/tot/doggo-or-marshmallow</loc>
+  <loc>https://localhost/this-or-this/pt/tot/doggo-or-marshmallow</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/pt/tot/michael-jackson-or-not</loc>
+  <loc>https://localhost/this-or-this/pt/tot/michael-jackson-or-not</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/pt/tot/nazi-or-not-nazi</loc>
+  <loc>https://localhost/this-or-this/pt/tot/nazi-or-not-nazi</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/pt/tot/muslim-or-jewish</loc>
+  <loc>https://localhost/this-or-this/pt/tot/muslim-or-jewish</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/pt/tot/beer-or-pee</loc>
+  <loc>https://localhost/this-or-this/pt/tot/beer-or-pee</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/pt/infinite</loc>
+  <loc>https://localhost/this-or-this/pt/infinite</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/pt/about</loc>
+  <loc>https://localhost/this-or-this/pt/about</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://thisorthis.io/pt/tot/man-or-woman</loc>
+  <loc>https://localhost/this-or-this/pt/tot/man-or-woman</loc>
   <changefreq>daily</changefreq>
 </url>
 </urlset>

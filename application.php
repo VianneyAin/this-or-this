@@ -218,7 +218,7 @@ class Application {
 
     public static function display_ajax_url(){
         ?>
-        <script type="text/javascript">var ajaxurl = "http://localhost/this-or-this/ajax";</script>
+        <script type="text/javascript">var ajaxurl = "https://localhost/this-or-this/ajax";</script>
         <?php
     }
 
