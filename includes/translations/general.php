@@ -592,6 +592,14 @@ function general_translations() {
 			'context' => '',
 		),
 		array(
+			'en' => "Choose a mode",
+			'fr' => "Choisir un mode",
+			'de' => "Wähle einen Modus",
+			'es' => "Elige un modo",
+			'pt' => "Escolha um modo",
+			'context' => '',
+		),
+		array(
 			'en' => "Infinite Mode",
 			'fr' => "Mode Infini",
 			'de' => "Unendlicher Modus",
@@ -725,6 +733,22 @@ function general_translations() {
 			'de' => "infinite_mode_logo_blue_de.png",
 			'es' => "infinite_mode_logo_blue_es.png",
 			'pt' => "infinite_mode_logo_blue_pt.png",
+			'context' => '',
+		),
+		array(
+			'en' => "challenge_mode_logo_white.png",
+			'fr' => "challenge_mode_logo_white_fr.png",
+			'de' => "challenge_mode_logo_white_de.png",
+			'es' => "challenge_mode_logo_white_es.png",
+			'pt' => "challenge_mode_logo_white_pt.png",
+			'context' => '',
+		),
+		array(
+			'en' => "challenge_mode_logo_blue.png",
+			'fr' => "challenge_mode_logo_blue_fr.png",
+			'de' => "challenge_mode_logo_blue_de.png",
+			'es' => "challenge_mode_logo_blue_es.png",
+			'pt' => "challenge_mode_logo_blue_pt.png",
 			'context' => '',
 		),
 		array(
@@ -1053,6 +1077,14 @@ function general_translations() {
 			'de' => "titten",
 			'es' => "tetas",
 			'pt' => "tetas",
+			'context' => '',
+		),
+		array(
+			'en' => "Beat the clock with challenge mode",
+			'fr' => "Battez l'horloge avec le mode défi",
+			'de' => "Schlage die Uhr im Herausforderungsmodus",
+			'es' => "Batir el reloj con el modo desafío",
+			'pt' => "Bata o relógio com o modo de desafio",
 			'context' => '',
 		),
 		/*array(

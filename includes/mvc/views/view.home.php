@@ -123,17 +123,29 @@ class Home_View {
                 <div class="col s12">
                     <h3 class="white-text centered"><?php _t('Need a bigger challenge ?'); ?></h3>
                 </div>
-                <div class="col s12">
+                <div class="col s6">
                     <h4 class="white-text centered"><?php _t('Try out infinite mode'); ?></h4>
+                    <div class="row center">
+                        <a href="http://<?php _t('localhost/this-or-this');?>/infinite">
+                            <img class="home_img" src="http://localhost/this-or-this/img/logo/<?php _t('infinite_mode_logo_white.png'); ?>" height="300px" />
+                        </a>
+                    </div>
+                    <div class="row center">
+                        <a href="http://<?php _t('localhost/this-or-this');?>/infinite/" id="" class="btn waves-effect waves-light red darken-3"><?php _t('Give it a try !'); ?></a>
+                    </div>
                 </div>
-                <div class="row center">
-                    <a href="http://<?php _t('localhost/this-or-this');?>/infinite">
-                        <img class="home_img" src="http://localhost/this-or-this/img/logo/<?php _t('infinite_mode_logo_white.png'); ?>" height="300px" />
-                    </a>
+                <div class="col s6">
+                    <h4 class="white-text centered"><?php _t('Beat the clock with challenge mode'); ?></h4>
+                    <div class="row center">
+                        <a href="http://<?php _t('localhost/this-or-this');?>/challenge">
+                            <img class="home_img" src="http://localhost/this-or-this/img/logo/<?php _t('challenge_mode_logo_white.png'); ?>" height="300px" />
+                        </a>
+                    </div>
+                    <div class="row center">
+                        <a href="http://<?php _t('localhost/this-or-this');?>/challenge/" id="" class="btn waves-effect waves-light red darken-3"><?php _t('Give it a try !'); ?></a>
+                    </div>
                 </div>
-                <div class="row center">
-                    <a href="http://<?php _t('localhost/this-or-this');?>/infinite/" id="" class="btn waves-effect waves-light red darken-3"><?php _t('Give it a try !'); ?></a>
-                </div>
+
             </div>
         </div>
     </div>

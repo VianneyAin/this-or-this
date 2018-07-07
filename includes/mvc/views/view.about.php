@@ -7,7 +7,7 @@
               <div class="container">
                 <br><br>
                 <div class="row center">
-                  <img src="img/logo_blue.svg" height='150px; '/>
+                  <img src="http://localhost/this-or-this/img/logo_blue.svg" height='150px; '/>
                 </div>
                 <div class="row center">
                   <h1 class="header col s12 black-text light"><?php _t("What is"); ?> This or This?</h1>
