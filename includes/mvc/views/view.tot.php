@@ -146,7 +146,7 @@ class Tot_View {
                                 $twitter_text = __t($data['choice_1']). ' '.__t('or').' '. __t($data['choice_2']).' ?';
                                 $hashtag = 'thisorthis, '.__t($data['slug']);
                                 ?>
-                                <a class="twitter-share-button twitter_score_button" href="https://twitter.com/intent/tweet?text=<?php echo $twitter_text; ?>&" data-hashtags="<?php echo $hashtag; ?>" data-via="thisorthis" data-size="large">
+                                <a class="twitter-share-button twitter_score_button" href="https://twitter.com/intent/tweet?text=<?php echo $twitter_text; ?>&" data-hashtags="<?php echo $hashtag; ?>" data-via="thisorthis_off" data-size="large">
                                     Tweet
                                 </a>
                             </div>
@@ -252,7 +252,7 @@ class Tot_View {
             .addClass('twitter-share-button')
             .attr('href', twitter_text_url+twitter_score_text)
             .attr('data-url', "<?php echo get_siteurl(); ?>")
-            .attr('data-via', 'thisorthis')
+            .attr('data-via', 'thisorthis_off')
             .attr('data-size', 'large')
             .attr('data-hashtags', 'thisorthis,'+data.choice_1+'<?php _t('or'); ?>'+data.choice_2)
             $('#twitter-container').append(tweetBtn);

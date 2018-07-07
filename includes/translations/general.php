@@ -1032,7 +1032,7 @@ function general_translations() {
 			'context' => '',
 		),
 		array(
-			'en' => "Arm of Tits",
+			'en' => "Arm or Tits",
 			'fr' => "Bras ou Seins",
 			'de' => "Arm oder Titten",
 			'es' => "Brazo o Tetas",
