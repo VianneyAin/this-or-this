@@ -155,6 +155,7 @@
                     <li><a class="dropdown-button" href="#!" data-activates="lang_dropdown"><?php _t('Languages'); ?><i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
                 <ul id="mode_dropdown" class="dropdown-content">
+                  <li><a href="http://<?php _t('localhost/this-or-this');?>/tot/"><?php _t('Classic Mode'); ?></a></li>
                   <li><a href="http://<?php _t('localhost/this-or-this');?>/infinite/"><?php _t('Infinite Mode'); ?></a></li>
                   <li><a href="http://<?php _t('localhost/this-or-this');?>/challenge/"><?php _t('Challenge Mode'); ?></a></li>
                 </ul>

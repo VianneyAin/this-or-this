@@ -1087,6 +1087,14 @@ function general_translations() {
 			'pt' => "Bata o relógio com o modo de desafio",
 			'context' => '',
 		),
+		array(
+			'en' => "Classic Mode",
+			'fr' => "Mode Classique",
+			'de' => "Klassischer Modus",
+			'es' => "Modo Clásico",
+			'pt' => "Modo Clássico",
+			'context' => '',
+		),
 		/*array(
 			'en' => "",
 			'fr' => "",
